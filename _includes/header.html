@@ -1,0 +1,17 @@
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.site.group_name }} home">
+      <span class="brand__mark">GMP</span>
+      <span>
+        <strong>{{ site.data.site.short_name }}</strong>
+        <small>{{ site.data.site.institution }}</small>
+      </span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      {% for item in site.data.navigation %}
+        <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

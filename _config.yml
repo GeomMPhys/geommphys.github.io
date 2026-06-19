@@ -1,0 +1,52 @@
+title: Geometry and Mathematical Physics
+short_title: GeomMPhys
+description: Research group website for geometry, mathematical physics, string theory, and related areas.
+url: ""
+baseurl: ""
+timezone: Europe/Madrid
+lang: en
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+permalink: pretty
+
+collections:
+  news:
+    output: true
+    permalink: /news/:name/
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: news
+    values:
+      layout: page
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+
+exclude:
+  - AGENTS.md
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - private/
+  - internal/
+  - migration-notes/
+  - google-sites-export/
+  - node_modules/
+  - .bundle/
+  - vendor/
+  - .agents/
+  - .codex/

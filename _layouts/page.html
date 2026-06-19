@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<section class="page-heading">
+  <div class="container">
+    <p class="eyebrow">{{ page.section | default: site.data.site.short_name }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="lead">{{ page.description }}</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    {{ content }}
+  </div>
+</section>

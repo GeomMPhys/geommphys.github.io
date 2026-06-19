@@ -1,0 +1,44 @@
+# Migrated from the public Research directory.
+# TODO: Add a concise public description of the group's research themes.
+
+- title: "Research overview"
+  summary: "TODO: Add public research-area text from the group."
+  topics:
+    - "Publications"
+    - "Group seminars"
+    - "Research visits"
+    - "Conferences and workshops"
+    - "Awards and honours"
+
+- title: "Publications"
+  summary: "Publications are listed by year on the public research page."
+  url: "/publications/"
+  topics:
+    - "2026 publications"
+    - "2025 publications"
+    - "2024 publications"
+
+- title: "Group seminars"
+  summary: "The group seminar page lists talks from 2025 and 2026 and invites subscribers to receive announcements by email."
+  url: "/seminars/"
+  topics:
+    - "Internal and external speakers"
+    - "Mathematical physics and geometry"
+    - "Quantum information and field theory"
+
+- title: "Research visits"
+  summary: "The public site records research visits from 2025 and 2026."
+  topics:
+    - "Markus Maier"
+    - "Narciso Román-Roy"
+    - "Rathindra N. Das"
+    - "Miguel Tierz"
+    - "Sachindeo Vaidya"
+
+- title: "Conferences and workshops"
+  summary: "The group publicizes conferences and workshops organized with group members."
+  topics:
+    - "Quantum Gravity in Closed Universes"
+    - "2nd International Workshop on Geometric Field Theory"
+    - "New Advances in Contact and Symplectic Hamiltonian Dynamics"
+    - "Young Researchers School on Integrability and CFT2"

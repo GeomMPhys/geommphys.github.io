@@ -1,0 +1,188 @@
+# Migrated from the public Google Sites publications page.
+
+selected:
+  - title: "Probing weak chaos in N = 4 super Yang-Mills and long-range spin chains"
+    authors: "P. Caputa, B. Creed, R. N. Das, S. Demulder, T. McLoughlin"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2606.18351"
+    doi: ""
+    url: "https://arxiv.org/abs/2606.18351"
+
+  - title: "Stringy T-duality on the lattice and the twisted Villain model"
+    authors: "C. Bacq, A. Caddeo, S. Demulder, J. Erdmenger"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2605.19925"
+    doi: ""
+    url: "https://arxiv.org/abs/2605.19925"
+
+  - title: "Optimal paths across potentials on scalar field space"
+    authors: "S. Demulder, D. Lüst, C. Montella, T. Raml"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2604.24843"
+    doi: ""
+    url: "https://arxiv.org/abs/2604.24843"
+
+  - title: "Integrability breaking in semiclassical strings in Koopman-Krylov space"
+    authors: "R. N. Das, S. Demulder"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2602.23421"
+    doi: ""
+    url: "https://arxiv.org/abs/2602.23421"
+
+  - title: "Non-invertible Nielsen circuits and 3d Ising gravity"
+    authors: "S. Demulder"
+    venue: "JHEP 05 (2026) 146"
+    year: 2026
+    arxiv: ""
+    doi: "10.1007/JHEP05(2026)146"
+    url: "https://doi.org/10.1007/JHEP05(2026)146"
+
+  - title: "Non-invertible circuit complexity from fusion operations"
+    authors: "S. Demulder"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2601.09535"
+    doi: ""
+    url: "https://arxiv.org/abs/2601.09535"
+
+  - title: "Haag Duality for 2D Quantum Spin Systems"
+    authors: "Y. Ogata, D. Pérez-García and A. Ruiz-de-Alarcón"
+    venue: "Preprint"
+    year: 2025
+    arxiv: "2509.23734"
+    doi: ""
+    url: "https://arxiv.org/abs/2509.23734"
+
+  - title: "From variational principles to geometry"
+    authors: "J. Gaset Rifà"
+    venue: "Preprint"
+    year: 2025
+    arxiv: "2509.22171"
+    doi: ""
+    url: "https://arxiv.org/abs/2509.22171"
+
+  - title: "Krylov exponents and power spectra for maximal quantum chaos: an EFT approach"
+    authors: "S. Demulder, M. Knysh, A. Rolph"
+    venue: "JHEP 2026, 59 (2026)"
+    year: 2025
+    arxiv: ""
+    doi: "10.1007/JHEP04(2026)059"
+    url: "https://doi.org/10.1007/JHEP04(2026)059"
+
+  - title: "A description of classical field equations using extensions of graded Poisson brackets"
+    authors: "M. de León, R. Izquierdo-López"
+    venue: "Preprint"
+    year: 2025
+    arxiv: "2507.04743"
+    doi: ""
+    url: "https://arxiv.org/abs/2507.04743"
+
+  - title: "A survey on geometric frameworks for action-dependent classical field theories and their relationship"
+    authors: "J. Gaset Rifà, X. Rivas, N. Román-Roy"
+    venue: "Preprint"
+    year: 2025
+    arxiv: "2506.11646"
+    doi: ""
+    url: "https://arxiv.org/abs/2506.11646"
+
+  - title: "Brackets in multicontact geometry and multisymplectization"
+    authors: "M. de León, R. Izquierdo-López, X. Rivas"
+    venue: "Mediterr. J. Math. 23, 81 (2026)"
+    year: 2025
+    arxiv: ""
+    doi: "10.1007/s00009-026-03077-4"
+    url: "https://doi.org/10.1007/s00009-026-03077-4"
+
+  - title: "Gap between quantum theory based on real and complex numbers is arbitrarily large"
+    authors: "S. Sarkar, D. Trillo, M. O. Renou, R. Augusiak"
+    venue: "Preprint"
+    year: 2025
+    arxiv: "2503.09724"
+    doi: ""
+    url: "https://arxiv.org/abs/2503.09724"
+
+  - title: "Diósi-Penrose model of classical gravity predicts gravitationally induced entanglement"
+    authors: "D. Trillo, M. Navascués"
+    venue: "Physical Review D 111, L121101"
+    year: 2025
+    arxiv: ""
+    doi: "10.1103/PhysRevD.111.L121101"
+    url: "https://doi.org/10.1103/PhysRevD.111.L121101"
+
+  - title: "Practical Introduction to Action-Dependent Field Theorie"
+    authors: "M. de León, J. Gaset Rifà, M. C. Muñoz-Lecanda, X. Rivas and N. Román-Roy"
+    venue: "Fortschritte der Physik 73, 5, e70000"
+    year: 2025
+    arxiv: ""
+    doi: "10.1002/prop.70000"
+    url: "https://doi.org/10.1002/prop.70000"
+
+  - title: "Symplectic approach to global stability"
+    authors: "V. Errasti Díez, J. Gaset Rifà and M. Lainz"
+    venue: "Lect. Notes Comput. Sci. 16035 (2025), 320-327"
+    year: 2025
+    arxiv: ""
+    doi: "10.1007/978-3-032-03924-8_33"
+    url: "https://link.springer.com/chapter/10.1007/978-3-032-03924-8_33"
+
+  - title: "Parent Lindbladians for Matrix Product Density Operators"
+    authors: "Y. Liu, A. Ruiz-de-Alarcón, G. Styliaris, X. Sun, D. Pérez-García, and J. I. Cirac"
+    venue: "Phys. Rev. Research 8, 013210"
+    year: 2025
+    arxiv: ""
+    doi: "10.1103/1qyd-59z7"
+    url: "https://doi.org/10.1103/1qyd-59z7"
+
+  - title: "Foundations of ghost stability"
+    authors: "V. Errasti Díez, J. Gaset Rifà, G. Staudt"
+    venue: "Fortschritte der Physik 73, 4, 2400268"
+    year: 2025
+    arxiv: ""
+    doi: "10.1002/prop.202400268"
+    url: "https://doi.org/10.1002/prop.202400268"
+
+  - title: "Graded Poisson and graded Dirac structures"
+    authors: "M. de León, R. Izquierdo-López"
+    venue: "J. Math. Phys. 66 (2025), 022901"
+    year: 2025
+    arxiv: ""
+    doi: "10.1063/5.0243128"
+    url: "https://doi.org/10.1063/5.0243128"
+
+  - title: "Generalized Buchdahl equations as Lie-Hamilton systems: Quantum deformations and their general solution"
+    authors: "R. Campoamor-Stursberg, E. Fernandez-Saiz and F. J. Herranz"
+    venue: "AIMS Mathematics 10 (2025), 6873-6909"
+    year: 2024
+    arxiv: ""
+    doi: "10.3934/math.2025315"
+    url: "https://doi.org/10.3934/math.2025315"
+
+  - title: "The Herglotz variational principle for dissipative field theories"
+    authors: "J. Gaset Rifà, M. Lainz Valcázar, A. Mas, and X. Rivas"
+    venue: "Geom. Mech. 1, no. 2, 153"
+    year: 2024
+    arxiv: ""
+    doi: "10.1142/S2972458924500060"
+    url: "https://doi.org/10.1142/S2972458924500060"
+
+  - title: "Conditional Independence of 1D Gibbs States with Applications to Efficient Learning"
+    authors: "Á. M. Alhambra, Á. Capel, P. Gondolf, A. Ruiz-de-Alarcón, and S. O. Scalet"
+    venue: "Preprint"
+    year: 2024
+    arxiv: "2402.18500"
+    doi: ""
+    url: "https://arxiv.org/abs/2402.18500"
+
+  - title: "Constraint characterization and degree of freedom counting in Lagrangian field theory"
+    authors: "V. Errasti Díez, M. Maier and J. A. Méndez-Zavaleta"
+    venue: "Phys. Rev. D 109, no. 2"
+    year: 2024
+    arxiv: ""
+    doi: "10.1103/PhysRevD.109.025010"
+    url: "https://doi.org/10.1103/PhysRevD.109.025010"
+
+profiles: []

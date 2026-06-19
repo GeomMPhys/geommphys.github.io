@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="container hero__inner">
+    <p class="eyebrow">{{ site.data.site.institution }}</p>
+    <h1>{{ site.data.site.group_name }}</h1>
+    <p class="lead">{{ site.data.site.description }}</p>
+    <div class="hero__actions">
+      <a class="button" href="{{ '/research/' | relative_url }}">Research areas</a>
+      <a class="button button--secondary" href="{{ '/people/' | relative_url }}">People</a>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="container two-column">
+    <div>
+      <p class="eyebrow">Research</p>
+      <h2>Mathematical structures in modern physics</h2>
+    </div>
+    <div class="prose">
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__heading">
+      <div>
+        <p class="eyebrow">Focus</p>
+        <h2>Research Areas</h2>
+      </div>
+      <a href="{{ '/research/' | relative_url }}">View all</a>
+    </div>
+    <div class="grid grid--research">
+      {% for area in site.data.research limit:3 %}
+        {% include research-area.html area=area %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container split">
+    <div>
+      <div class="section__heading">
+        <div>
+          <p class="eyebrow">News</p>
+          <h2>Latest Updates</h2>
+        </div>
+        <a href="{{ '/news/' | relative_url }}">All news</a>
+      </div>
+      <div class="stack">
+        {% assign latest_news = site.news | sort: 'date' | reverse %}
+        {% for item in latest_news limit:3 %}
+          {% include news-card.html item=item compact=true %}
+        {% else %}
+          <p class="empty">News items can be added in the <code>_news</code> folder.</p>
+        {% endfor %}
+      </div>
+    </div>
+    <div>
+      <div class="section__heading">
+        <div>
+          <p class="eyebrow">Seminars</p>
+          <h2>Upcoming Seminars</h2>
+        </div>
+        <a href="{{ '/seminars/' | relative_url }}">Schedule</a>
+      </div>
+      <div class="stack">
+        {% for seminar in site.data.seminars.upcoming limit:3 %}
+          {% include seminar-item.html seminar=seminar %}
+        {% else %}
+          <p class="empty">Upcoming seminars will be posted here.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

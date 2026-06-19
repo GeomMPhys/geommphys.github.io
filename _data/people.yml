@@ -1,0 +1,101 @@
+# Migrated from the public Google Sites page.
+# TODO: Add public profile URLs, email addresses, and photos where appropriate.
+
+researchers_madrid:
+  - name: "Manuel de León"
+    role: "PhD in Mathematics, U. de Santiago de Compostela, Spain, 1978"
+    research: "Differential Geometry, Geometric Mechanics, Mathematical Physics"
+
+  - name: "Saskia Demulder"
+    role: "PhD in Physics, Vrije U. and Swansea U., Belgium and United Kingdom, 2019"
+    research: "Theoretical High Energy Physics, String Theory, Quantum Gravity"
+
+  - name: "Verónica Errasti Díez"
+    role: "PhD in Physics, McGill U., Canada, 2018"
+    research: "Theoretical High Energy Physics, Mathematical Physics"
+
+  - name: "Eduardo Fernández Saiz"
+    role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2021"
+    research: "Lie theory, Lie systems, Symplectic geometry"
+
+  - name: "Jordi Gaset Rifà"
+    role: "PhD in Mathematics, U. Politècnica de Catalunya, Spain, 2018"
+    research: "Geometric Field Theory, Geometric Mechanics, Mathematical Physics"
+
+  - name: "Víctor M. Jiménez"
+    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2019"
+    research: "Differential Geometry, Lie Groupoids and Algebroids, Geometric Mechanics"
+
+  - name: "Manuel Lainz"
+    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
+    research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
+
+  - name: "Alberto Ruiz de Alarcón"
+    role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2023"
+    research: "Quantum information, Quantum many-body systems, Tensor networks, Hopf algebras, Topological order"
+
+  - name: "David Trillo"
+    role: "PhD in Physics, U. Wien, Austria, 2023"
+    research: "Quantum Information, Foundations of Quantum Mechanics, Mathematical Physics"
+
+students_madrid:
+  - name: "Matteo Dell'Acqua"
+    role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
+    research: "TODO: Add public research interests."
+
+  - name: "Óscar Carballal"
+    role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
+    research: "TODO: Add public research interests."
+
+  - name: "Marco D. Maceda"
+    role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
+    research: "TODO: Add public research interests."
+
+  - name: "Rubén Izquierdo López"
+    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
+    research: "TODO: Add public research interests."
+
+international_collaborators:
+  - name: "Alex Arvanitakis"
+    role: "Research Associate, Ruđer Bošković Institute, Croatia"
+    research: "TODO: Add public research interests."
+
+  - name: "Javier de Lucas Araujo"
+    role: "Associate Professor, U. Warsaw, Poland"
+    research: "TODO: Add public research interests."
+
+  - name: "Mauricio Dóniz"
+    role: "PhD Student, Technical U. of Catalonia, Spain"
+    research: "TODO: Add public research interests."
+
+  - name: "María José Guzman"
+    role: "Associate Professor, U. of Tartu, Estonia"
+    research: "TODO: Add public research interests."
+
+  - name: "Markus Maier"
+    role: "PhD Student, Munich School of Philosophy, Germany"
+    research: "TODO: Add public research interests."
+
+  - name: "Rathindra Nath Das"
+    role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
+    research: "TODO: Add public research interests."
+
+  - name: "Yoshiko Ogata"
+    role: "Professor, Research Institute for Mathematical Sciences, Japan"
+    research: "TODO: Add public research interests."
+
+  - name: "Zohreh Ravanpak"
+    role: "Research fellow, Nanyang Technological U., Singapore"
+    research: "TODO: Add public research interests."
+
+  - name: "Tomasz Sobczak"
+    role: "PhD Student, U. of Warsaw, Poland"
+    research: "TODO: Add public research interests."
+
+  - name: "Mirjam Weilenmann"
+    role: "Researcher, Inria, France"
+    research: "TODO: Add public research interests."
+
+  - name: "Bartosz Zawora"
+    role: "PhD Student, U. of Warsaw, Poland"
+    research: "TODO: Add public research interests."

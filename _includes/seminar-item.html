@@ -1,0 +1,23 @@
+<article class="seminar">
+  <div class="seminar__date">
+    {% if include.seminar.date %}
+      <span>{{ include.seminar.date | date: "%d" }}</span>
+      <small>{{ include.seminar.date | date: "%b %Y" }}</small>
+    {% else %}
+      <span>TBD</span>
+      <small>Date</small>
+    {% endif %}
+  </div>
+  <div>
+    <h3>{{ include.seminar.title }}</h3>
+    <p class="meta">
+      {{ include.seminar.speaker }}
+      {% if include.seminar.affiliation and include.seminar.affiliation != "" %}, {{ include.seminar.affiliation }}{% endif %}
+    </p>
+    <p>
+      {% if include.seminar.time %}{{ include.seminar.time }}{% endif %}
+      {% if include.seminar.location %}{% if include.seminar.time %} &middot; {% endif %}{{ include.seminar.location }}{% endif %}
+    </p>
+    {% if include.seminar.abstract %}<p>{{ include.seminar.abstract }}</p>{% endif %}
+  </div>
+</article>

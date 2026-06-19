@@ -1,0 +1,17 @@
+{% assign person = include.person %}
+<article class="person">
+  {% if person.photo %}
+    <img src="{{ person.photo | relative_url }}" alt="{{ person.name }}">
+  {% else %}
+    <div class="person__placeholder" aria-hidden="true">{{ person.name | slice: 0 }}</div>
+  {% endif %}
+  <div>
+    <h3>{{ person.name }}</h3>
+    {% if person.role %}<p class="meta">{{ person.role }}</p>{% endif %}
+    {% if person.research %}<p>{{ person.research }}</p>{% endif %}
+    <p class="links">
+      {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
+      {% if person.website %}<a href="{{ person.website }}">Website</a>{% endif %}
+    </p>
+  </div>
+</article>

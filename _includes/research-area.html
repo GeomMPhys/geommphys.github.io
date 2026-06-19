@@ -1,0 +1,14 @@
+<article class="card">
+  <h3>{{ include.area.title }}</h3>
+  <p>{{ include.area.summary }}</p>
+  {% if include.area.topics %}
+    <ul class="compact-list">
+      {% for topic in include.area.topics %}
+        <li>{{ topic }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if include.area.url %}
+    <p class="links"><a href="{{ include.area.url | relative_url }}">View page</a></p>
+  {% endif %}
+</article>
