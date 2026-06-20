@@ -4,7 +4,7 @@ This is a maintainable Jekyll website for the Geometry and Mathematical Physics 
 
 ## Editing Content
 
-- Main pages are Markdown files in the repository root: `index.md`, `people.md`, `research.md`, `publications.md`, `research-visits.md`, `seminars.md`, `conferences-workshops.md`, `outreach.md`, `diversity.md`, and `contact.md`.
+- Main pages are Markdown files in the repository root: `index.md`, `people.md`, `research.md`, `publications.md`, `research-visits.md`, `seminars.md`, `conferences-workshops.md`, `awards-honours.md`, `outreach.md`, `diversity.md`, and `contact.md`.
 - Group metadata, contact information, and navigation live in `_data/site.yml` and `_data/navigation.yml`.
 - People are edited in `_data/people.yml`.
 - Research areas are edited in `_data/research.yml`.

@@ -12,10 +12,3 @@ The current public Google Sites research page is primarily a directory of resear
     {% include research-area.html area=area %}
   {% endfor %}
 </div>
-
-## Awards and Honours
-
-- Matteo Dell'Acqua, La Caixa Doctoral INPhINIT fellowship, PhD scholarship, 2026.
-- Saskia Demulder, R3-Established Researcher certification, 2026.
-- Verónica Errasti Díez, R3-Established Researcher certification, 2026.
-- Marco D. Maceda, FPI-UAM 2025, PhD scholarship, 2026.

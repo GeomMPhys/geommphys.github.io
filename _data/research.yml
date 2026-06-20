@@ -8,7 +8,6 @@
     - "Group seminars"
     - "Research visits"
     - "Conferences and workshops"
-    - "Awards and honours"
 
 - title: "Publications"
   summary: "Publications are listed by year on the public research page."
@@ -44,3 +43,11 @@
     - "2nd International Workshop on Geometric Field Theory"
     - "New Advances in Contact and Symplectic Hamiltonian Dynamics"
     - "Young Researchers School on Integrability and CFT2"
+
+- title: "Awards and honours"
+  summary: "The group records public awards, fellowships, and professional recognition received by its members."
+  url: "/awards-honours/"
+  topics:
+    - "Doctoral fellowships"
+    - "Researcher certification"
+    - "Professional recognition"
