@@ -4,13 +4,12 @@ This is a maintainable Jekyll website for the Geometry and Mathematical Physics 
 
 ## Editing Content
 
-- Main pages are Markdown files in the repository root: `index.md`, `people.md`, `research.md`, `publications.md`, `seminars.md`, `news.md`, `outreach.md`, `diversity.md`, and `contact.md`.
+- Main pages are Markdown files in the repository root: `index.md`, `people.md`, `research.md`, `publications.md`, `seminars.md`, `outreach.md`, `diversity.md`, and `contact.md`.
 - Group metadata, contact information, and navigation live in `_data/site.yml` and `_data/navigation.yml`.
 - People are edited in `_data/people.yml`.
 - Research areas are edited in `_data/research.yml`.
 - Selected publications are edited in `_data/publications.yml`.
 - Seminars are edited in `_data/seminars.yml`.
-- News posts are Markdown files in `_news/`.
 - Shared page structure lives in `_layouts/` and `_includes/`. Most routine updates should not require editing these files.
 - Styles live in `assets/css/main.scss`.
 
@@ -46,25 +45,6 @@ upcoming:
 ```
 
 Move older talks from `upcoming` to `past` when appropriate.
-
-## Adding a News Post
-
-Create a file in `_news/` named with a date prefix:
-
-```text
-_news/2026-10-01-new-grant.md
-```
-
-Use this format:
-
-```markdown
----
-title: New Grant Awarded
-date: 2026-10-01
----
-
-Short public announcement text.
-```
 
 ## Adding a Publication
 

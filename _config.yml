@@ -12,19 +12,9 @@ kramdown:
 
 permalink: pretty
 
-collections:
-  news:
-    output: true
-    permalink: /news/:name/
-
 defaults:
   - scope:
       path: ""
-    values:
-      layout: page
-  - scope:
-      path: ""
-      type: news
     values:
       layout: page
 

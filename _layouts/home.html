@@ -45,39 +45,20 @@ layout: default
 </section>
 
 <section class="section section--alt">
-  <div class="container split">
-    <div>
-      <div class="section__heading">
-        <div>
-          <p class="eyebrow">News</p>
-          <h2>Latest Updates</h2>
-        </div>
-        <a href="{{ '/news/' | relative_url }}">All news</a>
+  <div class="container">
+    <div class="section__heading">
+      <div>
+        <p class="eyebrow">Seminars</p>
+        <h2>Upcoming Seminars</h2>
       </div>
-      <div class="stack">
-        {% assign latest_news = site.news | sort: 'date' | reverse %}
-        {% for item in latest_news limit:3 %}
-          {% include news-card.html item=item compact=true %}
-        {% else %}
-          <p class="empty">News items can be added in the <code>_news</code> folder.</p>
-        {% endfor %}
-      </div>
+      <a href="{{ '/seminars/' | relative_url }}">Schedule</a>
     </div>
-    <div>
-      <div class="section__heading">
-        <div>
-          <p class="eyebrow">Seminars</p>
-          <h2>Upcoming Seminars</h2>
-        </div>
-        <a href="{{ '/seminars/' | relative_url }}">Schedule</a>
-      </div>
-      <div class="stack">
-        {% for seminar in site.data.seminars.upcoming limit:3 %}
-          {% include seminar-item.html seminar=seminar %}
-        {% else %}
-          <p class="empty">Upcoming seminars will be posted here.</p>
-        {% endfor %}
-      </div>
+    <div class="stack">
+      {% for seminar in site.data.seminars.upcoming limit:3 %}
+        {% include seminar-item.html seminar=seminar %}
+      {% else %}
+        <p class="empty">Upcoming seminars will be posted here.</p>
+      {% endfor %}
     </div>
   </div>
 </section>

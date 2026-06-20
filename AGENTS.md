@@ -16,7 +16,6 @@ This repository contains the public Jekyll website for the Geometry and Mathemat
 - Use placeholders only when they are clearly temporary and not presented as factual records.
 - Keep public content concise and professional.
 - Put reusable structured data in `_data/`.
-- Put news posts in `_news/`.
 
 ## Privacy
 

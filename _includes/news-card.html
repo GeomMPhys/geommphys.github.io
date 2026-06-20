@@ -1,7 +1,0 @@
-<article class="news-card">
-  <p class="meta">{{ include.item.date | date: "%B %-d, %Y" }}</p>
-  <h3><a href="{{ include.item.url | relative_url }}">{{ include.item.title }}</a></h3>
-  {% unless include.compact %}
-    <p>{{ include.item.excerpt | strip_html | truncate: 180 }}</p>
-  {% endunless %}
-</article>
