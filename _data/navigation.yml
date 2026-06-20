@@ -3,11 +3,15 @@
 - title: People
   url: /people/
 - title: Research
-  url: /research/
-- title: Publications
-  url: /publications/
-- title: Seminars
-  url: /seminars/
+  children:
+    - title: Publications
+      url: /publications/
+    - title: Research Visits
+      url: /research-visits/
+    - title: Group Seminars
+      url: /seminars/
+    - title: Conferences and Workshops
+      url: /conferences-workshops/
 - title: Outreach and Diversity
   children:
     - title: Outreach

@@ -28,6 +28,7 @@
 
 - title: "Research visits"
   summary: "The public site records research visits from 2025 and 2026."
+  url: "/research-visits/"
   topics:
     - "Markus Maier"
     - "Narciso Román-Roy"
@@ -37,6 +38,7 @@
 
 - title: "Conferences and workshops"
   summary: "The group publicizes conferences and workshops organized with group members."
+  url: "/conferences-workshops/"
   topics:
     - "Quantum Gravity in Closed Universes"
     - "2nd International Workshop on Geometric Field Theory"

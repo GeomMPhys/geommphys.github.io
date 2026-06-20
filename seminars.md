@@ -1,7 +1,7 @@
 ---
-title: Seminars
-section: Events
-description: Seminar talks, reading groups, and related research events.
+title: Group Seminars
+section: Research
+description: Talks in the Geometry and Mathematical Physics group seminar series.
 permalink: /seminars/
 ---
 
