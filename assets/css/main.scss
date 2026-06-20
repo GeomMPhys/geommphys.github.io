@@ -292,6 +292,21 @@ code {
   padding: 1.25rem;
 }
 
+.publication-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.publication-year {
+  margin: 1.5rem 0 0;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.publication-year:first-child {
+  margin-top: 0;
+}
+
 .person,
 .seminar {
   display: grid;

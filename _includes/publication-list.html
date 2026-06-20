@@ -1,0 +1,12 @@
+{% assign publications = include.publications %}
+<div class="publication-list">
+  {% assign current_year = "" %}
+  {% for publication in publications %}
+    {% assign publication_year = publication.year | append: "" %}
+    {% if publication_year != current_year %}
+      <h2 class="publication-year">{{ publication.year }}</h2>
+      {% assign current_year = publication_year %}
+    {% endif %}
+    {% include publication.html publication=publication %}
+  {% endfor %}
+</div>
