@@ -4,11 +4,11 @@ This is a maintainable Jekyll website for the Geometry and Mathematical Physics 
 
 ## Editing Content
 
-- Main pages are Markdown files in the repository root: `index.md`, `people.md`, `research.md`, `publications.md`, `seminars.md`, `news.md`, and `contact.md`.
+- Main pages are Markdown files in the repository root: `index.md`, `people.md`, `research.md`, `publications.md`, `seminars.md`, `news.md`, `outreach.md`, `diversity.md`, and `contact.md`.
 - Group metadata, contact information, and navigation live in `_data/site.yml` and `_data/navigation.yml`.
 - People are edited in `_data/people.yml`.
 - Research areas are edited in `_data/research.yml`.
-- Selected publications and bibliography profile links are edited in `_data/publications.yml`.
+- Selected publications are edited in `_data/publications.yml`.
 - Seminars are edited in `_data/seminars.yml`.
 - News posts are Markdown files in `_news/`.
 - Shared page structure lives in `_layouts/` and `_includes/`. Most routine updates should not require editing these files.
@@ -81,7 +81,11 @@ selected:
     url: "https://arxiv.org/abs/2601.00000"
 ```
 
-Use selected publications on the website and link to durable public bibliography profiles for full lists.
+The Publications page automatically groups entries by year and displays their arXiv or DOI links.
+
+## Updating Outreach and Diversity
+
+Edit `outreach.md` to add public engagement activities under the appropriate year. Edit `diversity.md` to update the group's public equity initiatives and resources. Keep both pages limited to information intended for public release.
 
 ## Local Preview
 
