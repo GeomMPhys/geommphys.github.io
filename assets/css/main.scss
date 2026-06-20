@@ -128,19 +128,65 @@ code {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: flex-end;
   gap: 0.25rem 0.9rem;
 }
 
-.site-nav a {
+.site-nav a,
+.site-nav summary {
   color: var(--text);
   font-size: 0.95rem;
   text-decoration: none;
 }
 
-.site-nav a[aria-current="page"] {
+.site-nav a[aria-current="page"],
+.site-nav__group--active > summary {
   color: var(--accent);
   font-weight: 700;
+}
+
+.site-nav__group {
+  position: relative;
+}
+
+.site-nav summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.site-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.site-nav summary::after {
+  display: inline-block;
+  width: 0.42rem;
+  height: 0.42rem;
+  margin: 0 0 0.2rem 0.45rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.site-nav__menu {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  right: 0;
+  z-index: 12;
+  min-width: 180px;
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.site-nav__menu a {
+  display: block;
+  padding: 0.45rem 0.6rem;
+  white-space: nowrap;
 }
 
 .hero {
