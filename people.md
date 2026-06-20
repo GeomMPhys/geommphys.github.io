@@ -13,14 +13,14 @@ permalink: /people/
   {% assign label = parts[1] %}
   {% assign entries = site.data.people[key] %}
 
-  <h2>{{ label }}</h2>
-  {% if entries and entries.size > 0 %}
-    <div class="people-grid">
-      {% for person in entries %}
-        {% include person-card.html person=person %}
-      {% endfor %}
-    </div>
-  {% else %}
-    <p class="empty">TODO: Add public entries for this section.</p>
-  {% endif %}
+<h2>{{ label }}</h2>
+{% if entries and entries.size > 0 %}
+<div class="people-grid">
+{% for person in entries %}
+{% include person-card.html person=person %}
+{% endfor %}
+</div>
+{% else %}
+<p class="empty">TODO: Add public entries for this section.</p>
+{% endif %}
 {% endfor %}

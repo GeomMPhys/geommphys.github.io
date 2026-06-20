@@ -8,8 +8,9 @@
   --text: #22231f;
   --muted: #64665d;
   --border: #d9d8cf;
-  --accent: #7a2432;
-  --accent-2: #2e6358;
+  --accent: #46698f;
+  --accent-2: #8263a0;
+  --accent-3: #b96528;
   --link: #244f8f;
   --shadow: 0 14px 34px rgba(24, 28, 27, 0.08);
   --max-width: 1120px;
@@ -111,29 +112,17 @@ code {
 }
 
 .brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--text);
-  text-decoration: none;
-  min-width: 220px;
-}
-
-.brand__mark {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 700;
-}
-
-.brand small {
   display: block;
-  color: var(--muted);
-  font-size: 0.78rem;
+  flex: 0 0 auto;
+  width: 210px;
+  text-decoration: none;
+}
+
+.brand__logo {
+  display: block;
+  width: 210px;
+  height: auto;
+  mix-blend-mode: multiply;
 }
 
 .site-nav {
@@ -155,11 +144,20 @@ code {
 }
 
 .hero {
+  position: relative;
   border-bottom: 1px solid var(--border);
   background: var(--bg) url("../images/madrid-skyline.jpg") center / cover no-repeat;
 }
 
+.hero::before {
+  position: absolute;
+  inset: 0;
+  background: rgba(247, 246, 242, 0.46);
+  content: "";
+}
+
 .hero__inner {
+  position: relative;
   padding: clamp(4rem, 10vw, 8.5rem) 0 clamp(3.5rem, 7vw, 6rem);
 }
 
@@ -202,7 +200,7 @@ code {
 }
 
 .button:hover {
-  background: #651d29;
+  background: #365675;
   color: #fff;
 }
 
@@ -212,7 +210,7 @@ code {
 }
 
 .button--secondary:hover {
-  background: rgba(122, 36, 50, 0.08);
+  background: rgba(70, 105, 143, 0.1);
   color: var(--accent);
 }
 
@@ -242,6 +240,30 @@ code {
   gap: clamp(2rem, 5vw, 4rem);
 }
 
+.home-intro {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1.38fr);
+  align-items: center;
+  gap: clamp(2.5rem, 7vw, 6rem);
+}
+
+.home-identity {
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.home-identity img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+.home-intro h2 {
+  margin-top: 0;
+}
+
 .split,
 .contact-layout {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -268,6 +290,18 @@ code {
 
 .grid--research {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--research .card:nth-child(1) {
+  border-top: 3px solid var(--accent);
+}
+
+.grid--research .card:nth-child(2) {
+  border-top: 3px solid var(--accent-2);
+}
+
+.grid--research .card:nth-child(3) {
+  border-top: 3px solid var(--accent-3);
 }
 
 .people-grid {
@@ -420,6 +454,7 @@ address {
   }
 
   .two-column,
+  .home-intro,
   .split,
   .contact-layout,
   .grid--research,
@@ -439,11 +474,11 @@ address {
   }
 
   .brand {
-    min-width: 0;
+    width: 175px;
   }
 
-  .brand small {
-    display: none;
+  .brand__logo {
+    width: 175px;
   }
 
   .site-nav {

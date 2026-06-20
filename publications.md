@@ -12,12 +12,3 @@ permalink: /publications/
 {% else %}
   <p class="empty">Selected publications will be added here.</p>
 {% endif %}
-
-{% if site.data.publications.profiles %}
-  <h2>Bibliography Profiles</h2>
-  <p class="links links--large">
-    {% for profile in site.data.publications.profiles %}
-      <a href="{{ profile.url }}">{{ profile.label }}</a>
-    {% endfor %}
-  </p>
-{% endif %}
