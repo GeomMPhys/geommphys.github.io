@@ -117,7 +117,7 @@ students_madrid:
 
   - name: "Óscar Carballal"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -128,7 +128,7 @@ students_madrid:
 
   - name: "Marco D. Maceda"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -139,7 +139,7 @@ students_madrid:
 
   - name: "Rubén Izquierdo López"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -151,7 +151,7 @@ students_madrid:
 international_collaborators:
   - name: "Alex Arvanitakis"
     role: "Research Associate, Ruđer Bošković Institute, Croatia"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -165,7 +165,7 @@ international_collaborators:
 
   - name: "Javier de Lucas Araujo"
     role: "Associate Professor, U. Warsaw, Poland"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -176,7 +176,7 @@ international_collaborators:
 
   - name: "Mauricio Dóniz"
     role: "PhD Student, Technical U. of Catalonia, Spain"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -187,7 +187,7 @@ international_collaborators:
 
   - name: "María José Guzman"
     role: "Associate Professor, U. of Tartu, Estonia"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -201,7 +201,7 @@ international_collaborators:
 
   - name: "Markus Maier"
     role: "PhD Student, Munich School of Philosophy, Germany"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -209,7 +209,7 @@ international_collaborators:
 
   - name: "Rathindra Nath Das"
     role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -223,7 +223,7 @@ international_collaborators:
 
   - name: "Yoshiko Ogata"
     role: "Professor, Research Institute for Mathematical Sciences, Japan"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "inspire"
         label: "INSPIRE-HEP"
@@ -231,7 +231,7 @@ international_collaborators:
 
   - name: "Zohreh Ravanpak"
     role: "Research fellow, Nanyang Technological U., Singapore"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -242,7 +242,7 @@ international_collaborators:
 
   - name: "Tomasz Sobczak"
     role: "PhD Student, U. of Warsaw, Poland"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -250,7 +250,7 @@ international_collaborators:
 
   - name: "Mirjam Weilenmann"
     role: "Researcher, Inria, France"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -264,7 +264,7 @@ international_collaborators:
 
   - name: "Bartosz Zawora"
     role: "PhD Student, U. of Warsaw, Poland"
-    research: "TODO: Add public research interests."
+    research: " "
     profiles:
       - type: "scholar"
         label: "Google Scholar"
