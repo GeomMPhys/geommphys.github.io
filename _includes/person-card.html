@@ -9,6 +9,26 @@
     <h3>{{ person.name }}</h3>
     {% if person.role %}<p class="meta">{{ person.role }}</p>{% endif %}
     {% if person.research %}<p>{{ person.research }}</p>{% endif %}
+    {% if person.profiles %}
+      <div class="person__profiles" aria-label="Research profiles for {{ person.name }}">
+        {% for profile in person.profiles %}
+          {% assign profile_type = profile.type | default: "profile" %}
+          {% case profile_type %}
+            {% when "orcid" %}
+              {% assign profile_icon = "iD" %}
+            {% when "scholar" %}
+              {% assign profile_icon = "GS" %}
+            {% when "inspire" %}
+              {% assign profile_icon = "HEP" %}
+            {% else %}
+              {% assign profile_icon = "URL" %}
+          {% endcase %}
+          <a class="profile-link profile-link--{{ profile_type }}" href="{{ profile.url }}" target="_blank" rel="noopener" aria-label="{{ profile.label }} profile for {{ person.name }}" title="{{ profile.label }}">
+            <span aria-hidden="true">{{ profile_icon }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
     <p class="links">
       {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
       {% if person.website %}<a href="{{ person.website }}">Website</a>{% endif %}

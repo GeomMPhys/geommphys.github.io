@@ -414,6 +414,48 @@ code {
   font-weight: 700;
 }
 
+.person__profiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.75rem 0 0;
+}
+
+.profile-link {
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--text);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.profile-link:hover,
+.profile-link:focus {
+  border-color: var(--accent);
+  background: var(--surface-alt);
+  color: var(--accent);
+}
+
+.profile-link--orcid {
+  color: #5f7f3a;
+}
+
+.profile-link--scholar {
+  color: #2c5f91;
+}
+
+.profile-link--inspire {
+  color: #8060a5;
+  font-size: 0.62rem;
+}
+
 .seminar__date {
   width: 82px;
   border-right: 1px solid var(--border);

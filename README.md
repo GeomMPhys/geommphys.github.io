@@ -25,9 +25,20 @@ faculty:
     website: "https://example.edu/name"
     photo: "/assets/images/people/name-surname.jpg"
     research: "String theory, quantum field theory, and geometry."
+    profiles:
+      - type: "orcid"
+        label: "ORCID"
+        url: "https://orcid.org/0000-0000-0000-0000"
+      - type: "scholar"
+        label: "Google Scholar"
+        url: "https://scholar.google.com/citations?user=example"
+      - type: "inspire"
+        label: "INSPIRE-HEP"
+        url: "https://inspirehep.net/authors/example"
 ```
 
 Photos should be public images placed under `assets/images/people/`. Use lowercase filenames with hyphens.
+The optional `profiles` list controls the small profile icons shown on the People page. Use `type: "orcid"`, `type: "scholar"`, or `type: "inspire"` for the existing icon styles.
 
 ## Adding a Seminar
 
