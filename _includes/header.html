@@ -1,9 +1,11 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
-<header class="site-header">
+<header class="site-header{% if page.layout == 'home' %} site-header--home{% endif %}">
   <div class="container site-header__inner">
-    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.site.group_name }} home">
-      <img class="brand__logo" src="{{ '/assets/images/logos/geommphys-horizontal.png' | relative_url }}" width="1000" height="427" alt="">
-    </a>
+    {% unless page.layout == 'home' %}
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.site.group_name }} home">
+        <img class="brand__logo" src="{{ '/assets/images/logos/geommphys-horizontal.png' | relative_url }}" width="1000" height="427" alt="">
+      </a>
+    {% endunless %}
     <nav class="site-nav" aria-label="Main navigation">
       {% for item in site.data.navigation %}
         {% if item.children %}

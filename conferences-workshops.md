@@ -9,7 +9,9 @@ permalink: /conferences-workshops/
 
 ### Quantum Gravity in Closed Universes
 
-August 23-September 3, 2027. Nordita, Stockholm, Sweden. Organizers: Pawel Caputa, Saskia Demulder, Watse Sybesma and Evita Verheijden.
+August 23-September 3, 2027. Nordita, Stockholm, Sweden.
+
+Organizers: Pawel Caputa, Saskia Demulder, Watse Sybesma and Evita Verheijden.
 
 ## 2026
 
