@@ -1,12 +1,12 @@
 group_name: "Geometrical Mathematical Physics Research Group"
 short_name: "GeomMPhys"
 tagline: "Geometrical mathematical physics"
-description: "The GeomMPhys research group brings together researchers, students, and collaborators working in geometrical mathematical physics."
+description: "The GeomMPhys research group brings mathematicians and physici  working in geometrical mathematical physics."
 
-institution: "TODO: Add public institution name."
-department: "TODO: Add public department or host unit."
+institution: " "
+department: " "
 address:
-  - "TODO: Add public postal address."
+  - " "
 
 email: "geom.mphys@gmail.com"
 phone: ""
