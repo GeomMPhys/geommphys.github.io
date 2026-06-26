@@ -15,16 +15,20 @@
           {% assign profile_type = profile.type | default: "profile" %}
           {% case profile_type %}
             {% when "orcid" %}
-              {% assign profile_icon = "iD" %}
+              {% assign profile_icon = "/assets/images/profiles/orcid.svg" %}
             {% when "scholar" %}
-              {% assign profile_icon = "GS" %}
+              {% assign profile_icon = "/assets/images/profiles/google-scholar.svg" %}
             {% when "inspire" %}
-              {% assign profile_icon = "HEP" %}
+              {% assign profile_icon = "/assets/images/profiles/inspire.svg" %}
             {% else %}
-              {% assign profile_icon = "URL" %}
+              {% assign profile_icon = "" %}
           {% endcase %}
           <a class="profile-link profile-link--{{ profile_type }}" href="{{ profile.url }}" target="_blank" rel="noopener" aria-label="{{ profile.label }} profile for {{ person.name }}" title="{{ profile.label }}">
-            <span aria-hidden="true">{{ profile_icon }}</span>
+            {% if profile_icon %}
+              <img src="{{ profile_icon | relative_url }}" alt="" aria-hidden="true">
+            {% else %}
+              <span aria-hidden="true">URL</span>
+            {% endif %}
           </a>
         {% endfor %}
       </div>

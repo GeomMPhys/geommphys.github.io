@@ -424,8 +424,8 @@ code {
 .profile-link {
   display: inline-grid;
   place-items: center;
-  width: 2rem;
-  height: 2rem;
+  width: 2.15rem;
+  height: 2.15rem;
   border: 1px solid var(--border);
   border-radius: 50%;
   background: #fff;
@@ -439,20 +439,23 @@ code {
 .profile-link:hover,
 .profile-link:focus {
   border-color: var(--accent);
-  background: var(--surface-alt);
-  color: var(--accent);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(77, 111, 147, 0.12);
+  transform: translateY(-1px);
 }
 
-.profile-link--orcid {
-  color: #5f7f3a;
+.profile-link img {
+  display: block;
+  width: 1.45rem;
+  height: 1.45rem;
 }
 
-.profile-link--scholar {
-  color: #2c5f91;
+.profile-link--inspire img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
-.profile-link--inspire {
-  color: #8060a5;
+.profile-link span {
   font-size: 0.62rem;
 }
 
