@@ -3,6 +3,7 @@
 
 researchers_madrid:
   - name: "Manuel de León"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. de Santiago de Compostela, Spain, 1978"
     research: "Differential Geometry, Geometric Mechanics, Mathematical Physics"
     profiles:
@@ -14,6 +15,7 @@ researchers_madrid:
         url: "https://scholar.google.com/citations?hl=en&user=5V0GD7IAAAAJ"
 
   - name: "Saskia Demulder"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, Vrije U. Brussel and Swansea U., Belgium and United Kingdom, 2019"
     research: "Theoretical High Energy Physics, String Theory, Quantum Gravity"
     profiles:
@@ -28,6 +30,7 @@ researchers_madrid:
         url: "https://inspirehep.net/authors/1364460"
 
   - name: "Verónica Errasti Díez"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, McGill U., Canada, 2018"
     research: "Theoretical High Energy Physics, Mathematical Physics"
     profiles:
@@ -42,6 +45,7 @@ researchers_madrid:
         url: "https://inspirehep.net/authors/1602349?ui-citation-summary=true"
 
   - name: "Eduardo Fernández Saiz"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2021"
     research: "Lie theory, Lie systems, Symplectic geometry"
     profiles:
@@ -50,6 +54,7 @@ researchers_madrid:
         url: "https://orcid.org/0000-0002-6220-4987"
 
   - name: "Jordi Gaset Rifà"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Politècnica de Catalunya, Spain, 2018"
     research: "Geometric Field Theory, Geometric Mechanics, Mathematical Physics"
     profiles:
@@ -64,6 +69,7 @@ researchers_madrid:
         url: "https://inspirehep.net/authors/1645340"
 
   - name: "Víctor M. Jiménez"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2019"
     research: "Differential Geometry, Lie Groupoids and Algebroids, Geometric Mechanics"
     profiles:
@@ -75,6 +81,7 @@ researchers_madrid:
         url: "https://scholar.google.com/citations?user=Y5YYfOMAAAAJ"
 
   - name: "Manuel Lainz"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
     research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
     profiles:
@@ -86,6 +93,7 @@ researchers_madrid:
         url: "https://scholar.google.com/citations?hl=en&user=EY6HDoUAAAAJ"
 
   - name: "Alberto Ruiz de Alarcón"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2023"
     research: "Quantum information, Quantum many-body systems, Tensor networks, Hopf algebras, Topological order"
     profiles:
@@ -97,6 +105,7 @@ researchers_madrid:
         url: "https://scholar.google.com/citations?hl=en&user=kNiXyEUAAAAJ"
 
   - name: "David Trillo"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Wien, Austria, 2023"
     research: "Quantum Information, Foundations of Quantum Mechanics, Mathematical Physics"
     profiles:
@@ -112,10 +121,12 @@ researchers_madrid:
 
 students_madrid:
   - name: "Matteo Dell'Acqua"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
     research: " "
 
   - name: "Óscar Carballal"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
     research: " "
     profiles:
@@ -127,6 +138,7 @@ students_madrid:
         url: "https://scholar.google.com.ar/citations?hl=es&user=5zzeOzQAAAAJ"
 
   - name: "Marco D. Maceda"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
     profiles:
@@ -138,6 +150,7 @@ students_madrid:
         url: "https://inspirehep.net/authors/2920616?ui-citation-summary=true"
 
   - name: "Rubén Izquierdo López"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
     profiles:
@@ -150,6 +163,7 @@ students_madrid:
 
 international_collaborators:
   - name: "Alex Arvanitakis"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Research Associate, Ruđer Bošković Institute, Croatia"
     research: " "
     profiles:
@@ -164,6 +178,7 @@ international_collaborators:
         url: "https://inspirehep.net/authors/1334454?ui-citation-summary=true"
 
   - name: "Javier de Lucas Araujo"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "Associate Professor, U. Warsaw, Poland"
     research: " "
     profiles:
@@ -175,6 +190,7 @@ international_collaborators:
         url: "https://scholar.google.com/citations?user=XNuXyrYAAAAJ&hl=en"
 
   - name: "Mauricio Dóniz"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD Student, Technical U. of Catalonia, Spain"
     research: " "
     profiles:
@@ -186,6 +202,7 @@ international_collaborators:
         url: "https://inspirehep.net/authors/2512944"
 
   - name: "María José Guzman"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Associate Professor, U. of Tartu, Estonia"
     research: " "
     profiles:
@@ -200,6 +217,7 @@ international_collaborators:
         url: "https://inspirehep.net/authors/1301171?ui-citation-summary=true"
 
   - name: "Markus Maier"
+    photo: "/assets/images/people-icons/philo_icon.png"
     role: "PhD Student, Munich School of Philosophy, Germany"
     research: " "
     profiles:
@@ -208,6 +226,7 @@ international_collaborators:
         url: "https://orcid.org/0000-0003-1854-9416"
 
   - name: "Rathindra Nath Das"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
     research: " "
     profiles:
@@ -222,6 +241,7 @@ international_collaborators:
         url: "https://inspirehep.net/authors/2620033?ui-citation-summary=true"
 
   - name: "Yoshiko Ogata"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "Professor, Research Institute for Mathematical Sciences, Japan"
     research: " "
     profiles:
@@ -230,6 +250,7 @@ international_collaborators:
         url: "https://inspirehep.net/authors/1970124?ui-citation-summary=true"
 
   - name: "Zohreh Ravanpak"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "Research fellow, Nanyang Technological U., Singapore"
     research: " "
     profiles:
@@ -241,6 +262,7 @@ international_collaborators:
         url: "https://scholar.google.com/citations?hl=en&user=_vI85XcAAAAJ"
 
   - name: "Tomasz Sobczak"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
     profiles:
@@ -249,6 +271,7 @@ international_collaborators:
         url: "https://orcid.org/0009-0002-9577-0456"
 
   - name: "Mirjam Weilenmann"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Researcher, Inria, France"
     research: " "
     profiles:
@@ -263,6 +286,7 @@ international_collaborators:
         url: "https://inspirehep.net/authors/1871635?ui-citation-summary=true"
 
   - name: "Bartosz Zawora"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
     profiles:
