@@ -278,6 +278,12 @@ code {
     var(--surface-alt);
 }
 
+.page-heading--photo {
+  background:
+    linear-gradient(90deg, rgba(247, 246, 242, 0.9), rgba(247, 246, 242, 0.72) 56%, rgba(247, 246, 242, 0.55)),
+    url("../images/madrid-skyline.jpg") center 18% / cover no-repeat;
+}
+
 .page-heading h1 {
   position: relative;
   padding-bottom: 0.95rem;
@@ -582,6 +588,60 @@ code {
   margin-top: 0.65rem;
 }
 
+.network-map {
+  display: grid;
+  align-items: center;
+  max-width: 860px;
+  margin: 0 0 2rem;
+  overflow: hidden;
+  border: 1px solid rgba(217, 216, 207, 0.75);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 48% 35%, rgba(70, 105, 143, 0.08), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(238, 238, 232, 0.42));
+}
+
+.network-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.network-map__land path {
+  fill: rgba(70, 105, 143, 0.09);
+  stroke: rgba(70, 105, 143, 0.28);
+  stroke-width: 1.25;
+}
+
+.network-map__connections path {
+  fill: none;
+  stroke: rgba(130, 99, 160, 0.38);
+  stroke-linecap: round;
+  stroke-width: 1.35;
+}
+
+.network-map__point circle:first-child {
+  fill: var(--accent-2);
+  stroke: #fff;
+  stroke-width: 2;
+}
+
+.network-map__point--home circle:first-child {
+  fill: var(--accent-3);
+}
+
+.network-map__point--home circle:last-child {
+  fill: none;
+  stroke: rgba(185, 101, 40, 0.34);
+  stroke-width: 2;
+}
+
+.network-map__labels text {
+  fill: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .page-content .people-grid,
 .page-content .publication-list,
 .page-content .stack {
@@ -884,6 +944,10 @@ address {
 
   .site-nav {
     gap: 0.25rem 0.7rem;
+  }
+
+  .network-map__labels text {
+    display: none;
   }
 
   .person {

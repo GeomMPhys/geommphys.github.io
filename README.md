@@ -40,6 +40,12 @@ faculty:
 Photos should be public images placed under `assets/images/people/`. Use lowercase filenames with hyphens.
 The optional `profiles` list controls the small profile icons shown on the People page. Use `type: "orcid"`, `type: "scholar"`, or `type: "inspire"` for the existing icon styles.
 
+## Updating the International Network Map
+
+The People page includes a lightweight SVG network map driven by `_data/network.yml`.
+
+Each entry should use only public affiliation information. The `label`, `subtitle`, and `members` fields are displayed on the page. The `x`, `y`, and `curve` fields position the point and connection line in the minimalist SVG map; adjust them only when adding or moving a location.
+
 ## Adding a Seminar
 
 Edit `_data/seminars.yml`:
