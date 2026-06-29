@@ -86,6 +86,21 @@ The Publications page automatically groups entries by year and displays their ar
 
 Edit `outreach.md` to add public engagement activities under the appropriate year. Edit `diversity.md` to update the group's public equity initiatives and resources. Keep both pages limited to information intended for public release.
 
+## Internal Documents
+
+Internal group documents should not be committed to this public website repository. Use the separate private GitHub repository `GeomMPhys/group-documents` for files such as certificate templates, logo source files, and administrative documents.
+
+Suggested folder structure for the private repository:
+
+```text
+certificate-templates/
+logos/
+administrative-documents/
+other-documents/
+```
+
+The public website footer links to the private repository. Only GitHub users who have been granted access to that private repository will be able to view, download, or upload documents there.
+
 ## Local Preview
 
 Install Ruby and Bundler, then run:
