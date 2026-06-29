@@ -1,6 +1,6 @@
 ---
 title: Publications
-section: Output
+section: Research
 description: Publications listed on the public Google Sites page.
 permalink: /publications/
 ---
