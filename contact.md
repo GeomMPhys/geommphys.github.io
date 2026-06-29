@@ -3,6 +3,7 @@ title: Contact
 section: Contact
 description: Public contact information for the GeomMPhys research group.
 permalink: /contact/
+published: false
 ---
 
 <div class="contact-layout">

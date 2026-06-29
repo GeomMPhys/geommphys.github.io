@@ -13,6 +13,8 @@ This is a maintainable Jekyll website for the Geometry and Mathematical Physics 
 - Shared page structure lives in `_layouts/` and `_includes/`. Most routine updates should not require editing these files.
 - Styles live in `assets/css/main.scss`.
 
+`contact.md` and `_data/contact.yml` are currently retained for possible future use, but the Contact page is not published or included in the navigation.
+
 ## Adding a Person
 
 Edit `_data/people.yml` and add an entry under the correct group:
