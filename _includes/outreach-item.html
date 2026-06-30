@@ -1,0 +1,18 @@
+{%- assign x = include.activity -%}
+<article class="publication">
+  <h3>{{ x.title }}</h3>
+  <p class="meta">
+    {% for pid in x.people -%}
+      {%- include person-name.html id=pid people=include.people -%}
+      {%- unless forloop.last %}, {% endunless -%}
+    {%- endfor %}
+    {%- if x.date %} &middot; {{ x.date | date: "%B %-d, %Y" }}{% elsif x.year %} &middot; {{ x.year }}{% endif -%}
+    {% if x.venue %} &middot; {{ x.venue }}{% endif %}
+  </p>
+  {% if x.work_title %}<p><em>{{ x.work_title }}</em></p>{% endif %}
+  {% if x.links %}
+    <p class="links">
+      {% for l in x.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}
+    </p>
+  {% endif %}
+</article>

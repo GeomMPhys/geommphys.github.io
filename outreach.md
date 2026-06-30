@@ -9,54 +9,20 @@ We are available for outreach events. Estamos disponibles para eventos de divulg
 
 Contact us at [geom.mphys@gmail.com](mailto:geom.mphys@gmail.com).
 
-## 2026
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
 
-### Pint of Science 2026 outreach talk
-
-Verónica Errasti Díez. May 20, Vitoria-Gasteiz, Spain.
-
-### "CERN field notes" for Iberian Strings 2026
-
-Saskia Demulder. Article: *String pilgrimage to Santiago*, published in *CERN Courier*. [Read the issue](https://cerncourier.com/wp-content/uploads/2026/04/CERNCourier2026MarApr-digitaledition.pdf).
-
-## 2025
-
-### AIMS Cameroon Seminar Series
-
-Verónica Errasti Díez. Talk: *The universe that has not yet been measured*. Limbe, Cameroon, December 9.
-
-### Noche Europea de los Investigadores 2025
-
-Verónica Errasti Díez, Jordi Gaset, Manuel Lainz and David Trillo. Science outreach stand: *La naturaleza es contraintuitiva*. Círculo de Bellas Artes, Madrid, September 26. [Event website](https://www.madrimasd.org/lanochedelosinvestigadores/).
-
-### Serie de conferencias Aulas de la experiencia
-
-Jordi Gaset. Talk: *El infinito a nuestros pies*. Casa de la cultura Ignacio Aldecoa, Vitoria-Gasteiz, April 7. [Watch the video](https://www.youtube.com/watch?v=Pi8ZeUDo67I).
-
-### Semana de la ciencia I.E.S. Miguel de Unamuno
-
-Verónica Errasti Díez. Talk: *Viaje por las escalas del universo*. Vitoria-Gasteiz, January 16.
-
-## 2024
-
-### Article in The Conversation
-
-David Trillo. [¿Qué son los proyectiles cuánticos y qué tienen que ver con la supremacía cuántica?](https://theconversation.com/que-son-los-proyectiles-cuanticos-y-que-tienen-que-ver-con-la-supremacia-cuantica-232038)
-
-### SoapBox Science Munich
-
-Verónica Errasti Díez. Munich, July. [Interview](https://munichsoapboxscience.com/soapbox-science-2024/12/) and [event listing](https://munichsoapboxscience.com/soapbox-science-2024/).
-
-### International Day of Women and Girls in Science and feminist week
-
-Verónica Errasti Díez. Talk: *Física y mujeres físicas del S. XXI*. Koldo Mitxelena High School, Vitoria-Gasteiz, February 23.
-
-## Earlier Selected Activities
-
-### Article in El País
-
-David Trillo. [Las partículas de un sistema cuántico pueden rejuvenecerse: hemos hecho realidad la ciencia ficción](https://elpais.com/ciencia/2023-02-21/las-particulas-de-un-sistema-cuantico-pueden-rejuvenecerse-hemos-hecho-realidad-la-ciencia-ficcion.html), February 21, 2023.
-
-### TEDx Talk
-
-Verónica Errasti Díez. *Tras los límites del tiempo*, May 13, 2021. [Watch the video](https://www.youtube.com/watch?v=ImoH4bvMQqQ).
+{% if site.data.outreach.activities and site.data.outreach.activities.size > 0 %}
+<div class="publication-list">
+  {% assign current_year = "" %}
+  {% for activity in site.data.outreach.activities %}
+    {% assign activity_year = activity.year | append: "" %}
+    {% if activity_year != current_year %}
+      <h2 class="publication-year">{{ activity.year }}</h2>
+      {% assign current_year = activity_year %}
+    {% endif %}
+    {% include outreach-item.html activity=activity people=all_people %}
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty">Outreach activities will be listed here.</p>
+{% endif %}

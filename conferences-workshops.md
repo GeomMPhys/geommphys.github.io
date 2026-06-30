@@ -5,28 +5,20 @@ description: Conferences, workshops, and schools organized with members of the g
 permalink: /conferences-workshops/
 ---
 
-## 2027
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
 
-### Quantum Gravity in Closed Universes
-
-August 23-September 3, 2027. Nordita, Stockholm, Sweden. Organizers: Pawel Caputa, Saskia Demulder, Watse Sybesma and Evita Verheijden.
-
-## 2026
-
-### 2nd International Workshop on Geometric Field Theory
-
-July 6-8, 2026. University of Warsaw, Faculty of Physics, Poland. [Workshop website](https://www.fuw.edu.pl/KMMF/GFT2026/index.html).
-
-Organizers: Javier de Lucas (University of Warsaw), Verónica Errasti, Jordi Gaset Rifà, Katarzyna Grabowska (University of Warsaw), Bartosz M. Zawora (University of Warsaw).
-
-### New Advances in Contact and Symplectic Hamiltonian Dynamics
-
-2nd edition of the Chinese-Spanish Workshop. July 13-17, 2026. CUNEF Universidad, Madrid, Spain. [NACOSY 2026 website](https://sites.google.com/view/nacosy2026/).
-
-Organizers: Manuel de León (ICMAT-CSIC), Saskia Demulder, Verónica Errasti Díez, Jordi Gaset Rifà, Manuel Lainz Valcázar, David Martín de Diego (ICMAT-CSIC).
-
-### Young Researchers School on Integrability and CFT2
-
-August 24-28, 2026. Eötvös Loránd University, Budapest. [School website](https://www.theory-challenges.eu/events/yrs-2026).
-
-Organizers: Zoltan Bajnok (Wigner Research Centre for Physics), Saskia Demulder, Alessandro Sfondrini (University of Birmingham).
+{% if site.data.workshops.events and site.data.workshops.events.size > 0 %}
+<div class="publication-list">
+  {% assign current_year = "" %}
+  {% for event in site.data.workshops.events %}
+    {% assign event_year = event.start | date: "%Y" %}
+    {% if event_year != current_year %}
+      <h2 class="publication-year">{{ event_year }}</h2>
+      {% assign current_year = event_year %}
+    {% endif %}
+    {% include workshop.html event=event people=all_people %}
+  {% endfor %}
+</div>
+{% else %}
+<p class="empty">Conferences and workshops will be listed here.</p>
+{% endif %}

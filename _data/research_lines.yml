@@ -1,0 +1,37 @@
+# Research lines of the group.
+# `people` is a list of `id` values in people.yml.
+# NOTE: the descriptions and the assignment of people to lines below are an
+# initial draft derived from members' stated research interests. Please review
+# and refine the groupings and wording.
+
+lines:
+  - id: Multisymplectic-field-theory
+    name: "Multisymplectic Field Theory"
+    keywords:
+      - multisymplectic geometry
+      - geometric mechanics
+      - graded Poisson structures
+      - covariant Hamiltonian formalism of field theories
+    description: "Multisymplectic geometry gives an intrinsic formulation of the Hamiltonian formalism of field theories. It is a natural generalization of symplectic geometry, which is the geometric framework for classical mechanics. This approach allows for a covariant description of the dynamics of fields, and it provides a natural setting for the study of symmetries and conservation laws."
+    people:
+      - manuel-de-leon
+      - jordi-gaset-rifa
+      - manuel-lainz
+      - ruben-izquierdo-lopez
+      - marco-maceda
+      - matteo-dellacqua
+
+  - id: beyond-integrability
+    name: "Beyond Integrability"
+    keywords:
+      - pseudointegrable systems
+      - Arnold-Liouville integrability
+      - Abelian Lie groupoids
+      - Lie algebroids
+    description: "This line of research focuses on systems that go beyond traditional integrability. We focus on systems which are not integrable in the classical Arnold-Liouville sense, but which share some of their properties, as having conserved quantities or being non-chaotic. Nevertheless, they might have a more complex structure, as having folliations by submanifolds whith different topology than tori (higher genus, non-compact), or situations in field theories instead of mechanics. We use Lie-groupoid theory in order to describe their symmetries, generalizing the role of abelian Lie groups."
+    people:
+      - manuel-de-leon
+      - jordi-gaset-rifa
+      - manuel-lainz
+      - victor-jimenez
+      - saskia-demulder

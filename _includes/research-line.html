@@ -1,0 +1,14 @@
+{%- assign l = include.line -%}
+<article class="card">
+  <h3>{{ l.name }}</h3>
+  {% if l.keywords %}<p class="meta">{{ l.keywords | join: " · " }}</p>{% endif %}
+  {% if l.description %}<p>{{ l.description }}</p>{% endif %}
+  {% if l.people %}
+    <p class="meta">Members:
+      {% for pid in l.people -%}
+        {%- include person-name.html id=pid people=include.people link=true -%}
+        {%- unless forloop.last %}, {% endunless -%}
+      {%- endfor %}
+    </p>
+  {% endif %}
+</article>

@@ -1,0 +1,14 @@
+{%- comment -%}
+Formats a date range. Params: from, to (both Date values).
+Examples: "February 9–17, 2026", "March 26 – May 17, 2026",
+"August 23, 2027 – September 3, 2027" (cross-year).
+{%- endcomment -%}
+{%- assign _a = include.from -%}
+{%- assign _b = include.to -%}
+{%- assign _ay = _a | date: "%Y" -%}
+{%- assign _by = _b | date: "%Y" -%}
+{%- assign _am = _a | date: "%m" -%}
+{%- assign _bm = _b | date: "%m" -%}
+{%- if _ay != _by -%}{{ _a | date: "%B %-d, %Y" }} – {{ _b | date: "%B %-d, %Y" }}
+{%- elsif _am != _bm -%}{{ _a | date: "%B %-d" }} – {{ _b | date: "%B %-d, %Y" }}
+{%- else -%}{{ _a | date: "%B %-d" }}–{{ _b | date: "%-d, %Y" }}{%- endif -%}

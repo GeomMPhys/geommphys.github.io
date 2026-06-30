@@ -4,6 +4,8 @@
   url: /people/
 - title: Research
   children:
+    - title: Research Lines
+      url: /research-lines/
     - title: Publications
       url: /publications/
     - title: Research Visits

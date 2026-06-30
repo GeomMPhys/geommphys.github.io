@@ -1,8 +1,13 @@
 # Migrated from the public Google Sites page.
 # TODO: Add public email addresses and photos where appropriate.
+#
+# Each person has a stable `id` slug. Other data files (research_visits.yml,
+# research_lines.yml, awards.yml, workshops.yml, outreach.yml) link to people
+# by this id.
 
 researchers_madrid:
-  - name: "Manuel de León"
+  - id: manuel-de-leon
+    name: "Manuel de León"
     role: "PhD in Mathematics, U. de Santiago de Compostela, Spain, 1978"
     research: "Differential Geometry, Geometric Mechanics, Mathematical Physics"
     profiles:
@@ -13,7 +18,8 @@ researchers_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=5V0GD7IAAAAJ"
 
-  - name: "Saskia Demulder"
+  - id: saskia-demulder
+    name: "Saskia Demulder"
     role: "PhD in Physics, Vrije U. Brussel and Swansea U., Belgium and United Kingdom, 2019"
     research: "Theoretical High Energy Physics, String Theory, Quantum Gravity"
     profiles:
@@ -27,7 +33,8 @@ researchers_madrid:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1364460"
 
-  - name: "Verónica Errasti Díez"
+  - id: veronica-errasti-diez
+    name: "Verónica Errasti Díez"
     role: "PhD in Physics, McGill U., Canada, 2018"
     research: "Theoretical High Energy Physics, Mathematical Physics"
     profiles:
@@ -41,7 +48,8 @@ researchers_madrid:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1602349?ui-citation-summary=true"
 
-  - name: "Eduardo Fernández Saiz"
+  - id: eduardo-fernandez-saiz
+    name: "Eduardo Fernández Saiz"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2021"
     research: "Lie theory, Lie systems, Symplectic geometry"
     profiles:
@@ -49,7 +57,8 @@ researchers_madrid:
         label: "ORCID"
         url: "https://orcid.org/0000-0002-6220-4987"
 
-  - name: "Jordi Gaset Rifà"
+  - id: jordi-gaset-rifa
+    name: "Jordi Gaset Rifà"
     role: "PhD in Mathematics, U. Politècnica de Catalunya, Spain, 2018"
     research: "Geometric Field Theory, Geometric Mechanics, Mathematical Physics"
     profiles:
@@ -63,7 +72,8 @@ researchers_madrid:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1645340"
 
-  - name: "Víctor M. Jiménez"
+  - id: victor-jimenez
+    name: "Víctor M. Jiménez"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2019"
     research: "Differential Geometry, Lie Groupoids and Algebroids, Geometric Mechanics"
     profiles:
@@ -74,7 +84,8 @@ researchers_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=Y5YYfOMAAAAJ"
 
-  - name: "Manuel Lainz"
+  - id: manuel-lainz
+    name: "Manuel Lainz"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
     research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
     profiles:
@@ -85,7 +96,8 @@ researchers_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=EY6HDoUAAAAJ"
 
-  - name: "Alberto Ruiz de Alarcón"
+  - id: alberto-ruiz-de-alarcon
+    name: "Alberto Ruiz de Alarcón"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2023"
     research: "Quantum information, Quantum many-body systems, Tensor networks, Hopf algebras, Topological order"
     profiles:
@@ -96,7 +108,8 @@ researchers_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=kNiXyEUAAAAJ"
 
-  - name: "David Trillo"
+  - id: david-trillo
+    name: "David Trillo"
     role: "PhD in Physics, U. Wien, Austria, 2023"
     research: "Quantum Information, Foundations of Quantum Mechanics, Mathematical Physics"
     profiles:
@@ -111,11 +124,13 @@ researchers_madrid:
         url: "https://inspirehep.net/authors/1981139"
 
 students_madrid:
-  - name: "Matteo Dell'Acqua"
+  - id: matteo-dellacqua
+    name: "Matteo Dell'Acqua"
     role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
     research: " "
 
-  - name: "Óscar Carballal"
+  - id: oscar-carballal
+    name: "Óscar Carballal"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
     research: " "
     profiles:
@@ -126,7 +141,8 @@ students_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com.ar/citations?hl=es&user=5zzeOzQAAAAJ"
 
-  - name: "Marco D. Maceda"
+  - id: marco-maceda
+    name: "Marco D. Maceda"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
     profiles:
@@ -137,7 +153,8 @@ students_madrid:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2920616?ui-citation-summary=true"
 
-  - name: "Rubén Izquierdo López"
+  - id: ruben-izquierdo-lopez
+    name: "Rubén Izquierdo López"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
     profiles:
@@ -149,7 +166,8 @@ students_madrid:
         url: "https://scholar.google.com/citations?hl=en&user=vQKgf6sAAAAJ"
 
 international_collaborators:
-  - name: "Alex Arvanitakis"
+  - id: alex-arvanitakis
+    name: "Alex Arvanitakis"
     role: "Research Associate, Ruđer Bošković Institute, Croatia"
     research: " "
     profiles:
@@ -163,7 +181,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1334454?ui-citation-summary=true"
 
-  - name: "Javier de Lucas Araujo"
+  - id: javier-de-lucas
+    name: "Javier de Lucas Araujo"
     role: "Associate Professor, U. Warsaw, Poland"
     research: " "
     profiles:
@@ -174,7 +193,8 @@ international_collaborators:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=XNuXyrYAAAAJ&hl=en"
 
-  - name: "Mauricio Dóniz"
+  - id: mauricio-doniz
+    name: "Mauricio Dóniz"
     role: "PhD Student, Technical U. of Catalonia, Spain"
     research: " "
     profiles:
@@ -185,7 +205,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2512944"
 
-  - name: "María José Guzman"
+  - id: maria-jose-guzman
+    name: "María José Guzman"
     role: "Associate Professor, U. of Tartu, Estonia"
     research: " "
     profiles:
@@ -199,7 +220,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1301171?ui-citation-summary=true"
 
-  - name: "Markus Maier"
+  - id: markus-maier
+    name: "Markus Maier"
     role: "PhD Student, Munich School of Philosophy, Germany"
     research: " "
     profiles:
@@ -207,7 +229,8 @@ international_collaborators:
         label: "ORCID"
         url: "https://orcid.org/0000-0003-1854-9416"
 
-  - name: "Rathindra Nath Das"
+  - id: rathindra-das
+    name: "Rathindra Nath Das"
     role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
     research: " "
     profiles:
@@ -221,7 +244,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2620033?ui-citation-summary=true"
 
-  - name: "Yoshiko Ogata"
+  - id: yoshiko-ogata
+    name: "Yoshiko Ogata"
     role: "Professor, Research Institute for Mathematical Sciences, Japan"
     research: " "
     profiles:
@@ -229,7 +253,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1970124?ui-citation-summary=true"
 
-  - name: "Zohreh Ravanpak"
+  - id: zohreh-ravanpak
+    name: "Zohreh Ravanpak"
     role: "Research fellow, Nanyang Technological U., Singapore"
     research: " "
     profiles:
@@ -240,7 +265,8 @@ international_collaborators:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=_vI85XcAAAAJ"
 
-  - name: "Tomasz Sobczak"
+  - id: tomasz-sobczak
+    name: "Tomasz Sobczak"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
     profiles:
@@ -248,7 +274,8 @@ international_collaborators:
         label: "ORCID"
         url: "https://orcid.org/0009-0002-9577-0456"
 
-  - name: "Mirjam Weilenmann"
+  - id: mirjam-weilenmann
+    name: "Mirjam Weilenmann"
     role: "Researcher, Inria, France"
     research: " "
     profiles:
@@ -262,10 +289,42 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1871635?ui-citation-summary=true"
 
-  - name: "Bartosz Zawora"
+  - id: bartosz-zawora
+    name: "Bartosz Zawora"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
     profiles:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com.ar/citations?hl=es&user=JIfQiHsAAAAJ"
+
+# External research visitors hosted by the group. Referenced by research_visits.yml.
+# These are not group members and are not shown on the People page unless wired in.
+visitors:
+  - id: narciso-roman-roy
+    name: "Narciso Román-Roy"
+    role: "Universitat Politècnica de Catalunya (UPC), Spain"
+
+  - id: miguel-tierz
+    name: "Miguel Tierz"
+    role: "Shanghai Institute for Mathematics and Interdisciplinary Sciences, China"
+
+  - id: sachindeo-vaidya
+    name: "Sachindeo Vaidya"
+    role: "Indian Institute of Science, India"
+
+  - id: thomas-raml
+    name: "Thomas Raml"
+    role: "Max Planck Institute for Physics and LMU in Munich-Garching, Germany"
+
+  - id: georgina-staudt
+    name: "Georgina Staudt"
+    role: "Max Planck Institute for Physics in Munich-Garching, Germany"
+
+  - id: syksy-rasanen
+    name: "Syksy Räsänen"
+    role: "University of Helsinki, Finland"
+
+  - id: miguel-navascues
+    name: "Miguel Navascués"
+    role: "IQOQI Vienna, Austria"

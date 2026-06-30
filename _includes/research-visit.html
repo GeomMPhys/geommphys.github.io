@@ -1,0 +1,11 @@
+{%- assign v = include.visit -%}
+{%- assign p = include.people | where: "id", v.person | first -%}
+{%- assign aff = v.affiliation | default: p.role -%}
+<article class="publication">
+  <h3>{% if p %}{{ p.name }}{% else %}{{ v.person }}{% endif %}</h3>
+  {% if aff %}<p class="meta">{{ aff }}</p>{% endif %}
+  <p>
+    {%- include date-range.html from=v.arrival to=v.departure -%}
+    {% if v.support %} &middot; Supported by {{ v.support }}{% endif %}
+  </p>
+</article>
