@@ -1,9 +1,19 @@
-# Migrated from research-visits.md.
-# Each visit links to a person by `id` in people.yml (see researchers_madrid,
-# international_collaborators, or the visitors group).
-# `affiliation` is the institution the person visited from. It is recorded per
-# visit (visitors have a blank `role` in people.yml); for group members and
-# collaborators it overrides their people.yml `role` when the visit differs.
+# ───────────────────────────────────────────────────────────────────
+#  RESEARCH VISITS  →  shown on the "Research Visits" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add a visit by copying a "- person:" block. List newest first; the
+#    page groups visits by year automatically.
+#
+#  FIELDS
+#    person       (required)  the visitor's id from people.yml. If they
+#                             are not listed yet, add them first (usually
+#                             under the "visitors" group).
+#    affiliation  (required)  institution they visited from, in quotes
+#    arrival      (required)  YYYY-MM-DD (no quotes)
+#    departure    (required)  YYYY-MM-DD (no quotes)
+#    support      (optional)  funding source, in quotes
+# ───────────────────────────────────────────────────────────────────
 
 visits:
   - person: markus-maier

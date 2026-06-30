@@ -1,7 +1,19 @@
-# Migrated from awards-honours.md.
-# Each award links to a person by `id` in people.yml.
-# `category` groups the kind of recognition (e.g. PhD scholarship,
-# Researcher certification, Professional recognition).
+# ───────────────────────────────────────────────────────────────────
+#  AWARDS & HONOURS  →  shown on the "Awards and Honours" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add an award by copying a "- person:" block.
+#  • 2 spaces before "-". Quote text that has a colon (:) in it.
+#
+#  FIELDS
+#    person    (required)  the person's id from people.yml
+#    award     (required)  name of the award, in quotes
+#    category  (optional)  e.g. "PhD scholarship", "Researcher certification"
+#    year      (required)  four digits, no quotes
+#
+#  TIP: "person" must match an id in people.yml. Add the person there
+#       first if they are new.
+# ───────────────────────────────────────────────────────────────────
 
 awards:
   - person: matteo-dellacqua

@@ -1,5 +1,21 @@
-# Migrated from the public Google Sites group seminar page.
-# All listed seminars are before 2026-06-19, so they are placed under past.
+# ───────────────────────────────────────────────────────────────────
+#  SEMINARS  →  shown on the "Group Seminars" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Two lists: "upcoming:" and "past:". Add a talk by copying a
+#    "- title:" block into the right list. Move a talk to "past:" once
+#    it has happened.
+#  • 2 spaces before "-". Quote text fields.
+#
+#  FIELDS
+#    title        (required)  talk title, in quotes
+#    speaker      (required)  speaker name, in quotes
+#    affiliation  (optional)  speaker's institution ("" if none)
+#    date         (required)  YYYY-MM-DD, e.g. 2026-10-01 (no quotes)
+#    time         (optional)  e.g. "14:00"
+#    location     (optional)  room / venue
+#    abstract     (optional)  short summary
+# ───────────────────────────────────────────────────────────────────
 
 upcoming: []
 

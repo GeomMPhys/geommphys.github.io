@@ -1,8 +1,24 @@
-# Migrated from conferences-workshops.md.
-# `organizers` is a mixed list: a string is an `id` in people.yml (group
-# members and collaborators); a mapping {name, affiliation} is an external
-# organizer not listed in people.yml.
-# `type` is one of: conference, workshop, school.
+# ───────────────────────────────────────────────────────────────────
+#  CONFERENCES, WORKSHOPS & SCHOOLS  →  "Conferences and Workshops" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add an event by copying a "- title:" block. List newest first; the
+#    page groups events by their start year automatically.
+#
+#  FIELDS
+#    title        (required)  event name, in quotes
+#    type         (required)  conference, workshop, or school
+#    start        (required)  YYYY-MM-DD (no quotes)
+#    end          (required)  YYYY-MM-DD (no quotes)
+#    location     (required)  place, in quotes
+#    url          (optional)  event website
+#    description  (optional)  short note, in quotes
+#    organizers   (required)  a list; each item is EITHER
+#                   - a person id from people.yml (group members), e.g.
+#                       - manuel-lainz
+#                   OR, for people NOT in people.yml, a name like:
+#                       - { name: "Jane Doe", affiliation: "Some Univ." }
+# ───────────────────────────────────────────────────────────────────
 
 events:
   - title: "Quantum Gravity in Closed Universes"
