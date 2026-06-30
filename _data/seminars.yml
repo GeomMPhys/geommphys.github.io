@@ -8,8 +8,8 @@ past:
     speaker: "Rubén Izquierdo-López"
     affiliation: ""
     date: 2026-06-09
-    time: "TODO"
-    location: "TODO"
+    time: "11:00"
+    location: "CUNEF PIR 2.3"
     abstract: "Multisymplectic geometry provides a geometric framework to express the equations of motion of classical field theories, in analogy with how symplectic geometry is used in classical mechanics. A multisymplectic form encodes key structures of a given theory, including symmetries, conserved quantities, and the Poisson bracket. In the study of these structures, the use of adapted (or Darboux) coordinates is of central importance. However, unlike in symplectic geometry, the closedness of a multisymplectic form is not sufficient to guarantee the existence of flat coordinates. Indeed, there are examples of closed forms of constant linear type that are not flat, such as those arising in $G_2$-structures. These issues can be understood in a unified way through the theory of G-structures. In this talk, I will introduce the basic notions of G-structures and structure tensors. I will then explain how this framework can be used to construct forms whose integrability depends strictly on conditions of order $k$, for arbitrary $k$. Finally, if time permits, I will discuss some possible directions and ideas related to integrability. "
 
   - title: "Entanglement through topological interfaces in CFT revisited"
