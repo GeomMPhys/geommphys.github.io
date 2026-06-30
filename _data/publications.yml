@@ -1,4 +1,20 @@
-# Migrated from the public Google Sites publications page.
+# ───────────────────────────────────────────────────────────────────
+#  PUBLICATIONS  →  shown on the "Publications" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add a paper by copying a "- title:" block under "selected:".
+#  • List newest first. The page groups papers by "year" automatically.
+#  • 2 spaces before "-". Quote titles, authors, and venues.
+#
+#  FIELDS
+#    title    (required)  paper title, in quotes
+#    authors  (required)  author list, in quotes
+#    venue    (required)  journal / "Preprint" / conference, in quotes
+#    year     (required)  four digits, no quotes
+#    arxiv    (optional)  arXiv id only, e.g. "2601.00000" ("" if none)
+#    doi      (optional)  DOI only, e.g. "10.1000/xyz" ("" if none)
+#    url      (optional)  full link to the paper
+# ───────────────────────────────────────────────────────────────────
 
 selected:
   - title: "Probing weak chaos in N = 4 super Yang-Mills and long-range spin chains"

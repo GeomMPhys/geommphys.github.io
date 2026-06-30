@@ -1,8 +1,19 @@
-# Research lines of the group.
-# `people` is a list of `id` values in people.yml.
-# NOTE: the descriptions and the assignment of people to lines below are an
-# initial draft derived from members' stated research interests. Please review
-# and refine the groupings and wording.
+# ───────────────────────────────────────────────────────────────────
+#  RESEARCH LINES  →  shown on the "Research Lines" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Each "- id:" block is one research line. Copy a block to add one.
+#
+#  FIELDS
+#    id           (required)  short nickname, lowercase-with-hyphens
+#    name         (required)  line title, in quotes
+#    keywords     (optional)  list of short phrases
+#    description  (required)  one paragraph, in quotes
+#    people       (required)  list of person ids from people.yml; shown
+#                             as links to each person on the People page
+#
+#  TIP: every entry in "people" must be an id that exists in people.yml.
+# ───────────────────────────────────────────────────────────────────
 
 lines:
   - id: Multisymplectic-field-theory

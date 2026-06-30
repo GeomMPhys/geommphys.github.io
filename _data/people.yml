@@ -1,5 +1,27 @@
-# Migrated from the public Google Sites page.
-# TODO: Add public email addresses and photos where appropriate.
+# ───────────────────────────────────────────────────────────────────
+#  PEOPLE  →  shown on the "People" page (and linked from many others)
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • People are split into groups: researchers_madrid, students_madrid,
+#    international_collaborators, and visitors. Add someone by copying an
+#    existing "- id:" block under the right group.
+#  • Keep the spacing exactly (2 spaces before "-", 4 before the other
+#    fields). Never use TABS. Quote any text containing a colon (:).
+#
+#  FIELDS
+#    id        (required)  short nickname, lowercase-with-hyphens, unique.
+#                          Other files point to a person by this id, so do
+#                          not change it once it is in use.
+#    name      (required)  full name shown on the page, in quotes
+#    photo     (optional)  path to a photo/icon under /assets/images/...
+#    role      (optional)  free text (position + institution). May be "".
+#    research  (optional)  short research interests, in quotes
+#    profiles  (optional)  list of links; each has type (orcid | scholar |
+#                          inspire), label, and url
+#
+#  TIP: "visitors" are people we host who are not group members; they are
+#       referenced from research_visits.yml.
+# ───────────────────────────────────────────────────────────────────
 
 researchers_madrid:
   - id: manuel-de-leon

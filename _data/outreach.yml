@@ -1,9 +1,21 @@
-# Migrated from outreach.md.
-# `people` is a list of `id` values in people.yml.
-# `kind` is one of: talk, article, stand, interview, video.
-# `work_title` is the optional title of the talk/article.
-# `date` is the full date when known; `year` is always present for grouping.
-# `links` is an optional list of {label, url}.
+# ───────────────────────────────────────────────────────────────────
+#  OUTREACH  →  shown on the "Outreach" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add an activity by copying a "- title:" block. List newest first;
+#    the page groups activities by "year" automatically.
+#
+#  FIELDS
+#    title       (required)  short heading, in quotes
+#    people      (required)  list of person ids from people.yml
+#    kind        (optional)  talk, article, stand, interview, or video
+#    work_title  (optional)  title of the talk/article, in quotes
+#    venue       (optional)  place or publication, in quotes
+#    date        (optional)  YYYY-MM-DD if a full date is known
+#    year        (required)  four digits — used to group on the page
+#    lang        (optional)  es or en
+#    links       (optional)  list of { label: "...", url: "..." }
+# ───────────────────────────────────────────────────────────────────
 
 activities:
   - title: "Pint of Science 2026 outreach talk"
