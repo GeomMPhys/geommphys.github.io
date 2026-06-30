@@ -6,51 +6,51 @@ upcoming: []
 past:
   - title: "On the theory of G-structures applied to multisymplectic manifolds"
     speaker: "Rubén Izquierdo-López"
-    affiliation: ""
+    affiliation: "Instituto de Ciencias Matemáticas"
     date: 2026-06-09
     time: "11:00"
-    location: "CUNEF PIR 2.3"
+    location: "CUNEF PIR2.3"
     abstract: "Multisymplectic geometry provides a geometric framework to express the equations of motion of classical field theories, in analogy with how symplectic geometry is used in classical mechanics. A multisymplectic form encodes key structures of a given theory, including symmetries, conserved quantities, and the Poisson bracket. In the study of these structures, the use of adapted (or Darboux) coordinates is of central importance. However, unlike in symplectic geometry, the closedness of a multisymplectic form is not sufficient to guarantee the existence of flat coordinates. Indeed, there are examples of closed forms of constant linear type that are not flat, such as those arising in $G_2$-structures. These issues can be understood in a unified way through the theory of G-structures. In this talk, I will introduce the basic notions of G-structures and structure tensors. I will then explain how this framework can be used to construct forms whose integrability depends strictly on conditions of order $k$, for arbitrary $k$. Finally, if time permits, I will discuss some possible directions and ideas related to integrability. "
 
   - title: "Entanglement through topological interfaces in CFT revisited"
     speaker: "Christian Northe"
     affiliation: "Prague Institute for Physics"
     date: 2026-05-08
-    time: "2pm"
-    location: "PIR 1.3"
+    time: "14:00"
+    location: "PIR1.3"
     abstract: "Present theoretical predictions for the entanglement entropy through topological defects are violated in numerical simulations of critical systems. In this talk, I introduce a new formalism for the preparation of reduced density matrices in the presence of topological defects, and emphasize the role of defect networks with which they can be dressed. Grouplike and duality defects are considered in detail for the Ising model, establishing agreement with numerically found entanglement entropies. Since this new construction functions at the level of reduced density matrices, it accounts for topological defects beyond the entanglement entropy to other entanglement measures. The framework employs boundary conformal field theory techniques to implement the factorization of Hilbert space, which I recapitulate at the beginning of the talk and discuss its relation with the entanglement spectrum."
 
   - title: "Undecidability of the spectral gap in rotationally symmetric Hamiltonians"
     speaker: "Laura Castilla"
     affiliation: "Universidad Complutense de Madrid"
     date: 2026-04-29
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "15:00"
+    location: "PIR1.21"
+    abstract: "Since the works of Gödel and Turing, we know that there exist mathematical statements that can neither be proved nor disproved. As we use mathematics to describe the physical world, it’s natural to ask whether similar limits arise in physics. This topic has gained renewed attention in recent years, driven by the developments in quantum information theory. Starting with an overview of undecidability, we will delve into how some physical models can indeed exhibit undecidable behaviour. In particular, in quantum many-body systems, the spectral gap problem is undecidable, even in the presence of symmetries."
 
   - title: "Topological phases, boundary theories and renormalization flows"
     speaker: "Alberto Ruiz de Alarcón"
-    affiliation: ""
+    affiliation: "CUNEF"
     date: 2026-04-27
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "13:30"
+    location: "A2.1"
+    abstract: "A recurring theme in mathematics and physics is the emergence of collective behaviour from many interacting constituents. Tensor network methods provide a versatile framework for describing such phenomena and have found applications in areas such as machine learning, statistics and differential equations. In the theory of strongly correlated quantum systems, they have in particular become a fundamental tool, providing a natural setting for phenomena such as topological order and revealing deep connections with quantum information, condensed matter physics, low-dimensional topology and operator algebras. This talk presents an overview of a series of works on the theory of tensor networks, their associated symmetries and the phases of matter they describe. Starting from two-dimensional topological models, most notably the Kitaev quantum double and Levin-Wen string-net models, which provide exactly solvable realizations of such phases and are widely believed to capture all non-chiral ones, we show how essential features are encoded in their one-dimensional boundaries, a so-called bulk-boundary correspondence. This point of view provides a framework in which their phases can be defined and classified, and their dynamics realized through local Lindbladian evolutions. It also allows renormalization to be formulated intrinsically at the level of these boundary theories, leading to algebraic descriptions of renormalization flows and new attainable fixed points. This talk is based on Refs. 2204.05940, 2204.06295, 2509.23734, 2501.10552, and work in preparation with Léo Le-Nestour, David Pérez-García and Yoshiko Ogata."
 
   - title: "What Do Incomplete Models Tell Us About the World?"
     speaker: "Markus Maier"
     affiliation: "Munich School of Philosophy"
     date: 2026-04-16
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "15:00"
+    location: "PIR2.5"
+    abstract: "Philosophy and physics share a long common history. The generation that built relativity and quantum mechanics — Einstein, Bohr, Heisenberg, Boltzmann, Poincaré — regarded philosophical questions as inseparable from physical inquiry. This talk is an invitation to revisit that tradition. After a brief introduction to philosophy and its methods, I will discuss two important issues in contemporary philosophy of science: scientific explanation and the role of models. There is an evident connection between both topics, as physicists typically explain not by deriving phenomena from fundamental laws, but through idealized, purpose-built models of target systems. This discussion provides a potential starting point for various case studies from modern physics, such as renormalization and effective field theories. My aim is not to offer definitive answers but to open a conversation about where the interests of philosophers and physicists might productively meet."
 
   - title: "Multisymplectic formalism for manifolds with boundary"
     speaker: "Marco D. Maceda"
-    affiliation: ""
+    affiliation: "Universidad Autónoma de Madrid"
     date: 2026-03-23
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "14:00"
+    location: "PIR1.10"
+    abstract: "In this talk, I will present a new formalism for studying the field theories on manifolds with boundary. Based on the ideas of relative cohomology [Margalef-Bentabol & Villaseñor, 2021], I will extend the definition of multisymplectic structures to manifolds with boundary. We will see how this structure reproduces the field equations of variational principles with boundary. I will explain how to generalize the observables, the graded Poisson brackets, and the conserved charges to manifolds with boundary. Moreover, I will present the Lagrangian formalism, deriving the Poincaré–Cartan form and the Euler–Lagrange equations. Finally, I will illustrate the formalism with several examples."
 
   - title: "Geometric mechanics of disformal-like transformations"
     speaker: "Matteo Dell'Acqua"
@@ -64,33 +64,33 @@ past:
     speaker: "Sachindeo Vaidya"
     affiliation: "Indian Institute of Science"
     date: 2026-02-17
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "13:30"
+    location: "F1.2"
+    abstract: "We will discuss the matrix model of two-color one-flavor adjoint QCD in the weak coupling regime, and show that there is a quantum phase transition at g*0≃ 0.143: for g < g∗0 , the ground state wavefunction is localized in a small region of the gauge configuration space, while for g > g∗0, it gets delocalized over a much larger region. The transition between these two phases is singular, with the ground state at g∗0 being distinctly different from that of g∗0 ±|ϵ|. At g∗0, we will see that the square of the chromoelectric field vanishes, strongly suggesting that the system is in a “dual superconductor” phase. Numerical evidence shows that the localization-delocalization phenomenon holds for the 1st and 2nd excited states as well, leading us to conjecture that there are an infinite number of isolated singular points accumulating to g=0. The model formally possesses N= 1 supersymmetry for a particular choice of parameters. We show that in the localized phase the supermultiplet structure is disrupted and SUSY is thus spontaneously broken."
 
   - title: "A Random Matrix view of Quantum Spin and Fermionic chains"
     speaker: "Miguel Tierz"
     affiliation: "Shanghai Institute for Mathematics and Interdisciplinary Sciences"
     date: 2026-02-09
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "13:30"
+    location: "F2.1"
+    abstract: "We present a Random Matrix Theory (RMT) formulation of the Loschmidt echo for various one-dimensional spin and fermionic chain models. Unlike standard ensembles, the real-time dynamics of these systems require models with complex weights. By analyzing these ensembles, we characterize novel third-order dynamical quantum phase transitions. We conclude by applying this framework to quantum thermodynamics, demonstrating its utility to characterize work distributions for sudden quenches."
 
   - title: "How quantum gravity breaks EFTs optimally (in the 2-Wasserstein sense)"
     speaker: "Saskia Demulder"
     affiliation: ""
     date: 2025-11-25
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "14:00"
+    location: "PIR1.3"
+    abstract: "I will outline a formulation of distances between effective theories arising from string flux compactifications using 2-Wasserstein transport on scalar field-space probability measures, with scalar potentials and reduced Einstein dynamics encoded through Tonelli optimal transport and control."
 
   - title: "Kanatchikov's quantization: problems and perspectives"
     speaker: "Marco D. Maceda"
     affiliation: ""
     date: 2025-10-24
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "15:00"
+    location: "PIR1.3"
+    abstract: "In this talk I explain, in a self-contained way, Kanatchikov’s approach to field quantization. I introduce the graded Poisson brackets and apply the Dirac algorithm of quantization to obtain the operators associated with each classical observable. I discuss several problems of Kanatchikov’s quantization map, including the emergence of non-commutative and non-associative algebras. Finally, I explore a systematic approach based on geometric quantization, leading to higher geometric settings in which quantization becomes possible."
 
   - title: "Constraints on Deformations of tree level string amplitude Scattering"
     speaker: "Georgina Staudt"
