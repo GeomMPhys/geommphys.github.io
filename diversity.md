@@ -26,6 +26,26 @@ permalink: /diversity/
   </article>
 </div>
 
+## International Networks
+
+<div class="resource-grid resource-grid--compact">
+  <article class="resource-card">
+    <h3>Association for Women in Mathematics (AWM)</h3>
+    <p class="links"><a href="https://awm-math.org/">Visit AWM</a></p>
+  </article>
+
+  <article class="resource-card">
+    <h3>Committee for Women in Mathematics (CWM)</h3>
+    <p>International Mathematical Union.</p>
+    <p class="links"><a href="https://www.mathunion.org/cwm">Visit CWM</a></p>
+  </article>
+
+  <article class="resource-card">
+    <h3>Gender in High Energy Physics (genHET)</h3>
+    <p class="links"><a href="https://genhet.web.cern.ch/">Visit genHET</a></p>
+  </article>
+</div>
+
 ## Information Resources
 
 <div class="resource-grid resource-grid--compact">
@@ -51,26 +71,6 @@ permalink: /diversity/
     <h3>Mujeres con ciencia</h3>
     <p>A Spain-based blog.</p>
     <p class="links"><a href="https://mujeresconciencia.com/">Visit the blog</a></p>
-  </article>
-</div>
-
-## International Networks
-
-<div class="resource-grid resource-grid--compact">
-  <article class="resource-card">
-    <h3>Association for Women in Mathematics (AWM)</h3>
-    <p class="links"><a href="https://awm-math.org/">Visit AWM</a></p>
-  </article>
-
-  <article class="resource-card">
-    <h3>Committee for Women in Mathematics (CWM)</h3>
-    <p>International Mathematical Union.</p>
-    <p class="links"><a href="https://www.mathunion.org/cwm">Visit CWM</a></p>
-  </article>
-
-  <article class="resource-card">
-    <h3>Gender in High Energy Physics (genHET)</h3>
-    <p class="links"><a href="https://genhet.web.cern.ch/">Visit genHET</a></p>
   </article>
 </div>
 
