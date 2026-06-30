@@ -1,13 +1,10 @@
 # Migrated from the public Google Sites page.
 # TODO: Add public email addresses and photos where appropriate.
-#
-# Each person has a stable `id` slug. Other data files (research_visits.yml,
-# research_lines.yml, awards.yml, workshops.yml, outreach.yml) link to people
-# by this id.
 
 researchers_madrid:
   - id: manuel-de-leon
     name: "Manuel de León"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. de Santiago de Compostela, Spain, 1978"
     research: "Differential Geometry, Geometric Mechanics, Mathematical Physics"
     profiles:
@@ -20,6 +17,7 @@ researchers_madrid:
 
   - id: saskia-demulder
     name: "Saskia Demulder"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, Vrije U. Brussel and Swansea U., Belgium and United Kingdom, 2019"
     research: "Theoretical High Energy Physics, String Theory, Quantum Gravity"
     profiles:
@@ -35,6 +33,7 @@ researchers_madrid:
 
   - id: veronica-errasti-diez
     name: "Verónica Errasti Díez"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, McGill U., Canada, 2018"
     research: "Theoretical High Energy Physics, Mathematical Physics"
     profiles:
@@ -50,6 +49,7 @@ researchers_madrid:
 
   - id: eduardo-fernandez-saiz
     name: "Eduardo Fernández Saiz"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2021"
     research: "Lie theory, Lie systems, Symplectic geometry"
     profiles:
@@ -59,6 +59,7 @@ researchers_madrid:
 
   - id: jordi-gaset-rifa
     name: "Jordi Gaset Rifà"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Politècnica de Catalunya, Spain, 2018"
     research: "Geometric Field Theory, Geometric Mechanics, Mathematical Physics"
     profiles:
@@ -74,6 +75,7 @@ researchers_madrid:
 
   - id: victor-jimenez
     name: "Víctor M. Jiménez"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2019"
     research: "Differential Geometry, Lie Groupoids and Algebroids, Geometric Mechanics"
     profiles:
@@ -86,6 +88,7 @@ researchers_madrid:
 
   - id: manuel-lainz
     name: "Manuel Lainz"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
     research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
     profiles:
@@ -98,6 +101,7 @@ researchers_madrid:
 
   - id: alberto-ruiz-de-alarcon
     name: "Alberto Ruiz de Alarcón"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2023"
     research: "Quantum information, Quantum many-body systems, Tensor networks, Hopf algebras, Topological order"
     profiles:
@@ -110,6 +114,7 @@ researchers_madrid:
 
   - id: david-trillo
     name: "David Trillo"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Wien, Austria, 2023"
     research: "Quantum Information, Foundations of Quantum Mechanics, Mathematical Physics"
     profiles:
@@ -126,11 +131,13 @@ researchers_madrid:
 students_madrid:
   - id: matteo-dellacqua
     name: "Matteo Dell'Acqua"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
     research: " "
 
   - id: oscar-carballal
     name: "Óscar Carballal"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
     research: " "
     profiles:
@@ -143,6 +150,7 @@ students_madrid:
 
   - id: marco-maceda
     name: "Marco D. Maceda"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
     profiles:
@@ -155,6 +163,7 @@ students_madrid:
 
   - id: ruben-izquierdo-lopez
     name: "Rubén Izquierdo López"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
     profiles:
@@ -168,6 +177,7 @@ students_madrid:
 international_collaborators:
   - id: alex-arvanitakis
     name: "Alex Arvanitakis"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Research Associate, Ruđer Bošković Institute, Croatia"
     research: " "
     profiles:
@@ -183,6 +193,7 @@ international_collaborators:
 
   - id: javier-de-lucas
     name: "Javier de Lucas Araujo"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "Associate Professor, U. Warsaw, Poland"
     research: " "
     profiles:
@@ -195,6 +206,7 @@ international_collaborators:
 
   - id: mauricio-doniz
     name: "Mauricio Dóniz"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD Student, Technical U. of Catalonia, Spain"
     research: " "
     profiles:
@@ -207,6 +219,7 @@ international_collaborators:
 
   - id: maria-jose-guzman
     name: "María José Guzman"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Associate Professor, U. of Tartu, Estonia"
     research: " "
     profiles:
@@ -222,6 +235,7 @@ international_collaborators:
 
   - id: markus-maier
     name: "Markus Maier"
+    photo: "/assets/images/people-icons/philo_icon.png"
     role: "PhD Student, Munich School of Philosophy, Germany"
     research: " "
     profiles:
@@ -231,6 +245,7 @@ international_collaborators:
 
   - id: rathindra-das
     name: "Rathindra Nath Das"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
     research: " "
     profiles:
@@ -246,6 +261,7 @@ international_collaborators:
 
   - id: yoshiko-ogata
     name: "Yoshiko Ogata"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "Professor, Research Institute for Mathematical Sciences, Japan"
     research: " "
     profiles:
@@ -255,6 +271,7 @@ international_collaborators:
 
   - id: zohreh-ravanpak
     name: "Zohreh Ravanpak"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "Research fellow, Nanyang Technological U., Singapore"
     research: " "
     profiles:
@@ -267,6 +284,7 @@ international_collaborators:
 
   - id: tomasz-sobczak
     name: "Tomasz Sobczak"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
     profiles:
@@ -276,6 +294,7 @@ international_collaborators:
 
   - id: mirjam-weilenmann
     name: "Mirjam Weilenmann"
+    photo: "/assets/images/people-icons/physics_icon.png"
     role: "Researcher, Inria, France"
     research: " "
     profiles:
@@ -291,6 +310,7 @@ international_collaborators:
 
   - id: bartosz-zawora
     name: "Bartosz Zawora"
+    photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
     profiles:
@@ -299,32 +319,33 @@ international_collaborators:
         url: "https://scholar.google.com.ar/citations?hl=es&user=JIfQiHsAAAAJ"
 
 # External research visitors hosted by the group. Referenced by research_visits.yml.
-# These are not group members and are not shown on the People page unless wired in.
+# Not group members; not shown on the People page. `role` (position) left blank
+# on purpose — the visit institution lives in research_visits.yml as `affiliation`.
 visitors:
   - id: narciso-roman-roy
     name: "Narciso Román-Roy"
-    role: "Universitat Politècnica de Catalunya (UPC), Spain"
+    role: ""
 
   - id: miguel-tierz
     name: "Miguel Tierz"
-    role: "Shanghai Institute for Mathematics and Interdisciplinary Sciences, China"
+    role: ""
 
   - id: sachindeo-vaidya
     name: "Sachindeo Vaidya"
-    role: "Indian Institute of Science, India"
+    role: ""
 
   - id: thomas-raml
     name: "Thomas Raml"
-    role: "Max Planck Institute for Physics and LMU in Munich-Garching, Germany"
+    role: ""
 
   - id: georgina-staudt
     name: "Georgina Staudt"
-    role: "Max Planck Institute for Physics in Munich-Garching, Germany"
+    role: ""
 
   - id: syksy-rasanen
     name: "Syksy Räsänen"
-    role: "University of Helsinki, Finland"
+    role: ""
 
   - id: miguel-navascues
     name: "Miguel Navascués"
-    role: "IQOQI Vienna, Austria"
+    role: ""

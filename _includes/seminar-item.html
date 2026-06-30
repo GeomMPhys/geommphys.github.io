@@ -1,23 +1,35 @@
-<article class="seminar">
-  <div class="seminar__date">
-    {% if include.seminar.date %}
-      <span>{{ include.seminar.date | date: "%d" }}</span>
-      <small>{{ include.seminar.date | date: "%b %Y" }}</small>
-    {% else %}
-      <span>TBD</span>
-      <small>Date</small>
-    {% endif %}
-  </div>
-  <div>
+<article class="record seminar">
+  <div class="record__body">
     <h3>{{ include.seminar.title }}</h3>
-    <p class="meta">
+    <p class="record__meta">
       {{ include.seminar.speaker }}
       {% if include.seminar.affiliation and include.seminar.affiliation != "" %}, {{ include.seminar.affiliation }}{% endif %}
     </p>
-    <p>
-      {% if include.seminar.time %}{{ include.seminar.time }}{% endif %}
-      {% if include.seminar.location %}{% if include.seminar.time %} &middot; {% endif %}{{ include.seminar.location }}{% endif %}
-    </p>
-    {% if include.seminar.abstract %}<p>{{ include.seminar.abstract }}</p>{% endif %}
+    {% if include.seminar.time and include.seminar.time != "" and include.seminar.time != "TODO" %}
+      {% assign show_time = true %}
+    {% else %}
+      {% assign show_time = false %}
+    {% endif %}
+    {% if include.seminar.location and include.seminar.location != "" and include.seminar.location != "TODO" %}
+      {% assign show_location = true %}
+    {% else %}
+      {% assign show_location = false %}
+    {% endif %}
+    {% if show_time or show_location %}
+      <p class="record__note">
+        {% if show_time %}{{ include.seminar.time }}{% endif %}
+        {% if show_location %}{% if show_time %} &middot; {% endif %}{{ include.seminar.location }}{% endif %}
+      </p>
+    {% endif %}
+    {% if include.seminar.abstract and include.seminar.abstract != "" and include.seminar.abstract != "TODO: Add abstract if available." %}
+      <p class="record__note">{{ include.seminar.abstract }}</p>
+    {% endif %}
   </div>
+  <p class="record__date">
+    {% if include.seminar.date %}
+      {{ include.seminar.date | date: "%B %-d, %Y" }}
+    {% else %}
+      Date TBD
+    {% endif %}
+  </p>
 </article>

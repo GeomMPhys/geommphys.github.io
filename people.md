@@ -7,6 +7,8 @@ permalink: /people/
 
 {% assign groups = "researchers_madrid|Researchers in Madrid,students_madrid|Students in Madrid,international_collaborators|International Collaborators" | split: "," %}
 
+{% include network-map.html %}
+
 {% for group in groups %}
   {% assign parts = group | split: "|" %}
   {% assign key = parts[0] %}

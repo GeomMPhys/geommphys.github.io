@@ -9,11 +9,14 @@ HTML.
 
 - **Pages** (repository root, Markdown): `index.md`, `people.md`, `research.md`,
   `research-lines.md`, `publications.md`, `research-visits.md`, `seminars.md`,
-  `conferences-workshops.md`, `awards-honours.md`, `outreach.md`, `diversity.md`,
-  `contact.md`. Most of these just loop over a data file and call an include.
+  `conferences-workshops.md`, `awards-honours.md`, `outreach.md`, `diversity.md`.
+  Most of these just loop over a data file and call an include. (`contact.md` and
+  `_data/contact.yml` are retained for possible future use, but the Contact page
+  is not published or in the navigation.)
 - **Data** (`_data/`): the source of truth for content.
   - `site.yml`, `navigation.yml`, `contact.yml` — site metadata, menu, contact.
   - `people.yml` — everyone, grouped and given a stable `id` (see below).
+  - `network.yml` — drives the SVG international network map on the People page.
   - `publications.yml`, `seminars.yml`, `research.yml` — existing content.
   - `research_lines.yml`, `research_visits.yml`, `awards.yml`, `workshops.yml`,
     `outreach.yml` — structured content for the corresponding pages.
@@ -33,6 +36,7 @@ name (and, on some pages, a link to their card on the People page).
 researchers_madrid:
   - id: ada-lovelace          # stable slug — referenced from other files
     name: "Ada Lovelace"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, ..."
     research: "Differential geometry, ..."
     profiles:
@@ -53,17 +57,17 @@ shown on the People page).
   people who are not in `people.yml` (e.g. external workshop co-organizers).
 
 `research_visits.yml` is the exception: it is **id-only** (no inline name), so
-every visitor must exist in `people.yml` (typically under `visitors`). It allows
-an optional per-visit `affiliation:` override when the visit affiliation differs
-from the person's `role`.
+every visitor must exist in `people.yml` (typically under `visitors`). Each visit
+carries its own `affiliation` (the institution the person visited from); for
+group members/collaborators it overrides their `people.yml` `role`.
 
 ## Editing content
 
 ### Add a person
 
 Add an entry under the right group in `_data/people.yml`, giving it a unique
-`id` (lowercase, hyphenated). Photos go in `assets/images/people/` (lowercase,
-hyphenated filenames) and are referenced with `photo:`.
+`id` (lowercase, hyphenated). `role` is a free-text position descriptor (it may
+be left blank). Photos referenced with `photo:`.
 
 ### Add a research line — `_data/research_lines.yml`
 
@@ -81,7 +85,7 @@ lines:
 ```yaml
 visits:
   - person: ada-lovelace          # id in people.yml (required)
-    affiliation: "Host institution, Country"   # optional override
+    affiliation: "Institution, Country"   # institution visited from
     arrival: 2026-03-12            # ISO dates; the page groups by year
     departure: 2026-03-15
     support: "Funding source"      # optional
@@ -134,6 +138,14 @@ activities:
 `_data/publications.yml` (`selected:`) groups by `year`; `_data/seminars.yml`
 has `upcoming:` and `past:` lists. See existing entries for the shape.
 
+### Update the international network map
+
+The People page includes a lightweight SVG network map driven by
+`_data/network.yml`. Use only public affiliation information. The `label`,
+`subtitle`, and `members` fields are displayed; the `x`, `y`, and `curve` fields
+position the point and connection line — adjust them only when adding or moving
+a location.
+
 ## Local development
 
 Ruby/Bundler can be fiddly to install locally, so the simplest reproducible way
@@ -158,6 +170,22 @@ If you have a working local toolchain instead, `bundle install` then
 `.github/workflows/pages.yml` builds the site and deploys it to GitHub Pages on
 every push to `main`. In the repository settings, Pages must be set to deploy
 from **GitHub Actions**.
+
+## Internal documents
+
+Internal group documents must **not** be committed to this public repository. Use
+the separate private repository `GeomMPhys/group-documents` for certificate
+templates, logo source files, and administrative documents. Suggested layout:
+
+```text
+certificate-templates/
+logos/
+administrative-documents/
+other-documents/
+```
+
+The website footer links to that private repository; only users granted access
+can view or upload there.
 
 ## Public content rules
 

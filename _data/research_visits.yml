@@ -1,8 +1,9 @@
 # Migrated from research-visits.md.
 # Each visit links to a person by `id` in people.yml (see researchers_madrid,
 # international_collaborators, or the visitors group).
-# `affiliation` is an optional per-visit override; when omitted, the person's
-# role from people.yml should be used by the template.
+# `affiliation` is the institution the person visited from. It is recorded per
+# visit (visitors have a blank `role` in people.yml); for group members and
+# collaborators it overrides their people.yml `role` when the visit differs.
 
 visits:
   - person: markus-maier
@@ -12,6 +13,7 @@ visits:
     support: "Erasmus+ Staff Mobility"
 
   - person: narciso-roman-roy
+    affiliation: "Universitat Politècnica de Catalunya (UPC), Spain"
     arrival: 2026-04-06
     departure: 2026-04-08
 
@@ -22,18 +24,22 @@ visits:
     support: "COST Action CA22113"
 
   - person: miguel-tierz
+    affiliation: "Shanghai Institute for Mathematics and Interdisciplinary Sciences, China"
     arrival: 2026-02-09
     departure: 2026-02-17
 
   - person: sachindeo-vaidya
+    affiliation: "Indian Institute of Science, India"
     arrival: 2026-02-16
     departure: 2026-02-17
 
   - person: thomas-raml
+    affiliation: "Max Planck Institute for Physics and LMU in Munich-Garching, Germany"
     arrival: 2025-11-23
     departure: 2025-11-26
 
   - person: georgina-staudt
+    affiliation: "Max Planck Institute for Physics in Munich-Garching, Germany"
     arrival: 2025-10-13
     departure: 2025-10-15
 
@@ -43,9 +49,11 @@ visits:
     departure: 2025-09-05
 
   - person: syksy-rasanen
+    affiliation: "University of Helsinki, Finland"
     arrival: 2025-03-19
     departure: 2025-03-21
 
   - person: miguel-navascues
+    affiliation: "IQOQI Vienna, Austria"
     arrival: 2025-01-20
     departure: 2025-01-24

@@ -1,20 +1,17 @@
 {%- assign e = include.event -%}
-<article class="publication">
-  <h3>{{ e.title }}</h3>
-  <p class="meta">
-    {%- include date-range.html from=e.start to=e.end -%}
-    {% if e.location %} &middot; {{ e.location }}{% endif %}
-    {% if e.type %} &middot; {{ e.type | capitalize }}{% endif %}
-  </p>
-  {% if e.description %}<p>{{ e.description }}</p>{% endif %}
-  {% if e.organizers %}
-    <p>Organizers:
-      {% for o in e.organizers -%}
+<article class="record">
+  <div class="record__body">
+    <h3>{{ e.title }}</h3>
+    {% if e.location %}<p class="record__meta">{{ e.location }}</p>{% endif %}
+    {% if e.description %}<p class="record__note">{{ e.description }}</p>{% endif %}
+    {% if e.organizers %}
+      <p class="record__note"><strong>Organizers:</strong> {% for o in e.organizers -%}
         {%- if o.name -%}{{ o.name }}{% if o.affiliation %} ({{ o.affiliation }}){% endif %}
         {%- else -%}{% include person-name.html id=o people=include.people %}{%- endif -%}
         {%- unless forloop.last %}, {% endunless -%}
-      {%- endfor %}
-    </p>
-  {% endif %}
-  {% if e.url %}<p class="links"><a href="{{ e.url }}">Event website</a></p>{% endif %}
+      {%- endfor %}.</p>
+    {% endif %}
+    {% if e.url %}<p class="links"><a href="{{ e.url }}">Event website</a></p>{% endif %}
+  </div>
+  <p class="record__date">{% include date-range.html from=e.start to=e.end %}</p>
 </article>

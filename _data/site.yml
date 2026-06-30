@@ -13,4 +13,6 @@ phone: ""
 office_hours: ""
 map_url: ""
 
-links: []
+links:
+  - label: "Internal documents"
+    url: "https://github.com/GeomMPhys/group-documents"

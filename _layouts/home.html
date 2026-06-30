@@ -4,8 +4,13 @@ layout: default
 
 <section class="hero">
   <div class="container hero__inner">
-    <p class="eyebrow">{{ site.data.site.institution }}</p>
-    <h1>{{ site.data.site.group_name }}</h1>
+    {% if site.data.site.institution and site.data.site.institution != "" and site.data.site.institution != " " %}
+      <p class="eyebrow">{{ site.data.site.institution }}</p>
+    {% endif %}
+    <h1 class="hero__title">
+      <span class="hero__title-main">Geometrical Mathematical Physics</span>
+      <span class="hero__title-sub">Research Group</span>
+    </h1>
     <p class="lead">{{ site.data.site.description }}</p>
     <div class="hero__actions">
       <a class="button" href="{{ '/research/' | relative_url }}">Research areas</a>

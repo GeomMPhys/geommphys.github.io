@@ -1,14 +1,6 @@
 # Migrated from the public Research directory.
 # TODO: Add a concise public description of the group's research themes.
 
-- title: "Research overview"
-  summary: "TODO: Add public research-area text from the group."
-  topics:
-    - "Publications"
-    - "Group seminars"
-    - "Research visits"
-    - "Conferences and workshops"
-
 - title: "Publications"
   summary: "Publications are listed by year on the public research page."
   url: "/publications/"
