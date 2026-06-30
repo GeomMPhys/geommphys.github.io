@@ -16,9 +16,9 @@ past:
     speaker: "Christian Northe"
     affiliation: "Prague Institute for Physics"
     date: 2026-05-08
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "2pm"
+    location: "PIR 1.3"
+    abstract: "Present theoretical predictions for the entanglement entropy through topological defects are violated in numerical simulations of critical systems. In this talk, I introduce a new formalism for the preparation of reduced density matrices in the presence of topological defects, and emphasize the role of defect networks with which they can be dressed. Grouplike and duality defects are considered in detail for the Ising model, establishing agreement with numerically found entanglement entropies. Since this new construction functions at the level of reduced density matrices, it accounts for topological defects beyond the entanglement entropy to other entanglement measures. The framework employs boundary conformal field theory techniques to implement the factorization of Hilbert space, which I recapitulate at the beginning of the talk and discuss its relation with the entanglement spectrum."
 
   - title: "Undecidability of the spectral gap in rotationally symmetric Hamiltonians"
     speaker: "Laura Castilla"
