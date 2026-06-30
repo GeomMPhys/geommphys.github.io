@@ -1,0 +1,25 @@
+# Migrated from awards-honours.md.
+# Each award links to a person by `id` in people.yml.
+# `category` groups the kind of recognition (e.g. PhD scholarship,
+# Researcher certification, Professional recognition).
+
+awards:
+  - person: matteo-dellacqua
+    award: "La Caixa Doctoral INPhINIT fellowship"
+    category: "PhD scholarship"
+    year: 2026
+
+  - person: saskia-demulder
+    award: "R3-Established Researcher certification"
+    category: "Researcher certification"
+    year: 2026
+
+  - person: veronica-errasti-diez
+    award: "R3-Established Researcher certification"
+    category: "Researcher certification"
+    year: 2026
+
+  - person: marco-maceda
+    award: "FPI-UAM 2025"
+    category: "PhD scholarship"
+    year: 2026

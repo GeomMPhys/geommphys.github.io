@@ -1,5 +1,5 @@
 {% assign person = include.person %}
-<article class="person">
+<article class="person" id="{{ person.id }}">
   {% if person.photo %}
     <img src="{{ person.photo | relative_url }}" alt="{{ person.name }}">
   {% else %}

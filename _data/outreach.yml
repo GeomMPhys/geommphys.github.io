@@ -1,0 +1,114 @@
+# Migrated from outreach.md.
+# `people` is a list of `id` values in people.yml.
+# `kind` is one of: talk, article, stand, interview, video.
+# `work_title` is the optional title of the talk/article.
+# `date` is the full date when known; `year` is always present for grouping.
+# `links` is an optional list of {label, url}.
+
+activities:
+  - title: "Pint of Science 2026 outreach talk"
+    people: [veronica-errasti-diez]
+    kind: talk
+    venue: "Vitoria-Gasteiz, Spain"
+    date: 2026-05-20
+    year: 2026
+
+  - title: "\"CERN field notes\" for Iberian Strings 2026"
+    people: [saskia-demulder]
+    kind: article
+    work_title: "String pilgrimage to Santiago"
+    venue: "CERN Courier"
+    year: 2026
+    lang: en
+    links:
+      - { label: "Read the issue", url: "https://cerncourier.com/wp-content/uploads/2026/04/CERNCourier2026MarApr-digitaledition.pdf" }
+
+  - title: "AIMS Cameroon Seminar Series"
+    people: [veronica-errasti-diez]
+    kind: talk
+    work_title: "The universe that has not yet been measured"
+    venue: "Limbe, Cameroon"
+    date: 2025-12-09
+    year: 2025
+    lang: en
+
+  - title: "Noche Europea de los Investigadores 2025"
+    people: [veronica-errasti-diez, jordi-gaset-rifa, manuel-lainz, david-trillo]
+    kind: stand
+    work_title: "La naturaleza es contraintuitiva"
+    venue: "Círculo de Bellas Artes, Madrid, Spain"
+    date: 2025-09-26
+    year: 2025
+    lang: es
+    links:
+      - { label: "Event website", url: "https://www.madrimasd.org/lanochedelosinvestigadores/" }
+
+  - title: "Serie de conferencias Aulas de la experiencia"
+    people: [jordi-gaset-rifa]
+    kind: talk
+    work_title: "El infinito a nuestros pies"
+    venue: "Casa de la cultura Ignacio Aldecoa, Vitoria-Gasteiz, Spain"
+    date: 2025-04-07
+    year: 2025
+    lang: es
+    links:
+      - { label: "Watch the video", url: "https://www.youtube.com/watch?v=Pi8ZeUDo67I" }
+
+  - title: "Semana de la ciencia I.E.S. Miguel de Unamuno"
+    people: [veronica-errasti-diez]
+    kind: talk
+    work_title: "Viaje por las escalas del universo"
+    venue: "I.E.S. Miguel de Unamuno, Vitoria-Gasteiz, Spain"
+    date: 2025-01-16
+    year: 2025
+    lang: es
+
+  - title: "Article in The Conversation"
+    people: [david-trillo]
+    kind: article
+    work_title: "¿Qué son los proyectiles cuánticos y qué tienen que ver con la supremacía cuántica?"
+    venue: "The Conversation"
+    year: 2024
+    lang: es
+    links:
+      - { label: "Read the article", url: "https://theconversation.com/que-son-los-proyectiles-cuanticos-y-que-tienen-que-ver-con-la-supremacia-cuantica-232038" }
+
+  - title: "SoapBox Science Munich"
+    people: [veronica-errasti-diez]
+    kind: talk
+    venue: "Munich, Germany"
+    year: 2024
+    lang: en
+    links:
+      - { label: "Interview", url: "https://munichsoapboxscience.com/soapbox-science-2024/12/" }
+      - { label: "Event listing", url: "https://munichsoapboxscience.com/soapbox-science-2024/" }
+
+  - title: "International Day of Women and Girls in Science and feminist week"
+    people: [veronica-errasti-diez]
+    kind: talk
+    work_title: "Física y mujeres físicas del S. XXI"
+    venue: "Koldo Mitxelena High School, Vitoria-Gasteiz, Spain"
+    date: 2024-02-23
+    year: 2024
+    lang: es
+
+  - title: "Article in El País"
+    people: [david-trillo]
+    kind: article
+    work_title: "Las partículas de un sistema cuántico pueden rejuvenecerse: hemos hecho realidad la ciencia ficción"
+    venue: "El País"
+    date: 2023-02-21
+    year: 2023
+    lang: es
+    links:
+      - { label: "Read the article", url: "https://elpais.com/ciencia/2023-02-21/las-particulas-de-un-sistema-cuantico-pueden-rejuvenecerse-hemos-hecho-realidad-la-ciencia-ficcion.html" }
+
+  - title: "TEDx Talk"
+    people: [veronica-errasti-diez]
+    kind: talk
+    work_title: "Tras los límites del tiempo"
+    date: 2021-05-13
+    year: 2021
+    lang: es
+    links:
+      - { label: "Watch the video", url: "https://www.youtube.com/watch?v=ImoH4bvMQqQ" }

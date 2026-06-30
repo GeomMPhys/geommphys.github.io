@@ -1,0 +1,56 @@
+# Migrated from conferences-workshops.md.
+# `organizers` is a mixed list: a string is an `id` in people.yml (group
+# members and collaborators); a mapping {name, affiliation} is an external
+# organizer not listed in people.yml.
+# `type` is one of: conference, workshop, school.
+
+events:
+  - title: "Quantum Gravity in Closed Universes"
+    type: workshop
+    start: 2027-08-23
+    end: 2027-09-03
+    location: "Nordita, Stockholm, Sweden"
+    organizers:
+      - { name: "Pawel Caputa" }
+      - saskia-demulder
+      - { name: "Watse Sybesma" }
+      - { name: "Evita Verheijden" }
+
+  - title: "2nd International Workshop on Geometric Field Theory"
+    type: workshop
+    start: 2026-07-06
+    end: 2026-07-08
+    location: "University of Warsaw, Faculty of Physics, Poland"
+    url: "https://www.fuw.edu.pl/KMMF/GFT2026/index.html"
+    organizers:
+      - javier-de-lucas
+      - veronica-errasti-diez
+      - jordi-gaset-rifa
+      - { name: "Katarzyna Grabowska", affiliation: "University of Warsaw" }
+      - bartosz-zawora
+
+  - title: "New Advances in Contact and Symplectic Hamiltonian Dynamics"
+    type: workshop
+    description: "2nd edition of the Chinese-Spanish Workshop."
+    start: 2026-07-13
+    end: 2026-07-17
+    location: "CUNEF Universidad, Madrid, Spain"
+    url: "https://sites.google.com/view/nacosy2026/"
+    organizers:
+      - manuel-de-leon
+      - saskia-demulder
+      - veronica-errasti-diez
+      - jordi-gaset-rifa
+      - manuel-lainz
+      - { name: "David Martín de Diego", affiliation: "ICMAT-CSIC" }
+
+  - title: "Young Researchers School on Integrability and CFT2"
+    type: school
+    start: 2026-08-24
+    end: 2026-08-28
+    location: "Eötvös Loránd University, Budapest, Hungary"
+    url: "https://www.theory-challenges.eu/events/yrs-2026"
+    organizers:
+      - { name: "Zoltan Bajnok", affiliation: "Wigner Research Centre for Physics" }
+      - saskia-demulder
+      - { name: "Alessandro Sfondrini", affiliation: "University of Birmingham" }

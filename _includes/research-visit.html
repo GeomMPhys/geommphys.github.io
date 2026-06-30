@@ -1,0 +1,11 @@
+{%- assign v = include.visit -%}
+{%- assign p = include.people | where: "id", v.person | first -%}
+{%- assign aff = v.affiliation | default: p.role -%}
+<article class="record">
+  <div class="record__body">
+    <h3>{% if p %}{{ p.name }}{% else %}{{ v.person }}{% endif %}</h3>
+    {% if aff and aff != "" %}<p class="record__meta">{{ aff }}</p>{% endif %}
+    {% if v.support %}<p class="record__note">Supported by {{ v.support }}.</p>{% endif %}
+  </div>
+  <p class="record__date">{% include date-range.html from=v.arrival to=v.departure %}</p>
+</article>

@@ -5,40 +5,24 @@ description: Publicly listed awards, fellowships, and professional recognition r
 permalink: /awards-honours/
 ---
 
-## 2026
-
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
+{% if site.data.awards.awards and site.data.awards.awards.size > 0 %}
+{% assign groups = site.data.awards.awards | group_by_exp: "a", "a.year" | sort: "name" | reverse %}
+{% for group in groups %}
+<h2>{{ group.name }}</h2>
 <div class="record-list">
-  <article class="record record--compact">
-    <div class="record__body">
-      <h3>Matteo Dell'Acqua</h3>
-      <p>La Caixa Doctoral INPhINIT fellowship</p>
-      <p class="record__note">PhD scholarship.</p>
-    </div>
-    <p class="record__date">2026</p>
-  </article>
-
-  <article class="record record--compact">
-    <div class="record__body">
-      <h3>Saskia Demulder</h3>
-      <p>R3-Established Researcher certification</p>
-    </div>
-    <p class="record__date">2026</p>
-  </article>
-
-  <article class="record record--compact">
-    <div class="record__body">
-      <h3>Verónica Errasti Díez</h3>
-      <p>R3-Established Researcher certification</p>
-    </div>
-    <p class="record__date">2026</p>
-  </article>
-
-  <article class="record record--compact">
-    <div class="record__body">
-      <h3>Marco D. Maceda</h3>
-      <p>FPI-UAM 2025</p>
-      <p class="record__note">PhD scholarship.</p>
-    </div>
-    <p class="record__date">2026</p>
-  </article>
+{% for award in group.items %}{% assign p = all_people | where: "id", award.person | first %}
+<article class="record record--compact">
+  <div class="record__body">
+    <h3>{% if p %}{{ p.name }}{% else %}{{ award.person }}{% endif %}</h3>
+    <p class="record__meta">{{ award.award }}</p>
+    {% if award.category %}<p class="record__note">{{ award.category }}.</p>{% endif %}
+  </div>
+  <p class="record__date">{{ award.year }}</p>
+</article>
+{% endfor %}
 </div>
+{% endfor %}
+{% else %}
+<p class="empty">Awards and honours will be listed here.</p>
+{% endif %}
