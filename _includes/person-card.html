@@ -11,8 +11,12 @@
     {% if person.research %}<p>{{ person.research }}</p>{% endif %}
     {% if person.profiles %}
       <div class="person__profiles" aria-label="Research profiles for {{ person.name }}">
+        {% assign has_arxiv = false %}
         {% for profile in person.profiles %}
           {% assign profile_type = profile.type | default: "profile" %}
+          {% if profile_type == "arxiv" %}
+            {% assign has_arxiv = true %}
+          {% endif %}
           {% case profile_type %}
             {% when "orcid" %}
               {% assign profile_icon = "/assets/images/profiles/orcid.svg" %}
@@ -20,6 +24,8 @@
               {% assign profile_icon = "/assets/images/profiles/google-scholar.svg" %}
             {% when "inspire" %}
               {% assign profile_icon = "/assets/images/profiles/inspire.svg" %}
+            {% when "arxiv" %}
+              {% assign profile_icon = "/assets/images/profiles/arxiv.svg" %}
             {% else %}
               {% assign profile_icon = "" %}
           {% endcase %}
@@ -31,6 +37,11 @@
             {% endif %}
           </a>
         {% endfor %}
+        {% unless has_arxiv or person.arxiv == false %}
+          <a class="profile-link profile-link--arxiv" href="https://arxiv.org/search/?query={{ person.name | url_encode }}&amp;searchtype=author" target="_blank" rel="noopener" aria-label="arXiv author search for {{ person.name }}" title="arXiv">
+            <img src="{{ '/assets/images/profiles/arxiv.svg' | relative_url }}" alt="" aria-hidden="true">
+          </a>
+        {% endunless %}
       </div>
     {% endif %}
     <p class="links">
