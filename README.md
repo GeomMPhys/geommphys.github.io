@@ -63,6 +63,12 @@ group members/collaborators it overrides their `people.yml` `role`.
 
 ## Editing content
 
+**Every file in `_data/` starts with a comment header** explaining, in plain
+language, what page it controls, the YAML rules to respect (spaces not tabs,
+quoting), how to add an entry, and what each field means. The quickest way to
+edit content is to open the relevant file and read that header — the summaries
+below mirror it.
+
 ### Add a person
 
 Add an entry under the right group in `_data/people.yml`, giving it a unique

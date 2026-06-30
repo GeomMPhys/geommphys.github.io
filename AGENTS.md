@@ -21,6 +21,9 @@ file lists the rules to follow when making changes.
 
 - Put reusable structured data in `_data/`. Each content type has its own file
   (`research_lines`, `research_visits`, `awards`, `workshops`, `outreach`, ...).
+- Every `_data/*.yml` file opens with a plain-language comment header for
+  non-technical editors (purpose, YAML rules, how to add an entry, fields). Keep
+  it accurate: if you change or add a field, update that header too.
 - **Every person in `people.yml` has a stable `id` slug** (lowercase,
   hyphenated). Other data files reference people **by id**, never by retyping
   their name.
