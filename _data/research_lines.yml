@@ -51,9 +51,10 @@ lines:
   - id: quantum-systems
     name: "Quantum systems and topological phases of matter"
     keywords:
-      - fractional statistics
-      - quantum foundations
-      - non-invertible symmetries
+      - Quantum information
+      - Quantum many-body systems
+      - Foundations of Quantum Mechanics
+      - Hopf algebras
     description: "We study quantum systems whose physical behaviour is governed by topology, algebraic structures and generalized notions of symmetry. A central focus is the mathematical description of anyonic excitations: quasiparticles in two-dimensional systems whose exchange properties are governed by braid-group representations rather than ordinary bosonic or fermionic statistics. We also aim to place anyonic statistics within a common operational framework, with applications to the foundations of quantum theory and to the information-theoretic structure of topological quantum computation."
     people:
       - alberto-ruiz-de-alarcon
