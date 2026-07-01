@@ -17,6 +17,16 @@
 # ───────────────────────────────────────────────────────────────────
 
 selected:
+  
+  - title: "A description of classical field equations using extensions of graded Poisson brackets"
+    authors: "Manuel de León, Rubén Izquierdo-López"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2507.04743"
+    doi: ""
+    url: "https://arxiv.org/abs/2507.04743"
+
+
   - title: "Probing weak chaos in N = 4 super Yang-Mills and long-range spin chains"
     authors: "P. Caputa, B. Creed, R. N. Das, S. Demulder, T. McLoughlin"
     venue: "Preprint"
@@ -40,6 +50,14 @@ selected:
     arxiv: "2604.24843"
     doi: ""
     url: "https://arxiv.org/abs/2604.24843"
+    
+  - title: "Regularization of singular time-dependent Lagrangian systems"
+    authors: "Manuel De León, Rubén Izquierdo-López, Luca Schiavone, Pablo Soto"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2603.24308"
+    doi: ""
+    url: "https://arxiv.org/abs/2603.24308"
 
   - title: "Integrability breaking in semiclassical strings in Koopman-Krylov space"
     authors: "R. N. Das, S. Demulder"

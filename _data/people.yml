@@ -78,6 +78,9 @@ researchers_madrid:
       - type: "orcid"
         label: "ORCID"
         url: "https://orcid.org/0000-0002-6220-4987"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/math?searchtype=author&query=Fernandez-Saiz%2C+E"
 
   - id: jordi-gaset-rifa
     name: "Jordi Gaset Rifà"
@@ -107,6 +110,9 @@ researchers_madrid:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=Y5YYfOMAAAAJ"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/?searchtype=author&query=Jiménez%2C+V+M"
 
   - id: manuel-lainz
     name: "Manuel Lainz"
@@ -133,6 +139,9 @@ researchers_madrid:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=kNiXyEUAAAAJ"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/?searchtype=author&query=de+Alarcón%2C+A+R"
 
   - id: david-trillo
     name: "David Trillo"
@@ -182,6 +191,9 @@ students_madrid:
       - type: "inspire"
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2920616?ui-citation-summary=true"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/physics?searchtype=author&query=Maceda,+M+D"
 
   - id: ruben-izquierdo-lopez
     name: "Rubén Izquierdo López"
@@ -195,6 +207,9 @@ students_madrid:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=vQKgf6sAAAAJ"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/math?searchtype=author&query=Izquierdo-López,+R"
 
 international_collaborators:
   - id: alex-arvanitakis
