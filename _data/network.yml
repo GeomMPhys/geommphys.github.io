@@ -1,6 +1,22 @@
-# Public affiliation network shown on the People page.
-# Coordinates are hand-positioned for the lightweight SVG map in _includes/network-map.html.
-# Keep labels tied to public affiliations already listed on the People page.
+# ───────────────────────────────────────────────────────────────────
+#  INTERNATIONAL NETWORK MAP  →  the SVG map on the "People" page
+# ───────────────────────────────────────────────────────────────────
+#  This file is more delicate than the others: it positions dots on a
+#  map. Editing TEXT is safe; changing NUMBERS moves things.
+#
+#  HOW TO EDIT
+#  • To update a place, edit its "label", "subtitle", or "members".
+#  • The x / y numbers and the "curve" line position the dot and its
+#    connecting line — only change these when adding or moving a
+#    location, and always preview the result.
+#
+#  FIELDS (per location)
+#    label     (required)  place name shown on the map, in quotes
+#    subtitle  (required)  institution, in quotes
+#    members   (required)  list of names (plain text)
+#    x, y      (required)  position on the map (numbers)
+#    curve     (required)  the connecting line (leave unless repositioning)
+# ───────────────────────────────────────────────────────────────────
 
 center:
   label: "Madrid"

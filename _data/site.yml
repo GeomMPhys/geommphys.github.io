@@ -1,3 +1,11 @@
+# ───────────────────────────────────────────────────────────────────
+#  SITE SETTINGS  →  group name, tagline, contact email, footer links
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Change the value to the right of each ":" (keep the quotes).
+#  • "links" is the list of links shown in the page footer.
+# ───────────────────────────────────────────────────────────────────
+
 group_name: "Geometrical Mathematical Physics Research Group"
 short_name: "GeomMPhys"
 tagline: "Geometrical mathematical physics"

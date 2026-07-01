@@ -1,9 +1,26 @@
+# ───────────────────────────────────────────────────────────────────
+#  NAVIGATION MENU  →  the top menu shown on every page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Each "- title:" is a menu item; "url" is where it links.
+#  • For a dropdown, use "children:" with indented "- title:/url:" items
+#    (see "Research" below). Order here = order on screen.
+#  • Keep the 2-space indentation. No TABS.
+#
+#  FIELDS
+#    title     (required)  text shown in the menu
+#    url       (links)     destination, e.g. /people/
+#    children  (dropdowns) a list of { title, url } items
+# ───────────────────────────────────────────────────────────────────
+
 - title: Home
   url: /
 - title: People
   url: /people/
 - title: Research
   children:
+    - title: Research Lines
+      url: /research-lines/
     - title: Publications
       url: /publications/
     - title: Research Visits

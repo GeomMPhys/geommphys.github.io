@@ -1,8 +1,31 @@
-# Migrated from the public Google Sites page.
-# TODO: Add public email addresses and photos where appropriate.
+# ───────────────────────────────────────────────────────────────────
+#  PEOPLE  →  shown on the "People" page (and linked from many others)
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • People are split into groups: researchers_madrid, students_madrid,
+#    international_collaborators, and visitors. Add someone by copying an
+#    existing "- id:" block under the right group.
+#  • Keep the spacing exactly (2 spaces before "-", 4 before the other
+#    fields). Never use TABS. Quote any text containing a colon (:).
+#
+#  FIELDS
+#    id        (required)  short nickname, lowercase-with-hyphens, unique.
+#                          Other files point to a person by this id, so do
+#                          not change it once it is in use.
+#    name      (required)  full name shown on the page, in quotes
+#    photo     (optional)  path to a photo/icon under /assets/images/...
+#    role      (optional)  free text (position + institution). May be "".
+#    research  (optional)  short research interests, in quotes
+#    profiles  (optional)  list of links; each has type (orcid | scholar |
+#                          inspire), label, and url
+#
+#  TIP: "visitors" are people we host who are not group members; they are
+#       referenced from research_visits.yml.
+# ───────────────────────────────────────────────────────────────────
 
 researchers_madrid:
-  - name: "Manuel de León"
+  - id: manuel-de-leon
+    name: "Manuel de León"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. de Santiago de Compostela, Spain, 1978"
     research: "Differential Geometry, Geometric Mechanics, Mathematical Physics"
@@ -14,7 +37,8 @@ researchers_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=5V0GD7IAAAAJ"
 
-  - name: "Saskia Demulder"
+  - id: saskia-demulder
+    name: "Saskia Demulder"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, Vrije U. Brussel and Swansea U., Belgium and United Kingdom, 2019"
     research: "Theoretical High Energy Physics, String Theory, Quantum Gravity"
@@ -29,7 +53,8 @@ researchers_madrid:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1364460"
 
-  - name: "Verónica Errasti Díez"
+  - id: veronica-errasti-diez
+    name: "Verónica Errasti Díez"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, McGill U., Canada, 2018"
     research: "Theoretical High Energy Physics, Mathematical Physics"
@@ -44,7 +69,8 @@ researchers_madrid:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1602349?ui-citation-summary=true"
 
-  - name: "Eduardo Fernández Saiz"
+  - id: eduardo-fernandez-saiz
+    name: "Eduardo Fernández Saiz"
     photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2021"
     research: "Lie theory, Lie systems, Symplectic geometry"
@@ -52,8 +78,12 @@ researchers_madrid:
       - type: "orcid"
         label: "ORCID"
         url: "https://orcid.org/0000-0002-6220-4987"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/math?searchtype=author&query=Fernandez-Saiz%2C+E"
 
-  - name: "Jordi Gaset Rifà"
+  - id: jordi-gaset-rifa
+    name: "Jordi Gaset Rifà"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Politècnica de Catalunya, Spain, 2018"
     research: "Geometric Field Theory, Geometric Mechanics, Mathematical Physics"
@@ -68,7 +98,8 @@ researchers_madrid:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1645340"
 
-  - name: "Víctor M. Jiménez"
+  - id: victor-jimenez
+    name: "Víctor M. Jiménez"
     photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2019"
     research: "Differential Geometry, Lie Groupoids and Algebroids, Geometric Mechanics"
@@ -79,8 +110,12 @@ researchers_madrid:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=Y5YYfOMAAAAJ"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/?searchtype=author&query=Jiménez%2C+V+M"
 
-  - name: "Manuel Lainz"
+  - id: manuel-lainz
+    name: "Manuel Lainz"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
     research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
@@ -92,7 +127,8 @@ researchers_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=EY6HDoUAAAAJ"
 
-  - name: "Alberto Ruiz de Alarcón"
+  - id: alberto-ruiz-de-alarcon
+    name: "Alberto Ruiz de Alarcón"
     photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2023"
     research: "Quantum information, Quantum many-body systems, Tensor networks, Hopf algebras, Topological order"
@@ -103,8 +139,12 @@ researchers_madrid:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=kNiXyEUAAAAJ"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/?searchtype=author&query=de+Alarcón%2C+A+R"
 
-  - name: "David Trillo"
+  - id: david-trillo
+    name: "David Trillo"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Wien, Austria, 2023"
     research: "Quantum Information, Foundations of Quantum Mechanics, Mathematical Physics"
@@ -120,12 +160,14 @@ researchers_madrid:
         url: "https://inspirehep.net/authors/1981139"
 
 students_madrid:
-  - name: "Matteo Dell'Acqua"
+  - id: matteo-dellacqua
+    name: "Matteo Dell'Acqua"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
     research: " "
 
-  - name: "Óscar Carballal"
+  - id: oscar-carballal
+    name: "Óscar Carballal"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
     research: " "
@@ -137,7 +179,8 @@ students_madrid:
         label: "Google Scholar"
         url: "https://scholar.google.com.ar/citations?hl=es&user=5zzeOzQAAAAJ"
 
-  - name: "Marco D. Maceda"
+  - id: marco-maceda
+    name: "Marco D. Maceda"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
@@ -148,8 +191,12 @@ students_madrid:
       - type: "inspire"
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2920616?ui-citation-summary=true"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/physics?searchtype=author&query=Maceda,+M+D"
 
-  - name: "Rubén Izquierdo López"
+  - id: ruben-izquierdo-lopez
+    name: "Rubén Izquierdo López"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
     research: " "
@@ -160,9 +207,13 @@ students_madrid:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=vQKgf6sAAAAJ"
+      - type: "arxiv"
+        label: "arXiv"
+        url: "https://arxiv.org/search/math?searchtype=author&query=Izquierdo-López,+R"
 
 international_collaborators:
-  - name: "Alex Arvanitakis"
+  - id: alex-arvanitakis
+    name: "Alex Arvanitakis"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Research Associate, Ruđer Bošković Institute, Croatia"
     research: " "
@@ -177,7 +228,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1334454?ui-citation-summary=true"
 
-  - name: "Javier de Lucas Araujo"
+  - id: javier-de-lucas
+    name: "Javier de Lucas Araujo"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "Associate Professor, U. Warsaw, Poland"
     research: " "
@@ -189,7 +241,8 @@ international_collaborators:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=XNuXyrYAAAAJ&hl=en"
 
-  - name: "Mauricio Dóniz"
+  - id: mauricio-doniz
+    name: "Mauricio Dóniz"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD Student, Technical U. of Catalonia, Spain"
     research: " "
@@ -201,7 +254,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2512944"
 
-  - name: "María José Guzman"
+  - id: maria-jose-guzman
+    name: "María José Guzman"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Associate Professor, U. of Tartu, Estonia"
     research: " "
@@ -216,7 +270,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1301171?ui-citation-summary=true"
 
-  - name: "Markus Maier"
+  - id: markus-maier
+    name: "Markus Maier"
     photo: "/assets/images/people-icons/philo_icon.png"
     role: "PhD Student, Munich School of Philosophy, Germany"
     research: " "
@@ -225,7 +280,8 @@ international_collaborators:
         label: "ORCID"
         url: "https://orcid.org/0000-0003-1854-9416"
 
-  - name: "Rathindra Nath Das"
+  - id: rathindra-das
+    name: "Rathindra Nath Das"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
     research: " "
@@ -240,7 +296,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2620033?ui-citation-summary=true"
 
-  - name: "Yoshiko Ogata"
+  - id: yoshiko-ogata
+    name: "Yoshiko Ogata"
     photo: "/assets/images/people-icons/math_icon.png"
     role: "Professor, Research Institute for Mathematical Sciences, Japan"
     research: " "
@@ -249,7 +306,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1970124?ui-citation-summary=true"
 
-  - name: "Zohreh Ravanpak"
+  - id: zohreh-ravanpak
+    name: "Zohreh Ravanpak"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "Research fellow, Nanyang Technological U., Singapore"
     research: " "
@@ -261,7 +319,8 @@ international_collaborators:
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=_vI85XcAAAAJ"
 
-  - name: "Tomasz Sobczak"
+  - id: tomasz-sobczak
+    name: "Tomasz Sobczak"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
@@ -270,7 +329,8 @@ international_collaborators:
         label: "ORCID"
         url: "https://orcid.org/0009-0002-9577-0456"
 
-  - name: "Mirjam Weilenmann"
+  - id: mirjam-weilenmann
+    name: "Mirjam Weilenmann"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Researcher, Inria, France"
     research: " "
@@ -285,7 +345,8 @@ international_collaborators:
         label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1871635?ui-citation-summary=true"
 
-  - name: "Bartosz Zawora"
+  - id: bartosz-zawora
+    name: "Bartosz Zawora"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
     research: " "
@@ -293,3 +354,35 @@ international_collaborators:
       - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com.ar/citations?hl=es&user=JIfQiHsAAAAJ"
+
+# External research visitors hosted by the group. Referenced by research_visits.yml.
+# Not group members; not shown on the People page. `role` (position) left blank
+# on purpose — the visit institution lives in research_visits.yml as `affiliation`.
+visitors:
+  - id: narciso-roman-roy
+    name: "Narciso Román-Roy"
+    role: ""
+
+  - id: miguel-tierz
+    name: "Miguel Tierz"
+    role: ""
+
+  - id: sachindeo-vaidya
+    name: "Sachindeo Vaidya"
+    role: ""
+
+  - id: thomas-raml
+    name: "Thomas Raml"
+    role: ""
+
+  - id: georgina-staudt
+    name: "Georgina Staudt"
+    role: ""
+
+  - id: syksy-rasanen
+    name: "Syksy Räsänen"
+    role: ""
+
+  - id: miguel-navascues
+    name: "Miguel Navascués"
+    role: ""

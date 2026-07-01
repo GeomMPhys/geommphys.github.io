@@ -1,5 +1,15 @@
-# Migrated from the public Research directory.
-# TODO: Add a concise public description of the group's research themes.
+# ───────────────────────────────────────────────────────────────────
+#  RESEARCH OVERVIEW CARDS  →  shown on the "Research" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Each "- title:" block is one card. Copy a block to add a card.
+#
+#  FIELDS
+#    title    (required)  card heading, in quotes
+#    summary  (required)  one or two sentences, in quotes
+#    url      (optional)  link the card points to, e.g. "/publications/"
+#    topics   (optional)  bullet list of short phrases
+# ───────────────────────────────────────────────────────────────────
 
 - title: "Publications"
   summary: "Publications are listed by year on the public research page."

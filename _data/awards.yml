@@ -1,0 +1,37 @@
+# ───────────────────────────────────────────────────────────────────
+#  AWARDS & HONOURS  →  shown on the "Awards and Honours" page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add an award by copying a "- person:" block.
+#  • 2 spaces before "-". Quote text that has a colon (:) in it.
+#
+#  FIELDS
+#    person    (required)  the person's id from people.yml
+#    award     (required)  name of the award, in quotes
+#    category  (optional)  e.g. "PhD scholarship", "Researcher certification"
+#    year      (required)  four digits, no quotes
+#
+#  TIP: "person" must match an id in people.yml. Add the person there
+#       first if they are new.
+# ───────────────────────────────────────────────────────────────────
+
+awards:
+  - person: matteo-dellacqua
+    award: "La Caixa Doctoral INPhINIT fellowship"
+    category: "PhD scholarship"
+    year: 2026
+
+  - person: saskia-demulder
+    award: "R3-Established Researcher certification"
+    category: "Researcher certification"
+    year: 2026
+
+  - person: veronica-errasti-diez
+    award: "R3-Established Researcher certification"
+    category: "Researcher certification"
+    year: 2026
+
+  - person: marco-maceda
+    award: "FPI-UAM 2025"
+    category: "PhD scholarship"
+    year: 2026

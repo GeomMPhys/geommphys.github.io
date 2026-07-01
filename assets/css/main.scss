@@ -679,6 +679,10 @@ code {
   margin-top: 0.65rem;
 }
 
+.research-line-card h3 {
+  font-size: 1.35rem;
+}
+
 .network-map {
   display: grid;
   align-items: center;
@@ -892,6 +896,10 @@ code {
   grid-template-columns: auto 1fr;
   gap: 1rem;
   padding: 1rem;
+}
+
+.person {
+  scroll-margin-top: 6rem;
 }
 
 .person img,
