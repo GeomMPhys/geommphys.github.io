@@ -18,13 +18,13 @@
 
 selected:
   
-  - title: "A description of classical field equations using extensions of graded Poisson brackets"
-    authors: "Manuel de León, Rubén Izquierdo-López"
+  - title: "Poisson and Jacobi structures from 2-covariant tensors"
+    authors: "Manuel de León, Xavier Gràcia, Rubén Izquierdo-López, Ángel Martínez-Muñoz, Xavier Rivas"
     venue: "Preprint"
     year: 2026
-    arxiv: "2507.04743"
+    arxiv: "2606.20030"
     doi: ""
-    url: "https://arxiv.org/abs/2507.04743"
+    url: "https://arxiv.org/abs/2606.20030"
 
 
   - title: "Probing weak chaos in N = 4 super Yang-Mills and long-range spin chains"
