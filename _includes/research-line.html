@@ -1,5 +1,5 @@
 {%- assign l = include.line -%}
-<article class="card">
+<article class="card research-line-card">
   <h3>{{ l.name }}</h3>
   {% if l.keywords %}<p class="meta">{{ l.keywords | join: " · " }}</p>{% endif %}
   {% if l.description %}<p>{{ l.description }}</p>{% endif %}
