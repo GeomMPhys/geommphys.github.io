@@ -81,9 +81,9 @@ past:
     speaker: "Sachindeo Vaidya"
     affiliation: "Indian Institute of Science"
     date: 2026-02-17
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "13:30"
+    location: "LPC F1.2"
+    abstract: "We will discuss the matrix model of two-color one-flavor adjoint QCD in the weak coupling regime, and show that there is a quantum phase transition at g*0≃ 0.143: for g < g∗0 , the ground state wavefunction is localized in a small region of the gauge configuration space, while for g > g∗0, it gets delocalized over a much larger region. The transition between these two phases is singular, with the ground state at g∗0 being distinctly different from that of g∗0 ±|ϵ|. At g∗0, we will see that the square of the chromoelectric field vanishes, strongly suggesting that the system is in a “dual superconductor” phase. Numerical evidence shows that the localization-delocalization phenomenon holds for the 1st and 2nd excited states as well, leading us to conjecture that there are an infinite number of isolated singular points accumulating to g=0. The model formally possesses N= 1 supersymmetry for a particular choice of parameters. We show that in the localized phase the supermultiplet structure is disrupted and SUSY is thus spontaneously broken."
 
   - title: "A Random Matrix view of Quantum Spin and Fermionic chains"
     speaker: "Miguel Tierz"
@@ -121,9 +121,9 @@ past:
     speaker: "Zohreh Ravanpak"
     affiliation: "Nanyang Technological University, Singapore"
     date: 2025-09-05
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "13:30"
+    location: "Online"
+    abstract: "In this talk, I will present an overview of the rich interplay between geometry and dynamics, with Poisson structures at the core of the geometric framework, together with additional structures such as Lie group structures, Nijenhuis structures, and Riemannian metrics. Beginning with the classical theory of Poisson manifolds and Hamiltonian systems, I will discuss how Poisson structures interact with other geometric structures—sometimes subject to compatibility conditions. I will then show how these coupled structures provide a natural setting for bi-Hamiltonian dynamics and dissipative systems. Through examples, we will see how geometry provides an organizing framework for these dynamical systems."
 
   - title: "Covariant hamiltonian field theories and multisymplectic brackets: an introduction"
     speaker: "Manuel Lainz"
@@ -145,8 +145,8 @@ past:
     speaker: "Syksy Räsänen"
     affiliation: "University of Helsinki, Finland"
     date: 2025-03-03
-    time: "TODO"
-    location: "TODO"
+    time: "13:30"
+    location: "LPC F2.1"
     abstract: "TODO: Add abstract if available."
 
   - title: "First-order optimality conditions for non-commutative optimization problems"
