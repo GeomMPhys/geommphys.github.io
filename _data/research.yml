@@ -12,7 +12,7 @@
 # ───────────────────────────────────────────────────────────────────
 
 - title: "Publications"
-  summary: "Publications are listed by year on the public research page."
+  summary: "Recent preprints and publications of our group members"
   url: "/publications/"
   topics:
     - "2026 publications"
@@ -20,15 +20,15 @@
     - "2024 publications"
 
 - title: "Group seminars"
-  summary: "The group seminar page lists talks from 2025 and 2026 and invites subscribers to receive announcements by email."
+  summary: "GeomMPhys holds regular seminars by invited speakers, spaning a broad range of topics in mathematics and mathematical physics: "
   url: "/seminars/"
   topics:
-    - "Internal and external speakers"
     - "Mathematical physics and geometry"
+    - "Foundations of quantum mechanics and phases of matter"
     - "Quantum information and field theory"
 
 - title: "Research visits"
-  summary: "The public site records research visits from 2025 and 2026."
+  summary: "Recent visiting reseachers in our group:"
   url: "/research-visits/"
   topics:
     - "Markus Maier"
@@ -38,7 +38,7 @@
     - "Sachindeo Vaidya"
 
 - title: "Conferences and workshops"
-  summary: "The group publicizes conferences and workshops organized with group members."
+  summary: "Conferences and workshops organized with group members."
   url: "/conferences-workshops/"
   topics:
     - "Quantum Gravity in Closed Universes"
@@ -47,9 +47,7 @@
     - "Young Researchers School on Integrability and CFT2"
 
 - title: "Awards and honours"
-  summary: "The group records public awards, fellowships, and professional recognition received by its members."
+  summary: "Awards, fellowships, and professional recognition received by its members."
   url: "/awards-honours/"
   topics:
-    - "Doctoral fellowships"
-    - "Researcher certification"
-    - "Professional recognition"
+
