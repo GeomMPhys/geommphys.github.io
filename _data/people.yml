@@ -7,6 +7,8 @@
 #    existing "- id:" block under the right group.
 #  • Keep the spacing exactly (2 spaces before "-", 4 before the other
 #    fields). Never use TABS. Quote any text containing a colon (:).
+#  • To OMIT an optional field, delete its whole line. Do NOT leave it
+#    blank or put a single space — that shows as an empty line on the page.
 #
 #  FIELDS
 #    id        (required)  short nickname, lowercase-with-hyphens, unique.
@@ -14,10 +16,17 @@
 #                          not change it once it is in use.
 #    name      (required)  full name shown on the page, in quotes
 #    photo     (optional)  path to a photo/icon under /assets/images/...
-#    role      (optional)  free text (position + institution). May be "".
+#    role      (optional)  free text (position + institution).
 #    research  (optional)  short research interests, in quotes
-#    profiles  (optional)  list of links; each has type (orcid | scholar |
-#                          inspire), label, and url
+#    email     (optional)  e.g. "jane@example.org" — shown as an "Email" link
+#    website   (optional)  full URL to a personal page — shown as a "Website" link
+#    profiles  (optional)  list of links; each item has type, label and url.
+#                          type is one of: orcid | scholar | inspire | arxiv
+#                          (each gets its own icon). Anything else just shows
+#                          the label as text.
+#
+#  NOTE: an arXiv author-search link is added automatically for everyone.
+#        To suppress it for one person, add a line:  arxiv: false
 #
 #  TIP: "visitors" are people we host who are not group members; they are
 #       referenced from research_visits.yml.
@@ -119,6 +128,7 @@ researchers_madrid:
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
     research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
+    email: "manuel.lainz@cunef.edu"
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -164,13 +174,11 @@ students_madrid:
     name: "Matteo Dell'Acqua"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
-    research: " "
 
   - id: oscar-carballal
     name: "Óscar Carballal"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -183,7 +191,6 @@ students_madrid:
     name: "Marco D. Maceda"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -199,7 +206,6 @@ students_madrid:
     name: "Rubén Izquierdo López"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -216,7 +222,6 @@ international_collaborators:
     name: "Alex Arvanitakis"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Research Associate, Ruđer Bošković Institute, Croatia"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -232,7 +237,6 @@ international_collaborators:
     name: "Javier de Lucas Araujo"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "Associate Professor, U. Warsaw, Poland"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -245,7 +249,6 @@ international_collaborators:
     name: "Mauricio Dóniz"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD Student, Technical U. of Catalonia, Spain"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -258,7 +261,6 @@ international_collaborators:
     name: "María José Guzman"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Associate Professor, U. of Tartu, Estonia"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -274,7 +276,6 @@ international_collaborators:
     name: "Markus Maier"
     photo: "/assets/images/people-icons/philo_icon.png"
     role: "PhD Student, Munich School of Philosophy, Germany"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -284,7 +285,6 @@ international_collaborators:
     name: "Rathindra Nath Das"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -300,7 +300,6 @@ international_collaborators:
     name: "Yoshiko Ogata"
     photo: "/assets/images/people-icons/math_icon.png"
     role: "Professor, Research Institute for Mathematical Sciences, Japan"
-    research: " "
     profiles:
       - type: "inspire"
         label: "INSPIRE-HEP"
@@ -310,7 +309,6 @@ international_collaborators:
     name: "Zohreh Ravanpak"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "Research fellow, Nanyang Technological U., Singapore"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -323,7 +321,6 @@ international_collaborators:
     name: "Tomasz Sobczak"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -333,7 +330,6 @@ international_collaborators:
     name: "Mirjam Weilenmann"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Researcher, Inria, France"
-    research: " "
     profiles:
       - type: "orcid"
         label: "ORCID"
@@ -349,7 +345,6 @@ international_collaborators:
     name: "Bartosz Zawora"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
-    research: " "
     profiles:
       - type: "scholar"
         label: "Google Scholar"

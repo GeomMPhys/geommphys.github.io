@@ -6,6 +6,9 @@
 #    "- title:" block into the right list. Move a talk to "past:" once
 #    it has happened.
 #  • 2 spaces before "-". Quote text fields.
+#  • If you don't know an optional field yet (time, location, abstract),
+#    just delete its line — it will simply not be shown. Do not write
+#    "TODO" or leave it blank.
 #
 #  FIELDS
 #    title        (required)  talk title, in quotes
@@ -57,7 +60,7 @@ past:
     affiliation: "Munich School of Philosophy"
     date: 2026-04-16
     time: "15:00"
-    location: "PIR2.5,"
+    location: "PIR 2.5"
     abstract: "Philosophy and physics share a long common history. The generation that built relativity and quantum mechanics — Einstein, Bohr, Heisenberg, Boltzmann, Poincaré — regarded philosophical questions as inseparable from physical inquiry. This talk is an invitation to revisit that tradition. After a brief introduction to philosophy and its methods, I will discuss two important issues in contemporary philosophy of science: scientific explanation and the role of models. There is an evident connection between both topics, as physicists typically explain not by deriving phenomena from fundamental laws, but through idealized, purpose-built models of target systems. This discussion provides a potential starting point for various case studies from modern physics, such as renormalization and effective field theories. My aim is not to offer definitive answers but to open a conversation about where the interests of philosophers and physicists might productively meet."
 
   - title: "Multisymplectic formalism for manifolds with boundary"
@@ -75,7 +78,6 @@ past:
     date: 2026-03-23
     time: "14:30"
     location: "PIR 1.10"
-    abstract: "TODO: Add abstract if available."
 
   - title: "Confinement-deconfinement transition in gauge matrix models"
     speaker: "Sachindeo Vaidya"
@@ -113,9 +115,6 @@ past:
     speaker: "Georgina Staudt"
     affiliation: "Max-Planck-Institute for Physics, Germany"
     date: 2025-10-13
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
 
   - title: "Poisson Geometry and Bi-Hamiltonian Systems: From Manifolds to Lie Groups"
     speaker: "Zohreh Ravanpak"
@@ -129,17 +128,11 @@ past:
     speaker: "Manuel Lainz"
     affiliation: ""
     date: 2025-06-17
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
 
   - title: "Entanglement generation from gravity: the Diósi-Penrose model"
     speaker: "David Trillo"
     affiliation: ""
     date: 2025-04-01
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
 
   - title: "The role of stochasticity in the birth of primordial black holes"
     speaker: "Syksy Räsänen"
@@ -147,12 +140,8 @@ past:
     date: 2025-03-03
     time: "13:30"
     location: "LPC F2.1"
-    abstract: "TODO: Add abstract if available."
 
   - title: "First-order optimality conditions for non-commutative optimization problems"
     speaker: "Miguel Navascués"
     affiliation: "Institute for Quantum Optics and Quantum Information, Austria"
     date: 2025-01-23
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."

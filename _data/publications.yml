@@ -13,7 +13,6 @@
 #    year     (required)  four digits, no quotes
 #    arxiv    (optional)  arXiv id only, e.g. "2601.00000" ("" if none)
 #    doi      (optional)  DOI only, e.g. "10.1000/xyz" ("" if none)
-#    url      (optional)  full link to the paper
 # ───────────────────────────────────────────────────────────────────
 
 selected:
@@ -23,10 +22,6 @@ selected:
     year: 2026
     arxiv: "2607.05267"
     doi: ""
-    url: "https://arxiv.org/abs/2607.05267"
-
-
-    
 
   - title: "Poisson and Jacobi structures from 2-covariant tensors"
     authors: "Manuel de León, Xavier Gràcia, Rubén Izquierdo-López, Ángel Martínez-Muñoz, Xavier Rivas"
@@ -34,7 +29,6 @@ selected:
     year: 2026
     arxiv: "2606.20030"
     doi: ""
-    url: "https://arxiv.org/abs/2606.20030"
 
 
   - title: "Probing weak chaos in N = 4 super Yang-Mills and long-range spin chains"
@@ -43,7 +37,6 @@ selected:
     year: 2026
     arxiv: "2606.18351"
     doi: ""
-    url: "https://arxiv.org/abs/2606.18351"
 
   - title: "Stringy T-duality on the lattice and the twisted Villain model"
     authors: "C. Bacq, A. Caddeo, S. Demulder, J. Erdmenger"
@@ -51,7 +44,6 @@ selected:
     year: 2026
     arxiv: "2605.19925"
     doi: ""
-    url: "https://arxiv.org/abs/2605.19925"
 
   - title: "Optimal paths across potentials on scalar field space"
     authors: "S. Demulder, D. Lüst, C. Montella, T. Raml"
@@ -59,7 +51,6 @@ selected:
     year: 2026
     arxiv: "2604.24843"
     doi: ""
-    url: "https://arxiv.org/abs/2604.24843"
     
   - title: "Regularization of singular time-dependent Lagrangian systems"
     authors: "Manuel De León, Rubén Izquierdo-López, Luca Schiavone, Pablo Soto"
@@ -67,7 +58,6 @@ selected:
     year: 2026
     arxiv: "2603.24308"
     doi: ""
-    url: "https://arxiv.org/abs/2603.24308"
 
   - title: "Integrability breaking in semiclassical strings in Koopman-Krylov space"
     authors: "R. N. Das, S. Demulder"
@@ -75,7 +65,6 @@ selected:
     year: 2026
     arxiv: "2602.23421"
     doi: ""
-    url: "https://arxiv.org/abs/2602.23421"
 
   - title: "Non-invertible Nielsen circuits and 3d Ising gravity"
     authors: "S. Demulder"
@@ -83,7 +72,6 @@ selected:
     year: 2026
     arxiv: "2601.09534"
     doi: "10.1007/JHEP05(2026)146"
-    url: "https://doi.org/10.1007/JHEP05(2026)146"
 
   - title: "Non-invertible circuit complexity from fusion operations"
     authors: "S. Demulder"
@@ -91,7 +79,6 @@ selected:
     year: 2026
     arxiv: "2601.09535"
     doi: ""
-    url: "https://arxiv.org/abs/2601.09535"
 
   - title: "Haag Duality for 2D Quantum Spin Systems"
     authors: "Y. Ogata, D. Pérez-García and A. Ruiz-de-Alarcón"
@@ -99,7 +86,6 @@ selected:
     year: 2025
     arxiv: "2509.23734"
     doi: ""
-    url: "https://arxiv.org/abs/2509.23734"
 
   - title: "From variational principles to geometry"
     authors: "J. Gaset Rifà"
@@ -107,7 +93,6 @@ selected:
     year: 2025
     arxiv: "2509.22171"
     doi: ""
-    url: "https://arxiv.org/abs/2509.22171"
 
   - title: "Krylov exponents and power spectra for maximal quantum chaos: an EFT approach"
     authors: "S. Demulder, M. Knysh, A. Rolph"
@@ -115,7 +100,6 @@ selected:
     year: 2025
     arxiv: "2508.05444"
     doi: "10.1007/JHEP04(2026)059"
-    url: "https://doi.org/10.1007/JHEP04(2026)059"
 
   - title: "A description of classical field equations using extensions of graded Poisson brackets"
     authors: "M. de León, R. Izquierdo-López"
@@ -123,7 +107,6 @@ selected:
     year: 2025
     arxiv: "2507.04743"
     doi: ""
-    url: "https://arxiv.org/abs/2507.04743"
 
   - title: "A survey on geometric frameworks for action-dependent classical field theories and their relationship"
     authors: "J. Gaset Rifà, X. Rivas, N. Román-Roy"
@@ -131,7 +114,6 @@ selected:
     year: 2025
     arxiv: "2506.11646"
     doi: ""
-    url: "https://arxiv.org/abs/2506.11646"
 
   - title: "Brackets in multicontact geometry and multisymplectization"
     authors: "M. de León, R. Izquierdo-López, X. Rivas"
@@ -139,7 +121,6 @@ selected:
     year: 2025
     arxiv: "2505.13224"
     doi: "10.1007/s00009-026-03077-4"
-    url: "https://doi.org/10.1007/s00009-026-03077-4"
 
   - title: "Gap between quantum theory based on real and complex numbers is arbitrarily large"
     authors: "S. Sarkar, D. Trillo, M. O. Renou, R. Augusiak"
@@ -147,7 +128,6 @@ selected:
     year: 2025
     arxiv: "2503.09724"
     doi: ""
-    url: "https://arxiv.org/abs/2503.09724"
 
   - title: "Diósi-Penrose model of classical gravity predicts gravitationally induced entanglement"
     authors: "D. Trillo, M. Navascués"
@@ -155,15 +135,13 @@ selected:
     year: 2025
     arxiv: "2411.02287"
     doi: "10.1103/PhysRevD.111.L121101"
-    url: "https://doi.org/10.1103/PhysRevD.111.L121101"
 
-  - title: "Practical Introduction to Action-Dependent Field Theorie"
+  - title: "Practical Introduction to Action-Dependent Field Theories"
     authors: "M. de León, J. Gaset Rifà, M. C. Muñoz-Lecanda, X. Rivas and N. Román-Roy"
     venue: "Fortschritte der Physik 73, 5, e70000"
     year: 2025
     arxiv: "2409.08340"
     doi: "10.1002/prop.70000"
-    url: "https://doi.org/10.1002/prop.70000"
 
   - title: "Symplectic approach to global stability"
     authors: "V. Errasti Díez, J. Gaset Rifà and M. Lainz"
@@ -171,7 +149,6 @@ selected:
     year: 2025
     arxiv: "2504.16169"
     doi: "10.1007/978-3-032-03924-8_33"
-    url: "https://link.springer.com/chapter/10.1007/978-3-032-03924-8_33"
 
   - title: "Parent Lindbladians for Matrix Product Density Operators"
     authors: "Y. Liu, A. Ruiz-de-Alarcón, G. Styliaris, X. Sun, D. Pérez-García, and J. I. Cirac"
@@ -179,7 +156,6 @@ selected:
     year: 2025
     arxiv: "2501.10552"
     doi: "10.1103/1qyd-59z7"
-    url: "https://doi.org/10.1103/1qyd-59z7"
 
   - title: "Foundations of ghost stability"
     authors: "V. Errasti Díez, J. Gaset Rifà, G. Staudt"
@@ -187,7 +163,6 @@ selected:
     year: 2025
     arxiv: "2408.16832"
     doi: "10.1002/prop.202400268"
-    url: "https://doi.org/10.1002/prop.202400268"
 
   - title: "Graded Poisson and graded Dirac structures"
     authors: "M. de León, R. Izquierdo-López"
@@ -195,7 +170,6 @@ selected:
     year: 2025
     arxiv: "2410.06034"
     doi: "10.1063/5.0243128"
-    url: "https://doi.org/10.1063/5.0243128"
 
   - title: "Generalized Buchdahl equations as Lie-Hamilton systems: Quantum deformations and their general solution"
     authors: "R. Campoamor-Stursberg, E. Fernandez-Saiz and F. J. Herranz"
@@ -203,7 +177,6 @@ selected:
     year: 2024
     arxiv: "2412.06057"
     doi: "10.3934/math.2025315"
-    url: "https://doi.org/10.3934/math.2025315"
 
   - title: "The Herglotz variational principle for dissipative field theories"
     authors: "J. Gaset Rifà, M. Lainz Valcázar, A. Mas, and X. Rivas"
@@ -211,7 +184,6 @@ selected:
     year: 2024
     arxiv: "2211.17058"
     doi: "10.1142/S2972458924500060"
-    url: "https://doi.org/10.1142/S2972458924500060"
 
   - title: "Conditional Independence of 1D Gibbs States with Applications to Efficient Learning"
     authors: "Á. M. Alhambra, Á. Capel, P. Gondolf, A. Ruiz-de-Alarcón, and S. O. Scalet"
@@ -219,7 +191,6 @@ selected:
     year: 2024
     arxiv: "2402.18500"
     doi: ""
-    url: "https://arxiv.org/abs/2402.18500"
 
   - title: "Constraint characterization and degree of freedom counting in Lagrangian field theory"
     authors: "V. Errasti Díez, M. Maier and J. A. Méndez-Zavaleta"
@@ -227,6 +198,5 @@ selected:
     year: 2024
     arxiv: "2310.12218"
     doi: "10.1103/PhysRevD.109.025010"
-    url: "https://doi.org/10.1103/PhysRevD.109.025010"
 
 profiles: []
