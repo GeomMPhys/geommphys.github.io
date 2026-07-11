@@ -41,7 +41,7 @@
     {%- assign vp = all_people | where: 'id', v.person | first -%}
     { "title": {{ vp.name | default: v.person | prepend: 'Visit: ' | jsonify }}, "start": "{{ v.arrival | date: '%Y-%m-%d' }}", "end": "{{ v.departure | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#b96528", "extendedProps": { "category": "Research visit", "affiliation": {{ v.affiliation | default: '' | jsonify }}, "support": {{ v.support | default: '' | jsonify }} } },
   {%- endfor -%}
-  {%- for o in site.data.outreach.activities -%}{%- if o.date -%}
+  {%- for o in site.data.outreach.activities -%}{%- assign ods = o.date | append: '' -%}{%- if ods.size == 10 -%}
     { "title": {{ o.title | jsonify }}, "start": "{{ o.date | date: '%Y-%m-%d' }}", "color": "#8263a0", "extendedProps": { "category": "Outreach", "work_title": {{ o.work_title | default: '' | jsonify }}, "venue": {{ o.venue | default: '' | jsonify }} } },
   {%- endif -%}{%- endfor -%}
   ];

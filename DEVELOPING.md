@@ -145,8 +145,9 @@ in `outreach.yml` — coloured by category. The library is **vendored** at
 CSS) so the site stays self-contained; calendar-specific styling is in the
 "Calendar page" section of `main.scss`. Events are generated inline as a JS array
 by Liquid at build time — no plugin, no fetch. Visit `person` ids are resolved to
-names against `people.yml`; outreach entries without a full `date` are omitted
-(they only carry a year).
+names against `people.yml`. Outreach uses a single flexible `date` (a full
+`YYYY-MM-DD`, a `YYYY-MM`, or just a year); entries that are not a full date are
+omitted from the calendar since they can't be placed on a day.
 
 `events.ics` (root, `permalink: /events.ics`, `layout: null`) generates the same
 events as a subscribable iCal feed from the same data. The calendar page links to

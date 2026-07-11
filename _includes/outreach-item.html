@@ -14,5 +14,10 @@
     {% if note != "" %}<p class="record__note">{{ note }}.</p>{% endif %}
     {% if x.links %}<p class="links">{% for l in x.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>{% endif %}
   </div>
-  <p class="record__date">{% if x.date %}{{ x.date | date: "%B %-d, %Y" }}{% else %}{{ x.year }}{% endif %}</p>
+  {%- assign ds = x.date | append: "" -%}
+  <p class="record__date">
+    {%- if ds.size == 10 %}{{ ds | date: "%B %-d, %Y" }}
+    {%- elsif ds.size == 7 %}{{ ds | date: "%B %Y" }}
+    {%- else %}{{ ds }}{% endif -%}
+  </p>
 </article>

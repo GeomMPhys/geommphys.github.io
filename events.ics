@@ -56,7 +56,7 @@ SUMMARY:{{ vp.name | default: v.person | prepend: 'Visit: ' | replace: '\', '\\'
 {% endif %}CATEGORIES:Research visit
 END:VEVENT
 {% endfor -%}
-{%- for o in site.data.outreach.activities -%}{%- if o.date -%}
+{%- for o in site.data.outreach.activities -%}{%- assign ods = o.date | append: '' -%}{%- if ods.size == 10 -%}
 BEGIN:VEVENT
 UID:outreach-{{ forloop.index }}-{{ o.date | date: '%Y%m%d' }}@geommphys.github.io
 DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
