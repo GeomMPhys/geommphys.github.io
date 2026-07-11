@@ -132,8 +132,7 @@ activities:
     kind: talk                     # talk | article | stand | interview | video
     work_title: "Title of the talk/article"   # optional
     venue: "Place or publication"
-    date: 2026-05-20               # optional full date
-    year: 2026                     # always present (used for grouping)
+    date: 2026-05-20               # required; full date, or 2026-05, or just 2026
     lang: es                       # optional
     links:                         # optional
       - { label: "Watch", url: "https://..." }

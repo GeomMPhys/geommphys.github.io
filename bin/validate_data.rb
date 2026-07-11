@@ -35,6 +35,18 @@ def blank?(v)
   v.nil? || (v.is_a?(String) && v.strip.empty?)
 end
 
+# A flexible outreach date: a full date (Date, or "YYYY-MM-DD"), a year-month
+# ("YYYY-MM"), or a year (Integer 2024, or "2024"). Editors write as much as
+# they know; unquoted YAML gives us a Date / Integer / String accordingly.
+PARTIAL_DATE_RE = /\A\d{4}(-(0[1-9]|1[0-2])(-\d{2})?)?\z/
+def valid_outreach_date?(v)
+  return true if v.is_a?(Date)
+  return v.between?(1900, 2100) if v.is_a?(Integer)
+  return false unless v.is_a?(String) && v.match?(PARTIAL_DATE_RE)
+  return true if v.length < 10 # year or year-month
+  (Date.iso8601(v) rescue false)
+end
+
 # Validate one record (a Hash) against a field spec.
 #   spec[:required] => { field => type_symbol }
 #   spec[:optional] => { field => type_symbol }
@@ -45,6 +57,7 @@ TYPE_CHECK = {
   num:  ->(v) { v.is_a?(Numeric) },
   year: ->(v) { v.is_a?(Integer) && v.between?(1900, 2100) },
   date: ->(v) { valid_date?(v) },
+  odate: ->(v) { valid_outreach_date?(v) },
   list: ->(v) { v.is_a?(Array) },
   bool: ->(v) { v == true || v == false },
 }
@@ -58,7 +71,9 @@ def type_desc(type)
   return "one of: #{type.join(', ')}" if type.is_a?(Array)
   {
     str: "text (in quotes)", num: "a number", year: "a 4-digit year",
-    date: "a date written YYYY-MM-DD", list: "a list", bool: "true or false",
+    date: "a date written YYYY-MM-DD",
+    odate: "a year (2024), year-month (2024-05), or full date (2024-05-20)",
+    list: "a list", bool: "true or false",
   }.fetch(type)
 end
 
@@ -220,9 +235,9 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "outreach.yml")))
   top_list(errors, "outreach.yml", doc, "activities").each_with_index do |rec, i|
     where = "outreach.yml entry ##{i + 1}"
     check_record(errors, "outreach.yml", where, rec, {
-      required: { title: :str, people: :list, year: :year },
+      required: { title: :str, people: :list, date: :odate },
       optional: { kind: OUTREACH_KIND, work_title: :str, venue: :str,
-                  date: :date, lang: OUTREACH_LANG, links: :list },
+                  lang: OUTREACH_LANG, links: :list },
     })
     next unless rec.is_a?(Hash)
     if rec["people"].is_a?(Array)
