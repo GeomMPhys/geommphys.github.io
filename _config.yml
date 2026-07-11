@@ -28,6 +28,7 @@ sass:
 
 exclude:
   - AGENTS.md
+  - DEVELOPING.md
   - Gemfile
   - Gemfile.lock
   - README.md
