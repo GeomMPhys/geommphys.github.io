@@ -152,30 +152,12 @@ The People page includes a lightweight SVG network map driven by
 position the point and connection line — adjust them only when adding or moving
 a location.
 
-## Local development
+## For developers
 
-Ruby/Bundler can be fiddly to install locally, so the simplest reproducible way
-to build is **Docker, using the same stack as CI** (Ruby 3.1, Bundler 2.5.23):
-
-```bash
-# Build
-docker run --rm \
-  -u "$(id -u):$(id -g)" -e HOME=/tmp -e GEM_HOME=/tmp/gems \
-  -e PATH="/tmp/gems/bin:/usr/local/bin:/usr/bin:/bin" \
-  -v "$PWD":/site -w /site ruby:3.1 \
-  bash -c "gem install bundler -v 2.5.23 --no-document && bundle _2.5.23_ install && bundle _2.5.23_ exec jekyll build"
-
-# Serve at http://localhost:4000 (add -it -p 4000:4000 and `jekyll serve -H 0.0.0.0`)
-```
-
-If you have a working local toolchain instead, `bundle install` then
-`bundle exec jekyll serve` works the same way.
-
-## Deployment
-
-`.github/workflows/pages.yml` builds the site and deploys it to GitHub Pages on
-every push to `main`. In the repository settings, Pages must be set to deploy
-from **GitHub Actions**.
+Changing templates, styles, the build, or the data schema — rather than editing
+content — is covered separately in **`DEVELOPING.md`**: how the data-driven
+rendering works, the includes, local build/preview with Docker, deployment, and
+the data validator. Rules to follow when making changes are in `AGENTS.md`.
 
 ## Internal documents
 

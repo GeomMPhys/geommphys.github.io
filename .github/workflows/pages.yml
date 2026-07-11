@@ -27,6 +27,9 @@ jobs:
         with:
           ruby-version: "3.1"
 
+      - name: Validate data files
+        run: ruby bin/validate_data.rb
+
       - name: Install dependencies
         run: |
           gem install bundler -v 2.5.23
