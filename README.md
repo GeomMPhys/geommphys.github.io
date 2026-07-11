@@ -149,7 +149,9 @@ The People page includes a lightweight SVG network map driven by
 `_data/network.yml`. Use only public affiliation information. Each location's
 `label`, `subtitle`, and `members` show in a tooltip when you hover or tap its
 dot; `members` is a list of **person ids from people.yml** (names are resolved
-automatically), so a person renamed there updates the map too. The `x`, `y`, and
+automatically), so a person renamed there updates the map too. European
+locations sit too close together to tap, so those marked `inset: true` also
+appear, spread out, in a zoomed **Europe inset** in the corner. The `x`, `y`, and
 `curve` numbers position the point and its connecting line — adjust them only
 when adding or moving a location, and always preview the result.
 

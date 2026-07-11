@@ -338,6 +338,7 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "network.yml")))
       check_record(errors, "network.yml", where, loc, {
         required: { label: :str, subtitle: :str, x: :num, y: :num,
                     curve: :str, members: :list },
+        optional: { inset: :bool },
       })
       next unless loc.is_a?(Hash) && loc["members"].is_a?(Array)
       loc["members"].each_with_index do |m, j|
