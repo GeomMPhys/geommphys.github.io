@@ -184,7 +184,8 @@ if people_doc.is_a?(Hash)
       next unless rec["profiles"].is_a?(Array)
       rec["profiles"].each_with_index do |p, j|
         check_record(errors, "people.yml", "#{where} → profile ##{j + 1}", p, {
-          required: { type: :str, label: :str, url: :str },
+          required: { type: :str, url: :str },
+          optional: { label: :str },
         })
       end
     end
