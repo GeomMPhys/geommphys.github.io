@@ -151,9 +151,9 @@ The People page includes a lightweight SVG network map driven by
 dot; `members` is a list of **person ids from people.yml** (names are resolved
 automatically), so a person renamed there updates the map too. European
 locations sit too close together to tap, so those marked `inset: true` also
-appear, spread out, in a zoomed **Europe inset** in the corner. The `x`, `y`, and
-`curve` numbers position the point and its connecting line — adjust them only
-when adding or moving a location, and always preview the result.
+appear, spread out, in a zoomed **Europe inset** in the corner. The `x` and `y`
+numbers position the point — adjust them only when adding or moving a location,
+and always preview the result.
 
 ## For developers
 

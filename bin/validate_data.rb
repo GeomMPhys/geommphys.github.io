@@ -337,7 +337,7 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "network.yml")))
       where = "network.yml location ##{i + 1} (#{loc.is_a?(Hash) ? loc['label'] : '?'})"
       check_record(errors, "network.yml", where, loc, {
         required: { label: :str, subtitle: :str, x: :num, y: :num,
-                    curve: :str, members: :list },
+                    members: :list },
         optional: { inset: :bool },
       })
       next unless loc.is_a?(Hash) && loc["members"].is_a?(Array)

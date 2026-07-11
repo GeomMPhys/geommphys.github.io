@@ -10,16 +10,14 @@
 #    everywhere else). Hover or tap a dot on the map to see the place, its
 #    institution (subtitle) and its members' names, resolved from people.yml.
 #    For someone not in people.yml, write  - { name: "Full Name" }  instead.
-#  • The x / y numbers and the "curve" line position the dot and its
-#    connecting line — only change these when adding or moving a
-#    location, and always preview the result.
+#  • The x / y numbers position the dot on the map — only change them when
+#    adding or moving a location, and always preview the result.
 #
 #  FIELDS (per location)
 #    label     (required)  place name, in quotes
 #    subtitle  (required)  institution, in quotes
 #    members   (required)  list of person ids from people.yml
 #    x, y      (required)  position on the map (numbers)
-#    curve     (required)  the connecting line (leave unless repositioning)
 #    inset     (optional)  true for European locations — they also appear,
 #                          spread out and tappable, in the zoomed "Europe"
 #                          inset (the cluster is too tight to tap otherwise)
@@ -37,7 +35,6 @@ locations:
     inset: true
     x: 544
     y: 99
-    curve: "M 490 108 C 508 96, 528 94, 544 99"
     members:
       - alex-arvanitakis
 
@@ -46,7 +43,6 @@ locations:
     inset: true
     x: 558
     y: 87
-    curve: "M 490 108 C 511 87, 536 78, 558 87"
     members:
       - javier-de-lucas
       - tomasz-sobczak
@@ -57,7 +53,6 @@ locations:
     inset: true
     x: 506
     y: 106
-    curve: "M 490 108 C 494 104, 501 103, 506 106"
     members:
       - mauricio-doniz
 
@@ -66,7 +61,6 @@ locations:
     inset: true
     x: 574
     y: 76
-    curve: "M 490 108 C 515 76, 549 63, 574 76"
     members:
       - maria-jose-guzman
 
@@ -75,7 +69,6 @@ locations:
     inset: true
     x: 532
     y: 95
-    curve: "M 490 108 C 503 94, 519 90, 532 95"
     members:
       - markus-maier
 
@@ -83,7 +76,6 @@ locations:
     subtitle: "Massachusetts Institute of Technology"
     x: 303
     y: 105
-    curve: "M 490 108 C 431 55, 349 58, 303 105"
     members:
       - rathindra-das
 
@@ -91,7 +83,6 @@ locations:
     subtitle: "Research Institute for Mathematical Sciences"
     x: 877
     y: 118
-    curve: "M 490 108 C 619 50, 767 58, 877 118"
     members:
       - yoshiko-ogata
 
@@ -99,7 +90,6 @@ locations:
     subtitle: "Nanyang Technological University"
     x: 788
     y: 178
-    curve: "M 490 108 C 583 153, 682 184, 788 178"
     members:
       - zohreh-ravanpak
 
@@ -108,6 +98,5 @@ locations:
     inset: true
     x: 506
     y: 93
-    curve: "M 490 108 C 492 100, 498 94, 506 93"
     members:
       - mirjam-weilenmann
