@@ -17,6 +17,8 @@
   url: /
 - title: People
   url: /people/
+- title: Calendar
+  url: /calendar/
 - title: Research
   children:
     - title: Research Lines

@@ -1133,3 +1133,120 @@ address {
     text-align: left;
   }
 }
+
+/* ── Calendar page (FullCalendar) ─────────────────────────────── */
+.cal-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.cal-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.cal-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.cal-legend li::before {
+  display: none;
+}
+
+.cal-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cal-subscribe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.cal-subscribe .button {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.7rem;
+}
+
+#calendar {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Tone FullCalendar to the site palette */
+.fc {
+  --fc-border-color: var(--border);
+  --fc-today-bg-color: var(--surface-alt);
+  --fc-page-bg-color: var(--surface);
+  --fc-neutral-bg-color: var(--surface-alt);
+}
+
+.fc .fc-button-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.fc .fc-button-primary:not(:disabled):hover,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background: var(--link);
+  border-color: var(--link);
+}
+
+.fc a {
+  color: inherit;
+}
+
+.cal-details {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.cal-details h2 {
+  margin-top: 0;
+}
+
+.cal-details__row {
+  margin: 0.35rem 0;
+}
+
+.cal-details__close {
+  margin-top: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .fc .fc-toolbar.fc-header-toolbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

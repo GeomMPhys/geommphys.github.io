@@ -1,0 +1,104 @@
+{%- comment -%}
+  Group events calendar. Builds a FullCalendar view from four data files:
+  seminars, workshops, research visits, and (dated) outreach activities.
+  Events are coloured by category. A subscribable .ics feed is generated
+  separately by /events.ics. Person ids on visits are resolved to names.
+{%- endcomment -%}
+{%- assign all_people = site.data.people.researchers_madrid
+      | concat: site.data.people.students_madrid
+      | concat: site.data.people.international_collaborators
+      | concat: site.data.people.visitors -%}
+
+<div class="cal-toolbar">
+  <ul class="cal-legend" aria-label="Event categories">
+    <li><span class="cal-dot" style="background:#46698f"></span>Seminars</li>
+    <li><span class="cal-dot" style="background:#5f7d4f"></span>Conferences &amp; workshops</li>
+    <li><span class="cal-dot" style="background:#b96528"></span>Research visits</li>
+    <li><span class="cal-dot" style="background:#8263a0"></span>Outreach</li>
+  </ul>
+  <p class="links cal-subscribe">
+    <a class="button button--secondary" href="{{ '/events.ics' | relative_url }}">Download .ics</a>
+    <a class="button button--secondary" href="https://calendar.google.com/calendar/render?cid=webcal://geommphys.github.io/events.ics" target="_blank" rel="noopener">Add to Google Calendar</a>
+    <a class="button button--secondary" href="webcal://geommphys.github.io/events.ics">Subscribe (Apple / Outlook)</a>
+  </p>
+</div>
+
+<div id="calendar"></div>
+<div id="event-details" class="cal-details" hidden></div>
+
+<script>
+  window.GEOMM_EVENTS = [
+  {%- for s in site.data.seminars.upcoming -%}{%- unless s.date == nil -%}
+    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
+  {%- endunless -%}{%- endfor -%}
+  {%- for s in site.data.seminars.past -%}{%- unless s.date == nil -%}
+    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
+  {%- endunless -%}{%- endfor -%}
+  {%- for e in site.data.workshops.events -%}
+    { "title": {{ e.title | jsonify }}, "start": "{{ e.start | date: '%Y-%m-%d' }}", "end": "{{ e.end | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#5f7d4f", "url": {{ e.url | default: '' | jsonify }}, "extendedProps": { "category": {{ e.type | capitalize | jsonify }}, "location": {{ e.location | default: '' | jsonify }}, "description": {{ e.description | default: '' | jsonify }} } },
+  {%- endfor -%}
+  {%- for v in site.data.research_visits.visits -%}
+    {%- assign vp = all_people | where: 'id', v.person | first -%}
+    { "title": {{ vp.name | default: v.person | prepend: 'Visit: ' | jsonify }}, "start": "{{ v.arrival | date: '%Y-%m-%d' }}", "end": "{{ v.departure | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#b96528", "extendedProps": { "category": "Research visit", "affiliation": {{ v.affiliation | default: '' | jsonify }}, "support": {{ v.support | default: '' | jsonify }} } },
+  {%- endfor -%}
+  {%- for o in site.data.outreach.activities -%}{%- if o.date -%}
+    { "title": {{ o.title | jsonify }}, "start": "{{ o.date | date: '%Y-%m-%d' }}", "color": "#8263a0", "extendedProps": { "category": "Outreach", "work_title": {{ o.work_title | default: '' | jsonify }}, "venue": {{ o.venue | default: '' | jsonify }} } },
+  {%- endif -%}{%- endfor -%}
+  ];
+</script>
+
+<script src="{{ '/assets/js/fullcalendar.min.js' | relative_url }}"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('calendar');
+    var details = document.getElementById('event-details');
+    if (!el || !window.FullCalendar) { return; }
+
+    function row(label, value) {
+      if (!value) { return ''; }
+      var v = String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return '<p class="cal-details__row"><strong>' + label + '</strong> ' + v + '</p>';
+    }
+
+    var calendar = new FullCalendar.Calendar(el, {
+      initialView: 'dayGridMonth',
+      headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listYear' },
+      buttonText: { today: 'Today', month: 'Month', list: 'Agenda' },
+      firstDay: 1,
+      height: 'auto',
+      displayEventTime: true,
+      events: window.GEOMM_EVENTS,
+      eventClick: function (info) {
+        info.jsEvent.preventDefault();
+        var p = info.event.extendedProps;
+        var when = info.event.start
+          ? info.event.start.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+          : '';
+        if (info.event.start && !info.event.allDay) {
+          when += ', ' + info.event.start.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+        }
+        var html = '<h2>' + info.event.title.replace(/</g, '&lt;') + '</h2>';
+        html += row('', p.category);
+        html += row('When:', when);
+        html += row('Speaker:', p.speaker);
+        html += row('From:', p.affiliation);
+        html += row('Where:', p.location);
+        html += row('Venue:', p.venue);
+        html += row('Talk:', p.work_title);
+        html += row('Support:', p.support);
+        html += row('', p.description);
+        if (info.event.url) {
+          html += '<p class="links"><a href="' + info.event.url + '" target="_blank" rel="noopener">Event website</a></p>';
+        }
+        html += '<button type="button" class="cal-details__close" aria-label="Close">Close</button>';
+        details.innerHTML = html;
+        details.hidden = false;
+        details.querySelector('.cal-details__close').addEventListener('click', function () {
+          details.hidden = true;
+        });
+        details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+    calendar.render();
+  });
+</script>
