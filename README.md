@@ -146,10 +146,12 @@ has `upcoming:` and `past:` lists. See existing entries for the shape.
 ### Update the international network map
 
 The People page includes a lightweight SVG network map driven by
-`_data/network.yml`. Use only public affiliation information. The `label`,
-`subtitle`, and `members` fields are displayed; the `x`, `y`, and `curve` fields
-position the point and connection line — adjust them only when adding or moving
-a location.
+`_data/network.yml`. Use only public affiliation information. Each location's
+`label`, `subtitle`, and `members` show in a tooltip when you hover or tap its
+dot; `members` is a list of **person ids from people.yml** (names are resolved
+automatically), so a person renamed there updates the map too. The `x`, `y`, and
+`curve` numbers position the point and its connecting line — adjust them only
+when adding or moving a location, and always preview the result.
 
 ## For developers
 

@@ -93,7 +93,7 @@ external people not in `people.yml` (e.g. outside workshop co-organizers).
 | `outreach-item.html` | one outreach activity | `outreach.md` |
 | `research-area.html` | a card on the Research overview | `research.md` |
 | `calendar.html` | the FullCalendar event view + subscribe links | `calendar.md` |
-| `network-map.html` | the SVG collaborator map | `people.md` |
+| `network-map.html` | the SVG collaborator map (member ids → hover tooltip) | `people.md` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
 | `header.html` / `footer.html` | nav (from `navigation.yml`) and footer | layout |
 

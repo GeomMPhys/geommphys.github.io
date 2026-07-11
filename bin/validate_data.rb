@@ -325,10 +325,41 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "research.yml")))
   end
 end
 
+# network.yml — the map: locations with member ids resolved from people.yml
+if (doc = load_yaml(errors, File.join(DATA_DIR, "network.yml")))
+  if doc.is_a?(Hash) && doc["center"]
+    check_record(errors, "network.yml", "network.yml center", doc["center"], {
+      required: { label: :str, x: :num, y: :num }, optional: { subtitle: :str },
+    })
+  end
+  if doc.is_a?(Hash) && doc["locations"].is_a?(Array)
+    doc["locations"].each_with_index do |loc, i|
+      where = "network.yml location ##{i + 1} (#{loc.is_a?(Hash) ? loc['label'] : '?'})"
+      check_record(errors, "network.yml", where, loc, {
+        required: { label: :str, subtitle: :str, x: :num, y: :num,
+                    curve: :str, members: :list },
+      })
+      next unless loc.is_a?(Hash) && loc["members"].is_a?(Array)
+      loc["members"].each_with_index do |m, j|
+        if m.is_a?(String)
+          check_person_ref(errors, "network.yml", "#{where} → member ##{j + 1}", m, person_ids)
+        elsif m.is_a?(Hash)
+          check_record(errors, "network.yml", "#{where} → member ##{j + 1}", m, {
+            required: { name: :str }, optional: { affiliation: :str },
+          })
+        else
+          err(errors, "network.yml", "#{where} → member ##{j + 1}: must be a " \
+              "person id or `{ name: \"...\" }`.")
+        end
+      end
+    end
+  end
+end
+
 # ── files with a fixed shape: just confirm they parse cleanly ───────
-#    (network.yml, navigation.yml, site.yml, contact.yml). These are
-#    edited rarely and structurally; a clean YAML parse is enough.
-%w[network.yml navigation.yml site.yml contact.yml].each do |f|
+#    (navigation.yml, site.yml, contact.yml). These are edited rarely and
+#    structurally; a clean YAML parse is enough.
+%w[navigation.yml site.yml contact.yml].each do |f|
   load_yaml(errors, File.join(DATA_DIR, f))
 end
 
