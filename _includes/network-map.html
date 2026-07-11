@@ -6,36 +6,26 @@
 
 <figure class="network-map" aria-labelledby="network-map-title network-map-description">
   <div class="network-map__frame">
-  <svg viewBox="80 30 840 300" role="img" focusable="false">
+  <svg viewBox="80 30 840 420" role="img" focusable="false">
     <title id="network-map-title">International research network centred on Madrid</title>
     <desc id="network-map-description">A minimalist world map showing public affiliation locations connected to Madrid.</desc>
 
-    <rect class="network-map__ocean" x="80" y="30" width="840" height="300" rx="12" fill="#eef3f4" />
+    <rect class="network-map__ocean" x="80" y="30" width="840" height="420" rx="12" fill="#eef3f4" />
     <g class="network-map__graticule" aria-hidden="true" fill="none" stroke="#d7e0e2" stroke-width="0.6">
-      <path d="M 220 30 V 330 M 360 30 V 330 M 500 30 V 330 M 640 30 V 330 M 780 30 V 330" />
-      <path d="M 80 100 H 920 M 80 170 H 920 M 80 240 H 920" />
+      <path d="M 220 30 V 450 M 360 30 V 450 M 500 30 V 450 M 640 30 V 450 M 780 30 V 450" />
+      <path d="M 80 100 H 920 M 80 170 H 920 M 80 240 H 920 M 80 310 H 920 M 80 380 H 920" />
     </g>
 
     <!-- Land outlines simplified from Natural Earth 1:110m public-domain land data. -->
     <g id="network-map-land" class="network-map__land" aria-hidden="true" fill="#e3e9e4" stroke="#c7d2ce" stroke-width="1">
+      <!-- British Isles: absent from the simplified base map, added here (projection derived from the map's own city positions) -->
+      <path d="M 486 91 L 504 89 L 501 86 L 492 80 L 491 76 L 486 76 L 485 81 Z" />
+      <path d="M 473 88 L 483 87 L 484 83 L 478 81 L 473 85 Z" />
       <path d="M 797.1 43.2 L 817.0 45.2 L 803.9 48.1 L 852.7 49.2 L 864.7 54.2 L 890.2 50.5 L 971.0 57.9 L 988.1 55.8 L 1000.0 57.4 L 1000.0 64.5 L 992.8 65.1 L 997.9 69.2 L 954.3 73.6 L 950.0 76.5 L 953.3 77.6 L 950.3 82.5 L 935.5 89.3 L 933.1 79.1 L 956.9 68.8 L 944.8 72.4 L 935.3 70.8 L 928.4 73.8 L 930.7 74.9 L 895.0 75.0 L 875.4 82.7 L 888.6 83.7 L 892.7 87.1 L 883.9 97.7 L 854.3 109.3 L 859.6 114.6 L 858.6 117.6 L 851.3 118.9 L 852.4 114.4 L 846.4 112.3 L 848.1 109.7 L 836.3 110.8 L 837.9 107.2 L 826.5 111.1 L 839.9 113.4 L 831.0 117.9 L 838.6 123.7 L 838.7 128.4 L 821.9 139.5 L 794.1 144.9 L 802.4 152.8 L 803.3 159.3 L 792.1 164.7 L 778.0 156.2 L 775.6 163.6 L 786.0 170.2 L 789.5 177.7 L 781.6 175.1 L 773.2 166.1 L 774.3 159.7 L 769.9 149.9 L 761.6 151.5 L 762.0 147.6 L 753.9 139.5 L 741.6 141.8 L 723.1 151.7 L 721.8 161.6 L 715.4 165.8 L 704.3 151.6 L 701.8 142.0 L 695.8 142.9 L 684.4 134.8 L 659.4 134.2 L 633.3 126.7 L 643.9 137.3 L 656.6 133.1 L 657.9 136.9 L 666.1 140.3 L 653.5 149.4 L 620.8 157.5 L 618.5 150.2 L 596.2 130.1 L 597.0 127.6 L 594.2 130.8 L 590.1 126.9 L 604.1 146.9 L 618.7 159.1 L 623.9 161.4 L 642.0 158.6 L 641.8 161.1 L 632.6 172.5 L 608.9 188.3 L 612.4 199.1 L 611.4 208.6 L 596.6 215.2 L 598.5 222.9 L 590.5 225.7 L 590.2 230.3 L 583.5 235.4 L 571.6 240.3 L 551.0 240.7 L 542.3 228.2 L 532.3 209.6 L 537.9 201.4 L 536.8 195.2 L 524.4 182.0 L 527.2 174.5 L 523.6 171.5 L 507.5 168.9 L 477.8 172.3 L 464.0 166.1 L 451.0 153.8 L 454.8 149.5 L 452.6 142.7 L 455.6 137.8 L 483.5 116.4 L 526.4 113.6 L 530.8 114.4 L 528.7 119.9 L 553.0 126.2 L 559.8 121.6 L 593.8 124.9 L 600.4 114.8 L 576.8 114.8 L 572.7 109.8 L 593.1 105.3 L 615.4 106.2 L 601.9 99.6 L 608.7 96.0 L 597.1 97.7 L 601.5 99.2 L 594.1 101.1 L 585.4 97.2 L 576.9 104.3 L 580.0 107.0 L 562.9 108.4 L 566.8 113.1 L 562.5 115.3 L 554.3 105.8 L 536.5 98.7 L 535.0 101.6 L 551.3 108.6 L 546.9 108.1 L 543.6 112.6 L 542.8 108.8 L 524.7 101.1 L 508.6 103.4 L 494.0 114.8 L 475.3 114.5 L 473.9 103.5 L 496.2 101.7 L 496.7 98.2 L 487.2 93.5 L 522.6 84.8 L 523.7 78.5 L 529.4 77.4 L 526.8 81.4 L 530.4 84.0 L 554.6 83.2 L 559.9 77.9 L 567.0 78.6 L 564.8 74.8 L 580.9 73.3 L 559.2 72.1 L 559.8 67.7 L 570.6 64.2 L 566.4 62.7 L 549.6 68.4 L 547.6 70.9 L 552.2 73.2 L 544.1 80.3 L 536.0 81.6 L 528.8 74.3 L 515.7 75.8 L 513.9 69.8 L 541.0 59.4 L 578.2 53.4 L 614.1 60.1 L 592.2 61.5 L 602.8 66.5 L 622.1 62.5 L 620.7 58.1 L 628.5 58.7 L 628.7 61.5 L 649.2 57.6 L 666.5 58.6 L 668.2 55.8 L 690.3 58.9 L 685.3 53.7 L 694.3 50.2 L 702.2 51.6 L 699.6 53.1 L 704.6 58.4 L 698.0 62.1 L 701.2 62.4 L 708.5 59.5 L 703.1 53.0 L 707.4 50.5 L 712.1 53.5 L 726.4 52.4 L 723.6 49.1 L 797.1 43.2 Z" />
       <path d="M 248.5 56.4 L 257.4 60.5 L 262.4 55.8 L 270.5 56.2 L 274.3 59.8 L 241.2 69.7 L 237.0 75.2 L 243.6 78.5 L 271.5 82.0 L 278.0 89.0 L 281.7 86.6 L 278.3 82.8 L 287.4 79.5 L 281.9 75.5 L 285.2 73.6 L 283.0 69.2 L 294.9 69.0 L 306.7 71.4 L 312.1 76.5 L 320.6 72.7 L 345.3 87.3 L 315.6 90.7 L 302.5 96.8 L 319.3 92.5 L 320.9 97.8 L 333.9 98.4 L 318.4 102.6 L 316.2 101.0 L 321.0 99.5 L 313.5 99.8 L 303.3 103.8 L 305.7 106.0 L 290.2 109.8 L 289.1 113.8 L 287.9 110.4 L 289.6 116.8 L 274.1 124.1 L 276.7 135.2 L 266.4 126.5 L 231.7 129.7 L 228.1 140.1 L 232.5 145.7 L 244.3 146.7 L 258.2 141.7 L 253.0 151.8 L 268.3 152.9 L 267.2 160.3 L 273.8 164.4 L 286.6 164.6 L 300.7 157.9 L 300.8 163.9 L 305.7 158.4 L 310.6 161.2 L 328.1 160.9 L 325.7 161.5 L 341.3 169.4 L 357.5 172.5 L 360.0 180.1 L 388.9 185.1 L 401.1 189.2 L 403.5 193.1 L 392.6 203.2 L 386.3 219.0 L 367.6 224.2 L 364.2 231.0 L 350.5 241.1 L 337.7 240.3 L 342.3 245.6 L 319.1 253.0 L 323.7 255.7 L 313.1 261.0 L 316.7 265.6 L 307.9 270.2 L 310.7 273.1 L 302.8 275.7 L 291.8 272.9 L 290.0 266.5 L 294.1 263.4 L 289.9 262.9 L 298.0 255.3 L 293.5 256.8 L 295.6 246.1 L 301.6 237.6 L 305.1 215.1 L 288.9 206.0 L 274.3 190.9 L 278.4 184.7 L 275.2 181.9 L 285.8 173.2 L 282.8 165.2 L 275.3 167.2 L 262.1 162.3 L 257.0 156.4 L 212.5 147.5 L 181.2 123.5 L 196.0 138.8 L 188.4 136.0 L 174.2 121.3 L 164.9 118.5 L 154.4 108.3 L 153.6 94.3 L 159.5 96.3 L 158.8 92.9 L 146.0 89.6 L 127.6 76.7 L 91.3 71.8 L 78.6 74.8 L 81.6 71.0 L 59.9 80.5 L 42.3 83.3 L 63.8 75.3 L 50.1 75.7 L 38.6 70.7 L 53.4 64.8 L 33.0 63.3 L 50.9 62.5 L 36.8 58.5 L 65.1 53.1 L 120.8 57.5 L 144.1 54.7 L 197.6 60.2 L 205.1 57.7 L 233.0 60.4 L 238.2 57.2 L 232.0 55.4 L 235.5 52.1 L 248.5 56.4 Z" />
       <path d="M 424.7 31.5 L 442.1 32.9 L 411.4 33.9 L 466.1 35.5 L 444.3 37.5 L 450.7 37.5 L 445.3 40.0 L 448.7 43.1 L 439.8 43.8 L 446.2 47.9 L 431.1 51.4 L 439.6 54.4 L 426.8 55.2 L 437.9 55.3 L 389.4 63.6 L 381.1 68.6 L 379.5 73.2 L 365.9 71.8 L 356.6 66.9 L 350.1 60.6 L 358.7 55.7 L 348.1 56.2 L 357.2 54.5 L 344.9 52.6 L 348.0 51.0 L 337.3 45.7 L 296.4 41.3 L 317.5 38.9 L 311.0 37.6 L 326.0 34.6 L 424.7 31.5 Z" />
       <path d="M 898.8 204.5 L 925.4 226.3 L 924.7 236.2 L 916.7 246.5 L 906.4 249.4 L 890.7 247.6 L 883.9 241.1 L 880.1 242.7 L 882.8 238.5 L 877.7 242.0 L 864.8 236.0 L 827.8 242.3 L 819.5 240.8 L 821.4 236.2 L 814.8 226.4 L 817.3 226.8 L 815.0 223.4 L 817.1 218.7 L 835.7 215.0 L 849.1 205.3 L 860.1 206.6 L 867.7 199.8 L 879.1 201.1 L 876.4 206.7 L 889.5 211.5 L 894.8 199.6 L 898.8 204.5 Z" />
       <path d="M 259.5 49.9 L 299.3 52.8 L 328.2 61.1 L 322.4 64.4 L 311.1 62.2 L 320.4 67.3 L 308.9 66.7 L 316.2 69.9 L 284.1 65.8 L 281.8 65.2 L 298.2 60.4 L 280.7 55.3 L 253.7 54.8 L 249.4 51.6 L 261.6 48.8 L 259.5 49.9 Z" />
-    </g>
-
-    <defs>
-      <linearGradient id="network-map-line" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#b96528" stop-opacity="0.75" />
-        <stop offset="100%" stop-color="#8263a0" stop-opacity="0.4" />
-      </linearGradient>
-    </defs>
-
-    <g class="network-map__connections" aria-hidden="true" fill="none" stroke="url(#network-map-line)" stroke-linecap="round" stroke-width="1.4">
-      {% for location in network.locations %}
-        <path d="{{ location.curve }}" />
-      {% endfor %}
     </g>
 
     <g class="network-map__points">
@@ -62,22 +52,24 @@
       <text x="797" y="171">Singapore</text>
     </g>
 
-    <!-- Europe inset: the tight European cluster, zoomed so each point is tappable -->
+    <!-- Europe inset: the tight European cluster, zoomed so each point is tappable.
+         Sits in the empty band added below the world (see viewBox), so it covers
+         no landmass. -->
     <g class="network-map__inset">
-      <rect x="486" y="70" width="94" height="46" rx="4" fill="none" stroke="#b7968f" stroke-opacity="0.55" stroke-width="1" />
-      <path d="M 486 116 L 306 202" fill="none" stroke="#c1bbb2" stroke-width="0.8" stroke-dasharray="3 3" />
-      <rect x="92" y="196" width="214" height="128" rx="8" fill="#eef3f4" stroke="#c7d2ce" stroke-width="1.2" />
-      <clipPath id="network-map-eu-clip"><rect x="92" y="196" width="214" height="128" rx="8" /></clipPath>
+      <rect x="450" y="48" width="134" height="68" rx="4" fill="none" stroke="#b7968f" stroke-opacity="0.55" stroke-width="1" />
+      <path d="M 517 116 L 688 332" fill="none" stroke="#c1bbb2" stroke-width="0.8" stroke-dasharray="3 3" />
+      <rect x="578" y="332" width="220" height="108" rx="8" fill="#eef3f4" stroke="#c7d2ce" stroke-width="1.2" />
+      <clipPath id="network-map-eu-clip"><rect x="578" y="332" width="220" height="108" rx="8" /></clipPath>
       <g clip-path="url(#network-map-eu-clip)">
-        <use href="#network-map-land" transform="translate(199,260) scale(2.2) translate(-532,-92)" />
+        <use href="#network-map-land" transform="translate(688,386) scale(1.65) translate(-515,-82)" />
       </g>
-      <text x="101" y="213" fill="#64665d" font-size="11" font-weight="700">Europe</text>
-      {%- assign mix = network.center.x | minus: 532 | times: 2.2 | plus: 199 -%}
-      {%- assign miy = network.center.y | minus: 92 | times: 2.2 | plus: 260 -%}
+      <text x="585" y="346" fill="#64665d" font-size="11" font-weight="700">Europe</text>
+      {%- assign mix = network.center.x | minus: 515 | times: 1.65 | plus: 688 -%}
+      {%- assign miy = network.center.y | minus: 82 | times: 1.65 | plus: 386 -%}
       <circle cx="{{ mix }}" cy="{{ miy }}" r="5.5" fill="#b96528" stroke="#ffffff" stroke-width="2" />
       {%- for location in network.locations -%}{%- if location.inset -%}
-        {%- assign ix = location.x | minus: 532 | times: 2.2 | plus: 199 -%}
-        {%- assign iy = location.y | minus: 92 | times: 2.2 | plus: 260 -%}
+        {%- assign ix = location.x | minus: 515 | times: 1.65 | plus: 688 -%}
+        {%- assign iy = location.y | minus: 82 | times: 1.65 | plus: 386 -%}
         <g class="network-map__point" tabindex="0" role="button" data-i="{{ forloop.index0 }}" aria-label="{{ location.label }}">
           <title>{{ location.label }}</title>
           <circle class="network-map__hit" cx="{{ ix }}" cy="{{ iy }}" r="11" fill="transparent" />
