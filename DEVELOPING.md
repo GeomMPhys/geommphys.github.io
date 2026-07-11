@@ -92,6 +92,7 @@ external people not in `people.yml` (e.g. outside workshop co-organizers).
 | `workshop.html` | one conference/workshop/school | `conferences-workshops.md` |
 | `outreach-item.html` | one outreach activity | `outreach.md` |
 | `research-area.html` | a card on the Research overview | `research.md` |
+| `calendar.html` | the FullCalendar event view + subscribe links | `calendar.md` |
 | `network-map.html` | the SVG collaborator map | `people.md` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
 | `header.html` / `footer.html` | nav (from `navigation.yml`) and footer | layout |
@@ -133,6 +134,26 @@ fails CI or silently does nothing:
 4. Create `<thing>.md` with front matter + the page → include wiring.
 5. Add it to `_data/navigation.yml` so it appears in the menu.
 6. Run `ruby bin/validate_data.rb`, then build and preview.
+
+## Calendar and the .ics feed
+
+The `/calendar/` page (`calendar.md` → `_includes/calendar.html`) shows a
+[FullCalendar](https://fullcalendar.io/) month/agenda view built from four data
+files — `seminars.yml`, `workshops.yml`, `research_visits.yml`, and dated entries
+in `outreach.yml` — coloured by category. The library is **vendored** at
+`assets/js/fullcalendar.min.js` (v6 standard global build; it injects its own
+CSS) so the site stays self-contained; calendar-specific styling is in the
+"Calendar page" section of `main.scss`. Events are generated inline as a JS array
+by Liquid at build time — no plugin, no fetch. Visit `person` ids are resolved to
+names against `people.yml`; outreach entries without a full `date` are omitted
+(they only carry a year).
+
+`events.ics` (root, `permalink: /events.ics`, `layout: null`) generates the same
+events as a subscribable iCal feed from the same data. The calendar page links to
+it for download and for Google/Apple/Outlook subscription. Multi-day events use
+an exclusive end date (`end + 1 day`), per both FullCalendar and iCal `VALUE=DATE`
+conventions. Adding an event to any of the four data files updates both the
+on-page calendar and the feed automatically — nothing calendar-specific to edit.
 
 ## Local development
 

@@ -1,0 +1,72 @@
+---
+permalink: /events.ics
+layout: null
+sitemap: false
+---
+{%- assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors -%}
+{%- capture nl %}
+{% endcapture -%}
+{%- capture ics -%}
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GeomMPhys//Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:GeomMPhys Events
+X-WR-TIMEZONE:Europe/Madrid
+{% assign seminars = site.data.seminars.upcoming | concat: site.data.seminars.past -%}
+{%- for s in seminars -%}{%- unless s.date == nil -%}
+{%- assign desc = s.speaker | default: '' -%}
+{%- if s.affiliation and s.affiliation != '' -%}{%- assign desc = desc | append: ' (' | append: s.affiliation | append: ')' -%}{%- endif -%}
+{%- if s.abstract and s.abstract != '' -%}{%- assign desc = desc | append: ' — ' | append: s.abstract | truncate: 400 -%}{%- endif -%}
+BEGIN:VEVENT
+UID:seminar-{{ forloop.index }}-{{ s.date | date: '%Y%m%d' }}@geommphys.github.io
+DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
+{% if s.time %}DTSTART:{{ s.date | date: '%Y%m%d' }}T{{ s.time | replace: ':', '' }}00
+DURATION:PT1H{% else %}DTSTART;VALUE=DATE:{{ s.date | date: '%Y%m%d' }}
+DTEND;VALUE=DATE:{{ s.date | date: '%s' | plus: 86400 | date: '%Y%m%d' }}{% endif %}
+SUMMARY:{{ s.title | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' | replace: nl, '\n' }}
+{% if s.location and s.location != '' %}LOCATION:{{ s.location | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' }}
+{% endif %}DESCRIPTION:{{ desc | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' | replace: nl, '\n' }}
+CATEGORIES:Seminar
+END:VEVENT
+{% endunless -%}{%- endfor -%}
+{%- for e in site.data.workshops.events -%}
+BEGIN:VEVENT
+UID:workshop-{{ forloop.index }}-{{ e.start | date: '%Y%m%d' }}@geommphys.github.io
+DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
+DTSTART;VALUE=DATE:{{ e.start | date: '%Y%m%d' }}
+DTEND;VALUE=DATE:{{ e.end | date: '%s' | plus: 86400 | date: '%Y%m%d' }}
+SUMMARY:{{ e.title | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' | replace: nl, '\n' }}
+{% if e.location and e.location != '' %}LOCATION:{{ e.location | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' }}
+{% endif %}{% if e.url and e.url != '' %}URL:{{ e.url }}
+{% endif %}{% if e.description and e.description != '' %}DESCRIPTION:{{ e.description | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' | replace: nl, '\n' }}
+{% endif %}CATEGORIES:{{ e.type | capitalize }}
+END:VEVENT
+{% endfor -%}
+{%- for v in site.data.research_visits.visits -%}
+{%- assign vp = all_people | where: 'id', v.person | first -%}
+BEGIN:VEVENT
+UID:visit-{{ forloop.index }}-{{ v.arrival | date: '%Y%m%d' }}@geommphys.github.io
+DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
+DTSTART;VALUE=DATE:{{ v.arrival | date: '%Y%m%d' }}
+DTEND;VALUE=DATE:{{ v.departure | date: '%s' | plus: 86400 | date: '%Y%m%d' }}
+SUMMARY:{{ vp.name | default: v.person | prepend: 'Visit: ' | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' }}
+{% if v.affiliation and v.affiliation != '' %}DESCRIPTION:{{ v.affiliation | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' }}
+{% endif %}CATEGORIES:Research visit
+END:VEVENT
+{% endfor -%}
+{%- for o in site.data.outreach.activities -%}{%- if o.date -%}
+BEGIN:VEVENT
+UID:outreach-{{ forloop.index }}-{{ o.date | date: '%Y%m%d' }}@geommphys.github.io
+DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
+DTSTART;VALUE=DATE:{{ o.date | date: '%Y%m%d' }}
+DTEND;VALUE=DATE:{{ o.date | date: '%s' | plus: 86400 | date: '%Y%m%d' }}
+SUMMARY:{{ o.title | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' | replace: nl, '\n' }}
+{% if o.venue and o.venue != '' %}LOCATION:{{ o.venue | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' }}
+{% endif %}CATEGORIES:Outreach
+END:VEVENT
+{% endif -%}{%- endfor -%}
+END:VCALENDAR
+{%- endcapture -%}
+{{ ics | strip }}
