@@ -687,7 +687,14 @@ code {
   position: relative;
   width: 100%;
   max-width: 780px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 3.75rem;
+}
+
+.network-map__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .network-map__frame {
@@ -698,10 +705,37 @@ code {
   background: #f4f2ec;
 }
 
-.network-map svg {
+.network-map__world,
+.network-map__inset-svg {
   display: block;
   width: 100%;
   height: auto;
+}
+
+/* Europe breakout inset — a callout that straddles the map's bottom-right edge */
+.network-map__inset {
+  position: absolute;
+  right: -18px;
+  bottom: -40px;
+  width: 250px;
+  max-width: 62%;
+  padding: 0.45rem;
+  background: #f4f2ec;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 3;
+}
+
+@media (max-width: 680px) {
+  .network-map { margin-bottom: 1.5rem; }
+  .network-map__inset {
+    position: static;
+    width: auto;
+    max-width: none;
+    margin-top: 0.75rem;
+    box-shadow: none;
+  }
 }
 
 /* Interactive points */
