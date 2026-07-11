@@ -693,37 +693,15 @@ code {
 .network-map__frame {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(217, 216, 207, 0.75);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
-  background:
-    radial-gradient(circle at 48% 35%, rgba(70, 105, 143, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(238, 238, 232, 0.42));
+  background: #f4f2ec;
 }
 
 .network-map svg {
   display: block;
   width: 100%;
   height: auto;
-}
-
-.network-map__ocean { fill: #eef3f4; }
-
-.network-map__graticule path {
-  fill: none;
-  stroke: #d7e0e2;
-  stroke-width: 0.6;
-}
-
-.network-map__land path {
-  fill: #e3e9e4;
-  stroke: #c7d2ce;
-  stroke-width: 1;
-}
-
-.network-map__labels text {
-  font-size: 12px;
-  font-weight: 700;
-  fill: var(--muted);
 }
 
 /* Interactive points */
@@ -733,28 +711,20 @@ code {
 }
 
 .network-map__dot {
-  fill: #8263a0;
-  stroke: #ffffff;
-  stroke-width: 2;
   transition: r 0.15s ease;
 }
 
 .network-map__halo {
-  fill: #8263a0;
-  fill-opacity: 0;
   transition: fill-opacity 0.15s ease, r 0.15s ease;
 }
 
 .network-map__point:hover .network-map__dot,
-.network-map__point:focus-visible .network-map__dot { r: 6; }
+.network-map__point:focus-visible .network-map__dot { r: 5.5; }
 
 .network-map__point:hover .network-map__halo,
-.network-map__point:focus-visible .network-map__halo { r: 10; fill-opacity: 0.22; }
+.network-map__point:focus-visible .network-map__halo { r: 9; fill-opacity: 0.2; }
 
-.network-map__point:focus-visible .network-map__halo { fill-opacity: 0.32; }
-
-.network-map__home { fill: #b96528; stroke: #ffffff; stroke-width: 2; }
-.network-map__pulse { fill: none; stroke: #d3a071; stroke-opacity: 0.72; stroke-width: 2; }
+.network-map__point:focus-visible .network-map__halo { fill-opacity: 0.3; }
 
 /* Tooltip */
 .network-map__tooltip {
