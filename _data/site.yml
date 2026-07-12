@@ -24,3 +24,5 @@ map_url: ""
 links:
   - label: "Internal documents"
     url: "https://github.com/GeomMPhys/group-documents"
+  - label: "Grants"
+    url: "https://github.com/GeomMPhys/group-documents/tree/main/grants"
