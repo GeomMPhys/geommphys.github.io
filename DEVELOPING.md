@@ -167,8 +167,9 @@ Not everything is public. Two sibling repositories hold members-only material:
   *this* repo under `/members/`, `/news/`, `/meetings/`, `/grants/`,
   `/certificates/`. If you see an encrypted blob at those paths, that's why —
   **don't hand-edit them; they're generated.** The public footer's "Members"
-  link points at `/members/`, and those private pages share a small top bar via
-  `_includes/members-nav.html` (external links there are marked with ↗).
+  link points at `/members/`. On those pages (`section: Private`) the header
+  swaps the public nav for a members nav (see `_includes/header.html`); external
+  links to the vault are marked with ↗.
 - **`GeomMPhys/group-documents`** — the confidential vault (grant proposals,
   outreach materials, admin docs, logos, templates), gated by real GitHub
   per-member access. The private pages *link* to it; nothing confidential is

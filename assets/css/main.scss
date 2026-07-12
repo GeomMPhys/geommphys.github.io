@@ -1349,31 +1349,11 @@ address {
   }
 }
 
-/* ── Members-area top bar (private pages) ─────────────────────── */
-.members-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem 1.1rem;
-  margin: 0 0 1.75rem;
-  padding-bottom: 0.7rem;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.9rem;
-}
-
-.members-nav a {
-  font-weight: 650;
-  color: var(--accent);
-}
-
-.members-nav a[aria-current="page"] {
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.members-nav a[target="_blank"]::after {
-  content: " \2197";
-  font-size: 0.85em;
+/* Members-area nav (private pages): mark external (vault) links with ↗ */
+.site-nav a[target="_blank"]::after {
+  content: "\2197";
+  margin-left: 0.15em;
+  font-size: 0.78em;
   color: var(--muted);
+  vertical-align: baseline;
 }
