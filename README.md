@@ -23,7 +23,9 @@ HTML.
 - **Templates** (`_layouts/`, `_includes/`): shared structure. Item renderers
   live in `_includes/` (`person-card.html`, `publication.html`, `seminar-item.html`,
   `research-line.html`, `research-visit.html`, `workshop.html`, `outreach-item.html`,
-  plus the helpers `person-name.html` and `date-range.html`).
+  `research-area.html`, `calendar.html`, `network-map.html`, `ics-events.html`,
+  plus the helpers `person-name.html` and `date-range.html`). See `DEVELOPING.md`
+  for the full includes reference.
 - **Styles**: `assets/css/main.scss`.
 
 ## People and the linking convention
@@ -175,8 +177,9 @@ administrative-documents/
 other-documents/
 ```
 
-The website footer links to that private repository; only users granted access
-can view or upload there.
+The website footer links to the members area (`/members/`), whose navigation
+links out to this private repository; only users granted access can view or
+upload there.
 
 ## Public content rules
 
