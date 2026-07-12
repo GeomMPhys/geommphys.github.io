@@ -156,6 +156,30 @@ an exclusive end date (`end + 1 day`), per both FullCalendar and iCal `VALUE=DAT
 conventions. Adding an event to any of the four data files updates both the
 on-page calendar and the feed automatically — nothing calendar-specific to edit.
 
+## Private site and internal content
+
+Not everything is public. Two sibling repositories hold members-only material:
+
+- **`GeomMPhys/geommphys.github.io-private`** — members-only *pages* (a members
+  hub, news, meetings calendar, grants deadlines, and a certificate generator).
+  They are **overlaid onto this site's theme**, built, **StatiCrypt-encrypted**
+  with a shared members password, and the encrypted HTML is pushed back into
+  *this* repo under `/members/`, `/news/`, `/meetings/`, `/grants/`,
+  `/certificates/`. If you see an encrypted blob at those paths, that's why —
+  **don't hand-edit them; they're generated.** The public footer's "Members"
+  link points at `/members/`. On those pages (`section: Private`) the header
+  swaps the public nav for a members nav (see `_includes/header.html`); external
+  links to the vault are marked with ↗.
+- **`GeomMPhys/group-documents`** — the confidential vault (grant proposals,
+  outreach materials, admin docs, logos, templates), gated by real GitHub
+  per-member access. The private pages *link* to it; nothing confidential is
+  embedded in the site.
+
+**Security boundary:** StatiCrypt's encrypted output is publicly downloadable, so
+the private *pages* are for low-sensitivity, members-only content and links only;
+anything genuinely confidential lives in `group-documents`. Never commit private
+or confidential material into this public repo.
+
 ## Local development
 
 Ruby/Bundler can be fiddly to install locally, so the simplest reproducible way

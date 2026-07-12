@@ -1348,3 +1348,12 @@ address {
     gap: 0.5rem;
   }
 }
+
+/* Members-area nav (private pages): mark external (vault) links with ↗ */
+.site-nav a[target="_blank"]::after {
+  content: "\2197";
+  margin-left: 0.15em;
+  font-size: 0.78em;
+  color: var(--muted);
+  vertical-align: baseline;
+}

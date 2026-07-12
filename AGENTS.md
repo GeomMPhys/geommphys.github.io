@@ -63,6 +63,12 @@ changes.
   `migration-notes/`, or `google-sites-export/`.
 - Do not expose `.agents/`, `.codex/`, local environment files, or generated
   build output (`_site/`).
+- Members-only material lives in two sibling repos, never here: the private
+  *pages* in `GeomMPhys/geommphys.github.io-private` (overlaid on this theme,
+  StatiCrypt-encrypted, then published back into this repo under `/members/`,
+  `/news/`, `/meetings/`, `/grants/`, `/certificates/` — those are generated,
+  do not hand-edit), and confidential *files* in `GeomMPhys/group-documents`
+  (real GitHub auth). See `DEVELOPING.md` → "Private site and internal content".
 
 ## Development
 
