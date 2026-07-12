@@ -15,7 +15,7 @@
 {%- if s.affiliation and s.affiliation != '' -%}{%- assign desc = desc | append: ' (' | append: s.affiliation | append: ')' -%}{%- endif -%}
 {%- if s.abstract and s.abstract != '' -%}{%- assign desc = desc | append: ' — ' | append: s.abstract | truncate: 400 -%}{%- endif -%}
 BEGIN:VEVENT
-UID:seminar-{{ forloop.index }}-{{ s.date | date: '%Y%m%d' }}@geommphys.github.io
+UID:seminar-{{ s.date | date: '%Y%m%d' }}-{{ s.title | slugify | truncate: 40, '' }}@geommphys.github.io
 DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
 {% if s.time %}DTSTART:{{ s.date | date: '%Y%m%d' }}T{{ s.time | replace: ':', '' }}00
 DURATION:PT1H{% else %}DTSTART;VALUE=DATE:{{ s.date | date: '%Y%m%d' }}
@@ -30,7 +30,7 @@ END:VEVENT
 {%- if only == 'all' or only == 'workshops' -%}
 {%- for e in site.data.workshops.events -%}
 BEGIN:VEVENT
-UID:workshop-{{ forloop.index }}-{{ e.start | date: '%Y%m%d' }}@geommphys.github.io
+UID:workshop-{{ e.start | date: '%Y%m%d' }}-{{ e.title | slugify | truncate: 40, '' }}@geommphys.github.io
 DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
 DTSTART;VALUE=DATE:{{ e.start | date: '%Y%m%d' }}
 DTEND;VALUE=DATE:{{ e.end | date: '%s' | plus: 86400 | date: '%Y%m%d' }}
@@ -46,7 +46,7 @@ END:VEVENT
 {%- for v in site.data.research_visits.visits -%}
 {%- assign vp = all_people | where: 'id', v.person | first -%}
 BEGIN:VEVENT
-UID:visit-{{ forloop.index }}-{{ v.arrival | date: '%Y%m%d' }}@geommphys.github.io
+UID:visit-{{ v.arrival | date: '%Y%m%d' }}-{{ v.person | slugify }}@geommphys.github.io
 DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
 DTSTART;VALUE=DATE:{{ v.arrival | date: '%Y%m%d' }}
 DTEND;VALUE=DATE:{{ v.departure | date: '%s' | plus: 86400 | date: '%Y%m%d' }}
@@ -59,7 +59,7 @@ END:VEVENT
 {%- if only == 'all' or only == 'outreach' -%}
 {%- for o in site.data.outreach.activities -%}{%- assign ods = o.date | append: '' -%}{%- if ods.size == 10 -%}
 BEGIN:VEVENT
-UID:outreach-{{ forloop.index }}-{{ o.date | date: '%Y%m%d' }}@geommphys.github.io
+UID:outreach-{{ o.date | date: '%Y%m%d' }}-{{ o.title | slugify | truncate: 40, '' }}@geommphys.github.io
 DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
 DTSTART;VALUE=DATE:{{ o.date | date: '%Y%m%d' }}
 DTEND;VALUE=DATE:{{ o.date | date: '%s' | plus: 86400 | date: '%Y%m%d' }}

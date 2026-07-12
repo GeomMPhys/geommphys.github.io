@@ -1,8 +1,9 @@
 {%- comment -%}
   Group events calendar. Builds a FullCalendar view from four data files:
   seminars, workshops, research visits, and (dated) outreach activities.
-  Events are coloured by category. A subscribable .ics feed is generated
-  separately by /events.ics. Person ids on visits are resolved to names.
+  Events are coloured by category. Subscribable .ics feeds (all + per category)
+  are generated separately by /events*.ics via _includes/ics-events.html.
+  Person ids on visits are resolved to names.
 {%- endcomment -%}
 {%- assign all_people = site.data.people.researchers_madrid
       | concat: site.data.people.students_madrid

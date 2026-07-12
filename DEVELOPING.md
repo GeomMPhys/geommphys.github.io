@@ -55,9 +55,11 @@ A request for `/publications/` resolves like this:
    in `<html>`, the header/footer includes, `{% seo %}`, and the stylesheet.
 
 Every list page follows this **page → list include → item include** shape.
-`people.md` is a slight variant: it iterates the groups in `_data/people.yml`
-(`researchers_madrid`, `students_madrid`, `international_collaborators`) and calls
-`person-card.html` per person.
+`people.md` is a slight variant: it iterates the displayed groups in
+`_data/people.yml` (`researchers_madrid`, `students_madrid`,
+`international_collaborators`) and calls `person-card.html` per person. A fourth
+group, `visitors`, is *not* shown on the People page but is resolved by other
+pages (research visits, calendar, network map) for names.
 
 ## The people-id linking model
 
@@ -92,7 +94,8 @@ external people not in `people.yml` (e.g. outside workshop co-organizers).
 | `workshop.html` | one conference/workshop/school | `conferences-workshops.md` |
 | `outreach-item.html` | one outreach activity | `outreach.md` |
 | `research-area.html` | a card on the Research overview | `research.md` |
-| `calendar.html` | the FullCalendar event view + subscribe links | `calendar.md` |
+| `calendar.html` | the FullCalendar event view + per-category subscribe links | `calendar.md` |
+| `ics-events.html` | iCal VEVENTs for a category (`only=`), used by the `.ics` feeds | `events*.ics` |
 | `network-map.html` | the SVG collaborator map (member ids → hover tooltip) | `people.md` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
 | `header.html` / `footer.html` | nav (from `navigation.yml`) and footer | layout |
@@ -149,12 +152,22 @@ names against `people.yml`. Outreach uses a single flexible `date` (a full
 `YYYY-MM-DD`, a `YYYY-MM`, or just a year); entries that are not a full date are
 omitted from the calendar since they can't be placed on a day.
 
-`events.ics` (root, `permalink: /events.ics`, `layout: null`) generates the same
-events as a subscribable iCal feed from the same data. The calendar page links to
-it for download and for Google/Apple/Outlook subscription. Multi-day events use
-an exclusive end date (`end + 1 day`), per both FullCalendar and iCal `VALUE=DATE`
-conventions. Adding an event to any of the four data files updates both the
-on-page calendar and the feed automatically — nothing calendar-specific to edit.
+Subscribable **iCal feeds** are generated from the same data, so visitors can
+subscribe to only the categories they want:
+
+- `/events.ics` — all events
+- `/events-seminars.ics`, `/events-workshops.ics`, `/events-visits.ics`,
+  `/events-outreach.ics` — one category each
+
+Each `.ics` file (root, `permalink`, `layout: null`) is a thin VCALENDAR wrapper
+that calls `_includes/ics-events.html` with an `only=` parameter; that include
+holds the single copy of the VEVENT-generation logic. The calendar page's
+"Subscribe" row links to each feed (webcal) plus download-all. Multi-day events
+use an exclusive end date (`end + 1 day`), per both FullCalendar and iCal
+`VALUE=DATE`. Adding an event to any data file updates the on-page calendar and
+all relevant feeds automatically. (Note: feed `UID`s are derived from each
+event's date + a title slug, so reordering entries doesn't churn subscribers'
+calendars.)
 
 ## Private site and internal content
 
@@ -168,8 +181,10 @@ Not everything is public. Two sibling repositories hold members-only material:
   `/certificates/`. If you see an encrypted blob at those paths, that's why —
   **don't hand-edit them; they're generated.** The public footer's "Members"
   link points at `/members/`. On those pages (`section: Private`) the header
-  swaps the public nav for a members nav (see `_includes/header.html`); external
-  links to the vault are marked with ↗.
+  swaps the public nav for a members nav (see `_includes/header.html`): its
+  Members / News / Calendar / Deadlines / Certificates items are the generated
+  private pages, while Grants / Outreach / Documents are **external links to the
+  vault** (marked with ↗).
 - **`GeomMPhys/group-documents`** — the confidential vault (grant proposals,
   outreach materials, admin docs, logos, templates), gated by real GitHub
   per-member access. The private pages *link* to it; nothing confidential is
