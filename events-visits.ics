@@ -1,5 +1,5 @@
 ---
-permalink: /events.ics
+permalink: /events-visits.ics
 layout: null
 sitemap: false
 ---
@@ -9,9 +9,9 @@ VERSION:2.0
 PRODID:-//GeomMPhys//Website//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:GeomMPhys Events
+X-WR-CALNAME:GeomMPhys Research Visits
 X-WR-TIMEZONE:Europe/Madrid
-{% include ics-events.html only="all" -%}
+{% include ics-events.html only="visits" -%}
 END:VCALENDAR
 {%- endcapture -%}
 {{ ics | strip }}

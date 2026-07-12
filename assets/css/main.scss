@@ -1277,13 +1277,23 @@ address {
 .cal-subscribe {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: 0.35rem 0.8rem;
   margin: 0;
+  font-size: 0.85rem;
 }
 
-.cal-subscribe .button {
-  font-size: 0.85rem;
-  padding: 0.35rem 0.7rem;
+.cal-subscribe__label {
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.cal-subscribe a {
+  font-weight: 650;
+}
+
+.cal-subscribe__sep {
+  color: var(--border);
 }
 
 #calendar {
