@@ -1,5 +1,5 @@
 ---
-permalink: /events.ics
+permalink: /events-outreach.ics
 layout: null
 sitemap: false
 ---
@@ -9,9 +9,9 @@ VERSION:2.0
 PRODID:-//GeomMPhys//Website//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:GeomMPhys Events
+X-WR-CALNAME:GeomMPhys Outreach
 X-WR-TIMEZONE:Europe/Madrid
-{% include ics-events.html only="all" -%}
+{% include ics-events.html only="outreach" -%}
 END:VCALENDAR
 {%- endcapture -%}
 {{ ics | strip }}
