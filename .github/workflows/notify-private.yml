@@ -1,0 +1,43 @@
+name: Notify private repo of data changes
+
+# Some private, StatiCrypt-encrypted pages embed PUBLIC site data — the
+# certificate generator reads _data/seminars.yml, research_visits.yml and
+# people.yml. Those encrypted pages are built in the private repo, so a change
+# here (e.g. adding a seminar) would otherwise leave them stale until the
+# private workflow happened to run again.
+#
+# This fires a repository_dispatch at the private repo, whose publish workflow
+# listens for 'public-data-changed' and rebuilds + re-encrypts + republishes.
+#
+# Loop-safety: this only triggers on _data/** changes. The private repo's
+# publish bot pushes back ONLY the encrypted */index.html files, never _data/**,
+# so its commits to this repo cannot retrigger this workflow — no ping-pong.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_data/**"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch rebuild to the private repo
+        env:
+          TOKEN: ${{ secrets.PRIVATE_REPO_DISPATCH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::PRIVATE_REPO_DISPATCH_TOKEN secret is not set — cannot trigger the private rebuild."
+            exit 1
+          fi
+          curl -sf -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/GeomMPhys/geommphys.github.io-private/dispatches \
+            -d '{"event_type":"public-data-changed"}'
+          echo "Triggered private rebuild (public-data-changed)."
