@@ -1,0 +1,17 @@
+---
+permalink: /events-seminars.ics
+layout: null
+sitemap: false
+---
+{%- capture ics -%}
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GeomMPhys//Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:GeomMPhys Seminars
+X-WR-TIMEZONE:Europe/Madrid
+{% include ics-events.html only="seminars" -%}
+END:VCALENDAR
+{%- endcapture -%}
+{{ ics | strip }}

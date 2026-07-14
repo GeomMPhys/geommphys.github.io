@@ -9,7 +9,7 @@
 group_name: "Geometrical Mathematical Physics Research Group"
 short_name: "GeomMPhys"
 tagline: "Geometrical mathematical physics"
-description: "The GeomMPhys research group brings mathematicians and physici  working in geometrical mathematical physics."
+description: "The GeomMPhys research group brings together mathematicians and physicists working in geometrical mathematical physics."
 
 institution: " "
 department: " "
@@ -22,5 +22,5 @@ office_hours: ""
 map_url: ""
 
 links:
-  - label: "Internal documents"
-    url: "https://github.com/GeomMPhys/group-documents"
+  - label: "Members"
+    url: "/members/"

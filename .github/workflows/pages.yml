@@ -20,12 +20,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.1"
+
+      - name: Validate data files
+        run: ruby bin/validate_data.rb
 
       - name: Install dependencies
         run: |
@@ -39,7 +42,7 @@ jobs:
         run: bundle exec jekyll build --destination ./_site
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
 
   deploy:
     environment:

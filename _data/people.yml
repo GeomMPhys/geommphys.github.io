@@ -7,6 +7,8 @@
 #    existing "- id:" block under the right group.
 #  • Keep the spacing exactly (2 spaces before "-", 4 before the other
 #    fields). Never use TABS. Quote any text containing a colon (:).
+#  • To OMIT an optional field, delete its whole line. Do NOT leave it
+#    blank or put a single space — that shows as an empty line on the page.
 #
 #  FIELDS
 #    id        (required)  short nickname, lowercase-with-hyphens, unique.
@@ -14,10 +16,18 @@
 #                          not change it once it is in use.
 #    name      (required)  full name shown on the page, in quotes
 #    photo     (optional)  path to a photo/icon under /assets/images/...
-#    role      (optional)  free text (position + institution). May be "".
+#    role      (optional)  free text (position + institution).
 #    research  (optional)  short research interests, in quotes
-#    profiles  (optional)  list of links; each has type (orcid | scholar |
-#                          inspire), label, and url
+#    email     (optional)  e.g. "jane@example.org" — shown as an "Email" link
+#    website   (optional)  full URL to a personal page — shown as a "Website" link
+#    profiles  (optional)  list of links; each item has a type and a url.
+#                          type is one of: orcid | scholar | inspire | arxiv
+#                          (each gets its own icon and name automatically).
+#                          For any other type, add a  label: "..."  line to
+#                          name the link.
+#
+#  NOTE: an arXiv author-search link is added automatically for everyone.
+#        To suppress it for one person, add a line:  arxiv: false
 #
 #  TIP: "visitors" are people we host who are not group members; they are
 #       referenced from research_visits.yml.
@@ -31,10 +41,8 @@ researchers_madrid:
     research: "Differential Geometry, Geometric Mechanics, Mathematical Physics"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-8028-2348"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=5V0GD7IAAAAJ"
 
   - id: saskia-demulder
@@ -44,13 +52,10 @@ researchers_madrid:
     research: "Theoretical High Energy Physics, String Theory, Quantum Gravity"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-4337-4489"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=Zh5EfR4AAAAJ"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1364460"
 
   - id: veronica-errasti-diez
@@ -60,13 +65,10 @@ researchers_madrid:
     research: "Theoretical High Energy Physics, Mathematical Physics"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0003-0376-7402"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=byW5XUIAAAAJ&hl=en&oi=ao"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1602349?ui-citation-summary=true"
 
   - id: eduardo-fernandez-saiz
@@ -76,10 +78,8 @@ researchers_madrid:
     research: "Lie theory, Lie systems, Symplectic geometry"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-6220-4987"
       - type: "arxiv"
-        label: "arXiv"
         url: "https://arxiv.org/search/math?searchtype=author&query=Fernandez-Saiz%2C+E"
 
   - id: jordi-gaset-rifa
@@ -89,13 +89,10 @@ researchers_madrid:
     research: "Geometric Field Theory, Geometric Mechanics, Mathematical Physics"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0001-8796-3149"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=EUR3KgsAAAAJ&hl=en"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1645340"
 
   - id: victor-jimenez
@@ -105,13 +102,10 @@ researchers_madrid:
     research: "Differential Geometry, Lie Groupoids and Algebroids, Geometric Mechanics"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0003-3135-3303"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=Y5YYfOMAAAAJ"
       - type: "arxiv"
-        label: "arXiv"
         url: "https://arxiv.org/search/?searchtype=author&query=Jiménez%2C+V+M"
 
   - id: manuel-lainz
@@ -119,12 +113,11 @@ researchers_madrid:
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
     research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
+    email: "manuel.lainz@cunef.edu"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-2368-5853"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=EY6HDoUAAAAJ"
 
   - id: alberto-ruiz-de-alarcon
@@ -134,13 +127,10 @@ researchers_madrid:
     research: "Quantum information, Quantum many-body systems, Tensor networks, Hopf algebras, Topological order"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0001-5726-2114"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=kNiXyEUAAAAJ"
       - type: "arxiv"
-        label: "arXiv"
         url: "https://arxiv.org/search/?searchtype=author&query=de+Alarcón%2C+A+R"
 
   - id: david-trillo
@@ -150,13 +140,10 @@ researchers_madrid:
     research: "Quantum Information, Foundations of Quantum Mechanics, Mathematical Physics"
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-9836-7366"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=OIJENiYAAAAJ"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1981139"
 
 students_madrid:
@@ -164,54 +151,42 @@ students_madrid:
     name: "Matteo Dell'Acqua"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
-    research: " "
 
   - id: oscar-carballal
     name: "Óscar Carballal"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0009-0001-6659-744X"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com.ar/citations?hl=es&user=5zzeOzQAAAAJ"
 
   - id: marco-maceda
     name: "Marco D. Maceda"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0009-0001-8497-3963"
      - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=V3lq1MkAAAAJ"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2920616?ui-citation-summary=true"
       - type: "arxiv"
-        label: "arXiv"
         url: "https://arxiv.org/search/physics?searchtype=author&query=Maceda,+M+D"
 
   - id: ruben-izquierdo-lopez
     name: "Rubén Izquierdo López"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0009-0007-8747-344X"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=vQKgf6sAAAAJ"
       - type: "arxiv"
-        label: "arXiv"
         url: "https://arxiv.org/search/math?searchtype=author&query=Izquierdo-López,+R"
 
 international_collaborators:
@@ -219,143 +194,110 @@ international_collaborators:
     name: "Alex Arvanitakis"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Research Associate, Ruđer Bošković Institute, Croatia"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-6646-5500"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=ugPQvM0AAAAJ&hl=en"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1334454?ui-citation-summary=true"
 
   - id: javier-de-lucas
     name: "Javier de Lucas Araujo"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "Associate Professor, U. Warsaw, Poland"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0001-8643-144X"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=XNuXyrYAAAAJ&hl=en"
 
   - id: mauricio-doniz
     name: "Mauricio Dóniz"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD Student, Technical U. of Catalonia, Spain"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-0063-5976"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2512944"
 
   - id: maria-jose-guzman
     name: "María José Guzman"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Associate Professor, U. of Tartu, Estonia"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0001-7468-2647"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com.ar/citations?hl=en&user=ZDSuX4QAAAAJ&view_op=list_works"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1301171?ui-citation-summary=true"
 
   - id: markus-maier
     name: "Markus Maier"
     photo: "/assets/images/people-icons/philo_icon.png"
     role: "PhD Student, Munich School of Philosophy, Germany"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0003-1854-9416"
 
   - id: rathindra-das
     name: "Rathindra Nath Das"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-4766-7705"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=8r2fob0AAAAJ&hl=en"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/2620033?ui-citation-summary=true"
 
   - id: yoshiko-ogata
     name: "Yoshiko Ogata"
     photo: "/assets/images/people-icons/math_icon.png"
     role: "Professor, Research Institute for Mathematical Sciences, Japan"
-    research: " "
     profiles:
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1970124?ui-citation-summary=true"
 
   - id: zohreh-ravanpak
     name: "Zohreh Ravanpak"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "Research fellow, Nanyang Technological U., Singapore"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0002-8454-5897"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?hl=en&user=_vI85XcAAAAJ"
 
   - id: tomasz-sobczak
     name: "Tomasz Sobczak"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0009-0002-9577-0456"
 
   - id: mirjam-weilenmann
     name: "Mirjam Weilenmann"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "Researcher, Inria, France"
-    research: " "
     profiles:
       - type: "orcid"
-        label: "ORCID"
         url: "https://orcid.org/0000-0003-0852-6763"
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=g434dcMAAAAJ&hl=en"
       - type: "inspire"
-        label: "INSPIRE-HEP"
         url: "https://inspirehep.net/authors/1871635?ui-citation-summary=true"
 
   - id: bartosz-zawora
     name: "Bartosz Zawora"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD Student, U. of Warsaw, Poland"
-    research: " "
     profiles:
       - type: "scholar"
-        label: "Google Scholar"
         url: "https://scholar.google.com.ar/citations?hl=es&user=JIfQiHsAAAAJ"
 
 # External research visitors hosted by the group. Referenced by research_visits.yml.

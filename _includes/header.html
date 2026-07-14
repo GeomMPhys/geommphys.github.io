@@ -6,6 +6,17 @@
         <img class="brand__logo" src="{{ '/assets/images/logos/geommphys-horizontal.png' | relative_url }}" width="1000" height="427" alt="">
       </a>
     {% endunless %}
+    {% if page.section == "Private" %}
+    <nav class="site-nav" aria-label="Members navigation">
+      <a href="{{ '/members/' | relative_url }}" {% if page.url == '/members/' %}aria-current="page"{% endif %}>Members</a>
+      <a href="{{ '/news/' | relative_url }}" {% if page.url == '/news/' %}aria-current="page"{% endif %}>News</a>
+      <a href="{{ '/meetings/' | relative_url }}" {% if page.url == '/meetings/' %}aria-current="page"{% endif %}>Calendar</a>
+      <a href="{{ '/certificates/' | relative_url }}" {% if page.url == '/certificates/' %}aria-current="page"{% endif %}>Certificates</a>
+      <a href="https://github.com/GeomMPhys/group-documents/tree/main/grants" target="_blank" rel="noopener">Grants</a>
+      <a href="https://github.com/GeomMPhys/group-documents/tree/main/outreach" target="_blank" rel="noopener">Outreach</a>
+      <a href="https://github.com/GeomMPhys/group-documents" target="_blank" rel="noopener">Documents</a>
+    </nav>
+    {% else %}
     <nav class="site-nav" aria-label="Main navigation">
       {% for item in site.data.navigation %}
         {% if item.children %}
@@ -26,5 +37,6 @@
         {% endif %}
       {% endfor %}
     </nav>
+    {% endif %}
   </div>
 </header>

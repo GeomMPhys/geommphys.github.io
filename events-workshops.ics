@@ -1,0 +1,17 @@
+---
+permalink: /events-workshops.ics
+layout: null
+sitemap: false
+---
+{%- capture ics -%}
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//GeomMPhys//Website//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:GeomMPhys Conferences & Workshops
+X-WR-TIMEZONE:Europe/Madrid
+{% include ics-events.html only="workshops" -%}
+END:VCALENDAR
+{%- endcapture -%}
+{{ ics | strip }}
