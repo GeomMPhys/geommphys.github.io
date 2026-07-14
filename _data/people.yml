@@ -169,7 +169,7 @@ students_madrid:
     profiles:
       - type: "orcid"
         url: "https://orcid.org/0009-0001-8497-3963"
-     - type: "scholar"
+      - type: "scholar"
         label: "Google Scholar"
         url: "https://scholar.google.com/citations?user=V3lq1MkAAAAJ"
       - type: "inspire"
