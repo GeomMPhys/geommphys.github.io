@@ -195,6 +195,17 @@ the private *pages* are for low-sensitivity, members-only content and links only
 anything genuinely confidential lives in `group-documents`. Never commit private
 or confidential material into this public repo.
 
+**Auto-refresh when public data changes:** the private certificate generator
+embeds *public* data from this repo (`_data/seminars.yml`, `research_visits.yml`,
+`people.yml`), so its encrypted page can go stale when that data changes here.
+`.github/workflows/notify-private.yml` handles it: on any push to `main` touching
+`_data/**`, it fires a `repository_dispatch` (`public-data-changed`) at the private
+repo, which rebuilds and republishes the encrypted pages. It needs a
+`PRIVATE_REPO_DISPATCH_TOKEN` secret in *this* repo (a token allowed to dispatch to
+`geommphys.github.io-private`). Loop-safe: it fires only on `_data/**`, and the
+private repo's bot pushes back only `*/index.html`, so those commits can't
+retrigger it.
+
 ## Local development
 
 Ruby/Bundler can be fiddly to install locally, so the simplest reproducible way
