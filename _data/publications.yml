@@ -16,6 +16,13 @@
 # ───────────────────────────────────────────────────────────────────
 
 selected:
+  - title: "Renormalization flows for 1D mixed states and a quantum Goursat lemma"
+    authors: "Léo Le-Nestour, David Pérez-García, Alberto Ruiz-de-Alarcón"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2607.08568"
+    doi: ""
+    
   - title: "The Spencer cohomology and integrability of multisymplectic structures"
     authors: "Manuel de León, Rubén Izquierdo-López, Manuel Lainz"
     venue: "Preprint"
