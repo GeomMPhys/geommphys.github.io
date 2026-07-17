@@ -254,14 +254,6 @@ international_collaborators:
       - type: "inspire"
         url: "https://inspirehep.net/authors/2620033?ui-citation-summary=true"
 
-  - id: yoshiko-ogata
-    name: "Yoshiko Ogata"
-    photo: "/assets/images/people-icons/math_icon.png"
-    role: "Professor, Research Institute for Mathematical Sciences, Japan"
-    profiles:
-      - type: "inspire"
-        url: "https://inspirehep.net/authors/1970124?ui-citation-summary=true"
-
   - id: zohreh-ravanpak
     name: "Zohreh Ravanpak"
     photo: "/assets/images/people-icons/geom_icon.png"
