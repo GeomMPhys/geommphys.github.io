@@ -84,7 +84,7 @@ locations:
     x: 877
     y: 118
     members:
-      - yoshiko-ogata
+      - { name: "Yoshiko Ogata" }
 
   - label: "Singapore"
     subtitle: "Nanyang Technological University"
