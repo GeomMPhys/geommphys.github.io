@@ -71,17 +71,6 @@ researchers_madrid:
       - type: "inspire"
         url: "https://inspirehep.net/authors/1602349?ui-citation-summary=true"
 
-  - id: eduardo-fernandez-saiz
-    name: "Eduardo Fernández Saiz"
-    photo: "/assets/images/people-icons/math_icon.png"
-    role: "PhD in Mathematics, U. Complutense de Madrid, Spain, 2021"
-    research: "Lie theory, Lie systems, Symplectic geometry"
-    profiles:
-      - type: "orcid"
-        url: "https://orcid.org/0000-0002-6220-4987"
-      - type: "arxiv"
-        url: "https://arxiv.org/search/math?searchtype=author&query=Fernandez-Saiz%2C+E"
-
   - id: jordi-gaset-rifa
     name: "Jordi Gaset Rifà"
     photo: "/assets/images/people-icons/geom_icon.png"
