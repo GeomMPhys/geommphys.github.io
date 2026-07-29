@@ -1,7 +1,7 @@
 ---
 title: Publications
 section: Research
-description: Publications listed on the public Google Sites page.
+description: 
 permalink: /publications/
 ---
 
