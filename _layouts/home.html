@@ -2,30 +2,38 @@
 layout: default
 ---
 
+{%- comment -%}
+  The hero pairs the group's emblem — three spinning tops, the canonical
+  object of geometric mechanics — with the typeset group name.
+
+  geommphys-tops.png is the drawing on its own, without the hand-lettered
+  group name that sits under it in geommphys-pyramid.png, so that the
+  emblem does not repeat the <h1> beside it. To regenerate it:
+
+    magick geommphys-pyramid.png -crop 673x621+0+0 +repage -trim +repage       -strip -colors 192 -define png:compression-level=9 geommphys-tops.png
+{%- endcomment -%}
 <section class="hero">
   <div class="container hero__inner">
-    {% if site.data.site.institution and site.data.site.institution != "" and site.data.site.institution != " " %}
-      <p class="eyebrow">{{ site.data.site.institution }}</p>
-    {% endif %}
-    <h1 class="hero__title">
-      <span class="hero__title-main">Geometrical Mathematical Physics</span>
-      <span class="hero__title-sub">Research Group</span>
-    </h1>
-    <p class="lead">{{ site.data.site.description }}</p>
-    <div class="hero__actions">
-      <a class="button" href="{{ '/research/' | relative_url }}">Research areas</a>
-      <a class="button button--secondary" href="{{ '/people/' | relative_url }}">People</a>
+    <figure class="hero__figure">
+      <span class="hero__emblem" role="img" aria-label="Three spinning tops labelled Geom, Math and Phys, with arcs tracing their rotation.">{% include icons/emblem-tops.svg %}</span>
+    </figure>
+    <div>
+      <h1 class="hero__title">
+        <span class="hero__title-main">Geometrical Mathematical Physics</span>
+        <span class="hero__title-sub">Research Group</span>
+      </h1>
+      <p class="lead">{{ site.data.site.description }}</p>
+      <div class="hero__actions">
+        <a class="button" href="{{ '/research/' | relative_url }}">Research</a>
+        <a class="button button--secondary" href="{{ '/people/' | relative_url }}">People</a>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="band">
-  <div class="container home-intro">
-    <figure class="home-identity">
-      <img src="{{ '/assets/images/logos/geommphys-pyramid.png' | relative_url }}" width="673" height="760" alt="Geometrical Mathematical Physics Research Group logo" loading="lazy">
-    </figure>
-    <div class="prose">
-      <p class="eyebrow">Research</p>
+  <div class="container">
+    <div class="home-intro">
       <h2>Mathematical structures in modern physics</h2>
       {{ content }}
     </div>
@@ -35,11 +43,8 @@ layout: default
 <section class="section">
   <div class="container">
     <div class="section__heading">
-      <div>
-        <p class="eyebrow">Focus</p>
-        <h2>Research Areas</h2>
-      </div>
-      <a href="{{ '/research/' | relative_url }}">View all</a>
+      <h2>Research</h2>
+      <a href="{{ '/research/' | relative_url }}">Research overview</a>
     </div>
     <div class="grid grid--research">
       {% for area in site.data.research limit:3 %}
@@ -52,11 +57,8 @@ layout: default
 <section class="section section--alt">
   <div class="container">
     <div class="section__heading">
-      <div>
-        <p class="eyebrow">Seminars</p>
-        <h2>Upcoming Seminars</h2>
-      </div>
-      <a href="{{ '/seminars/' | relative_url }}">Schedule</a>
+      <h2>Upcoming seminars</h2>
+      <a href="{{ '/seminars/' | relative_url }}">Full seminar schedule</a>
     </div>
     <div class="stack">
       {% for seminar in site.data.seminars.upcoming limit:3 %}
@@ -65,5 +67,16 @@ layout: default
         <p class="empty">Upcoming seminars will be posted here.</p>
       {% endfor %}
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__heading">
+      <h2>International network</h2>
+      <a href="{{ '/people/' | relative_url }}">People and collaborators</a>
+    </div>
+    <p class="lead">Collaborations at {{ site.data.network.locations | size }} institutions worldwide, from the group's base in Madrid.</p>
+    {% include network-map.html class="network-map--feature" %}
   </div>
 </section>

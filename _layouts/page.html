@@ -2,15 +2,8 @@
 layout: default
 ---
 
-{% assign research_pages = "/research/|/publications/|/research-visits/|/seminars/|/conferences-workshops/|/awards-honours/" | split: "|" %}
-{% assign is_research_page = false %}
-{% if page.section == "Research" or research_pages contains page.url %}
-  {% assign is_research_page = true %}
-{% endif %}
-
-<section class="page-heading{% if is_research_page %} page-heading--research{% else %} page-heading--photo{% endif %}">
+<section class="page-heading">
   <div class="container">
-    <p class="eyebrow">{{ page.section | default: site.data.site.short_name }}</p>
     <h1>{{ page.title }}</h1>
     {% if page.description %}
       <p class="lead">{{ page.description }}</p>

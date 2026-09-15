@@ -9,6 +9,6 @@
     </ul>
   {% endif %}
   {% if include.area.url %}
-    <p class="links"><a href="{{ include.area.url | relative_url }}">View page</a></p>
+    <p class="links"><a href="{{ include.area.url | relative_url }}">View {{ include.area.title | downcase }}</a></p>
   {% endif %}
 </article>

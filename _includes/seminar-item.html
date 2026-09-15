@@ -2,8 +2,7 @@
   <div class="record__body">
     <h3>{{ include.seminar.title }}</h3>
     <p class="record__meta">
-      {{ include.seminar.speaker }}
-      {% if include.seminar.affiliation and include.seminar.affiliation != "" %}, {{ include.seminar.affiliation }}{% endif %}
+      {{ include.seminar.speaker }}{% if include.seminar.affiliation and include.seminar.affiliation != "" %}, {{ include.seminar.affiliation }}{% endif %}
     </p>
     {% if include.seminar.time and include.seminar.time != "" and include.seminar.time != "TODO" %}
       {% assign show_time = true %}
@@ -17,8 +16,7 @@
     {% endif %}
     {% if show_time or show_location %}
       <p class="record__note">
-        {% if show_time %}{{ include.seminar.time }}{% endif %}
-        {% if show_location %}{% if show_time %} &middot; {% endif %}{{ include.seminar.location }}{% endif %}
+        {% if show_time %}{{ include.seminar.time }}{% endif %}{%- if show_location %}{% if show_time %}, {% endif %}{{ include.seminar.location }}{% endif %}
       </p>
     {% endif %}
     {% if include.seminar.abstract and include.seminar.abstract != "" and include.seminar.abstract != "TODO: Add abstract if available." %}
