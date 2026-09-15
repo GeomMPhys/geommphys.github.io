@@ -61,10 +61,15 @@ throughout; no uppercase display type, no letter-spaced labels above headings.
 
 **Lessons already paid for. Do not repeat these.**
 
-- An earlier version put a pendulum phase portrait behind the hero. It was
-  removed: it was *geometry about nothing in particular*, so it read as
-  wallpaper. Ornament must encode something true or not exist.
-- Stock photography was removed for the same reason.
+- **Geometry is welcome on this site — it is not on the banned list.** This is a
+  geometry group, and its emblem is already a drawn geometric object. What was
+  rejected was one *specific* execution: a pendulum phase portrait laid faintly
+  across the full width of the hero, behind the text. Read that as a lesson about
+  placement and conviction rather than a prohibition. A geometric element should
+  be able to stand at a real size and bear looking at closely, should not be a
+  low-contrast wash sitting behind body text, and should not compete with the
+  emblem. Proposals are actively wanted.
+- Stock photography was removed and should not come back.
 - Numbered markers (01 / 02 / 03), all-caps eyebrow labels above headings, and
   meta strings joined with middle dots were all removed. Don't bring them back.
 - Everything used to be a bordered, shadowed card. Border, fill, radius and
@@ -197,6 +202,16 @@ and that is evidence of an active group; making the four disciplines visible,
 since the split across geometry, mathematics, physics *and philosophy* is
 genuinely unusual and currently invisible; and giving the last seminars a place
 so the page has substance even when nothing is scheduled.
+
+**Geometry is invited here.** A geometric element on the home page is wanted, not
+merely tolerated — the earlier attempt was rejected on execution, not on the
+idea. The strongest version would probably be a real figure from the group's own
+mathematics rather than a generic pattern: the three research lines are
+multisymplectic field theory, systems beyond Arnold–Liouville integrability, and
+anyonic excitations in topological phases, and each of those has canonical
+pictures. Drawn by the same hand as the tops, at a size that rewards looking, it
+would say more about the group than any amount of layout. Ask the maintainer for
+a figure from a paper if that would help.
 
 **Do not** solve this with big-number stat tiles — a row of "27 / 22 / 10"
 counters is the default move and it reduces real work to marketing.
