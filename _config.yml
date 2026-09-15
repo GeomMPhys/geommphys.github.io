@@ -16,6 +16,9 @@ defaults:
       path: ""
     values:
       layout: page
+      # Social preview card for jekyll-seo-tag (og:image / twitter:image).
+      # Regenerate from assets/images/marks/og-art.svg; see DEVELOPING.md.
+      image: /assets/images/marks/og-card.png
 
 plugins:
   - jekyll-feed
@@ -27,6 +30,7 @@ sass:
 
 exclude:
   - AGENTS.md
+  - assets/fonts/README.md
   - DEVELOPING.md
   - Gemfile
   - Gemfile.lock
