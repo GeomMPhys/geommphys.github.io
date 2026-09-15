@@ -7,7 +7,11 @@ permalink: /people/
 
 {% assign groups = "researchers_madrid|Researchers in Madrid,students_madrid|Students in Madrid,international_collaborators|International Collaborators" | split: "," %}
 
-{% include network-map.html %}
+<h2>International network</h2>
+
+<p>Collaborations at {{ site.data.network.locations | size }} institutions worldwide, from the group's base in Madrid.</p>
+
+{% include network-map.html class="network-map--feature" %}
 
 {% for group in groups %}
   {% assign parts = group | split: "|" %}

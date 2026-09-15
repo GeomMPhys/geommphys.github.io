@@ -4,7 +4,7 @@
       | concat: site.data.people.international_collaborators
       | concat: site.data.people.visitors -%}
 
-<figure class="network-map" aria-labelledby="network-map-title network-map-description">
+<figure class="network-map {{ include.class }}" aria-labelledby="network-map-title network-map-description">
   <!-- Shared defs (lattice pattern + land shape), referenced by both the world map and the Europe inset -->
   <svg class="network-map__defs" aria-hidden="true" width="0" height="0" focusable="false">
     <defs>
