@@ -238,3 +238,86 @@ All CSS lives in `assets/css/main.scss` (compiled to `main.css`; `sass.style:
 compressed` in `_config.yml`). Keep the design restrained, academic, responsive,
 and accessible, and reuse the existing class system (`.card`, `.publication`,
 `.record`, `.stack`, `.meta`, `.links`, …) rather than adding one-off styles.
+The stylesheet opens with a comment block stating the design rules; read it
+before changing anything visual. In short:
+
+- **Paper and ink.** One background colour and no cards. Structure comes from
+  whitespace and hairline rules, not from boxes. A full-width rule means
+  "section divider"; a rule that hugs the text column means "item separator".
+- **Two typefaces, self-hosted.** *STIX Two Text* (the text companion to the
+  STIX fonts used by mathematics and physics journals) for titles and prose;
+  *IBM Plex Sans* for apparatus only — navigation, dates, meta lines, link
+  rows. Files and licensing: `assets/fonts/README.md`. No third-party font
+  requests, so no visitor data leaves GitHub Pages.
+- **One accent** (`--accent`, ink blue) for links and the primary button. The
+  blue/purple/orange of the logo's spinning tops are *not* decoration: they
+  appear only in the calendar legend and the collaborator map, where they
+  identify event categories. Those hexes are literals in
+  `_includes/calendar.html` and `_includes/network-map.html` (FullCalendar
+  needs them inside its JS), so change them there, not in the stylesheet.
+- **Sentence case throughout.** No uppercase display type, no letter-spaced
+  labels above headings, no monospace outside `<code>`, no decorative shadows.
+  `.eyebrow` is retained only as a graceful fallback for the encrypted members
+  pages built against the previous theme; do not add new ones.
+- Photographs are used at their own size (see `.page-figure` on the Research
+  page), never as a scrim behind heading text.
+
+Contrast was checked against WCAG AA: body 16:1, secondary text 6.2:1, links
+9:1 on the paper background. Keep new colours at 4.5:1 or better for text.
+
+### Mathematics in abstracts
+
+Seminar abstracts may contain LaTeX between dollar signs (`$G_2$`), and it is
+typeset as real mathematics. The mechanism is deliberately minimal:
+
+- `assets/vendor/katex/` holds **only** `katex.min.js` and
+  `auto-render.min.js` (KaTeX 0.16.11). KaTeX is used purely as the *parser*:
+  `_includes/math.html` calls `renderMathInElement` with `output: "mathml"`, so
+  it emits MathML and the **browser** does the layout. That is why there is no
+  `katex.min.css` and no KaTeX font files — those exist only for its HTML output
+  mode, and would add 23 KB of CSS plus ~20 woff2 faces. The mathematics is
+  therefore real text: selectable, copyable, and read correctly by screen
+  readers, with the original LaTeX preserved in a MathML `<annotation>`.
+- Rendering is **scoped to `.record__note` and `.record__meta`**. Never widen it
+  to `document.body`: a whole-page pass would treat any stray `$` in a title,
+  venue or person's name as the start of a formula.
+- Pages opt in with `math: true` in their front matter (`seminars.md`,
+  `index.md`); `_layouts/default.html` includes the script only for those.
+- MathML needs a font with an OpenType MATH table. The `math` rule in
+  `main.scss` names the ones this audience actually has — STIX Two Math (the
+  metric companion of the site's STIX Two Text, and shipped with macOS), Cambria
+  Math (Windows), Latin Modern Math (every TeX installation), and several common
+  on Linux. Self-hosting STIX Two Math was measured at **393 KB**, more than
+  every text face on the site combined, so it is not shipped; revisit only if
+  display-heavy mathematics arrives. Without a math font, subscripts get wide
+  side bearings and `G_2-structures` visibly gapes — that is the symptom.
+- With JavaScript disabled the raw `$…$` shows, exactly as before.
+
+### Illustration
+
+The group's artwork is hand-drawn: spinning tops labelled Geom, Math, Phys and
+Philo, used as the emblem and as per-person discipline icons. New artwork should
+match that hand. Requirements differ by route:
+
+**Drawn as SVG** — one `<svg>` root with `xmlns` and `viewBox` and **no
+`width`/`height`** so CSS controls the size; transparent, with no background
+rect; strokes rather than filled outline shapes, `stroke-linecap`/`linejoin`
+round; **`stroke="currentColor"` for all ink**, so a mark stays legible if the
+site is ever set on a dark ground; discipline colours as literals — Geom
+`#46698f`, Math `#8263a0`, Phys `#b96528`, Philo `#5f7d4f`; no gradients,
+filters, masks, clip paths, `<image>` or `<text>`; no editor metadata.
+
+**Drawn on paper and scanned** — deliver a transparent PNG at 2× the display
+size. **If you scan it, leave the background pure white and untouched.** The
+existing artwork could only be cut out because the exterior was exactly
+`255,255,255` while the drawings' own interior shading sat at 248-251, which let
+a zero-fuzz flood fill from the corners separate them. A grey, cream or textured
+scan background cannot be separated cleanly.
+
+Either way: keep the ink weight consistent with the tops, and bake in no drop
+shadows or white halos.
+
+Slots the site has room for: an empty-state mark (~120 px), a footer mark
+(~80 px), a 404 figure (~320 px), one mark per research line (~400 px), and an
+Open Graph card (1200×630 raster — `jekyll-seo-tag` currently has no `image`, so
+shared links preview blank).
