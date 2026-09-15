@@ -1,0 +1,35 @@
+{%- comment -%}
+  Renders LaTeX written in the data files as mathematics.
+
+  KaTeX is used only as the PARSER: `output: "mathml"` makes it emit MathML and
+  the browser performs the layout natively. That is why this include ships no
+  stylesheet and no font files — the ~20 KaTeX faces and its 23 KB CSS are only
+  needed for its HTML output mode. It also means the mathematics is real text:
+  selectable, copyable, and read correctly by screen readers.
+
+  Rendering is scoped to the elements that actually carry abstracts. Never widen
+  this to document.body — a whole-page pass would treat any stray "$" in a
+  title, venue or person's name as the start of a formula.
+
+  Pages opt in with `math: true` in their front matter; see _layouts/default.html.
+{%- endcomment -%}
+<script defer src="{{ '/assets/vendor/katex/katex.min.js' | relative_url }}"></script>
+<script defer src="{{ '/assets/vendor/katex/auto-render.min.js' | relative_url }}"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof renderMathInElement !== "function") return;
+    var options = {
+      output: "mathml",
+      throwOnError: false,
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "\\[", right: "\\]", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false }
+      ]
+    };
+    document.querySelectorAll(".record__note, .record__meta").forEach(function (el) {
+      renderMathInElement(el, options);
+    });
+  });
+</script>

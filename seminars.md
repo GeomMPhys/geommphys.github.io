@@ -3,6 +3,7 @@ title: Group Seminars
 section: Research
 description: Talks in the Geometry and Mathematical Physics group seminar series.
 permalink: /seminars/
+math: true
 ---
 
 <h2>Upcoming</h2>

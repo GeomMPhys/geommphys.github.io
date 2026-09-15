@@ -18,6 +18,15 @@
 #    time         (optional)  e.g. "14:00"
 #    location     (optional)  room / venue
 #    abstract     (optional)  short summary
+#
+#  MATHEMATICS IN ABSTRACTS
+#  • You can write LaTeX between dollar signs and it will be typeset:
+#    "such as those arising in $G_2$-structures" displays a real G with a
+#    subscript 2. Use $...$ inside a sentence and $$...$$ for a formula on
+#    its own line.
+#  • Because "$" starts a formula, write a literal dollar sign as "\$".
+#  • Only "abstract" and the time/location line are typeset. Titles and
+#    speaker names are not — keep them as plain text.
 # ───────────────────────────────────────────────────────────────────
 
 upcoming: []
