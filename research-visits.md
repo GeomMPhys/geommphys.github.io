@@ -9,10 +9,12 @@ permalink: /research-visits/
 {% if site.data.research_visits.visits and site.data.research_visits.visits.size > 0 %}
 {% assign groups = site.data.research_visits.visits | group_by_exp: "v", "v.arrival | date: '%Y'" | sort: "name" | reverse %}
 {% for group in groups %}
-<h2>{{ group.name }}</h2>
+<section class="year-group">
+<h2 class="year-mark">{{ group.name }}</h2>
 <div class="record-list">
 {% for visit in group.items %}{% include research-visit.html visit=visit people=all_people %}{% endfor %}
 </div>
+</section>
 {% endfor %}
 {% else %}
 <p class="empty">Research visits will be listed here.</p>

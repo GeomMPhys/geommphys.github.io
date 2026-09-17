@@ -949,6 +949,88 @@ math {
   overflow-x: auto;
 }
 
+/* ── The record template ────────────────────────────────────────────────
+   Research Visits, Conferences and Workshops, Awards and Honours and Outreach
+   are the same page: a titled list of dated records grouped by year. They
+   differ only in what each row carries, so the layout lives here once.
+
+   The year is a mark in the margin rather than a section heading with a rule —
+   the same position the § marks take elsewhere — so the rows read as one
+   continuous list instead of four separate tables. Secondary and tertiary lines
+   step down in size rather than in colour, because --ink-faint fails 4.5:1 as
+   text on either ground. */
+.year-group {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr);
+  gap: 0 1rem;
+  max-width: calc(4.2rem + 40em);
+  margin-bottom: 2.5rem;
+}
+
+.page-content .year-mark {
+  grid-column: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  /* aligns the mark with the first row's title, not with the top of the rule */
+  line-height: 2.45;
+}
+
+.year-group .record-list {
+  grid-column: 2;
+  max-width: none;
+  margin: 0;
+}
+
+.year-group .record h3 {
+  font-size: 1.04rem;
+}
+
+.year-group .record__meta {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+.year-group .record__note {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+}
+
+.year-group .record__date {
+  font-size: 0.82rem;
+}
+
+/* Awards carry no per-row date — the year mark in the margin says it — so the
+   row must not keep reserving the date column. */
+.record--nodate {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.record--nodate .record__body {
+  grid-column: 1;
+}
+
+/* The one thing a conference row needs that no other row does: `type` is in the
+   data already and until now only reached the calendar. */
+.tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  vertical-align: 0.14em;
+}
+
 /* ── Publications: a reference list ────────────────────────────────── */
 
 .publication-list {

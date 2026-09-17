@@ -14,10 +14,12 @@ permalink: /outreach/
 {% if site.data.outreach.activities and site.data.outreach.activities.size > 0 %}
 {% assign groups = site.data.outreach.activities | group_by_exp: "a", "a.date | append: '' | slice: 0, 4" | sort: "name" | reverse %}
 {% for group in groups %}
-<h2>{{ group.name }}</h2>
+<section class="year-group">
+<h2 class="year-mark">{{ group.name }}</h2>
 <div class="record-list">
 {% for activity in group.items %}{% include outreach-item.html activity=activity people=all_people %}{% endfor %}
 </div>
+</section>
 {% endfor %}
 {% else %}
 <p class="empty">Outreach activities will be listed here.</p>

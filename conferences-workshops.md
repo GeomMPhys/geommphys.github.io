@@ -9,10 +9,12 @@ permalink: /conferences-workshops/
 {% if site.data.workshops.events and site.data.workshops.events.size > 0 %}
 {% assign groups = site.data.workshops.events | group_by_exp: "e", "e.start | date: '%Y'" | sort: "name" | reverse %}
 {% for group in groups %}
-<h2>{{ group.name }}</h2>
+<section class="year-group">
+<h2 class="year-mark">{{ group.name }}</h2>
 <div class="record-list">
 {% for event in group.items %}{% include workshop.html event=event people=all_people %}{% endfor %}
 </div>
+</section>
 {% endfor %}
 {% else %}
 <p class="empty">Conferences and workshops will be listed here.</p>
