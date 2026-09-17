@@ -30,3 +30,31 @@ permalink: /people/
 <p class="empty">TODO: Add public entries for this section.</p>
 {% endif %}
 {% endfor %}
+
+{%- comment -%}
+  Every collaborator in plain text. The map's labels are hover-only, which fails
+  on touch and in a screenshot, so this list is the accessible copy of the same
+  data — read from network.yml, with member ids resolved through people.yml.
+  A name given inline in network.yml (someone with no person record) renders as
+  plain text rather than a link.
+{%- endcomment -%}
+{%- assign all_people = site.data.people.researchers_madrid
+      | concat: site.data.people.students_madrid
+      | concat: site.data.people.international_collaborators
+      | concat: site.data.people.visitors -%}
+<h2>Elsewhere</h2>
+
+<div class="place-list">
+{% for location in site.data.network.locations %}
+  <article class="place">
+    <h3>{{ location.subtitle }}</h3>
+    <p class="place__who"><span class="place__where">{{ location.label }}</span> &mdash;
+      {% for m in location.members -%}
+        {%- if m.name -%}{{ m.name }}
+        {%- else -%}{% include person-name.html id=m people=all_people link=true %}{%- endif -%}
+        {%- unless forloop.last %}, {% endunless -%}
+      {%- endfor %}
+    </p>
+  </article>
+{% endfor %}
+</div>

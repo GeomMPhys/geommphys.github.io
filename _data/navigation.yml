@@ -21,6 +21,8 @@
   url: /calendar/
 - title: Research
   children:
+    - title: Research Overview
+      url: /research/
     - title: Research Lines
       url: /research-lines/
     - title: Publications

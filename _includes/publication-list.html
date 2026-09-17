@@ -1,3 +1,13 @@
+{%- comment -%}
+  A bibliography: years as headings, entries numbered continuously across the
+  year groups so a row can be pointed at from elsewhere on the page.
+
+  Caveat worth keeping in mind, because the design's rationale overstated it:
+  the list is newest-first, so these numbers are positions in the current list,
+  not permanent identifiers. Adding a paper shifts every number below it. They
+  are good for "see [12] above" on the page itself; they are not a stable
+  citation key, and nothing should be built on the assumption that they are.
+{%- endcomment -%}
 {% assign publications = include.publications %}
 <div class="publication-list">
   {% assign current_year = "" %}
@@ -7,6 +17,6 @@
       <h2 class="publication-year">{{ publication.year }}</h2>
       {% assign current_year = publication_year %}
     {% endif %}
-    {% include publication.html publication=publication %}
+    {% include publication.html publication=publication number=forloop.index %}
   {% endfor %}
 </div>

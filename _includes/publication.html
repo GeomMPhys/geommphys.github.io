@@ -1,5 +1,6 @@
 {% assign publication = include.publication %}
 <article class="publication">
+  {%- if include.number %}<span class="publication__no" aria-hidden="true">[{{ include.number }}]</span>{% endif -%}
   <h3>{{ publication.title }}</h3>
   <p class="publication__authors">{{ publication.authors }}</p>
   <p class="publication__meta">

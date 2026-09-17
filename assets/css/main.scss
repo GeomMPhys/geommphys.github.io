@@ -820,14 +820,54 @@ address {
 
 /* ── Cards: a rule and a heading, no box ───────────────────────────── */
 
-.card,
-.resource-card {
+.card {
   padding: 1.05rem 0 0;
   border: 0;
   border-top: 1px solid var(--rule-strong);
   border-radius: 0;
   background: none;
   box-shadow: none;
+}
+
+/* Eleven bordered boxes on one page is a lot of furniture for what is a list of
+   names and links, so the resource lists are hairline rows on the same rhythm
+   as every other page. The markup is unchanged — only the presentation — so
+   restoring the cards is a CSS revert if the group prefers them. */
+.resource-grid,
+.resource-grid--compact {
+  display: block;
+  max-width: 40em;
+  margin: 1.6rem 0 2.25rem;
+}
+
+.resource-card {
+  padding: 0.85rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.resource-card:last-child {
+  border-bottom: 0;
+}
+
+.resource-card h3 {
+  margin-bottom: 0.2rem;
+  font-size: 1.04rem;
+}
+
+.resource-card p {
+  font-size: 0.9rem;
+}
+
+.resource-card .links {
+  margin-top: 0.35rem;
+}
+
+.resource-card .links a {
+  font-size: 0.82rem;
 }
 
 .stack > .card {
@@ -1048,13 +1088,34 @@ math {
 }
 
 .publication {
-  display: block;
+  /* number in the margin, entry in the column — the same apparatus as the year
+     marks on the record pages */
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
   padding: 0.95rem 0;
   border: 0;
   border-bottom: 1px solid var(--rule);
   border-radius: 0;
   background: none;
   box-shadow: none;
+}
+
+/* Decorative on purpose: it is aria-hidden, because a screen reader announcing
+   "left bracket twelve" before every title is noise, not information. */
+.publication__no {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.85;
+}
+
+.publication h3,
+.publication__authors,
+.publication__meta {
+  grid-column: 2;
 }
 
 .publication h3 {
@@ -1235,6 +1296,40 @@ math {
 
 .profile-link span {
   font-size: 0.6rem;
+}
+
+/* ── Collaborations, in plain text ──────────────────────────────────────
+   The map labels every point on hover, which reaches neither a touch screen nor
+   a printed page, so the same data is also set as a list. This is the copy that
+   a screenshot shows and a screen reader reads. */
+.place-list {
+  max-width: 40em;
+  margin: 1.2rem 0 2.5rem;
+}
+
+.place {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.place:last-child {
+  border-bottom: 0;
+}
+
+.page-content .place h3 {
+  margin: 0 0 0.15rem;
+  font-size: 1.04rem;
+}
+
+.place__who {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+.place__where {
+  color: var(--ink);
 }
 
 /* ── Collaborator map ──────────────────────────────────────────────── */
