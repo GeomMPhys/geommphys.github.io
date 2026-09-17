@@ -94,10 +94,16 @@
   --accent-deep: #133a60;
   --accent-wash: rgba(26, 74, 122, 0.07);
 
-  /* The event-category colours (the motion arcs of the three spinning tops)
-     are literals in _includes/calendar.html and _includes/network-map.html —
-     FullCalendar needs them inside its JS, so they cannot be tokens here.
-     Change them in those two files, not in this one. */
+  /* Event-category colours — the same four hexes as the marks' motion arcs.
+     They used to be literals inside the calendar include's JavaScript; the
+     events now carry a class instead, so the colours live here and one
+     dark-mode rule can lift them. The collaborator map still holds its own
+     literals in _includes/network-map.html. */
+  --cat-seminar: #46698f;
+  --cat-workshop: #5f7d4f;
+  --cat-visit: #b96528;
+  --cat-outreach: #8263a0;
+
 
   --max-width: 1120px;
   --measure: 68ch;
@@ -269,13 +275,22 @@ address {
 .brand {
   display: block;
   flex: 0 0 auto;
-  width: 196px;
+  width: 132px;
+  /* The header row sets --ink-soft for the navigation, and an inlined SVG
+     inherits colour from wherever it sits — so the mark must state its own ink
+     or it comes out nav-grey. */
+  color: var(--ink);
   text-decoration: none;
 }
 
+.brand__mark {
+  display: block;
+}
+
+.brand__mark svg,
 .brand__logo {
   display: block;
-  width: 196px;
+  width: 100%;
   height: auto;
 }
 
@@ -360,7 +375,9 @@ address {
 /* Members-area nav (private pages): mark external (vault) links with ↗ */
 .site-nav a[target="_blank"]::after {
   margin-left: 0.15em;
-  color: var(--ink-faint);
+  /* A text character carrying meaning ("opens externally"), so it takes a text
+     colour: --ink-faint measures 3.05:1 and fails the 4.5:1 floor. */
+  color: var(--ink-soft);
   content: "\2197";
   font-size: 0.78em;
   vertical-align: baseline;
@@ -705,10 +722,10 @@ address {
   /* plain properties rather than min(): Sass treats min()/max() as its own
      functions and rejects mixed units, unlike clamp() which it passes through */
   width: 80%;
-  max-width: 300px;
-  height: 225px;
+  max-width: 320px;
+  height: 240px;
   margin: 0 0 1.75rem;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
   mask-image: url("../images/marks/mark-404.svg");
   -webkit-mask-image: url("../images/marks/mark-404.svg");
 }
@@ -723,13 +740,21 @@ address {
   font-style: italic;
 }
 
+.empty {
+  text-align: center;
+}
+
+/* The toppled top, drawn for exactly this. Half opacity because a page with
+   nothing on it should not shout. Painted through a mask so the ink follows the
+   theme without a second copy of the file. */
 .empty::before {
   display: block;
-  width: 88px;
-  height: 88px;
-  margin-bottom: 0.7rem;
-  background-color: var(--ink-faint);
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 0.9rem;
+  background-color: var(--ink-soft);
   content: "";
+  opacity: 0.5;
   mask: url("../images/marks/mark-empty.svg") no-repeat center / contain;
   -webkit-mask: url("../images/marks/mark-empty.svg") no-repeat center / contain;
 }
@@ -1301,6 +1326,11 @@ math {
   border-radius: 50%;
 }
 
+.cal-dot--seminar  { background: var(--cat-seminar); }
+.cal-dot--workshop { background: var(--cat-workshop); }
+.cal-dot--visit    { background: var(--cat-visit); }
+.cal-dot--outreach { background: var(--cat-outreach); }
+
 .cal-subscribe {
   display: flex;
   flex-wrap: wrap;
@@ -1347,6 +1377,50 @@ math {
 .fc a {
   color: inherit;
 }
+
+/* Day numbers are text — a reader scans them to find a date — so they take a
+   text colour on both the plain and the sunk weekend ground. */
+.fc .fc-daygrid-day-number,
+.fc .fc-col-header-cell-cushion {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+/* FullCalendar dims the days either side of the month with opacity, which drops
+   those numerals to roughly 1.5:1. They are text — a reader scans them to find
+   a date — so the dimming is removed and they keep a legible tone. Being
+   outside the month's block of cells is distinction enough. */
+.fc .fc-day-other .fc-daygrid-day-top {
+  opacity: 1;
+}
+
+/* An event band is not a solid colour field. White label text on the research
+   visit orange measures 4.24:1 at 13px, under this project's 4.5:1 floor, and
+   the other three categories pass only narrowly. So: paper ground, hairline
+   border, the category colour as a 3px left edge, label in ink. That puts the
+   label near 15:1 and keeps the category colour as non-text, where the 3:1
+   floor applies — and it removes the only solid colour fields from a page that
+   otherwise has none. The four hexes live here rather than in the include's
+   JavaScript so one dark-mode rule can lift them. */
+.fc .cal-ev {
+  border: 1px solid var(--rule);
+  border-left-width: 3px;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.fc .cal-ev .fc-event-title,
+.fc .cal-ev .fc-event-time {
+  color: var(--ink);
+  font-weight: 400;
+}
+
+.fc .cal-ev--seminar  { border-left-color: var(--cat-seminar); }
+.fc .cal-ev--workshop { border-left-color: var(--cat-workshop); }
+.fc .cal-ev--visit    { border-left-color: var(--cat-visit); }
+.fc .cal-ev--outreach { border-left-color: var(--cat-outreach); }
+
+.fc .fc-daygrid-event-dot { border-color: var(--ink-soft); }
 
 .fc h2,
 .fc .fc-toolbar-title {
@@ -1487,9 +1561,8 @@ math {
     width: calc(100% - 2rem);
   }
 
-  .brand,
-  .brand__logo {
-    width: 168px;
+  .brand {
+    width: 112px;
   }
 
   .site-nav {

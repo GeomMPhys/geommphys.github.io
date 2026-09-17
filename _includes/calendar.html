@@ -12,10 +12,10 @@
 
 <div class="cal-toolbar">
   <ul class="cal-legend" aria-label="Event categories">
-    <li><span class="cal-dot" style="background:#46698f"></span>Seminars</li>
-    <li><span class="cal-dot" style="background:#5f7d4f"></span>Conferences &amp; workshops</li>
-    <li><span class="cal-dot" style="background:#b96528"></span>Research visits</li>
-    <li><span class="cal-dot" style="background:#8263a0"></span>Outreach</li>
+    <li><span class="cal-dot cal-dot--seminar"></span>Seminars</li>
+    <li><span class="cal-dot cal-dot--workshop"></span>Conferences &amp; workshops</li>
+    <li><span class="cal-dot cal-dot--visit"></span>Research visits</li>
+    <li><span class="cal-dot cal-dot--outreach"></span>Outreach</li>
   </ul>
   <div class="cal-subscribe">
     <span class="cal-subscribe__label">Subscribe in your calendar app:</span>
@@ -35,20 +35,20 @@
 <script>
   window.GEOMM_EVENTS = [
   {%- for s in site.data.seminars.upcoming -%}{%- unless s.date == nil -%}
-    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
+    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "classNames": ["cal-ev", "cal-ev--seminar"], "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
   {%- endunless -%}{%- endfor -%}
   {%- for s in site.data.seminars.past -%}{%- unless s.date == nil -%}
-    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
+    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "classNames": ["cal-ev", "cal-ev--seminar"], "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
   {%- endunless -%}{%- endfor -%}
   {%- for e in site.data.workshops.events -%}
-    { "title": {{ e.title | jsonify }}, "start": "{{ e.start | date: '%Y-%m-%d' }}", "end": "{{ e.end | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#5f7d4f", "url": {{ e.url | default: '' | jsonify }}, "extendedProps": { "category": {{ e.type | capitalize | jsonify }}, "location": {{ e.location | default: '' | jsonify }}, "description": {{ e.description | default: '' | jsonify }} } },
+    { "title": {{ e.title | jsonify }}, "start": "{{ e.start | date: '%Y-%m-%d' }}", "end": "{{ e.end | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "classNames": ["cal-ev", "cal-ev--workshop"], "url": {{ e.url | default: '' | jsonify }}, "extendedProps": { "category": {{ e.type | capitalize | jsonify }}, "location": {{ e.location | default: '' | jsonify }}, "description": {{ e.description | default: '' | jsonify }} } },
   {%- endfor -%}
   {%- for v in site.data.research_visits.visits -%}
     {%- assign vp = all_people | where: 'id', v.person | first -%}
-    { "title": {{ vp.name | default: v.person | prepend: 'Visit: ' | jsonify }}, "start": "{{ v.arrival | date: '%Y-%m-%d' }}", "end": "{{ v.departure | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#b96528", "extendedProps": { "category": "Research visit", "affiliation": {{ v.affiliation | default: '' | jsonify }}, "support": {{ v.support | default: '' | jsonify }} } },
+    { "title": {{ vp.name | default: v.person | prepend: 'Visit: ' | jsonify }}, "start": "{{ v.arrival | date: '%Y-%m-%d' }}", "end": "{{ v.departure | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "classNames": ["cal-ev", "cal-ev--visit"], "extendedProps": { "category": "Research visit", "affiliation": {{ v.affiliation | default: '' | jsonify }}, "support": {{ v.support | default: '' | jsonify }} } },
   {%- endfor -%}
   {%- for o in site.data.outreach.activities -%}{%- assign ods = o.date | append: '' -%}{%- if ods.size == 10 -%}
-    { "title": {{ o.title | jsonify }}, "start": "{{ o.date | date: '%Y-%m-%d' }}", "color": "#8263a0", "extendedProps": { "category": "Outreach", "work_title": {{ o.work_title | default: '' | jsonify }}, "venue": {{ o.venue | default: '' | jsonify }} } },
+    { "title": {{ o.title | jsonify }}, "start": "{{ o.date | date: '%Y-%m-%d' }}", "classNames": ["cal-ev", "cal-ev--outreach"], "extendedProps": { "category": "Outreach", "work_title": {{ o.work_title | default: '' | jsonify }}, "venue": {{ o.venue | default: '' | jsonify }} } },
   {%- endif -%}{%- endfor -%}
   ];
 </script>
