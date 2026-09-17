@@ -94,15 +94,31 @@
   --accent-deep: #133a60;
   --accent-wash: rgba(26, 74, 122, 0.07);
 
-  /* Event-category colours — the same four hexes as the marks' motion arcs.
-     They used to be literals inside the calendar include's JavaScript; the
-     events now carry a class instead, so the colours live here and one
-     dark-mode rule can lift them. The collaborator map still holds its own
-     literals in _includes/network-map.html. */
-  --cat-seminar: #46698f;
-  --cat-workshop: #5f7d4f;
-  --cat-visit: #b96528;
-  --cat-outreach: #8263a0;
+  /* The four discipline colours — the motion arcs of the tops. Identity, not
+     ink, so they are literal rather than derived from --ink. The marks keep the
+     same hex as a presentation attribute for the no-CSS case; these tokens
+     override it, which is what lets night mode lift them in one place.
+     The calendar's event categories reuse the same palette, aliased below so
+     the mapping from category to colour stays visible. */
+  --disc-geom: #46698f;
+  --disc-math: #8263a0;
+  --disc-phys: #b96528;
+  --disc-philo: #5f7d4f;
+
+  --cat-seminar: var(--disc-geom);
+  --cat-workshop: var(--disc-philo);
+  --cat-visit: var(--disc-phys);
+  --cat-outreach: var(--disc-math);
+
+  /* Reversed out of the accent (button labels, calendar controls): white in
+     daylight, but the night accent is light, so it flips to the page ground. */
+  --accent-ink: #ffffff;
+
+  /* The footer is a dark band in daylight and a sunk one at night, so it needs
+     its own tokens rather than borrowing --ink, which inverts. */
+  --footer-bg: #17212b;
+  --footer-ink: #eceae4;
+  --footer-ink-soft: #b7bec6;
 
 
   --max-width: 1120px;
@@ -114,6 +130,14 @@
   --font-serif: "STIX Two Text", Georgia, "Times New Roman", serif;
   --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
+
+/* The marks' motion arcs. A CSS declaration beats the stroke presentation
+   attribute the files carry, so these win while the attribute remains as the
+   no-stylesheet fallback. */
+.arc--geom  { stroke: var(--disc-geom); }
+.arc--math  { stroke: var(--disc-math); }
+.arc--phys  { stroke: var(--disc-phys); }
+.arc--philo { stroke: var(--disc-philo); }
 
 /* ── Base ──────────────────────────────────────────────────────────── */
 
@@ -238,14 +262,14 @@ address {
   padding: 0.5rem 0.8rem;
   border-radius: var(--radius);
   background: var(--ink);
-  color: #fff;
+  color: var(--paper);
   font-family: var(--font-sans);
   font-size: 0.9rem;
   transform: translateY(-160%);
 }
 
 .skip-link:focus {
-  color: #fff;
+  color: var(--paper);
   transform: translateY(0);
 }
 
@@ -473,7 +497,7 @@ address {
   border: 1px solid var(--accent);
   border-radius: var(--radius);
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
   font-family: var(--font-sans);
   font-size: 0.92rem;
   font-weight: 500;
@@ -484,7 +508,7 @@ address {
 .button:hover {
   border-color: var(--accent-deep);
   background: var(--accent-deep);
-  color: #fff;
+  color: var(--accent-ink);
 }
 
 .button--secondary {
@@ -1152,7 +1176,11 @@ math {
   overflow: hidden;
   border: 1px solid var(--rule);
   border-radius: var(--radius);
-  background: var(--paper-sunk);
+  /* Deliberately a literal, not --paper-sunk: the map's own SVG carries light
+     hex values for the land lattice and the halos around each dot, so the panel
+     has to stay light in both themes. It reads as paper pinned to the page.
+     The Stage 4 map redesign makes the geometry theme-aware and this can go. */
+  background: #f4f2ec;
 }
 
 .network-map__world,
@@ -1171,9 +1199,10 @@ math {
   width: 250px;
   max-width: 62%;
   padding: 0.45rem;
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(23, 33, 43, 0.14);
   border-radius: var(--radius);
-  background: var(--paper-sunk);
+  /* Light in both themes, like the frame it breaks out of — see the note there. */
+  background: #f4f2ec;
   box-shadow: var(--shadow-float);
 }
 
@@ -1227,9 +1256,11 @@ math {
   min-width: 150px;
   max-width: 240px;
   padding: 0.55rem 0.7rem;
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(23, 33, 43, 0.18);
   border-radius: var(--radius);
-  background: var(--paper);
+  /* Sits on the light map panel, so it is light in both themes too. */
+  background: #fbfaf6;
+  color: #17212b;
   box-shadow: var(--shadow-float);
   font-family: var(--font-sans);
   font-size: 0.83rem;
@@ -1365,6 +1396,7 @@ math {
 .fc .fc-button-primary {
   border-color: var(--accent);
   background: var(--accent);
+  color: var(--accent-ink);
   font-weight: 500;
 }
 
@@ -1472,8 +1504,8 @@ math {
 
 .site-footer {
   padding: 2.5rem 0;
-  background: var(--ink);
-  color: #eceae4;
+  background: var(--footer-bg);
+  color: var(--footer-ink);
   font-family: var(--font-sans);
   font-size: 0.9rem;
 }
@@ -1498,11 +1530,11 @@ math {
 
 .site-footer p {
   margin: 0.3rem 0 0;
-  color: #b7bec6;
+  color: var(--footer-ink-soft);
 }
 
 .site-footer a {
-  color: #eceae4;
+  color: var(--footer-ink);
 }
 
 .site-footer a:hover {
@@ -1605,5 +1637,51 @@ math {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* ── Night ─────────────────────────────────────────────────────────────
+   Eight tokens move and nothing else does: no layout changes, no second set of
+   artwork, no filters. The marks come along because they are inlined SVG whose
+   ink is currentColor and whose arcs read the discipline tokens.
+
+   The arcs are lifted rather than kept at their daylight values. They already
+   clear the 3:1 non-text floor on this ground — #46698f measures 3.27:1, not
+   the 2.3:1 the handoff estimated — but these are 2px strokes, and thin marks
+   need more headroom than the floor to read as drawn lines.
+
+   The footer keeps its own tokens: in daylight it is a dark band, at night a
+   sunk one, because borrowing --ink would invert it into a light band holding
+   light text. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1317;
+    --paper-sunk: #161b20;
+    --ink: #e9e7e1;
+    --ink-soft: #9aa3ab;
+    --ink-faint: #79828b;
+    --rule: #252c33;
+    --rule-strong: #3a434c;
+    --accent: #8fb6dd;
+
+    --accent-deep: #b3cdea;
+    --accent-ink: #0f1317;
+    --accent-wash: rgba(143, 182, 221, 0.12);
+    --shadow-float: 0 8px 26px rgba(0, 0, 0, 0.55);
+
+    --disc-geom: #7fa3c9;
+    --disc-math: #b195cf;
+    --disc-phys: #e0924f;
+    --disc-philo: #92b37e;
+
+    --footer-bg: #161b20;
+    --footer-ink: #e9e7e1;
+    --footer-ink-soft: #9aa3ab;
+  }
+
+  /* The sticky header's translucent fill is a literal, so it has to be
+     restated for the night ground. */
+  .site-header {
+    background: rgba(15, 19, 23, 0.93);
   }
 }
