@@ -2,81 +2,119 @@
 layout: default
 ---
 
+{%- assign lines = site.data.research_lines.lines -%}
+
 {%- comment -%}
-  The hero pairs the group's emblem — three spinning tops, the canonical
-  object of geometric mechanics — with the typeset group name.
-
-  geommphys-tops.png is the drawing on its own, without the hand-lettered
-  group name that sits under it in geommphys-pyramid.png, so that the
-  emblem does not repeat the <h1> beside it. To regenerate it:
-
-    magick geommphys-pyramid.png -crop 673x621+0+0 +repage -trim +repage       -strip -colors 192 -define png:compression-level=9 geommphys-tops.png
+  The emblem is three spinning tops — the canonical object of geometric
+  mechanics, which is the group's own field. It is inlined rather than an <img>
+  so its ink inherits currentColor and it needs no second copy for night mode.
 {%- endcomment -%}
 <section class="hero">
   <div class="container hero__inner">
-    <figure class="hero__figure">
-      <span class="hero__emblem" role="img" aria-label="Three spinning tops labelled Geom, Math and Phys, with arcs tracing their rotation.">{% include icons/emblem-tops.svg %}</span>
-    </figure>
-    <div>
-      <h1 class="hero__title">
-        <span class="hero__title-main">Geometrical Mathematical Physics</span>
-        <span class="hero__title-sub">Research Group</span>
-      </h1>
-      <p class="lead">{{ site.data.site.description }}</p>
-      <div class="hero__actions">
-        <a class="button" href="{{ '/research/' | relative_url }}">Research</a>
-        <a class="button button--secondary" href="{{ '/people/' | relative_url }}">People</a>
-      </div>
+    <span class="hero__emblem" role="img" aria-label="Three spinning tops labelled Geom, Math and Phys, with arcs tracing their rotation.">{% include icons/emblem-tops.svg %}</span>
+    <h1 class="hero__title">
+      <span class="hero__title-main">Geometrical Mathematical Physics</span>
+      <span class="hero__title-sub">Research Group</span>
+    </h1>
+    <p class="hero__standfirst">Mathematical structures in modern physics</p>
+    <div class="hero__prose">{{ content }}</div>
+    <div class="hero__actions">
+      <a class="button" href="{{ '/research-lines/' | relative_url }}">Research lines</a>
+      <a class="button button--secondary" href="{{ '/people/' | relative_url }}">People</a>
     </div>
   </div>
 </section>
 
-<section class="band">
-  <div class="container">
-    <div class="home-intro">
-      <h2>Mathematical structures in modern physics</h2>
-      {{ content }}
-    </div>
-  </div>
-</section>
+{%- comment -%}
+  The research lines are the group's actual work, and each already carries a
+  description and a roster in research_lines.yml. Shared membership is computed
+  by intersecting the rosters, so it needs no new field and cannot fall out of
+  date.
 
+  Note that _data/research.yml is NOT research areas: its five entries are site
+  sections (Publications, Seminars, Visits, Conferences, Awards), which is what
+  this section used to show under the heading "Research". It reads
+  research_lines.yml instead — the real thing.
+{%- endcomment -%}
+{% if lines and lines.size > 0 %}
 <section class="section">
   <div class="container">
     <div class="section__heading">
-      <h2>Research</h2>
-      <a href="{{ '/research/' | relative_url }}">Research overview</a>
+      <h2>Research lines</h2>
+      <a href="{{ '/research-lines/' | relative_url }}">All research lines</a>
     </div>
-    <div class="grid grid--research">
-      {% for area in site.data.research limit:3 %}
-        {% include research-area.html area=area %}
-      {% endfor %}
-    </div>
+
+    {% for line in lines %}
+      {%- assign idx = forloop.index -%}
+      {%- assign shared = "" -%}
+      {%- for other in lines -%}
+        {%- unless forloop.index == idx -%}
+          {%- assign n = 0 -%}
+          {%- for pid in line.people -%}
+            {%- if other.people contains pid -%}{%- assign n = n | plus: 1 -%}{%- endif -%}
+          {%- endfor -%}
+          {%- if n > 0 -%}
+            {%- assign shared = shared | append: ", " | append: n | append: " also on §" | append: forloop.index -%}
+          {%- endif -%}
+        {%- endunless -%}
+      {%- endfor -%}
+      <article class="line">
+        <p class="line__mark" aria-hidden="true">§{{ idx }}</p>
+        <div class="line__body">
+          <h3><a href="{{ '/research-lines/' | relative_url }}">{{ line.name }}</a></h3>
+          {% if line.description %}<p class="line__desc">{{ line.description | strip_html | truncatewords: 28 }}</p>{% endif %}
+          <p class="line__roster">{{ line.people | size }} people{{ shared }}</p>
+        </div>
+      </article>
+    {% endfor %}
   </div>
 </section>
+{% endif %}
 
+{%- comment -%}
+  Two feed slots, labelled rather than numbered. The seminar slot falls back to
+  the most recent past talk when nothing is scheduled: `upcoming` is empty
+  between terms, and a slot that simply vanished would leave the row lopsided.
+{%- endcomment -%}
+{%- assign latest_paper = site.data.publications.selected | first -%}
+{%- assign next_seminar = site.data.seminars.upcoming | first -%}
+{%- assign seminar_label = "Next seminar" -%}
+{%- if next_seminar == nil -%}
+  {%- assign next_seminar = site.data.seminars.past | first -%}
+  {%- assign seminar_label = "Latest seminar — none scheduled" -%}
+{%- endif -%}
+{% if latest_paper or next_seminar %}
 <section class="section section--alt">
   <div class="container">
-    <div class="section__heading">
-      <h2>Upcoming seminars</h2>
-      <a href="{{ '/seminars/' | relative_url }}">Full seminar schedule</a>
-    </div>
-    <div class="stack">
-      {% for seminar in site.data.seminars.upcoming limit:3 %}
-        {% include seminar-item.html seminar=seminar %}
-      {% else %}
-        <p class="empty">Upcoming seminars will be posted here.</p>
-      {% endfor %}
+    <div class="feeds">
+      {% if latest_paper %}
+      <article class="feed">
+        <p class="feed__label">Latest paper</p>
+        <h3>{{ latest_paper.title }}</h3>
+        <p class="feed__meta">{{ latest_paper.authors }}</p>
+        <p class="links"><a href="{{ '/publications/' | relative_url }}">All {{ site.data.publications.selected | size }} publications</a></p>
+      </article>
+      {% endif %}
+      {% if next_seminar %}
+      <article class="feed">
+        <p class="feed__label">{{ seminar_label }}</p>
+        <h3>{{ next_seminar.title }}</h3>
+        <p class="feed__meta">{{ next_seminar.speaker }}{% if next_seminar.affiliation and next_seminar.affiliation != "" %}, {{ next_seminar.affiliation }}{% endif %}</p>
+        <p class="links"><a href="{{ '/seminars/' | relative_url }}">Seminar series</a></p>
+      </article>
+      {% endif %}
     </div>
   </div>
 </section>
+{% endif %}
 
 <section class="section">
   <div class="container">
     <div class="section__heading">
-      <h2>International network</h2>
+      <h2>Collaborations</h2>
       <a href="{{ '/people/' | relative_url }}">People and collaborators</a>
     </div>
-    <p class="lead">Collaborations at {{ site.data.network.locations | size }} institutions worldwide, from the group's base in Madrid.</p>
+    <p class="lead">At {{ site.data.network.locations | size }} institutions worldwide, from the group's base in Madrid.</p>
     {% include network-map.html class="network-map--feature" %}
   </div>
 </section>

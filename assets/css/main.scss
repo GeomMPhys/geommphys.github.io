@@ -418,13 +418,14 @@ address {
   background: var(--paper);
 }
 
+/* A centred title block: emblem, name, one sentence, two ways in. The emblem
+   is the loudest thing on the site and deliberately the only loud thing. */
 .hero__inner {
-  display: grid;
-  grid-template-columns: minmax(170px, 290px) minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(2rem, 5vw, 4.5rem);
-  padding: clamp(2.8rem, 6.5vw, 5.25rem) 0 clamp(2.8rem, 6vw, 4.75rem);
-  text-align: left;
+  padding: clamp(2.4rem, 5.5vw, 4.25rem) 0 clamp(2.4rem, 5vw, 3.75rem);
+  text-align: center;
 }
 
 .hero__figure {
@@ -440,13 +441,15 @@ address {
 
 .hero__emblem {
   display: block;
+  width: clamp(150px, 26vw, 215px);
+  margin-bottom: 1.4rem;
   color: var(--ink);
 }
 
 .hero__title {
   display: grid;
   gap: 0.08em;
-  max-width: 24ch;
+  max-width: 26ch;
   margin: 0 0 1.15rem;
   font-family: var(--font-serif);
   font-size: clamp(2.05rem, 4.3vw, 3.25rem);
@@ -473,8 +476,26 @@ address {
   letter-spacing: 0;
 }
 
+.hero__standfirst {
+  max-width: 46ch;
+  text-wrap: balance;
+  margin: 0.2rem 0 0.9rem;
+  color: var(--ink);
+  font-size: clamp(1.14rem, 1.7vw, 1.3rem);
+}
+
+.hero__prose {
+  max-width: 54ch;
+  margin-bottom: 1.6rem;
+  color: var(--ink-soft);
+}
+
+.hero__prose p:last-child {
+  margin-bottom: 0;
+}
+
 .hero .lead {
-  max-width: 48ch;
+  max-width: 52ch;
   margin-bottom: 1.6rem;
 }
 
@@ -482,7 +503,7 @@ address {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.7rem;
 }
 
@@ -901,6 +922,103 @@ address {
 .card .links,
 .resource-card .links {
   margin-top: 0.7rem;
+}
+
+/* ── Research lines on the home page ────────────────────────────────────
+   Numbered with § marks in the margin, the same apparatus the record pages use
+   for years. These are a real sequence — the site refers to "§2" — so the
+   numbering carries information rather than decorating.
+
+   Shared membership ("6 people, 3 also on §2") is computed in the layout by
+   intersecting rosters, so no field stores it and it cannot drift. */
+.line {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr);
+  gap: 0 1rem;
+  max-width: calc(4.2rem + 34em);
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.line:last-of-type {
+  border-bottom: 0;
+}
+
+.line__mark {
+  grid-column: 1;
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 2.1;
+}
+
+.line__body {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.line h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.22rem;
+}
+
+.line h3 a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.line h3 a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.line__desc {
+  margin: 0 0 0.4rem;
+  color: var(--ink-soft);
+}
+
+.line__roster {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+/* ── The two feed slots ─────────────────────────────────────────────────
+   Labelled rather than numbered: they are two different kinds of thing, not
+   steps in a sequence. */
+.feeds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.8rem, 4vw, 3.25rem);
+  max-width: 54em;
+}
+
+.feed__label {
+  margin: 0 0 0.45rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+.section .feed h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  line-height: 1.32;
+}
+
+.feed__meta {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.feed .links {
+  margin-top: 0.6rem;
 }
 
 /* ── Records: a schedule, date in the margin ───────────────────────── */
@@ -1744,7 +1862,7 @@ math {
     left: 0;
   }
 
-  .hero__inner,
+  .feeds,
   .two-column,
   .contact-layout,
   .grid--research,
