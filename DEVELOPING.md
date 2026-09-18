@@ -105,6 +105,8 @@ name everywhere. That was the deliberate trade for the links.
 | `ics-events.html` | iCal VEVENTs for a category (`only=`), used by the `.ics` feeds | `events*.ics` |
 | `network-map.html` | the SVG collaborator map (member ids → hover tooltip) | `people.md` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
+| `theme-init.html` | pre-paint theme + `data-js` on `<html>` | `_layouts/default.html`, in `<head>` |
+| `theme-switch.html` | the Auto / Day / Night control | `header.html` |
 | `header.html` / `footer.html` | nav (from `navigation.yml`) and footer | layout |
 
 ## Data validation and schema changes
@@ -272,6 +274,47 @@ before changing anything visual. In short:
 Contrast was checked against WCAG AA: body 16:1, secondary text 6.2:1, links
 9:1 on the paper background. Keep new colours at 4.5:1 or better for text.
 
+### Day and night
+
+The stylesheet ships two palettes. The light one is the bare `:root` block; the
+night one is the `@mixin night` at the very bottom of `main.scss` — **the only
+Sass construct in the file**, and there for a reason: the palette is used twice
+(once for readers following their operating system, once for a reader who chose
+Night outright) and two hand-kept copies would drift apart the first time
+someone tuned one of them. Add a token to the mixin, not to one of its two call
+sites. Both blocks must stay at the end of the file: several of the overrides
+are plain class selectors at the same specificity as the rules they beat, so
+they win on order.
+
+Night moves tokens and nothing else — no layout changes, no second set of
+artwork, no `filter: invert()`. Marks follow because they are inlined SVG whose
+ink is `currentColor`.
+
+The reader's choice is three-state, because "follow my desktop" is the site's
+default and a two-way toggle would give no way back to it:
+
+| `<html>` | means |
+|---|---|
+| no `data-theme` | follow `prefers-color-scheme` — the default, and what a reader with no stored choice gets |
+| `data-theme="light"` | Day, overriding a dark desktop (the `:not([data-theme="light"])` in the media query is what lets it) |
+| `data-theme="dark"` | Night, overriding a light desktop |
+
+Two includes implement it. `theme-init.html` runs in `<head>`, before the page
+paints — a deferred script would flash white at every navigation for a reader
+who chose Night. It also sets `data-js` on `<html>`, which is the only thing
+that reveals the control: without scripting it would be a row of buttons that
+do nothing, so the stylesheet hides it. `theme-switch.html` carries the markup
+and an inline (not deferred) script, so the pressed button is marked the moment
+the buttons are parsed.
+
+The choice is kept in `localStorage` under `theme`. Every read and write is
+wrapped, because a locked-down browser throws rather than returning `null`;
+failing it falls back to the desktop setting, which is a working site.
+
+`color-scheme` is declared in both palettes so the browser's own furniture —
+scrollbars, form controls, the caret — matches. It has to be stated explicitly
+now that a reader can pick Night on a light desktop.
+
 ### Mathematics in abstracts
 
 Seminar abstracts may contain LaTeX between dollar signs (`$G_2$`), and it is
@@ -309,8 +352,8 @@ match that hand. Requirements differ by route:
 **Drawn as SVG** — one `<svg>` root with `xmlns` and `viewBox` and **no
 `width`/`height`** so CSS controls the size; transparent, with no background
 rect; strokes rather than filled outline shapes, `stroke-linecap`/`linejoin`
-round; **`stroke="currentColor"` for all ink**, so a mark stays legible if the
-site is ever set on a dark ground; discipline colours as literals — Geom
+round; **`stroke="currentColor"` for all ink**, which is what carries the
+artwork into night mode without a second copy; discipline colours as literals — Geom
 `#46698f`, Math `#8263a0`, Phys `#b96528`, Philo `#5f7d4f`; no gradients,
 filters, masks, clip paths, `<image>` or `<text>`; no editor metadata.
 

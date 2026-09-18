@@ -80,6 +80,12 @@
 /* ── Tokens ────────────────────────────────────────────────────────── */
 
 :root {
+  /* Tells the browser which way round its own furniture goes — scrollbars,
+     form controls, the caret. It has to be stated because a reader can now
+     pick Night on a light desktop, and the untold browser would keep
+     painting light scrollbars around a dark page. */
+  color-scheme: light;
+
   /* Paper and ink */
   --paper: #fdfdfb;
   --paper-sunk: #f4f2ec;
@@ -296,6 +302,15 @@ address {
   justify-content: flex-end;
 }
 
+/* Navigation and the theme control, as one right-hand group. */
+.site-header__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem 1.15rem;
+}
+
 .brand {
   display: block;
   flex: 0 0 auto;
@@ -405,6 +420,50 @@ address {
   content: "\2197";
   font-size: 0.78em;
   vertical-align: baseline;
+}
+
+/* ── Theme switch ──────────────────────────────────────────────────────
+   Hidden until theme-init.html has proved that scripting is on, because
+   without it the control has nothing to act on.
+
+   The pressed option is marked the way the navigation marks the current page
+   — accent underline, full ink, weight 500 — so the header row has one idiom
+   for "this is the one you are on" instead of two. That underline is also
+   what carries the state at 3:1: the group's hairline is a grouping
+   affordance, and each option is identified by its own text label. */
+.theme-switch {
+  display: none;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.12rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+}
+
+[data-js] .theme-switch {
+  display: inline-flex;
+}
+
+.theme-switch__option {
+  padding: 0.14rem 0.46rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.theme-switch__option:hover {
+  color: var(--ink);
+}
+
+.theme-switch__option[aria-pressed="true"] {
+  border-bottom-color: var(--accent);
+  color: var(--ink);
+  font-weight: 500;
 }
 
 /* ── Home hero ─────────────────────────────────────────────────────── */
@@ -1853,13 +1912,20 @@ math {
     align-items: flex-start;
   }
 
-  .site-nav {
+  .site-nav,
+  .site-header__tools {
     justify-content: flex-start;
   }
 
   .site-nav__menu {
     right: auto;
     left: 0;
+  }
+
+  /* The header has stacked, so this is a phone or a tablet: give the options
+     a finger-sized target rather than the compact desktop one. */
+  .theme-switch__option {
+    padding: 0.36rem 0.62rem;
   }
 
   .feeds,
@@ -1947,36 +2013,57 @@ math {
 
    The footer keeps its own tokens: in daylight it is a dark band, at night a
    sunk one, because borrowing --ink would invert it into a light band holding
-   light text. */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #0f1317;
-    --paper-sunk: #161b20;
-    --ink: #e9e7e1;
-    --ink-soft: #9aa3ab;
-    --ink-faint: #79828b;
-    --rule: #252c33;
-    --rule-strong: #3a434c;
-    --accent: #8fb6dd;
+   light text.
 
-    --accent-deep: #b3cdea;
-    --accent-ink: #0f1317;
-    --accent-wash: rgba(143, 182, 221, 0.12);
-    --shadow-float: 0 8px 26px rgba(0, 0, 0, 0.55);
+   The palette is written once and used twice, which is the only Sass in this
+   file and the reason for it: once for readers who have not touched the theme
+   control, where the operating system decides, and once for a reader who
+   picked Night outright. Two hand-kept copies would drift apart the first time
+   anyone tuned one of them, and then the control and the desktop setting would
+   render different sites. */
+@mixin night {
+  color-scheme: dark;
 
-    --disc-geom: #7fa3c9;
-    --disc-math: #b195cf;
-    --disc-phys: #e0924f;
-    --disc-philo: #92b37e;
+  --paper: #0f1317;
+  --paper-sunk: #161b20;
+  --ink: #e9e7e1;
+  --ink-soft: #9aa3ab;
+  --ink-faint: #79828b;
+  --rule: #252c33;
+  --rule-strong: #3a434c;
+  --accent: #8fb6dd;
 
-    --footer-bg: #161b20;
-    --footer-ink: #e9e7e1;
-    --footer-ink-soft: #9aa3ab;
-  }
+  --accent-deep: #b3cdea;
+  --accent-ink: #0f1317;
+  --accent-wash: rgba(143, 182, 221, 0.12);
+  --shadow-float: 0 8px 26px rgba(0, 0, 0, 0.55);
+
+  --disc-geom: #7fa3c9;
+  --disc-math: #b195cf;
+  --disc-phys: #e0924f;
+  --disc-philo: #92b37e;
+
+  --footer-bg: #161b20;
+  --footer-ink: #e9e7e1;
+  --footer-ink-soft: #9aa3ab;
 
   /* The sticky header's translucent fill is a literal, so it has to be
      restated for the night ground. */
   .site-header {
     background: rgba(15, 19, 23, 0.93);
   }
+}
+
+/* No explicit choice: follow the desktop. The :not() is what lets a reader
+   who picked Day on a dark desktop actually get Day. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include night;
+  }
+}
+
+/* An explicit choice, which beats the desktop in both directions: this rule
+   for Night on a light desktop, and the :not() above for Day on a dark one. */
+:root[data-theme="dark"] {
+  @include night;
 }

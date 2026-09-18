@@ -1,0 +1,31 @@
+{%- comment -%}
+  Runs before the page paints, which is the whole point of it being here in
+  <head> rather than with the control itself: a reader who chose Night would
+  otherwise get a white flash on every navigation while the stylesheet's
+  default (the OS setting) held.
+
+  It writes two attributes on <html>:
+
+  • data-theme  — only when the reader has made an explicit choice. Absent
+    means "follow the operating system", which is the stylesheet's own
+    default, so the untouched site behaves exactly as it did before.
+  • data-js     — the control cannot work without scripting, so the
+    stylesheet keeps it hidden until this line proves scripting is on. Set
+    here, pre-paint, so the control never appears late.
+
+  localStorage throws rather than returning null in a locked-down browser
+  (private windows, blocked site data), so the read is wrapped. Failing it
+  falls back to the OS setting, which is a working site, not a broken one.
+{%- endcomment -%}
+<script>
+  (function () {
+    var root = document.documentElement;
+    root.setAttribute("data-js", "");
+    try {
+      var choice = localStorage.getItem("theme");
+      if (choice === "light" || choice === "dark") {
+        root.setAttribute("data-theme", choice);
+      }
+    } catch (e) {}
+  })();
+</script>

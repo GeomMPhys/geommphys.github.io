@@ -13,6 +13,12 @@
         <span class="brand__mark">{% include icons/logo-tops.svg %}</span>
       </a>
     {% endunless %}
+    {%- comment -%}
+      Navigation and the theme control share one flex group so the header row
+      stays two items wide — brand on the left, tools on the right. A third
+      direct child would have space-between push the navigation to the centre.
+    {%- endcomment -%}
+    <div class="site-header__tools">
     {% if page.section == "Private" %}
     <nav class="site-nav" aria-label="Members navigation">
       <a href="{{ '/members/' | relative_url }}" {% if page.url == '/members/' %}aria-current="page"{% endif %}>Members</a>
@@ -45,5 +51,7 @@
       {% endfor %}
     </nav>
     {% endif %}
+      {% include theme-switch.html %}
+    </div>
   </div>
 </header>
