@@ -17,3 +17,6 @@ google-sites-export/
 
 .agents/
 .codex/
+
+# local preview server log (bin/serve or python -m http.server)
+.preview.log
