@@ -17,6 +17,6 @@
       <h2 class="publication-year">{{ publication.year }}</h2>
       {% assign current_year = publication_year %}
     {% endif %}
-    {% include publication.html publication=publication number=forloop.index %}
+    {% include publication.html publication=publication number=forloop.index people=include.people %}
   {% endfor %}
 </div>

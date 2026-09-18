@@ -293,6 +293,37 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "workshops.yml")))
   end
 end
 
+# publications.yml — authors follow the same ids-or-inline-names convention as
+# workshops organizers: a group member is their people.yml id, anyone else is
+# `{ name: "..." }`. Validating it is what keeps a typo'd id from silently
+# rendering as a dead link instead of a name.
+if (doc = load_yaml(errors, File.join(DATA_DIR, "publications.yml")))
+  top_list(errors, "publications.yml", doc, "selected").each_with_index do |rec, i|
+    where = "publications.yml entry ##{i + 1}"
+    check_record(errors, "publications.yml", where, rec, {
+      required: { title: :str, authors: :list, venue: :str, year: :year },
+      optional: { arxiv: :str, doi: :str },
+    })
+    next unless rec.is_a?(Hash) && rec["authors"].is_a?(Array)
+    if rec["authors"].empty?
+      err(errors, "publications.yml", "#{where}: `authors` is empty — list at " \
+          "least one author.")
+    end
+    rec["authors"].each_with_index do |a, j|
+      if a.is_a?(String)
+        check_person_ref(errors, "publications.yml", "#{where} → author ##{j + 1}", a, person_ids)
+      elsif a.is_a?(Hash)
+        check_record(errors, "publications.yml", "#{where} → author ##{j + 1}", a, {
+          required: { name: :str },
+        })
+      else
+        err(errors, "publications.yml", "#{where} → author ##{j + 1}: must be " \
+            "either a person id or `{ name: \"...\" }`.")
+      end
+    end
+  end
+end
+
 # seminars.yml — two lists: upcoming + past
 if (doc = load_yaml(errors, File.join(DATA_DIR, "seminars.yml")))
   if doc.is_a?(Hash)

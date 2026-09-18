@@ -4,41 +4,64 @@
 #  HOW TO EDIT
 #  • Add a paper by copying a "- title:" block under "selected:".
 #  • List newest first. The page groups papers by "year" automatically.
-#  • 2 spaces before "-". Quote titles, authors, and venues.
+#  • 2 spaces before "-". Quote titles and venues.
 #
 #  FIELDS
 #    title    (required)  paper title, in quotes
-#    authors  (required)  author list, in quotes
 #    venue    (required)  journal / "Preprint" / conference, in quotes
 #    year     (required)  four digits, no quotes
 #    arxiv    (optional)  arXiv id only, e.g. "2601.00000" ("" if none)
 #    doi      (optional)  DOI only, e.g. "10.1000/xyz" ("" if none)
+#    authors  (required)  a list, in the paper's own order; each item is
+#                 EITHER a person id from people.yml (group members), so
+#                 that their name links to their entry, e.g.
+#                     - manuel-lainz
+#                 OR, for co-authors NOT in people.yml, a name like:
+#                     - { name: "Jane Doe" }
+#                 Write ids in the order the paper lists its authors —
+#                 the page prints them in exactly that order. A member's
+#                 name is always printed as it is written in people.yml,
+#                 so it reads the same on every paper. This is the same
+#                 shape workshops.yml uses for "organizers".
 # ───────────────────────────────────────────────────────────────────
 
 selected:
   - title: "Target-space fusion of classical topological defects"
-    authors: "Saskia Demulder, Chuying Wang"
+    authors:
+      - saskia-demulder
+      - { name: "Chuying Wang" }
     venue: "Preprint"
     year: 2026
     arxiv: "2608.21121"
     doi: ""
 
   - title: "Renormalization flows for 1D mixed states and a quantum Goursat lemma"
-    authors: "Léo Le-Nestour, David Pérez-García, Alberto Ruiz-de-Alarcón"
+    authors:
+      - { name: "Léo Le-Nestour" }
+      - { name: "David Pérez-García" }
+      - alberto-ruiz-de-alarcon
     venue: "Preprint"
     year: 2026
     arxiv: "2607.08568"
     doi: ""
-    
+
   - title: "The Spencer cohomology and integrability of multisymplectic structures"
-    authors: "Manuel de León, Rubén Izquierdo-López, Manuel Lainz"
+    authors:
+      - manuel-de-leon
+      - ruben-izquierdo-lopez
+      - manuel-lainz
     venue: "Preprint"
     year: 2026
     arxiv: "2607.05267"
     doi: ""
 
   - title: "Poisson and Jacobi structures from 2-covariant tensors"
-    authors: "Manuel de León, Xavier Gràcia, Rubén Izquierdo-López, Ángel Martínez-Muñoz, Xavier Rivas"
+    authors:
+      - manuel-de-leon
+      - { name: "Xavier Gràcia" }
+      - ruben-izquierdo-lopez
+      - { name: "Ángel Martínez-Muñoz" }
+      - { name: "Xavier Rivas" }
     venue: "Preprint"
     year: 2026
     arxiv: "2606.20030"
@@ -46,161 +69,234 @@ selected:
 
 
   - title: "Probing weak chaos in N = 4 super Yang-Mills and long-range spin chains"
-    authors: "P. Caputa, B. Creed, R. N. Das, S. Demulder, T. McLoughlin"
+    authors:
+      - { name: "P. Caputa" }
+      - { name: "B. Creed" }
+      - rathindra-das
+      - saskia-demulder
+      - { name: "T. McLoughlin" }
     venue: "Preprint"
     year: 2026
     arxiv: "2606.18351"
     doi: ""
 
   - title: "Stringy T-duality on the lattice and the twisted Villain model"
-    authors: "C. Bacq, A. Caddeo, S. Demulder, J. Erdmenger"
+    authors:
+      - { name: "C. Bacq" }
+      - { name: "A. Caddeo" }
+      - saskia-demulder
+      - { name: "J. Erdmenger" }
     venue: "Preprint"
     year: 2026
     arxiv: "2605.19925"
     doi: ""
 
   - title: "Optimal paths across potentials on scalar field space"
-    authors: "S. Demulder, D. Lüst, C. Montella, T. Raml"
+    authors:
+      - saskia-demulder
+      - { name: "D. Lüst" }
+      - { name: "C. Montella" }
+      - thomas-raml
     venue: "Preprint"
     year: 2026
     arxiv: "2604.24843"
     doi: ""
-    
+
   - title: "Regularization of singular time-dependent Lagrangian systems"
-    authors: "Manuel De León, Rubén Izquierdo-López, Luca Schiavone, Pablo Soto"
+    authors:
+      - manuel-de-leon
+      - ruben-izquierdo-lopez
+      - { name: "Luca Schiavone" }
+      - { name: "Pablo Soto" }
     venue: "Preprint"
     year: 2026
     arxiv: "2603.24308"
     doi: ""
 
   - title: "Integrability breaking in semiclassical strings in Koopman-Krylov space"
-    authors: "R. N. Das, S. Demulder"
+    authors:
+      - rathindra-das
+      - saskia-demulder
     venue: "J. Phys. A: Math. Theor. 59 305401"
     year: 2026
     arxiv: "2602.23421"
     doi: "10.1088/1751-8121/ae895d"
 
   - title: "Non-invertible Nielsen circuits and 3d Ising gravity"
-    authors: "S. Demulder"
+    authors:
+      - saskia-demulder
     venue: "JHEP 05 (2026) 146"
     year: 2026
     arxiv: "2601.09534"
     doi: "10.1007/JHEP05(2026)146"
 
   - title: "Non-invertible circuit complexity from fusion operations"
-    authors: "S. Demulder"
+    authors:
+      - saskia-demulder
     venue: "Preprint"
     year: 2026
     arxiv: "2601.09535"
     doi: ""
 
   - title: "Haag Duality for 2D Quantum Spin Systems"
-    authors: "Y. Ogata, D. Pérez-García and A. Ruiz-de-Alarcón"
+    authors:
+      - { name: "Y. Ogata" }
+      - { name: "D. Pérez-García" }
+      - alberto-ruiz-de-alarcon
     venue: "Preprint"
     year: 2025
     arxiv: "2509.23734"
     doi: ""
 
   - title: "From variational principles to geometry"
-    authors: "J. Gaset Rifà"
+    authors:
+      - jordi-gaset-rifa
     venue: "Preprint"
     year: 2025
     arxiv: "2509.22171"
     doi: ""
 
   - title: "Krylov exponents and power spectra for maximal quantum chaos: an EFT approach"
-    authors: "S. Demulder, M. Knysh, A. Rolph"
+    authors:
+      - saskia-demulder
+      - { name: "M. Knysh" }
+      - { name: "A. Rolph" }
     venue: "JHEP 2026, 59 (2026)"
     year: 2025
     arxiv: "2508.05444"
     doi: "10.1007/JHEP04(2026)059"
 
   - title: "A description of classical field equations using extensions of graded Poisson brackets"
-    authors: "M. de León, R. Izquierdo-López"
+    authors:
+      - manuel-de-leon
+      - ruben-izquierdo-lopez
     venue: "Preprint"
     year: 2025
     arxiv: "2507.04743"
     doi: ""
 
   - title: "A survey on geometric frameworks for action-dependent classical field theories and their relationship"
-    authors: "J. Gaset Rifà, X. Rivas, N. Román-Roy"
+    authors:
+      - jordi-gaset-rifa
+      - { name: "X. Rivas" }
+      - narciso-roman-roy
     venue: "Preprint"
     year: 2025
     arxiv: "2506.11646"
     doi: ""
 
   - title: "Brackets in multicontact geometry and multisymplectization"
-    authors: "M. de León, R. Izquierdo-López, X. Rivas"
+    authors:
+      - manuel-de-leon
+      - ruben-izquierdo-lopez
+      - { name: "X. Rivas" }
     venue: "Mediterr. J. Math. 23, 81 (2026)"
     year: 2025
     arxiv: "2505.13224"
     doi: "10.1007/s00009-026-03077-4"
 
   - title: "Gap between quantum theory based on real and complex numbers is arbitrarily large"
-    authors: "S. Sarkar, D. Trillo, M. O. Renou, R. Augusiak"
+    authors:
+      - { name: "S. Sarkar" }
+      - david-trillo
+      - { name: "M. O. Renou" }
+      - { name: "R. Augusiak" }
     venue: "Rep. Prog. Phys. 89 070503"
     year: 2025
     arxiv: "2503.09724"
     doi: "10.1088/1361-6633/ae871e"
 
   - title: "Diósi-Penrose model of classical gravity predicts gravitationally induced entanglement"
-    authors: "D. Trillo, M. Navascués"
+    authors:
+      - david-trillo
+      - miguel-navascues
     venue: "Physical Review D 111, L121101"
     year: 2025
     arxiv: "2411.02287"
     doi: "10.1103/PhysRevD.111.L121101"
 
   - title: "Practical Introduction to Action-Dependent Field Theories"
-    authors: "M. de León, J. Gaset Rifà, M. C. Muñoz-Lecanda, X. Rivas and N. Román-Roy"
+    authors:
+      - manuel-de-leon
+      - jordi-gaset-rifa
+      - { name: "M. C. Muñoz-Lecanda" }
+      - { name: "X. Rivas" }
+      - narciso-roman-roy
     venue: "Fortschritte der Physik 73, 5, e70000"
     year: 2025
     arxiv: "2409.08340"
     doi: "10.1002/prop.70000"
 
   - title: "Symplectic approach to global stability"
-    authors: "V. Errasti Díez, J. Gaset Rifà and M. Lainz"
+    authors:
+      - veronica-errasti-diez
+      - jordi-gaset-rifa
+      - manuel-lainz
     venue: "Lect. Notes Comput. Sci. 16035 (2025), 320-327"
     year: 2025
     arxiv: "2504.16169"
     doi: "10.1007/978-3-032-03924-8_33"
 
   - title: "Parent Lindbladians for Matrix Product Density Operators"
-    authors: "Y. Liu, A. Ruiz-de-Alarcón, G. Styliaris, X. Sun, D. Pérez-García, and J. I. Cirac"
+    authors:
+      - { name: "Y. Liu" }
+      - alberto-ruiz-de-alarcon
+      - { name: "G. Styliaris" }
+      - { name: "X. Sun" }
+      - { name: "D. Pérez-García" }
+      - { name: "J. I. Cirac" }
     venue: "Phys. Rev. Research 8, 013210"
     year: 2025
     arxiv: "2501.10552"
     doi: "10.1103/1qyd-59z7"
 
   - title: "Foundations of ghost stability"
-    authors: "V. Errasti Díez, J. Gaset Rifà, G. Staudt"
+    authors:
+      - veronica-errasti-diez
+      - jordi-gaset-rifa
+      - georgina-staudt
     venue: "Fortschritte der Physik 73, 4, 2400268"
     year: 2025
     arxiv: "2408.16832"
     doi: "10.1002/prop.202400268"
 
   - title: "Graded Poisson and graded Dirac structures"
-    authors: "M. de León, R. Izquierdo-López"
+    authors:
+      - manuel-de-leon
+      - ruben-izquierdo-lopez
     venue: "J. Math. Phys. 66 (2025), 022901"
     year: 2025
     arxiv: "2410.06034"
     doi: "10.1063/5.0243128"
 
   - title: "The Herglotz variational principle for dissipative field theories"
-    authors: "J. Gaset Rifà, M. Lainz Valcázar, A. Mas, and X. Rivas"
+    authors:
+      - jordi-gaset-rifa
+      - manuel-lainz
+      - { name: "A. Mas" }
+      - { name: "X. Rivas" }
     venue: "Geom. Mech. 1, no. 2, 153"
     year: 2024
     arxiv: "2211.17058"
     doi: "10.1142/S2972458924500060"
 
   - title: "Conditional Independence of 1D Gibbs States with Applications to Efficient Learning"
-    authors: "Á. M. Alhambra, Á. Capel, P. Gondolf, A. Ruiz-de-Alarcón, and S. O. Scalet"
+    authors:
+      - { name: "Á. M. Alhambra" }
+      - { name: "Á. Capel" }
+      - { name: "P. Gondolf" }
+      - alberto-ruiz-de-alarcon
+      - { name: "S. O. Scalet" }
     venue: "Ann. Henri Poincaré (2026)"
     year: 2024
     arxiv: "2402.18500"
     doi: "10.1007/s00023-026-01655-6"
 
   - title: "Constraint characterization and degree of freedom counting in Lagrangian field theory"
-    authors: "V. Errasti Díez, M. Maier and J. A. Méndez-Zavaleta"
+    authors:
+      - veronica-errasti-diez
+      - markus-maier
+      - { name: "J. A. Méndez-Zavaleta" }
     venue: "Phys. Rev. D 109, no. 2"
     year: 2024
     arxiv: "2310.12218"

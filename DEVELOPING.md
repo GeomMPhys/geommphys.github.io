@@ -78,8 +78,15 @@ is exactly the cross-reference the validator enforces: a `person`/`people`/
 organizer id that isn't in `people.yml` is a broken link, so CI rejects it.
 
 A reference can also be an inline `{ name, affiliation }` mapping — used for
-external people not in `people.yml` (e.g. outside workshop co-organizers).
+external people not in `people.yml`. Two files mix the two forms in one list:
+`workshops.yml` (`organizers`) and `publications.yml` (`authors`), where a group
+member is their id and an outside co-author is `{ name: "..." }`.
 `research_visits.yml` is the exception: id-only.
+
+One consequence of linking authors by id: a member's name is printed from
+`people.yml`, so a paper cannot show its own spelling of it. The data used to
+carry both `"M. Lainz Valcázar"` and `"M. Lainz"`; it now shows the canonical
+name everywhere. That was the deliberate trade for the links.
 
 ## Includes reference
 
