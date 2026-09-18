@@ -103,7 +103,8 @@ name everywhere. That was the deliberate trade for the links.
 | `research-area.html` | a card on the Research overview | `research.md` |
 | `calendar.html` | the FullCalendar event view + per-category subscribe links | `calendar.md` |
 | `ics-events.html` | iCal VEVENTs for a category (`only=`), used by the `.ics` feeds | `events*.ics` |
-| `network-map.html` | the SVG collaborator map (member ids → hover tooltip) | `people.md` |
+| `network-map.html` | the collaborations map (see below) | `people.md`, `_layouts/home.html` |
+| `network-marker.html` | one point on that map | `network-map.html` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
 | `theme-init.html` | pre-paint theme + `data-js` on `<html>` | `_layouts/default.html`, in `<head>` |
 | `theme-switch.html` | the Auto / Day / Night control | `header.html` |
@@ -146,6 +147,45 @@ fails CI or silently does nothing:
 4. Create `<thing>.md` with front matter + the page → include wiring.
 5. Add it to `_data/navigation.yml` so it appears in the menu.
 6. Run `ruby bin/validate_data.rb`, then build and preview.
+
+## The collaborations map
+
+`_includes/network-map.html` draws the world map on the People and home pages.
+It reads two data files, and the split between them is the thing to understand
+before touching it:
+
+- **`_data/network.yml`** is the editable one: each institution's `id`, `label`,
+  `subtitle`, `members` and its real `lat`/`lon`.
+- **`_data/network_geometry.yml`** is **generated**. It holds the coastlines,
+  the graticule, the arcs from Madrid and every projected pixel position.
+
+Why generated: the map needs two real projections — Natural Earth for the
+world, Mercator for the Europe enlargement — and Liquid cannot do that
+arithmetic. Doing it in the browser would mean shipping d3, topojson and a
+world-atlas download, which the no-third-party-requests rule forbids, and CI
+installs only Ruby gems so it could not run it anyway. So it is computed once,
+locally, and committed.
+
+**Editing a label, a subtitle or a member list needs nothing** — those are read
+live at build time. **Adding, removing or moving an institution** means editing
+`network.yml` and then re-running the bake:
+
+```bash
+npm install                 # once; build-time only, see package.json
+node bin/bake-map.mjs
+```
+
+`bin/validate_data.rb` fails if an institution has no baked position, or if the
+geometry carries one for an institution that no longer exists, so a forgotten
+bake cannot reach the deploy.
+
+Two details worth knowing if you change the layout. The desktop and phone
+compositions are affine transforms of one another, so the coastline data is
+emitted once and both views `<use>` it — that is what keeps the page from
+carrying two copies of the world. And the six European institutions are drawn
+twice, muted in the world view and full-size in the enlargement; only the
+enlargement's copy is focusable, or a keyboard user would get fifteen stops for
+nine institutions.
 
 ## Calendar and the .ics feed
 
@@ -260,10 +300,12 @@ before changing anything visual. In short:
   requests, so no visitor data leaves GitHub Pages.
 - **One accent** (`--accent`, ink blue) for links and the primary button. The
   blue/purple/orange of the logo's spinning tops are *not* decoration: they
-  appear only in the calendar legend and the collaborator map, where they
-  identify event categories. Those hexes are literals in
-  `_includes/calendar.html` and `_includes/network-map.html` (FullCalendar
-  needs them inside its JS), so change them there, not in the stylesheet.
+  appear only in the calendar, where they identify event categories. Those
+  four are `--cat-seminar`/`--cat-workshop`/`--cat-visit`/`--cat-outreach` in
+  the stylesheet, aliasing the discipline colours; `_includes/calendar.html`
+  only tags each event with a `cal-ev--<category>` class, so the colours are
+  changed in one place and lift correctly at night. The map uses no category
+  colour at all — its points are ink.
 - **Sentence case throughout.** No uppercase display type, no letter-spaced
   labels above headings, no monospace outside `<code>`, no decorative shadows.
   `.eyebrow` is retained only as a graceful fallback for the encrypted members

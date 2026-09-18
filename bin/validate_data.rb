@@ -356,22 +356,61 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "research.yml")))
   end
 end
 
-# network.yml — the map: locations with member ids resolved from people.yml
+# network.yml — the map. Locations carry real lat/lon; the pixel positions
+# and the coastlines are baked into network_geometry.yml by bin/bake-map.mjs.
+# The id is the key that ties the two together, so a location whose id has no
+# baked geometry is checked for here: otherwise a forgotten bake would ship a
+# map with a point silently missing, which nothing else would catch.
 if (doc = load_yaml(errors, File.join(DATA_DIR, "network.yml")))
+  geo = load_yaml(errors, File.join(DATA_DIR, "network_geometry.yml"))
+  baked = if geo.is_a?(Hash) && geo["desktop"].is_a?(Hash) && geo["desktop"]["sites"].is_a?(Hash)
+            geo["desktop"]["sites"].keys
+          end
+
   if doc.is_a?(Hash) && doc["center"]
     check_record(errors, "network.yml", "network.yml center", doc["center"], {
-      required: { label: :str, x: :num, y: :num }, optional: { subtitle: :str },
+      required: { id: :str, label: :str, lat: :num, lon: :num },
+      optional: { subtitle: :str },
     })
   end
+
+  seen_ids = {}
   if doc.is_a?(Hash) && doc["locations"].is_a?(Array)
     doc["locations"].each_with_index do |loc, i|
       where = "network.yml location ##{i + 1} (#{loc.is_a?(Hash) ? loc['label'] : '?'})"
       check_record(errors, "network.yml", where, loc, {
-        required: { label: :str, subtitle: :str, x: :num, y: :num,
-                    members: :list },
-        optional: { inset: :bool },
+        required: { id: :str, label: :str, subtitle: :str,
+                    lat: :num, lon: :num, members: :list },
       })
-      next unless loc.is_a?(Hash) && loc["members"].is_a?(Array)
+      next unless loc.is_a?(Hash)
+
+      if loc["id"].is_a?(String)
+        if seen_ids.key?(loc["id"])
+          err(errors, "network.yml", "#{where}: duplicate id `#{loc['id']}`.")
+        end
+        seen_ids[loc["id"]] = true
+        unless loc["id"].match?(/\A[a-z0-9-]+\z/)
+          err(errors, "network.yml", "#{where}: id `#{loc['id']}` must be " \
+                                     "lowercase-with-hyphens (letters, numbers, -).")
+        end
+        if baked && !baked.include?(loc["id"])
+          err(errors, "network.yml", "#{where}: there is no baked position for " \
+              "`#{loc['id']}`. After adding, removing or moving a location, run " \
+              "bin/bake-map.mjs to rebuild _data/network_geometry.yml " \
+              "(its header says how) and commit the result.")
+        end
+      end
+
+      lat = loc["lat"]
+      lon = loc["lon"]
+      if lat.is_a?(Numeric) && !lat.between?(-90, 90)
+        err(errors, "network.yml", "#{where}: `lat` must be between -90 and 90 (got #{lat}).")
+      end
+      if lon.is_a?(Numeric) && !lon.between?(-180, 180)
+        err(errors, "network.yml", "#{where}: `lon` must be between -180 and 180 (got #{lon}).")
+      end
+
+      next unless loc["members"].is_a?(Array)
       loc["members"].each_with_index do |m, j|
         if m.is_a?(String)
           check_person_ref(errors, "network.yml", "#{where} → member ##{j + 1}", m, person_ids)
@@ -384,6 +423,14 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "network.yml")))
               "person id or `{ name: \"...\" }`.")
         end
       end
+    end
+  end
+
+  # The other direction: geometry left behind for a location that is gone.
+  if baked
+    (baked - seen_ids.keys).each do |stale|
+      err(errors, "network_geometry.yml", "carries a position for `#{stale}`, " \
+          "which is no longer in network.yml. Re-run bin/bake-map.mjs.")
     end
   end
 end

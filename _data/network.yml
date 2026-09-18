@@ -1,102 +1,117 @@
 # ───────────────────────────────────────────────────────────────────
-#  INTERNATIONAL NETWORK MAP  →  the SVG map on the "People" page
+#  INTERNATIONAL NETWORK MAP  →  the map on the "People" and home pages
 # ───────────────────────────────────────────────────────────────────
-#  This file is more delicate than the others: it positions dots on a
-#  map. Editing TEXT is safe; changing NUMBERS moves things.
-#
 #  HOW TO EDIT
 #  • To update a place, edit its "label", "subtitle", or "members".
+#    Those three are safe to change at any time — the page picks them up
+#    on the next build, with nothing else to do.
 #  • "members" is a list of person ids from people.yml (the same ids used
-#    everywhere else). Hover or tap a dot on the map to see the place, its
-#    institution (subtitle) and its members' names, resolved from people.yml.
-#    For someone not in people.yml, write  - { name: "Full Name" }  instead.
-#  • The x / y numbers position the dot on the map — only change them when
-#    adding or moving a location, and always preview the result.
+#    everywhere else). Hover or tab a point on the map to see the place,
+#    its institution (subtitle) and its members' names, resolved from
+#    people.yml. For someone not in people.yml, write
+#      - { name: "Full Name" }   instead.
+#  • "lat" and "lon" are the real latitude and longitude of the place, in
+#    degrees: north and east are positive, south and west negative. Look
+#    them up once (Wikipedia gives them for any university) and write them
+#    to two decimals. They are NOT pixel positions — the map works out
+#    where the point goes.
+#
+#  ADDING, REMOVING OR MOVING A PLACE needs one extra step, because the
+#  coastlines and the point positions are drawn ahead of time:
+#
+#      bin/bake-map.mjs            (see the comment at the top of that file)
+#
+#  That rewrites _data/network_geometry.yml, which is generated — never
+#  edit it by hand. `ruby bin/validate_data.rb` fails if a place here has
+#  no geometry, so a forgotten bake is caught before it is deployed.
 #
 #  FIELDS (per location)
+#    id        (required)  short name, lowercase-with-hyphens; the key that
+#                          ties this place to its baked position
 #    label     (required)  place name, in quotes
 #    subtitle  (required)  institution, in quotes
+#    lat, lon  (required)  latitude and longitude in degrees (numbers)
 #    members   (required)  list of person ids from people.yml
-#    x, y      (required)  position on the map (numbers)
-#    inset     (optional)  true for European locations — they also appear,
-#                          spread out and tappable, in the zoomed "Europe"
-#                          inset (the cluster is too tight to tap otherwise)
 # ───────────────────────────────────────────────────────────────────
 
 center:
+  id: madrid
   label: "Madrid"
   subtitle: "Group base"
-  x: 490
-  y: 108
+  lat: 40.42
+  lon: -3.70
 
 locations:
-  - label: "Croatia"
+  - id: irb
+    label: "Croatia"
     subtitle: "Ruđer Bošković Institute"
-    inset: true
-    x: 544
-    y: 99
+    lat: 45.81
+    lon: 15.98
     members:
       - alex-arvanitakis
 
-  - label: "Warsaw, Poland"
+  - id: warsaw
+    label: "Warsaw, Poland"
     subtitle: "University of Warsaw"
-    inset: true
-    x: 558
-    y: 87
+    lat: 52.23
+    lon: 21.01
     members:
       - javier-de-lucas
       - tomasz-sobczak
       - bartosz-zawora
 
-  - label: "Catalonia, Spain"
+  - id: upc
+    label: "Catalonia, Spain"
     subtitle: "Technical University of Catalonia"
-    inset: true
-    x: 506
-    y: 106
+    lat: 41.39
+    lon: 2.17
     members:
       - mauricio-doniz
 
-  - label: "Tartu, Estonia"
+  - id: tartu
+    label: "Tartu, Estonia"
     subtitle: "University of Tartu"
-    inset: true
-    x: 574
-    y: 76
+    lat: 58.38
+    lon: 26.72
     members:
       - maria-jose-guzman
 
-  - label: "Munich, Germany"
+  - id: munich
+    label: "Munich, Germany"
     subtitle: "Munich School of Philosophy"
-    inset: true
-    x: 532
-    y: 95
+    lat: 48.14
+    lon: 11.58
     members:
       - markus-maier
 
-  - label: "Massachusetts, United States"
+  - id: mit
+    label: "Massachusetts, United States"
     subtitle: "Massachusetts Institute of Technology"
-    x: 303
-    y: 105
+    lat: 42.36
+    lon: -71.09
     members:
       - rathindra-das
 
-  - label: "Kyoto, Japan"
+  - id: rims
+    label: "Kyoto, Japan"
     subtitle: "Research Institute for Mathematical Sciences"
-    x: 877
-    y: 118
+    lat: 35.01
+    lon: 135.77
     members:
       - { name: "Yoshiko Ogata" }
 
-  - label: "Singapore"
+  - id: ntu
+    label: "Singapore"
     subtitle: "Nanyang Technological University"
-    x: 788
-    y: 178
+    lat: 1.35
+    lon: 103.68
     members:
       - zohreh-ravanpak
 
-  - label: "France"
+  - id: inria
+    label: "France"
     subtitle: "Inria"
-    inset: true
-    x: 506
-    y: 93
+    lat: 48.85
+    lon: 2.35
     members:
       - mirjam-weilenmann

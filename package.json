@@ -1,0 +1,15 @@
+{
+  "name": "geommphys-map-bake",
+  "private": true,
+  "description": "Build-time only. Dependencies for bin/bake-map.mjs, which bakes the collaborations map's geometry into _data/network_geometry.yml. The site itself ships no JavaScript dependencies and CI installs only Ruby gems — nothing here is ever fetched by a visitor or by the deploy.",
+  "type": "module",
+  "scripts": {
+    "bake-map": "node bin/bake-map.mjs"
+  },
+  "devDependencies": {
+    "d3-geo": "3.1.1",
+    "topojson-client": "3.1.0",
+    "world-atlas": "2.0.2",
+    "yaml": "2.8.1"
+  }
+}

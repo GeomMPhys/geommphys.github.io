@@ -1,0 +1,42 @@
+{%- comment -%}
+  One point on the collaborations map.
+
+  Params: loc (a network.yml location), pos ({x, y}), r (radius), muted
+  (true for the world-view copy of a European site), people (flattened
+  people list), index (position in network.yml, the tooltip's key).
+
+  The muted copy is aria-hidden and takes no focus — the enlargement's copy
+  is the one a keyboard reaches — but it keeps the transparent hit circle so
+  hovering the world dot still opens the tooltip.
+
+  A hollow dot means no discipline is recorded for anyone at that
+  institution. The discipline is read the same way person-card.html reads
+  it, from the icon filename, so this adds no field to people.yml.
+{%- endcomment -%}
+{%- assign _m_loc = include.loc -%}
+{%- assign _m_pos = include.pos -%}
+{%- assign _m_r = include.r -%}
+
+{%- assign _m_disc = false -%}
+{%- capture _m_names -%}
+  {%- for m in _m_loc.members -%}
+    {%- if m.name -%}{{ m.name }}
+    {%- else -%}
+      {%- assign _m_p = include.people | where: "id", m | first -%}
+      {{ _m_p.name | default: m }}
+      {%- assign _m_icon = _m_p.photo | split: "/" | last | split: "_" | first -%}
+      {%- if _m_icon == "geom" or _m_icon == "math" or _m_icon == "physics" or _m_icon == "philo" -%}
+        {%- assign _m_disc = true -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- unless forloop.last %}, {% endunless -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- capture _m_label -%}{{ _m_loc.subtitle }} — {{ _m_loc.label }}. {{ _m_names | strip }}.{%- endcapture -%}
+
+<g class="network-map__point{% if include.muted %} network-map__point--mute{% endif %}" data-i="{{ include.index }}"{% if include.muted %} aria-hidden="true"{% else %} tabindex="0" role="img" aria-label="{{ _m_label | strip | escape }}"{% endif %}>
+  {%- unless include.muted %}<title>{{ _m_label | strip }}</title>{% endunless -%}
+  <circle class="network-map__hit" cx="{{ _m_pos.x }}" cy="{{ _m_pos.y }}" r="{{ _m_r | plus: 7 }}" />
+  <circle class="network-map__halo" cx="{{ _m_pos.x }}" cy="{{ _m_pos.y }}" r="{{ _m_r | plus: 6 }}" />
+  <circle class="network-map__dot{% unless _m_disc %} network-map__dot--hollow{% endunless %}" cx="{{ _m_pos.x }}" cy="{{ _m_pos.y }}" r="{{ _m_r }}" />
+</g>

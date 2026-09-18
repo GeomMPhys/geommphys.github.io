@@ -1514,8 +1514,8 @@ math {
 .network-map {
   position: relative;
   width: 100%;
-  max-width: 780px;
-  margin: 0 auto 3.75rem;
+  max-width: 940px;
+  margin: 0 auto 2.5rem;
 }
 
 .network-map__defs {
@@ -1525,83 +1525,127 @@ math {
   overflow: hidden;
 }
 
-.network-map__frame {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--rule);
-  border-radius: var(--radius);
-  /* Deliberately a literal, not --paper-sunk: the map's own SVG carries light
-     hex values for the land lattice and the halos around each dot, so the panel
-     has to stay light in both themes. It reads as paper pinned to the page.
-     The Stage 4 map redesign makes the geometry theme-aware and this can go. */
-  background: #f4f2ec;
-}
-
-.network-map__world,
-.network-map__inset-svg {
+.network-map__svg {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* Europe breakout inset — a callout that straddles the map's bottom-right edge */
-.network-map__inset {
-  position: absolute;
-  right: -18px;
-  bottom: -40px;
-  z-index: 3;
-  width: 250px;
-  max-width: 62%;
-  padding: 0.45rem;
-  border: 1px solid rgba(23, 33, 43, 0.14);
-  border-radius: var(--radius);
-  /* Light in both themes, like the frame it breaks out of — see the note there. */
-  background: #f4f2ec;
-  box-shadow: var(--shadow-float);
+/* Desktop sets the Europe enlargement beside the world; the phone stacks it
+   underneath. Both are in the document and CSS shows one. A display:none view
+   is out of the accessibility tree and its points cannot take focus, so a
+   keyboard user never meets the hidden copy. */
+.network-map__svg--phone {
+  display: none;
 }
 
-/* Narrow screens: the breakout would hang off the side of the viewport, so
-   it drops below the map instead. */
-@media (max-width: 680px) {
-  .network-map {
-    margin-bottom: 1.5rem;
+@media (max-width: 640px) {
+  .network-map__svg--desktop {
+    display: none;
   }
 
-  .network-map__inset {
-    position: static;
-    width: auto;
-    max-width: none;
-    margin-top: 0.75rem;
-    box-shadow: none;
+  .network-map__svg--phone {
+    display: block;
   }
+}
+
+/* The geometry, in the page's own tokens — which is what makes the map
+   correct at night without a second copy or a filter. Strokes keep their
+   width under the phone view's transform. */
+.network-map__land {
+  fill: var(--paper-sunk);
+  stroke: var(--rule-strong);
+  stroke-width: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.network-map__graticule {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 0.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.network-map__arc {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.network-map__rim {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 0.9;
+}
+
+.network-map__hub-ring {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 0.8;
+}
+
+.network-map__hub-dot {
+  fill: var(--ink);
+}
+
+.network-map__hub-label {
+  fill: var(--ink);
+  font-family: var(--font-serif);
+  font-weight: 600;
 }
 
 .network-map__point {
-  cursor: pointer;
+  cursor: default;
   outline: none;
 }
 
+.network-map__point[tabindex] {
+  cursor: pointer;
+}
+
+.network-map__hit {
+  fill: transparent;
+}
+
 .network-map__dot {
-  transition: r 0.15s ease;
+  fill: var(--ink);
+  stroke: var(--paper);
+  stroke-width: 1.1;
+}
+
+/* Hollow: no discipline is recorded for anyone at this institution.
+   The handoff kept --ink-faint for exactly this dot, as its last legitimate
+   use. Measured against the ground it actually sits on — the land fill, since
+   Kyoto is on land, not sea — that is 2.78:1, under the 3:1 floor for a mark
+   that carries meaning. It is the same failure the review caught on the
+   calendar's day numbers. --ink-soft gives 5.65:1 on the land and 6.21:1 on
+   the sea; what distinguishes this dot is that it is hollow, not that it is
+   faint. --ink-faint now has no consumer here at all. */
+.network-map__dot--hollow {
+  fill: var(--paper);
+  stroke: var(--ink-soft);
+  stroke-width: 1.4;
 }
 
 .network-map__halo {
-  transition: fill-opacity 0.15s ease, r 0.15s ease;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1;
+  opacity: 0;
+  transition: opacity 0.12s ease;
 }
 
-.network-map__point:hover .network-map__dot,
-.network-map__point:focus-visible .network-map__dot {
-  r: 5.5;
+.network-map__point:hover .network-map__halo {
+  opacity: 0.45;
 }
 
-.network-map__point:hover .network-map__halo,
+/* Keyboard focus has to be visible on its own, not just legible next to a
+   hover state that a keyboard user never sees. */
 .network-map__point:focus-visible .network-map__halo {
-  r: 9;
-  fill-opacity: 0.2;
-}
-
-.network-map__point:focus-visible .network-map__halo {
-  fill-opacity: 0.3;
+  opacity: 1;
+  stroke-width: 1.8;
 }
 
 .network-map__tooltip {
@@ -1609,16 +1653,15 @@ math {
   z-index: 5;
   min-width: 150px;
   max-width: 240px;
-  padding: 0.55rem 0.7rem;
-  border: 1px solid rgba(23, 33, 43, 0.18);
-  border-radius: var(--radius);
-  /* Sits on the light map panel, so it is light in both themes too. */
-  background: #fbfaf6;
-  color: #17212b;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper);
+  color: var(--ink);
   box-shadow: var(--shadow-float);
   font-family: var(--font-sans);
-  font-size: 0.83rem;
-  line-height: 1.4;
+  font-size: 0.8rem;
+  line-height: 1.45;
   pointer-events: none;
   transform: translateY(calc(-100% - 12px));
 }
@@ -1629,7 +1672,7 @@ math {
 
 .network-map__tooltip strong {
   display: block;
-  color: var(--accent);
+  color: var(--ink);
   font-weight: 500;
 }
 
@@ -1637,13 +1680,13 @@ math {
   display: block;
   margin-bottom: 0.3rem;
   color: var(--ink-soft);
-  font-size: 0.79rem;
+  font-size: 0.77rem;
 }
 
 .network-map__tooltip ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  margin: 0.35rem 0 0;
+  padding-left: 1rem;
+  list-style: disc;
 }
 
 .network-map__tooltip li {
@@ -1652,7 +1695,6 @@ math {
 
 /* Presented as a signature element on the home and People pages. */
 .network-map--feature {
-  max-width: 940px;
   margin-top: 1.5rem;
 }
 
@@ -1662,16 +1704,6 @@ math {
   font-family: var(--font-sans);
   font-size: 0.84rem;
   text-align: center;
-}
-
-/* Above the stacking breakpoint the Europe breakout hangs over the frame's
-   bottom-right corner, where a centred caption collided with it. Move the
-   caption to the left, clear of the breakout, instead of pushing it down. */
-@media (min-width: 681px) {
-  .network-map__hint {
-    max-width: 58%;
-    text-align: left;
-  }
 }
 
 /* ── Calendar (FullCalendar) ───────────────────────────────────────── */
@@ -2033,10 +2065,6 @@ math {
 
   .person {
     grid-template-columns: 1fr;
-  }
-
-  .network-map__labels text {
-    display: none;
   }
 
   .fc .fc-toolbar.fc-header-toolbar {
