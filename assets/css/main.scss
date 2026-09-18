@@ -1764,6 +1764,15 @@ math {
   color: inherit;
 }
 
+/* Weekends carry the sunk tone. It is the only fill in the grid, and it groups
+   Saturday and Sunday as a pair without spending a rule or a colour on them.
+   Today keeps its own wash: a weekend today should still read as today, so it
+   is excluded rather than left to lose a specificity race with FullCalendar. */
+.fc .fc-daygrid-day.fc-day-sat:not(.fc-day-today),
+.fc .fc-daygrid-day.fc-day-sun:not(.fc-day-today) {
+  background: var(--paper-sunk);
+}
+
 /* Day numbers are text — a reader scans them to find a date — so they take a
    text colour on both the plain and the sunk weekend ground. */
 .fc .fc-daygrid-day-number,
@@ -1789,10 +1798,24 @@ math {
    otherwise has none. The four hexes live here rather than in the include's
    JavaScript so one dark-mode rule can lift them. */
 .fc .cal-ev {
-  border: 1px solid var(--rule);
+  border: 1px solid var(--rule-strong);
   border-left-width: 3px;
   background: var(--paper);
   color: var(--ink);
+}
+
+/* FullCalendar zeroes the left and right borders on a segment that continues
+   into or out of an adjacent week, so it reads as one unbroken bar. Here the
+   left border IS the category colour, and a visit spanning five weeks would
+   show that colour only in the week it begins — Markus Maier's 26 March to
+   17 May visit shows it not at all in April. Each week's segment is drawn as a
+   complete band instead. */
+.fc .cal-ev.fc-h-event:not(.fc-event-start) {
+  border-left-width: 3px;
+}
+
+.fc .cal-ev.fc-h-event:not(.fc-event-end) {
+  border-right-width: 1px;
 }
 
 .fc .cal-ev .fc-event-title,
@@ -1818,22 +1841,53 @@ math {
   font-weight: 600;
 }
 
+/* The details panel takes the event band's treatment exactly — paper ground,
+   hairline box, the category colour as a 3px left edge — so the panel and the
+   band that opened it read as one object. This is the one place on the page
+   that earns a border and a radius: it is a thing that appeared, and it has to
+   say so. The left edge is the only colour, and it is never behind text. */
 .cal-details {
-  margin-top: 1.5rem;
-  padding: 0 0 0 1.35rem;
-  border: 0;
-  border-left: 2px solid var(--accent);
-  border-radius: 0;
-  background: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: var(--measure-list);
+  margin: 1.5rem auto 0;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--rule-strong);
+  border-left: 3px solid var(--rule-strong);
+  border-radius: 2px;
+  background: var(--paper);
   box-shadow: none;
 }
 
+/* `display: flex` above would beat the UA's `[hidden] { display: none }` —
+   same specificity, author sheet wins — and the panel would never close. */
+.cal-details[hidden] {
+  display: none;
+}
+
+.cal-details--seminar  { border-left-color: var(--cat-seminar); }
+.cal-details--workshop { border-left-color: var(--cat-workshop); }
+.cal-details--visit    { border-left-color: var(--cat-visit); }
+.cal-details--outreach { border-left-color: var(--cat-outreach); }
+
 .cal-details h2 {
-  margin-top: 0;
+  margin: 0;
+}
+
+/* Sits under the title, not above it: an eyebrow label over a heading is one
+   of the things this restyle removed. */
+.cal-details__cat {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .cal-details__row {
-  margin: 0.35rem 0;
+  margin: 0;
 }
 
 .cal-details__close {

@@ -63,7 +63,11 @@
     function row(label, value) {
       if (!value) { return ''; }
       var v = String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      return '<p class="cal-details__row"><strong>' + label + '</strong> ' + v + '</p>';
+      // The description is passed with no label; an empty <strong> would put a
+      // meaningless element in the accessibility tree.
+      return label
+        ? '<p class="cal-details__row"><strong>' + label + '</strong> ' + v + '</p>'
+        : '<p class="cal-details__row">' + v + '</p>';
     }
 
     var calendar = new FullCalendar.Calendar(el, {
@@ -73,18 +77,33 @@
       firstDay: 1,
       height: 'auto',
       displayEventTime: true,
+      // The site is written in English and the data carries 24-hour times;
+      // FullCalendar's default would render 15:00 as "3p".
+      eventTimeFormat: { hour: '2-digit', minute: '2-digit', hour12: false },
       events: window.GEOMM_EVENTS,
       eventClick: function (info) {
         info.jsEvent.preventDefault();
         var p = info.event.extendedProps;
         var when = info.event.start
-          ? info.event.start.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
+          ? info.event.start.toLocaleDateString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
           : '';
         if (info.event.start && !info.event.allDay) {
-          when += ', ' + info.event.start.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+          when += ', ' + info.event.start.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
         }
+        // The panel wears the category of the band that opened it, so the two
+        // are visibly the same object. FullCalendar hands back the classNames
+        // the event was built with; cal-ev--seminar becomes cal-details--seminar.
+        var cat = (info.event.classNames || []).find(function (c) {
+          return c.indexOf('cal-ev--') === 0;
+        });
+        details.className = 'cal-details' +
+          (cat ? ' cal-details--' + cat.slice('cal-ev--'.length) : '');
+
         var html = '<h2>' + info.event.title.replace(/</g, '&lt;') + '</h2>';
-        html += row('', p.category);
+        if (p.category) {
+          html += '<p class="cal-details__cat">' +
+            String(p.category).replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</p>';
+        }
         html += row('When:', when);
         html += row('Speaker:', p.speaker);
         html += row('From:', p.affiliation);
