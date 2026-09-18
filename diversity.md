@@ -6,7 +6,7 @@ permalink: /diversity/
 ---
 
 <div class="page-intro">
-  <p>The group recognizes the underrepresentation of women in STEM, both across the field and within the group. The original public site records women as representing 28% of the group, alongside a global figure below 25% at post-PhD level from UNESCO's 2022-2023 Gender Equality report.</p>
+  <p>The group recognizes the underrepresentation of women in STEM, both across the field and within the group. UNESCO's 2022-2023 Gender Equality report puts the global share of women in science below 25% at post-PhD level.</p>
   <p>Beyond social justice, we recognize the positive role of diversity in fostering original approaches to long-standing scientific problems. We are committed to an egalitarian research environment and to improving the inclusion of women in the group.</p>
 </div>
 
