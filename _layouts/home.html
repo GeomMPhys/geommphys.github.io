@@ -31,9 +31,10 @@ layout: default
 
 {%- comment -%}
   The research lines are the group's actual work, and each already carries a
-  description and a roster in research_lines.yml. Shared membership is computed
-  by intersecting the rosters, so it needs no new field and cannot fall out of
-  date.
+  description and a roster in research_lines.yml. The roster is printed in
+  full rather than counted: the names are the substance, and each one now goes
+  somewhere. Which lines a person shares is shown on the line's own page, where
+  there is room for it.
 
   Note that _data/research.yml is NOT research areas: its five entries are site
   sections (Publications, Seminars, Visits, Conferences, Awards), which is what
@@ -50,24 +51,15 @@ layout: default
 
     {% for line in lines %}
       {%- assign idx = forloop.index -%}
-      {%- assign shared = "" -%}
-      {%- for other in lines -%}
-        {%- unless forloop.index == idx -%}
-          {%- assign n = 0 -%}
-          {%- for pid in line.people -%}
-            {%- if other.people contains pid -%}{%- assign n = n | plus: 1 -%}{%- endif -%}
-          {%- endfor -%}
-          {%- if n > 0 -%}
-            {%- assign shared = shared | append: ", " | append: n | append: " also on §" | append: forloop.index -%}
-          {%- endif -%}
-        {%- endunless -%}
-      {%- endfor -%}
       <article class="line">
         <p class="line__mark" aria-hidden="true">§{{ idx }}</p>
         <div class="line__body">
-          <h3><a href="{{ '/research-lines/' | relative_url }}">{{ line.name }}</a></h3>
+          <h3><a href="{{ '/research-lines/' | append: line.id | append: '/' | relative_url }}">{{ line.name }}</a></h3>
           {% if line.description %}<p class="line__desc">{{ line.description | strip_html | truncatewords: 28 }}</p>{% endif %}
-          <p class="line__roster">{{ line.people | size }} people{{ shared }}</p>
+          <p class="line__roster">{% for pid in line.people -%}
+            {%- include person-name.html id=pid people=all_people link=true -%}
+            {%- unless forloop.last %}, {% endunless -%}
+          {%- endfor %}</p>
         </div>
       </article>
     {% endfor %}

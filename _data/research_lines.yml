@@ -16,7 +16,7 @@
 # ───────────────────────────────────────────────────────────────────
 
 lines:
-  - id: Multisymplectic-field-theory
+  - id: multisymplectic-field-theory
     name: "Multisymplectic Field Theory"
     keywords:
       - multisymplectic geometry

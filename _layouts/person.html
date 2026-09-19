@@ -63,7 +63,7 @@ layout: default
           <div class="record-list">
             <article class="record record--compact record--nodate">
               <div class="record__body">
-                <h3><a href="{{ '/research-lines/' | relative_url }}">{{ line.name }}</a></h3>
+                <h3><a href="{{ '/research-lines/' | append: line.id | append: '/' | relative_url }}">{{ line.name }}</a></h3>
               </div>
             </article>
           </div>

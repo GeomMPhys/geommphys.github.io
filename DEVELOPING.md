@@ -23,7 +23,7 @@ _config.yml            Jekyll config (markdown, plugins, permalinks, excludes)
 _data/*.yml            The source of truth for all content
 _layouts/              Page shells: default.html → home.html / page.html / person.html
 _includes/             Reusable renderers (one per content type) + helpers
-_plugins/              One generator: a page per group member (see below)
+_plugins/              Two generators: a page per member, a page per research line
 assets/css/main.scss   All styling (compiled to /assets/css/main.css)
 assets/images/         Photos, profile icons, etc.
 *.md (repo root)       The pages; front matter + a few lines of Liquid each
@@ -178,6 +178,19 @@ group* — "Leader of the group", "Grants", "Web maintainer" — as opposed to
 holds two, and optional: most people hold none, the line is simply absent, and
 the page still reads as finished. Only the two confirmed sets are filled in;
 the rest is for the group to add.
+
+## A page per research line
+
+The same arrangement, one level up: `_plugins/research_line_pages.rb` gives
+each entry in `research_lines.yml` a page at `/research-lines/<id>/`, rendered
+by `_layouts/research-line.html`. The line's `id` is its web address, which is
+why the validator requires it to be lowercase-with-hyphens.
+
+Also fully derived: the roster comes from the line's own `people` list, the
+"also on §2" notes from intersecting that list with the other lines, and the
+papers from any author on the line appearing in a `publications.yml` entry.
+The heading says "Papers by members of this line" rather than claiming the
+line produced them, which is the honest reading of that filter.
 
 `_plugins/` works because CI runs a plain `bundle exec jekyll build` rather
 than the `github-pages` gem, which would refuse it. Nothing else on the site

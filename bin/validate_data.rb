@@ -272,7 +272,14 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "research_lines.yml")))
       required: { id: :str, name: :str, description: :str, people: :list },
       optional: { keywords: :list },
     })
-    next unless rec.is_a?(Hash) && rec["people"].is_a?(Array)
+    next unless rec.is_a?(Hash)
+    # The id becomes this line's web address, so it has to be url-safe.
+    if rec["id"].is_a?(String) && !rec["id"].match?(/\A[a-z0-9-]+\z/)
+      err(errors, "research_lines.yml", "#{where}: id `#{rec['id']}` must be " \
+                                        "lowercase-with-hyphens (letters, numbers, -) — " \
+                                        "it is used as the page's web address.")
+    end
+    next unless rec["people"].is_a?(Array)
     rec["people"].each { |id| check_person_ref(errors, "research_lines.yml", where, id, person_ids) if id.is_a?(String) }
   end
 end
