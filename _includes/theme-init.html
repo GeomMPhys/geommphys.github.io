@@ -22,7 +22,7 @@
     var root = document.documentElement;
     root.setAttribute("data-js", "");
     try {
-      var choice = localStorage.getItem("theme");
+      var choice = localStorage.getItem("scheme");
       if (choice === "light" || choice === "dark") {
         root.setAttribute("data-theme", choice);
       }

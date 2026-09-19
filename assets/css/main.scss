@@ -290,12 +290,18 @@ address {
   backdrop-filter: blur(10px);
 }
 
+/* The four numbers the spec pins down, because the row carries the mark, the
+   nav and the control and nothing else: side padding 2.1rem, child gap 1rem,
+   nav item gap 0.72rem, mark 104px. The nav is the element with no give
+   (nowrap, no shrink), so the room comes from the other three. */
 .site-header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
   min-height: 68px;
+  padding-right: 2.1rem;
+  padding-left: 2.1rem;
 }
 
 .site-header--home .site-header__inner {
@@ -308,13 +314,13 @@ address {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.5rem 1.15rem;
+  gap: 0.5rem 1rem;
 }
 
 .brand {
   display: block;
   flex: 0 0 auto;
-  width: 132px;
+  width: 104px;
   /* The header row sets --ink-soft for the navigation, and an inlined SVG
      inherits colour from wherever it sits — so the mark must state its own ink
      or it comes out nav-grey. */
@@ -338,7 +344,7 @@ address {
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.15rem 1.15rem;
+  gap: 0.15rem 0.72rem;
 }
 
 .site-nav a,
@@ -431,39 +437,49 @@ address {
    for "this is the one you are on" instead of two. That underline is also
    what carries the state at 3:1: the group's hairline is a grouping
    affordance, and each option is identified by its own text label. */
-.theme-switch {
+/* The colour-scheme control: three 15px glyphs, hairline, at the far right of
+   the header. Inactive glyphs are --ink-faint; the active one is --ink with a
+   hairline ring rather than a fill, so the header keeps its one ink weight.
+   Hidden until theme-init.html proves scripting is on — the control cannot
+   work without it, and an inert control is worse than none. */
+.scheme {
   display: none;
   align-items: center;
-  gap: 0.1rem;
-  padding: 0.12rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: var(--radius);
+  flex: 0 0 auto;
+  gap: 0.05rem;
 }
 
-[data-js] .theme-switch {
-  display: inline-flex;
+[data-js] .scheme {
+  display: flex;
 }
 
-.theme-switch__option {
-  padding: 0.14rem 0.46rem;
+.scheme__btn {
+  display: flex;
+  padding: 0.3rem 0.32rem;
   border: 0;
-  border-bottom: 2px solid transparent;
+  border-radius: 2px;
   background: none;
-  color: var(--ink-soft);
+  color: var(--ink-faint);
   cursor: pointer;
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  line-height: 1.5;
+  transition: color 120ms linear;
 }
 
-.theme-switch__option:hover {
-  color: var(--ink);
+.scheme__btn svg {
+  display: block;
 }
 
-.theme-switch__option[aria-pressed="true"] {
-  border-bottom-color: var(--accent);
+.scheme__btn:hover {
+  color: var(--ink-soft);
+}
+
+.scheme__btn:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.scheme__btn[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 1px var(--rule-strong);
   color: var(--ink);
-  font-weight: 500;
 }
 
 /* ── Home hero ─────────────────────────────────────────────────────── */
@@ -2089,12 +2105,6 @@ math {
     left: 0;
   }
 
-  /* The header has stacked, so this is a phone or a tablet: give the options
-     a finger-sized target rather than the compact desktop one. */
-  .theme-switch__option {
-    padding: 0.36rem 0.62rem;
-  }
-
   .feeds,
   .two-column,
   .contact-layout,
@@ -2121,11 +2131,46 @@ math {
     width: calc(100% - 2rem);
   }
 
+  /* The control stays on the brand line, pushed right, with the nav wrapping
+     to its own row underneath. The button cells grow so the hit area clears
+     44px; the 15px glyph inside does not. */
+  .site-header__inner {
+    flex-wrap: wrap;
+    padding-right: 1.1rem;
+    padding-left: 1.1rem;
+    gap: 0.55rem;
+  }
+
   .brand {
-    width: 112px;
+    order: 1;
+    width: 96px;
+  }
+
+  /* The nav and the control are wrapped in one element so that, on the
+     desktop row, space-between sees two children rather than three. On the
+     phone that wrapper has to get out of the way: display:contents promotes
+     its children to direct items of the header row, which is what lets the
+     control sit on the brand line and the nav drop below it. */
+  .site-header__tools {
+    display: contents;
+  }
+
+  .scheme {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .scheme__btn {
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0.42rem 0.5rem;
   }
 
   .site-nav {
+    order: 3;
+    flex-basis: 100%;
     gap: 0.15rem 0.85rem;
   }
 
@@ -2151,6 +2196,18 @@ math {
   .fc .fc-toolbar.fc-header-toolbar {
     flex-direction: column;
     gap: 0.5rem;
+  }
+}
+
+/* The scheme change is a token swap with no layout movement, so a short
+   colour fade reads as one deliberate change rather than a flicker. */
+html {
+  transition: background-color 120ms linear, color 120ms linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
   }
 }
 

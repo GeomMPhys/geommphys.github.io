@@ -109,7 +109,7 @@ name everywhere. That was the deliberate trade for the links.
 | `person-profiles.html` | someone's ORCID / Scholar / INSPIRE / arXiv icons | `person-card.html`, `_layouts/person.html` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
 | `theme-init.html` | pre-paint theme + `data-js` on `<html>` | `_layouts/default.html`, in `<head>` |
-| `theme-switch.html` | the Auto / Day / Night control | `header.html` |
+| `colour-scheme.html` | the Auto / Light / Dark glyphs in the header | `header.html` |
 | `header.html` / `footer.html` | nav (from `navigation.yml`) and footer | layout |
 
 ## Data validation and schema changes
@@ -393,11 +393,20 @@ Two includes implement it. `theme-init.html` runs in `<head>`, before the page
 paints — a deferred script would flash white at every navigation for a reader
 who chose Night. It also sets `data-js` on `<html>`, which is the only thing
 that reveals the control: without scripting it would be a row of buttons that
-do nothing, so the stylesheet hides it. `theme-switch.html` carries the markup
+do nothing, so the stylesheet hides it. `colour-scheme.html` carries the markup
 and an inline (not deferred) script, so the pressed button is marked the moment
 the buttons are parsed.
 
-The choice is kept in `localStorage` under `theme`. Every read and write is
+The control itself is three 15 px glyphs at the far right of the header — a
+screen for Auto, a sun for Light, a crescent for Dark — built to the spec in
+`top_bar.md`. Inactive glyphs are `--ink-faint`; the active one is `--ink` with
+a hairline ring rather than a fill. That spec also fixes the header's four
+measurements, because the row has to hold the mark, the nav and the control and
+nothing else: side padding 2.1 rem, child gap 1 rem, nav item gap 0.72 rem, and
+the mark at 104 px desktop / 96 px phone. The nav is the element with no give,
+so any room has to come from the other three.
+
+The choice is kept in `localStorage` under `scheme`. Every read and write is
 wrapped, because a locked-down browser throws rather than returning `null`;
 failing it falls back to the desktop setting, which is a working site.
 

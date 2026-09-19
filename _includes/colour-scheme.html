@@ -1,0 +1,78 @@
+{%- comment -%}
+  The header colour-scheme control, built to the spec in top_bar.md (drawn as
+  6a in "Job 3 - Night toggle.dc.html"): three 15 px glyphs at the far right of
+  the header — a screen for Auto, a sun for Light, a crescent for Dark.
+
+  Three states, not two. Auto is the site's own default, so a two-way toggle
+  would leave a reader no way back to "follow my system" once they touched it.
+
+  `aria-pressed` on three buttons in one role="group" is deliberate: it states
+  the current state without claiming the group is a radio set, which is what
+  the ringed active glyph shows visually.
+
+  The script runs here rather than deferred so the pressed state is written the
+  moment the buttons are parsed; a deferred copy would leave the wrong glyph
+  ringed for a frame. The pre-paint half lives in theme-init.html, in <head>.
+{%- endcomment -%}
+<div class="scheme" role="group" aria-label="Colour scheme">
+  <button type="button" class="scheme__btn" data-scheme="auto" aria-label="Follow system" title="Follow system" aria-pressed="false">
+    <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="3" width="12" height="8.5" rx="1"></rect><path d="M6 13.6h4"></path>
+    </svg>
+  </button>
+  <button type="button" class="scheme__btn" data-scheme="light" aria-label="Light" title="Light" aria-pressed="false">
+    <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" aria-hidden="true">
+      <circle cx="8" cy="8" r="3.2"></circle>
+      <path d="M8 1.4v1.5M8 13.1v1.5M1.4 8h1.5M13.1 8h1.5M3.4 3.4l1.05 1.05M11.55 11.55l1.05 1.05M12.6 3.4l-1.05 1.05M4.45 11.55L3.4 12.6"></path>
+    </svg>
+  </button>
+  <button type="button" class="scheme__btn" data-scheme="dark" aria-label="Dark" title="Dark" aria-pressed="false">
+    <svg viewBox="0 0 16 16" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M13.2 10.1A5.8 5.8 0 0 1 5.9 2.8a5.8 5.8 0 1 0 7.3 7.3z"></path>
+    </svg>
+  </button>
+</div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var group = document.querySelector(".scheme");
+    if (!group) return;
+    var buttons = group.querySelectorAll(".scheme__btn");
+
+    function stored() {
+      try {
+        var v = localStorage.getItem("scheme");
+        return v === "light" || v === "dark" ? v : "auto";
+      } catch (e) {
+        return "auto";
+      }
+    }
+
+    function paint(scheme) {
+      if (scheme === "auto") root.removeAttribute("data-theme");
+      else root.setAttribute("data-theme", scheme);
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute(
+          "aria-pressed", buttons[i].dataset.scheme === scheme ? "true" : "false"
+        );
+      }
+    }
+
+    paint(stored());
+
+    group.addEventListener("click", function (ev) {
+      var btn = ev.target.closest(".scheme__btn");
+      if (!btn || !group.contains(btn)) return;
+      try {
+        if (btn.dataset.scheme === "auto") localStorage.removeItem("scheme");
+        else localStorage.setItem("scheme", btn.dataset.scheme);
+      } catch (e) {}
+      paint(btn.dataset.scheme);
+    });
+
+    // A second tab is the same reader: keep the choice in step across them.
+    window.addEventListener("storage", function (ev) {
+      if (ev.key === "scheme" || ev.key === null) paint(stored());
+    });
+  })();
+</script>
