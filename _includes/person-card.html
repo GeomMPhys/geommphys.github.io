@@ -25,50 +25,10 @@
     <div class="person__placeholder" aria-hidden="true">{{ person.name | slice: 0 }}</div>
   {% endif %}
   <div>
-    <h3>{{ person.name }}</h3>
+    <h3><a href="{{ '/people/' | append: person.id | append: '/' | relative_url }}">{{ person.name }}</a></h3>
     {% if person.role %}<p class="meta">{{ person.role }}</p>{% endif %}
     {% if person.research %}<p>{{ person.research }}</p>{% endif %}
-    {% if person.profiles %}
-      <div class="person__profiles" aria-label="Research profiles for {{ person.name }}">
-        {% assign has_arxiv = false %}
-        {% for profile in person.profiles %}
-          {% assign profile_type = profile.type | default: "profile" %}
-          {% if profile_type == "arxiv" %}
-            {% assign has_arxiv = true %}
-          {% endif %}
-          {% case profile_type %}
-            {% when "orcid" %}
-              {% assign profile_icon = "/assets/images/profiles/orcid.svg" %}
-              {% assign profile_label = "ORCID" %}
-            {% when "scholar" %}
-              {% assign profile_icon = "/assets/images/profiles/google-scholar.svg" %}
-              {% assign profile_label = "Google Scholar" %}
-            {% when "inspire" %}
-              {% assign profile_icon = "/assets/images/profiles/inspire.svg" %}
-              {% assign profile_label = "INSPIRE-HEP" %}
-            {% when "arxiv" %}
-              {% assign profile_icon = "/assets/images/profiles/arxiv.svg" %}
-              {% assign profile_label = "arXiv" %}
-            {% else %}
-              {% assign profile_icon = "" %}
-              {% assign profile_label = "" %}
-          {% endcase %}
-          {% assign profile_label = profile.label | default: profile_label %}
-          <a class="profile-link profile-link--{{ profile_type }}" href="{{ profile.url }}" target="_blank" rel="noopener" aria-label="{{ profile_label }} profile for {{ person.name }}" title="{{ profile_label }}">
-            {% if profile_icon %}
-              <img src="{{ profile_icon | relative_url }}" alt="" aria-hidden="true">
-            {% else %}
-              <span aria-hidden="true">URL</span>
-            {% endif %}
-          </a>
-        {% endfor %}
-        {% unless has_arxiv or person.arxiv == false %}
-          <a class="profile-link profile-link--arxiv" href="https://arxiv.org/search/?query={{ person.name | url_encode }}&amp;searchtype=author" target="_blank" rel="noopener" aria-label="arXiv author search for {{ person.name }}" title="arXiv">
-            <img src="{{ '/assets/images/profiles/arxiv.svg' | relative_url }}" alt="" aria-hidden="true">
-          </a>
-        {% endunless %}
-      </div>
-    {% endif %}
+    {% include person-profiles.html person=person %}
     <p class="links">
       {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
       {% if person.website %}<a href="{{ person.website }}">Website</a>{% endif %}

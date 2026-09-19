@@ -4,11 +4,11 @@ Params: id (slug), people (flattened list of people), fallback (optional),
 link (optional: when truthy, link to the person's card on the People page).
 
 `link` is a request, not a guarantee. Only three of the four groups in
-people.yml get a card on the People page — `visitors` does not — so an anchor
-for a visitor would land on the page with nothing to scroll to. Four of them
+people.yml get a page of their own (see _plugins/person_pages.rb) — `visitors`
+do not, since they are not listed on the People page either. Four of them
 co-author papers, so this is a live case, not a hypothetical. The check is here
-rather than in each caller because this include is the one place that knows the
-anchor exists at all.
+rather than in each caller because this include is the one place that knows
+whether there is anything to link to.
 {%- endcomment -%}
 {%- assign _p = include.people | where: "id", include.id | first -%}
 {%- assign _carded = site.data.people.researchers_madrid
@@ -16,7 +16,7 @@ anchor exists at all.
       | concat: site.data.people.international_collaborators
       | where: "id", include.id | first -%}
 {%- if _p -%}
-{%- if include.link and _carded -%}<a href="{{ '/people/' | relative_url }}#{{ _p.id }}">{{ _p.name }}</a>
+{%- if include.link and _carded -%}<a href="{{ '/people/' | append: _p.id | append: '/' | relative_url }}">{{ _p.name }}</a>
 {%- else -%}{{ _p.name }}
 {%- endif -%}
 {%- else -%}{{ include.fallback | default: include.id }}{%- endif -%}

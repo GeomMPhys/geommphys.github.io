@@ -8,7 +8,8 @@
 #  FIELDS
 #    title       (required)  short heading, in quotes
 #    people      (required)  list of person ids from people.yml
-#    kind        (optional)  talk, article, stand, interview, or video
+#    kind        (optional)  talk, article, stand, interview, or video.
+#                            Shown as a small tag beside the title.
 #    work_title  (optional)  title of the talk/article, in quotes
 #    venue       (optional)  place or publication, in quotes
 #    date        (required)  when it happened. Use as much as you know:

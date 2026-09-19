@@ -8,10 +8,15 @@
     as a link to that person; a { name: ... } mapping is an outside co-author
     and renders verbatim. Nothing matches names against strings, so nobody is
     silently missed when a paper spells them differently.
+
+    `self` is the id of the person whose page this is, if any: their own name
+    is printed plain there, because a link back to the page you are already on
+    is noise.
   {%- endcomment -%}
   <p class="publication__authors">
     {%- for a in publication.authors -%}
       {%- if a.name -%}{{ a.name }}
+      {%- elsif a == include.self -%}{% include person-name.html id=a people=include.people %}
       {%- else -%}{% include person-name.html id=a people=include.people link=true %}{%- endif -%}
       {%- unless forloop.last %}, {% endunless -%}
     {%- endfor -%}

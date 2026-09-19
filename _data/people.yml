@@ -17,6 +17,15 @@
 #    name      (required)  full name shown on the page, in quotes
 #    photo     (optional)  path to a photo/icon under /assets/images/...
 #    role      (optional)  free text (position + institution).
+#    positions (optional)  what this person does FOR THE GROUP, as a list —
+#                          one line per job, e.g.
+#                            positions:
+#                              - "Leader of the group"
+#                              - "Grants"
+#                          Shown under their name on their own page. Most
+#                          people hold none: leave the field out entirely
+#                          and nothing is shown. This is not the same as
+#                          "role", which is their academic position.
 #    research  (optional)  short research interests, in quotes
 #    email     (optional)  e.g. "jane@example.org" — shown as an "Email" link
 #    website   (optional)  full URL to a personal page — shown as a "Website" link
@@ -75,6 +84,9 @@ researchers_madrid:
     name: "Jordi Gaset Rifà"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Politècnica de Catalunya, Spain, 2018"
+    positions:
+      - "Leader of the group"
+      - "Grants"
     research: "Geometric Field Theory, Geometric Mechanics, Mathematical Physics"
     profiles:
       - type: "orcid"
@@ -101,6 +113,8 @@ researchers_madrid:
     name: "Manuel Lainz"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, 2022"
+    positions:
+      - "Web maintainer"
     research: "Geometric Mechanics, Geometric Field Theory, Mathematical Physics"
     email: "manuel.lainz@cunef.edu"
     profiles:

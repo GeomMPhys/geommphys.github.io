@@ -10,8 +10,10 @@ permalink: /diversity/
   <p>Beyond social justice, we recognize the positive role of diversity in fostering original approaches to long-standing scientific problems. We are committed to an egalitarian research environment and to improving the inclusion of women in the group.</p>
 </div>
 
-## Group Initiatives
-
+<div class="year-group">
+<p class="year-mark" aria-hidden="true">§1</p>
+<div class="year-group__body">
+<h2>Group initiatives</h2>
 <div class="resource-grid">
   <article class="resource-card">
     <h3>genHET newsletter</h3>
@@ -25,9 +27,13 @@ permalink: /diversity/
     <p class="links"><a href="https://www.minerva-femmenet.mpg.de">Visit Minerva-FemmeNet</a></p>
   </article>
 </div>
+</div>
+</div>
 
-## International Networks
-
+<div class="year-group">
+<p class="year-mark" aria-hidden="true">§2</p>
+<div class="year-group__body">
+<h2>International networks</h2>
 <div class="resource-grid resource-grid--compact">
   <article class="resource-card">
     <h3>Association for Women in Mathematics (AWM)</h3>
@@ -45,9 +51,13 @@ permalink: /diversity/
     <p class="links"><a href="https://genhet.web.cern.ch/">Visit genHET</a></p>
   </article>
 </div>
+</div>
+</div>
 
-## Information Resources
-
+<div class="year-group">
+<p class="year-mark" aria-hidden="true">§3</p>
+<div class="year-group__body">
+<h2>Information resources</h2>
 <div class="resource-grid resource-grid--compact">
   <article class="resource-card">
     <h3>Towards gender equality in scientific organizations</h3>
@@ -72,6 +82,8 @@ permalink: /diversity/
     <p>A Spain-based blog.</p>
     <p class="links"><a href="https://mujeresconciencia.com/">Visit the blog</a></p>
   </article>
+</div>
+</div>
 </div>
 
 <div class="page-callout">

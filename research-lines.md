@@ -10,7 +10,7 @@ permalink: /research-lines/
 {% if site.data.research_lines.lines and site.data.research_lines.lines.size > 0 %}
 <div class="stack">
   {% for line in site.data.research_lines.lines %}
-    {% include research-line.html line=line people=all_people %}
+    {% include research-line.html line=line people=all_people number=forloop.index %}
   {% endfor %}
 </div>
 {% else %}

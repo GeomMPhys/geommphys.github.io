@@ -1,7 +1,12 @@
 {%- assign x = include.activity -%}
 <article class="record">
   <div class="record__body">
-    <h3>{{ x.title }}</h3>
+    {%- comment -%}
+      `kind` was in the data and reached no page. It is the same outlined tag
+      the conference `type` uses, so the two pages say "what sort of thing is
+      this" the same way.
+    {%- endcomment -%}
+    <h3>{{ x.title }}{% if x.kind %} <span class="tag">{{ x.kind }}</span>{% endif %}</h3>
     <p class="record__meta">{% for pid in x.people -%}
       {%- include person-name.html id=pid people=include.people -%}
       {%- unless forloop.last %}, {% endunless -%}

@@ -1,0 +1,50 @@
+{%- comment -%}
+  A person's research-profile icons: ORCID, Google Scholar, INSPIRE-HEP,
+  arXiv, plus any other link given a label. Shared by the People-page card
+  and the person's own page, so the icon table and the automatic arXiv
+  author search live in one place rather than two.
+
+  Params: person.
+{%- endcomment -%}
+{%- assign _pp = include.person -%}
+{% if _pp.profiles %}
+  <div class="person__profiles" aria-label="Research profiles for {{ _pp.name }}">
+    {% assign has_arxiv = false %}
+    {% for profile in _pp.profiles %}
+      {% assign profile_type = profile.type | default: "profile" %}
+      {% if profile_type == "arxiv" %}
+        {% assign has_arxiv = true %}
+      {% endif %}
+      {% case profile_type %}
+        {% when "orcid" %}
+          {% assign profile_icon = "/assets/images/profiles/orcid.svg" %}
+          {% assign profile_label = "ORCID" %}
+        {% when "scholar" %}
+          {% assign profile_icon = "/assets/images/profiles/google-scholar.svg" %}
+          {% assign profile_label = "Google Scholar" %}
+        {% when "inspire" %}
+          {% assign profile_icon = "/assets/images/profiles/inspire.svg" %}
+          {% assign profile_label = "INSPIRE-HEP" %}
+        {% when "arxiv" %}
+          {% assign profile_icon = "/assets/images/profiles/arxiv.svg" %}
+          {% assign profile_label = "arXiv" %}
+        {% else %}
+          {% assign profile_icon = "" %}
+          {% assign profile_label = "" %}
+      {% endcase %}
+      {% assign profile_label = profile.label | default: profile_label %}
+      <a class="profile-link profile-link--{{ profile_type }}" href="{{ profile.url }}" target="_blank" rel="noopener" aria-label="{{ profile_label }} profile for {{ _pp.name }}" title="{{ profile_label }}">
+        {% if profile_icon %}
+          <img src="{{ profile_icon | relative_url }}" alt="" aria-hidden="true">
+        {% else %}
+          <span aria-hidden="true">URL</span>
+        {% endif %}
+      </a>
+    {% endfor %}
+    {% unless has_arxiv or _pp.arxiv == false %}
+      <a class="profile-link profile-link--arxiv" href="https://arxiv.org/search/?query={{ _pp.name | url_encode }}&amp;searchtype=author" target="_blank" rel="noopener" aria-label="arXiv author search for {{ _pp.name }}" title="arXiv">
+        <img src="{{ '/assets/images/profiles/arxiv.svg' | relative_url }}" alt="" aria-hidden="true">
+      </a>
+    {% endunless %}
+  </div>
+{% endif %}

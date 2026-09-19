@@ -18,8 +18,8 @@ google-sites-export/
 .agents/
 .codex/
 
-# local preview server log (bin/serve or python -m http.server)
-.preview.log
+# local preview server logs (python -m http.server)
+.preview*.log
 
 # build-time only: deps for bin/bake-map.mjs (see package.json)
 node_modules/

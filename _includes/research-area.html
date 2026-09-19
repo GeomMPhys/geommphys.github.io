@@ -1,14 +1,17 @@
-<article class="card">
-  <h3>{{ include.area.title }}</h3>
-  <p>{{ include.area.summary }}</p>
-  {% if include.area.topics %}
-    <ul class="compact-list">
-      {% for topic in include.area.topics %}
-        <li>{{ topic }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  {% if include.area.url %}
-    <p class="links"><a href="{{ include.area.url | relative_url }}">View {{ include.area.title | downcase }}</a></p>
-  {% endif %}
+{%- comment -%}
+  A signpost on the Research overview: what the section is, and what is behind
+  the link. The title carries the link rather than a separate "View …" line —
+  it saves a line per card and gives the reader the obvious target.
+
+  `topics` is set as one quiet run-together line, not a bulleted list: it is a
+  preview of what is behind the link, not a list to be read.
+{%- endcomment -%}
+{%- assign a = include.area -%}
+<article class="signpost">
+  <h3>
+    {%- if a.url -%}<a href="{{ a.url | relative_url }}">{{ a.title }}</a>
+    {%- else -%}{{ a.title }}{%- endif -%}
+  </h3>
+  {% if a.summary %}<p>{{ a.summary }}</p>{% endif %}
+  {% if a.topics %}<p class="signpost__topics">{{ a.topics | join: " · " }}</p>{% endif %}
 </article>

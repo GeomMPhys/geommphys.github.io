@@ -21,8 +21,9 @@ into `_data/` over hard-coding it in a page.
 ```
 _config.yml            Jekyll config (markdown, plugins, permalinks, excludes)
 _data/*.yml            The source of truth for all content
-_layouts/              Page shells: default.html → home.html / page.html
+_layouts/              Page shells: default.html → home.html / page.html / person.html
 _includes/             Reusable renderers (one per content type) + helpers
+_plugins/              One generator: a page per group member (see below)
 assets/css/main.scss   All styling (compiled to /assets/css/main.css)
 assets/images/         Photos, profile icons, etc.
 *.md (repo root)       The pages; front matter + a few lines of Liquid each
@@ -65,8 +66,8 @@ pages (research visits, calendar, network map) for names.
 
 Every person in `_data/people.yml` has a stable `id` slug (lowercase, hyphenated).
 Other data files reference a person **by that id**, never by retyping the name;
-templates resolve the id back to a name (and often a link to their People-page
-card via the `#id` anchor set in `person-card.html`).
+templates resolve the id back to a name (and often a link to that person's own
+page at `/people/<id>/`; see "A page per person").
 
 The resolution helper is `_includes/person-name.html`:
 ```liquid
@@ -105,6 +106,7 @@ name everywhere. That was the deliberate trade for the links.
 | `ics-events.html` | iCal VEVENTs for a category (`only=`), used by the `.ics` feeds | `events*.ics` |
 | `network-map.html` | the collaborations map (see below) | `people.md`, `_layouts/home.html` |
 | `network-marker.html` | one point on that map | `network-map.html` |
+| `person-profiles.html` | someone's ORCID / Scholar / INSPIRE / arXiv icons | `person-card.html`, `_layouts/person.html` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
 | `theme-init.html` | pre-paint theme + `data-js` on `<html>` | `_layouts/default.html`, in `<head>` |
 | `theme-switch.html` | the Auto / Day / Night control | `header.html` |
@@ -147,6 +149,39 @@ fails CI or silently does nothing:
 4. Create `<thing>.md` with front matter + the page → include wiring.
 5. Add it to `_data/navigation.yml` so it appears in the menu.
 6. Run `ruby bin/validate_data.rb`, then build and preview.
+
+## A page per person
+
+Every member of the three groups shown on the People page also has a page of
+their own at `/people/<id>/`. `visitors` do not: they are not listed on the
+People page either, and a page for someone the site does not otherwise show
+would be a surprise. `person-name.html` knows this, and prints a visitor's name
+without a link rather than pointing at a page that is not there.
+
+The pages are **generated**, by `_plugins/person_pages.rb`, and rendered by
+`_layouts/person.html`. There is no file per person to forget to update: adding
+someone to `people.yml` gives them a page on the next build, and removing them
+takes it away.
+
+Almost everything on the page is derived rather than stored:
+
+- **Research lines** — by membership, from `research_lines.yml`.
+- **Papers** — by their id appearing in a `publications.yml` entry's `authors`
+  list. This is the return on the author-id migration: a paper names its
+  people, so a person can list their papers, from the same one fact.
+- **Name, role, research interests, profile links** — from their `people.yml`
+  entry, the same fields the People-page card shows.
+
+The one field the page adds is **`positions`**: what someone does *for the
+group* — "Leader of the group", "Grants", "Web maintainer" — as opposed to
+`role`, which is their academic position. It is a list, because one person
+holds two, and optional: most people hold none, the line is simply absent, and
+the page still reads as finished. Only the two confirmed sets are filled in;
+the rest is for the group to add.
+
+`_plugins/` works because CI runs a plain `bundle exec jekyll build` rather
+than the `github-pages` gem, which would refuse it. Nothing else on the site
+needs a plugin.
 
 ## The collaborations map
 

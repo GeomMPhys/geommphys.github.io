@@ -3,12 +3,15 @@
 # ───────────────────────────────────────────────────────────────────
 #  HOW TO EDIT
 #  • Change the value to the right of each ":" (keep the quotes).
+#  • "tagline" is the sentence in the footer, under the group name. It is
+#    followed automatically by ". Contact us at <email>", so write it as a
+#    phrase with no full stop.
 #  • "links" is the list of links shown in the page footer.
 # ───────────────────────────────────────────────────────────────────
 
 group_name: "Geometrical Mathematical Physics Research Group"
 short_name: "GeomMPhys"
-tagline: "Geometrical mathematical physics"
+tagline: "Geometry, mathematics, physics and philosophy, worked on together"
 description: "The GeomMPhys research group brings together mathematicians and physicists working in geometrical mathematical physics."
 
 institution: " "

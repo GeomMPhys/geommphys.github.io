@@ -27,7 +27,7 @@ permalink: /people/
 {% endfor %}
 </div>
 {% else %}
-<p class="empty">TODO: Add public entries for this section.</p>
+<p class="empty">No one is listed in this group yet.</p>
 {% endif %}
 {% endfor %}
 

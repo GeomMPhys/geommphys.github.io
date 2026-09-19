@@ -1,14 +1,20 @@
+{%- comment -%}
+  One research line. Not a card: the paper-and-ink system spends border, fill
+  and radius by role, and a list of three items separated by whitespace needs
+  none of them.
+{%- endcomment -%}
 {%- assign l = include.line -%}
-<article class="card research-line-card">
-  <h3>{{ l.name }}</h3>
-  {% if l.keywords %}<p class="meta">{{ l.keywords | join: ", " }}</p>{% endif %}
-  {% if l.description %}<p>{{ l.description }}</p>{% endif %}
-  {% if l.people %}
-    <p class="meta">Members:
-      {% for pid in l.people -%}
+<article class="line">
+  <p class="line__mark" aria-hidden="true">§{{ include.number }}</p>
+  <div class="line__body">
+    <h3>{{ l.name }}</h3>
+    {% if l.description %}<p class="line__desc">{{ l.description }}</p>{% endif %}
+    {% if l.keywords %}<p class="line__keywords">{{ l.keywords | join: " · " }}</p>{% endif %}
+    {% if l.people %}
+      <p class="line__roster">{% for pid in l.people -%}
         {%- include person-name.html id=pid people=include.people link=true -%}
         {%- unless forloop.last %}, {% endunless -%}
-      {%- endfor %}
-    </p>
-  {% endif %}
+      {%- endfor %}</p>
+    {% endif %}
+  </div>
 </article>

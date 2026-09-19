@@ -164,7 +164,8 @@ if people_doc.is_a?(Hash)
       check_record(errors, "people.yml", where, rec, {
         required: { id: :str, name: :str },
         optional: { photo: :str, role: :str, research: :str, email: :str,
-                    website: :str, profiles: :list, arxiv: :bool },
+                    website: :str, profiles: :list, positions: :list,
+                    arxiv: :bool },
       })
       next unless rec.is_a?(Hash) && rec["id"].is_a?(String)
 
@@ -178,6 +179,15 @@ if people_doc.is_a?(Hash)
       unless id.match?(/\A[a-z0-9-]+\z/)
         err(errors, "people.yml", "#{where}: id `#{id}` must be " \
                                   "lowercase-with-hyphens (letters, numbers, -).")
+      end
+
+      # positions: plain strings, one per job held in the group
+      if rec["positions"].is_a?(Array)
+        rec["positions"].each_with_index do |pos, j|
+          next if pos.is_a?(String) && !pos.strip.empty?
+          err(errors, "people.yml", "#{where} → position ##{j + 1}: each " \
+              "position is a line of text in quotes, e.g. - \"Web maintainer\".")
+        end
       end
 
       # profiles: list of { type, label, url }

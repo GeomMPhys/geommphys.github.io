@@ -863,6 +863,75 @@ address {
   -webkit-mask: url("../images/marks/mark-empty.svg") no-repeat center / contain;
 }
 
+/* ── Research overview signposts ───────────────────────────────────── */
+
+/* Five links to the rest of the site. A hairline above each, and nothing
+   else: they are signposts, not objects. */
+.signpost {
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--rule);
+}
+
+.signpost h3 {
+  margin: 0 0 0.4rem;
+}
+
+.signpost p {
+  margin: 0 0 0.5rem;
+}
+
+/* The examples behind the link, set small and run together rather than
+   bulleted: they are a preview of what is there, not a list to read. */
+.signpost__topics {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* The research lines page uses the home page's § device at full length. */
+.line__keywords {
+  margin: 0.4rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+}
+
+/* ── A person's own page ───────────────────────────────────────────── */
+
+/* Which part of the group they are in, above the name. Quiet, sentence case,
+   and sans — it labels the page rather than titling it. */
+.page-heading__where {
+  margin: 0 0 0.35rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+}
+
+/* Their standing details, set once above the derived sections. Hairline-ruled
+   off rather than boxed: it is the same page, not a separate object. */
+.person-page__id {
+  max-width: var(--measure-list);
+  margin: 0 0 2.5rem;
+  padding: 0 0 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.person-page__id p {
+  margin: 0 0 0.4rem;
+}
+
+.person-page__role {
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+
+.person-page__nopapers {
+  max-width: var(--measure-list);
+  color: var(--ink-soft);
+}
+
 /* ── Grids ─────────────────────────────────────────────────────────── */
 
 .grid,
@@ -1195,6 +1264,18 @@ math {
   font-variant-numeric: tabular-nums;
   /* aligns the mark with the first row's title, not with the top of the rule */
   line-height: 2.45;
+}
+
+/* Anything else that hangs off a margin mark — the Diversity page's three
+   sections use the same 3.2rem grid as the year groups, so the marks line up
+   down the site rather than each page inventing its own indent. */
+.year-group__body {
+  grid-column: 2;
+  min-width: 0;
+}
+
+.year-group__body > h2:first-child {
+  margin-top: 0;
 }
 
 .year-group .record-list {
