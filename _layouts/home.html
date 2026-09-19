@@ -1,61 +1,43 @@
 ---
 layout: default
 ---
+{%- comment -%}
+  The home page as drawn in A-home. Three things and no furniture: what the
+  group works on, what it has just done, and where it works.
 
+  There is no emblem, no group-name title, no intro band and no buttons. The
+  title IS the standfirst — "Mathematical structures in modern physics" — with
+  the group's one sentence in italic under it. The name is carried by the
+  header mark and the page title, so repeating it at 3 rem said nothing the
+  reader did not already know.
+{%- endcomment -%}
 {%- assign lines = site.data.research_lines.lines -%}
 {%- assign all_people = site.data.people.researchers_madrid
       | concat: site.data.people.students_madrid
       | concat: site.data.people.international_collaborators
       | concat: site.data.people.visitors -%}
 
-{%- comment -%}
-  The emblem is three spinning tops — the canonical object of geometric
-  mechanics, which is the group's own field. It is inlined rather than an <img>
-  so its ink inherits currentColor and it needs no second copy for night mode.
-{%- endcomment -%}
 <section class="hero">
   <div class="container hero__inner">
-    <span class="hero__emblem" role="img" aria-label="Three spinning tops labelled Geom, Math and Phys, with arcs tracing their rotation.">{% include icons/emblem-tops.svg %}</span>
-    <h1 class="hero__title">
-      <span class="hero__title-main">Geometrical Mathematical Physics</span>
-      <span class="hero__title-sub">Research Group</span>
-    </h1>
-    <p class="hero__standfirst">Mathematical structures in modern physics</p>
-    <div class="hero__prose">{{ content }}</div>
-    <div class="hero__actions">
-      <a class="button" href="{{ '/research-lines/' | relative_url }}">Research lines</a>
-      <a class="button button--secondary" href="{{ '/people/' | relative_url }}">People</a>
-    </div>
+    <h1 class="hero__title">{{ site.data.site.tagline_short | default: "Mathematical structures in modern physics" }}</h1>
+    <div class="hero__standfirst">{{ content }}</div>
   </div>
 </section>
 
-{%- comment -%}
-  The research lines are the group's actual work, and each already carries a
-  description and a roster in research_lines.yml. The roster is printed in
-  full rather than counted: the names are the substance, and each one now goes
-  somewhere. Which lines a person shares is shown on the line's own page, where
-  there is room for it.
-
-  Note that _data/research.yml is NOT research areas: its five entries are site
-  sections (Publications, Seminars, Visits, Conferences, Awards), which is what
-  this section used to show under the heading "Research". It reads
-  research_lines.yml instead — the real thing.
-{%- endcomment -%}
-{% if lines and lines.size > 0 %}
 <section class="section">
   <div class="container">
-    <div class="section__heading">
-      <h2>Research lines</h2>
-      <a href="{{ '/research-lines/' | relative_url }}">All research lines</a>
-    </div>
-
+    {%- comment -%}
+      The research lines are the group's actual work, and each already carries
+      a description and a roster in research_lines.yml. No section heading and
+      no "all research lines" link: the § marks and the names are the heading,
+      and each line's own name is the link.
+    {%- endcomment -%}
     {% for line in lines %}
-      {%- assign idx = forloop.index -%}
       <article class="line">
-        <p class="line__mark" aria-hidden="true">§{{ idx }}</p>
+        <p class="line__mark" aria-hidden="true">§{{ forloop.index }}</p>
         <div class="line__body">
-          <h3><a href="{{ '/research-lines/' | append: line.id | append: '/' | relative_url }}">{{ line.name }}</a></h3>
-          {% if line.description %}<p class="line__desc">{{ line.description | strip_html | truncatewords: 28 }}</p>{% endif %}
+          <h2><a href="{{ '/research-lines/' | append: line.id | append: '/' | relative_url }}">{{ line.name }}</a></h2>
+          {% if line.description %}<p class="line__desc">{{ line.description | strip_html | truncatewords: 22 }}</p>{% endif %}
           <p class="line__roster">{% for pid in line.people -%}
             {%- include person-name.html id=pid people=all_people link=true -%}
             {%- unless forloop.last %}, {% endunless -%}
@@ -63,59 +45,58 @@ layout: default
         </div>
       </article>
     {% endfor %}
-  </div>
-</section>
-{% endif %}
 
-{%- comment -%}
-  Two feed slots, labelled rather than numbered. The seminar slot falls back to
-  the most recent past talk when nothing is scheduled: `upcoming` is empty
-  between terms, and a slot that simply vanished would leave the row lopsided.
-{%- endcomment -%}
-{%- assign latest_paper = site.data.publications.selected | first -%}
-{%- assign next_seminar = site.data.seminars.upcoming | first -%}
-{%- assign seminar_label = "Next seminar" -%}
-{%- if next_seminar == nil -%}
-  {%- assign next_seminar = site.data.seminars.past | first -%}
-  {%- assign seminar_label = "Latest seminar — none scheduled" -%}
-{%- endif -%}
-{% if latest_paper or next_seminar %}
-<section class="section section--alt">
-  <div class="container">
+    {%- comment -%}
+      Two feed slots, labelled in the margin rather than numbered or boxed.
+      The seminar slot falls back to the most recent past talk when nothing is
+      scheduled: `upcoming` is empty between terms, and a slot that simply
+      vanished would leave the page a section short.
+    {%- endcomment -%}
+    {%- assign latest_paper = site.data.publications.selected | first -%}
+    {%- assign next_seminar = site.data.seminars.upcoming | first -%}
+    {%- assign seminar_label = "Next seminar" -%}
+    {%- assign seminar_note = "" -%}
+    {%- if next_seminar == nil -%}
+      {%- assign next_seminar = site.data.seminars.past | first -%}
+      {%- assign seminar_label = "Latest seminar" -%}
+      {%- assign seminar_note = "none scheduled" -%}
+    {%- endif -%}
+    {% if latest_paper or next_seminar %}
     <div class="feeds">
       {% if latest_paper %}
       <article class="feed">
         <p class="feed__label">Latest paper</p>
-        <h3>{{ latest_paper.title }}</h3>
-        <p class="feed__meta">
-          {%- for a in latest_paper.authors -%}
-            {%- if a.name -%}{{ a.name }}{%- else -%}{% include person-name.html id=a people=all_people %}{%- endif -%}
-            {%- unless forloop.last %}, {% endunless -%}
-          {%- endfor -%}
+        <p class="feed__body">
+          <a href="{{ '/publications/' | relative_url }}">{{ latest_paper.title }}</a>.
+          <span class="feed__meta">
+            {%- for a in latest_paper.authors -%}
+              {%- if a.name -%}{{ a.name }}{%- else -%}{% include person-name.html id=a people=all_people %}{%- endif -%}
+              {%- unless forloop.last %}, {% endunless -%}
+            {%- endfor %}. {{ latest_paper.venue }}, {{ latest_paper.year }}</span>
         </p>
-        <p class="links"><a href="{{ '/publications/' | relative_url }}">All {{ site.data.publications.selected | size }} publications</a></p>
       </article>
       {% endif %}
       {% if next_seminar %}
       <article class="feed">
-        <p class="feed__label">{{ seminar_label }}</p>
-        <h3>{{ next_seminar.title }}</h3>
-        <p class="feed__meta">{{ next_seminar.speaker }}{% if next_seminar.affiliation and next_seminar.affiliation != "" %}, {{ next_seminar.affiliation }}{% endif %}</p>
-        <p class="links"><a href="{{ '/seminars/' | relative_url }}">Seminar series</a></p>
+        <p class="feed__label">{{ seminar_label }}{% if seminar_note != "" %}<span class="feed__note">{{ seminar_note }}</span>{% endif %}</p>
+        <p class="feed__body">
+          <a href="{{ '/seminars/' | relative_url }}">{{ next_seminar.title }}</a>.
+          <span class="feed__meta">{{ next_seminar.speaker }}, {{ next_seminar.date | date: "%-d %B %Y" }}</span>
+        </p>
       </article>
       {% endif %}
     </div>
+    {% endif %}
   </div>
 </section>
-{% endif %}
 
-<section class="section">
+{%- comment -%}
+  The map is Figure 1: the only illustration on the page, captioned rather
+  than introduced by a heading.
+{%- endcomment -%}
+<section class="section section--alt">
   <div class="container">
-    <div class="section__heading">
-      <h2>Collaborations</h2>
-      <a href="{{ '/people/' | relative_url }}">People and collaborators</a>
-    </div>
-    <p class="lead">At {{ site.data.network.locations | size }} institutions worldwide, from the group's base in Madrid.</p>
     {% include network-map.html class="network-map--feature" %}
+    <p class="figure-caption">Figure 1. {{ all_people | size }} members at {{ site.data.network.locations | size | plus: 1 }} institutions, one dot each. Every point carries its institution and people on hover or keyboard focus.</p>
   </div>
 </section>

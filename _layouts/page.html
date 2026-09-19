@@ -2,8 +2,14 @@
 layout: default
 ---
 
+{%- comment -%}
+  Section, title, standfirst — centred, as every page is drawn in the design
+  documents. `section` is the front-matter field the navigation already groups
+  by, so naming it here costs no new data.
+{%- endcomment -%}
 <section class="page-heading">
   <div class="container">
+    {% if page.section %}<p class="page-heading__section">{{ page.section }}</p>{% endif %}
     <h1>{{ page.title }}</h1>
     {% if page.description %}
       <p class="lead">{{ page.description }}</p>
