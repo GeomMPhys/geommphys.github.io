@@ -128,8 +128,33 @@
 
 
   --max-width: 1120px;
+  /* Type scale. Nine steps and nothing between them: six for prose in STIX
+     Two Text, three for apparatus in IBM Plex Sans. Before this the site used
+     34 distinct combinations, ten of them crowded between 15.5px and 19px —
+     differences of a sixth of a pixel, which is not a scale, just the residue
+     of choosing a size per component. Add a step here rather than a value
+     there. */
+  --fs-title: clamp(1.95rem, 3.6vw, 2.7rem);
+  --fs-section: clamp(1.3rem, 1.9vw, 1.6rem);
+  --fs-lead: clamp(1.08rem, 1.5vw, 1.2rem);
+  --fs-item: 1.12rem;
+  --fs-body: 1.0625rem;
+  --fs-body-sm: 0.95rem;
+
+  --fs-ui: 0.9rem;
+  --fs-meta: 0.82rem;
+  --fs-micro: 0.74rem;
+
+  /* Three measures and nothing else: running prose, a list row, and the
+     container. A block that hangs off a margin mark is --measure-mark, the
+     same list row plus the mark column, so every row on the site — marked or
+     not — lands on the same right edge. The site previously used seven widths
+     (992/940/840/747/720/645/572) and the 747-vs-720 pair read as a
+     misalignment rather than a decision. */
+  --mark-col: 4.2rem;
   --measure: 68ch;
   --measure-list: 45rem;
+  --measure-mark: calc(var(--mark-col) + var(--measure-list));
   --radius: 3px;
   --shadow-float: 0 6px 20px rgba(23, 33, 43, 0.11);
 
@@ -156,7 +181,7 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-serif);
-  font-size: 1.0625rem;
+  font-size: var(--fs-body);
   line-height: 1.62;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -189,19 +214,19 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(1.95rem, 3.6vw, 2.85rem);
+  font-size: var(--fs-title);
   line-height: 1.1;
   text-wrap: balance;
 }
 
 h2 {
   margin-top: 2.6rem;
-  font-size: clamp(1.3rem, 1.9vw, 1.6rem);
+  font-size: var(--fs-section);
   text-wrap: balance;
 }
 
 h3 {
-  font-size: 1.15rem;
+  font-size: var(--fs-item);
 }
 
 p {
@@ -238,7 +263,7 @@ address {
 .lead {
   max-width: 62ch;
   color: var(--ink-soft);
-  font-size: clamp(1.08rem, 1.5vw, 1.2rem);
+  font-size: var(--fs-lead);
   line-height: 1.5;
 }
 
@@ -272,7 +297,7 @@ address {
   background: var(--ink);
   color: var(--paper);
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: var(--fs-ui);
   transform: translateY(-160%);
 }
 
@@ -350,7 +375,7 @@ address {
   border-bottom: 2px solid transparent;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: var(--fs-ui);
   text-decoration: none;
 }
 
@@ -502,7 +527,7 @@ address {
   max-width: 26ch;
   margin: 0;
   font-family: var(--font-serif);
-  font-size: clamp(1.95rem, 3.6vw, 2.7rem);
+  font-size: var(--fs-title);
   font-weight: 400;
   letter-spacing: -0.008em;
   line-height: 1.14;
@@ -534,7 +559,7 @@ address {
   background: var(--accent);
   color: var(--accent-ink);
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: var(--fs-ui);
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
@@ -566,6 +591,12 @@ address {
   gap: 0.2rem 1.1rem;
 }
 
+/* A links row under a list belongs to that list, so it takes the list's
+   measure rather than the narrower prose one. */
+.page-content__inner > .links {
+  max-width: var(--measure-list);
+}
+
 /* These rows are flex containers, so their links are flex items rather than
    inline text and the inline-target exception does not cover them. At the
    row's type size they came out 21-23px tall, just under the 24x24 minimum;
@@ -580,7 +611,7 @@ address {
 
 .links a {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: var(--fs-ui);
   font-weight: 400;
 }
 
@@ -624,7 +655,7 @@ address {
 
 .section__heading a {
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: var(--fs-ui);
   white-space: nowrap;
 }
 
@@ -634,7 +665,7 @@ address {
 
 .home-intro p {
   color: var(--ink-soft);
-  font-size: clamp(1.08rem, 1.5vw, 1.2rem);
+  font-size: var(--fs-lead);
   line-height: 1.5;
 }
 
@@ -662,7 +693,7 @@ address {
   margin: 0 0 0.5rem;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 .page-heading h1 {
@@ -683,7 +714,7 @@ address {
   margin: 0 0 0.5rem;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 /* One photograph, used once, at its own size — not as a scrim behind
@@ -759,13 +790,13 @@ address {
 .compact-list {
   margin-top: 0.6rem;
   color: var(--ink-soft);
-  font-size: 0.98rem;
+  font-size: var(--fs-body-sm);
 }
 
 .meta {
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: var(--fs-ui);
 }
 
 .page-intro,
@@ -792,7 +823,7 @@ address {
 }
 
 .page-intro__note {
-  font-size: 0.96rem;
+  font-size: var(--fs-body-sm);
 }
 
 /* ── Drawn marks ────────────────────────────────────────────────────────
@@ -831,7 +862,7 @@ address {
 }
 
 .empty {
-  max-width: var(--measure);
+  max-width: var(--measure-list);
   margin: 0 0 1rem;
   padding: 0;
   border: 0;
@@ -871,7 +902,7 @@ address {
 .signpost h2 {
   margin: 0 0 0.4rem;
   font-family: var(--font-serif);
-  font-size: 1.12rem;
+  font-size: var(--fs-item);
   font-weight: 600;
 }
 
@@ -884,7 +915,7 @@ address {
 .signpost__topics {
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
   line-height: 1.6;
 }
 
@@ -893,7 +924,7 @@ address {
   margin: 0.4rem 0 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 /* A section heading sits over its own list, so it takes the same measure —
@@ -917,7 +948,7 @@ address {
   margin: 0 0 2.4rem;
   padding: 0;
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: var(--fs-ui);
   list-style: none;
 }
 
@@ -984,7 +1015,7 @@ address {
   flex: 0 0 auto;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1006,12 +1037,37 @@ address {
 .person-page__role {
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: var(--fs-ui);
 }
 
 .person-page__nopapers {
   max-width: var(--measure-list);
   color: var(--ink-soft);
+}
+
+/* The page header is centred, so the body column is too. Left-hanging content
+   under a centred title left the right third of a desktop screen empty and
+   read as two conflicting alignments — most visibly on Awards and Honours and
+   the 404. Centring the column keeps the designer's header and costs one
+   margin. The text inside each row stays left-aligned; only the column moves. */
+.page-content__inner > h2,
+.page-content__inner > p,
+.page-content__inner > ul,
+.page-content__inner > ol,
+.page-content__inner > .record-list,
+.page-content__inner > .publication-list,
+.page-content__inner > .place-list,
+.page-content__inner > .name-list,
+.page-content__inner > .stack,
+.page-content__inner > .tally,
+.page-content__inner > .resource-grid,
+.page-content__inner > .person-page__id,
+.page-content__inner > .page-intro,
+.page-content__inner > .page-callout,
+.page-content__inner > .links,
+.page-content__inner > .empty,
+.page-content__inner > .grid {
+  margin-inline: auto;
 }
 
 /* ── Grids ─────────────────────────────────────────────────────────── */
@@ -1066,7 +1122,7 @@ address {
 .resource-grid,
 .resource-grid--compact {
   display: block;
-  max-width: 40em;
+  max-width: var(--measure-list);
   margin: 1.6rem 0 2.25rem;
 }
 
@@ -1083,21 +1139,12 @@ address {
   border-bottom: 0;
 }
 
-.resource-card h3 {
-  margin-bottom: 0.2rem;
-  font-size: 1.04rem;
-}
-
-.resource-card p {
-  font-size: 0.9rem;
-}
-
 .resource-card .links {
   margin-top: 0.35rem;
 }
 
 .resource-card .links a {
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 .stack > .card {
@@ -1111,16 +1158,12 @@ address {
 .card h3,
 .resource-card h3 {
   margin: 0 0 0.45rem;
-  font-size: 1.18rem;
-}
-
-.research-line-card h3 {
-  font-size: 1.32rem;
+  font-size: var(--fs-item);
 }
 
 .resource-card p {
   color: var(--ink-soft);
-  font-size: 0.98rem;
+  font-size: var(--fs-body-sm);
 }
 
 .card p:last-child,
@@ -1146,7 +1189,7 @@ address {
   gap: 0 1rem;
   /* Centred as a block on its own measure, so the § marks give the page one
      left edge rather than hugging the container. */
-  max-width: calc(4.2rem + 34em);
+  max-width: var(--measure-mark);
   margin: 0 auto;
   padding: 1.1rem 0;
   border-bottom: 1px solid var(--rule);
@@ -1161,7 +1204,7 @@ address {
   margin: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
   font-variant-numeric: tabular-nums;
   line-height: 2.1;
 }
@@ -1175,7 +1218,7 @@ address {
 .line h3 {
   margin: 0 0 0.3rem;
   font-family: var(--font-serif);
-  font-size: 1.12rem;
+  font-size: var(--fs-item);
   font-weight: 600;
   line-height: 1.3;
 }
@@ -1205,7 +1248,7 @@ address {
   margin: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 /* A roster is a run of names, and every one of them is now a link. Solid
@@ -1227,7 +1270,7 @@ address {
    the same margin grid the year marks and the § marks use, so the page has one
    left edge rather than three. Not cards: there is nothing to separate. */
 .feeds {
-  max-width: calc(10rem + 40em);
+  max-width: var(--measure-mark);
   margin: 2.6rem auto 0;
   padding-top: 1.6rem;
   border-top: 1px solid var(--rule);
@@ -1249,7 +1292,7 @@ address {
   margin: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
   line-height: 1.55;
 }
 
@@ -1260,14 +1303,14 @@ address {
 .feed__body {
   grid-column: 2;
   margin: 0;
-  font-size: 1.05rem;
+  font-size: var(--fs-body);
   line-height: 1.5;
 }
 
 .feed__meta {
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 @media (max-width: 640px) {
@@ -1292,11 +1335,11 @@ address {
 
 /* The map's caption on the home page: Figure 1, centred under the frame. */
 .figure-caption {
-  max-width: 52ch;
+  max-width: var(--measure);
   margin: 0.9rem auto 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
   text-align: center;
 }
 
@@ -1333,7 +1376,7 @@ address {
   background: none;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.83rem;
+  font-size: var(--fs-meta);
   font-variant-numeric: tabular-nums;
   line-height: 1.45;
   white-space: normal;
@@ -1341,7 +1384,7 @@ address {
 
 .record h3 {
   margin: 0 0 0.15rem;
-  font-size: 1.15rem;
+  font-size: var(--fs-item);
 }
 
 .record__meta {
@@ -1352,7 +1395,7 @@ address {
 .record__note {
   margin: 0.42rem 0 0;
   color: var(--ink-soft);
-  font-size: 0.97rem;
+  font-size: var(--fs-body-sm);
 }
 
 .record .links {
@@ -1400,8 +1443,8 @@ math {
   display: grid;
   grid-template-columns: 3.2rem minmax(0, 1fr);
   gap: 0 1rem;
-  max-width: calc(4.2rem + 40em);
-  margin-bottom: 2.5rem;
+  max-width: var(--measure-mark);
+  margin: 0 auto 2.5rem;
 }
 
 .page-content .year-mark {
@@ -1411,7 +1454,7 @@ math {
   border: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
   font-variant-numeric: tabular-nums;
   /* aligns the mark with the first row's title, not with the top of the rule */
   line-height: 2.45;
@@ -1435,23 +1478,19 @@ math {
   margin: 0;
 }
 
-.year-group .record h3 {
-  font-size: 1.04rem;
-}
-
 .year-group .record__meta {
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 .year-group .record__note {
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: var(--fs-meta);
 }
 
 .year-group .record__date {
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 /* Awards carry no per-row date — the year mark in the margin says it — so the
@@ -1474,7 +1513,7 @@ math {
   border-radius: 2px;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.68rem;
+  font-size: var(--fs-micro);
   font-weight: 400;
   letter-spacing: 0.02em;
   vertical-align: 0.14em;
@@ -1516,7 +1555,7 @@ math {
   grid-row: 1 / span 3;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: var(--fs-meta);
   font-variant-numeric: tabular-nums;
   line-height: 1.85;
 }
@@ -1529,14 +1568,14 @@ math {
 
 .publication h3 {
   margin: 0 0 0.18rem;
-  font-size: 1.16rem;
+  font-size: var(--fs-item);
   line-height: 1.34;
 }
 
 .publication__authors {
   margin: 0;
   color: var(--ink);
-  font-size: 1rem;
+  font-size: var(--fs-body-sm);
 }
 
 .publication__meta,
@@ -1551,7 +1590,7 @@ math {
 .publication__venue {
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: var(--fs-ui);
 }
 
 .publication__meta a,
@@ -1565,7 +1604,7 @@ math {
   background: none;
   color: var(--accent);
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: var(--fs-ui);
   font-variant-numeric: tabular-nums;
   text-decoration: none;
   white-space: nowrap;
@@ -1598,7 +1637,7 @@ math {
   background: none;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.6rem;
+  font-size: var(--fs-micro);
   font-weight: 500;
   line-height: 1;
   text-decoration: none;
@@ -1633,7 +1672,7 @@ math {
 }
 
 .profile-link span {
-  font-size: 0.6rem;
+  font-size: var(--fs-micro);
 }
 
 /* ── Collaborations, in plain text ──────────────────────────────────────
@@ -1656,14 +1695,14 @@ math {
 
 .page-content .place h3 {
   margin: 0 0 0.15rem;
-  font-size: 1.04rem;
+  font-size: var(--fs-item);
 }
 
 .place__who {
   margin: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
 }
 
 .place__where {
@@ -1821,7 +1860,7 @@ math {
   color: var(--ink);
   box-shadow: var(--shadow-float);
   font-family: var(--font-sans);
-  font-size: 0.8rem;
+  font-size: var(--fs-meta);
   line-height: 1.45;
   pointer-events: none;
   transform: translateY(calc(-100% - 12px));
@@ -1841,7 +1880,7 @@ math {
   display: block;
   margin-bottom: 0.3rem;
   color: var(--ink-soft);
-  font-size: 0.77rem;
+  font-size: var(--fs-micro);
 }
 
 .network-map__tooltip ul {
@@ -1863,7 +1902,7 @@ math {
   margin: 0.6rem 0 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.84rem;
+  font-size: var(--fs-meta);
   text-align: center;
 }
 
@@ -1889,7 +1928,7 @@ math {
   padding: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.87rem;
+  font-size: var(--fs-ui);
   list-style: none;
 }
 
@@ -1920,7 +1959,7 @@ math {
   gap: 0.35rem 0.8rem;
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: var(--fs-ui);
 }
 
 .cal-subscribe__label {
@@ -1937,7 +1976,7 @@ math {
 #calendar {
   margin-top: 1rem;
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: var(--fs-ui);
 }
 
 .fc {
@@ -1957,7 +1996,7 @@ math {
   background: none;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: var(--fs-meta);
   font-weight: 400;
 }
 
@@ -2004,7 +2043,7 @@ math {
 .fc .fc-col-header-cell-cushion {
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: var(--fs-micro);
 }
 
 /* MON TUE WED, as drawn: the only uppercase on the page, and it is a
@@ -2087,7 +2126,7 @@ math {
   padding: 0;
   border: 0;
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: var(--fs-section);
   font-weight: 600;
 }
 
@@ -2131,7 +2170,7 @@ math {
   margin: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.78rem;
+  font-size: var(--fs-meta);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -2149,7 +2188,7 @@ math {
   color: var(--ink);
   cursor: pointer;
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: var(--fs-ui);
 }
 
 .cal-details__close:hover {
@@ -2165,7 +2204,7 @@ math {
   background: var(--footer-bg);
   color: var(--footer-ink);
   font-family: var(--font-sans);
-  font-size: 0.9rem;
+  font-size: var(--fs-ui);
 }
 
 .site-footer__inner {
@@ -2182,7 +2221,7 @@ math {
 
 .site-footer strong {
   font-family: var(--font-serif);
-  font-size: 1.06rem;
+  font-size: var(--fs-body);
   font-weight: 600;
 }
 
