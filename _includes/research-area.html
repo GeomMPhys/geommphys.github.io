@@ -8,10 +8,10 @@
 {%- endcomment -%}
 {%- assign a = include.area -%}
 <article class="signpost">
-  <h3>
+  <h2>
     {%- if a.url -%}<a href="{{ a.url | relative_url }}">{{ a.title }}</a>
     {%- else -%}{{ a.title }}{%- endif -%}
-  </h3>
+  </h2>
   {% if a.summary %}<p>{{ a.summary }}</p>{% endif %}
   {% if a.topics %}<p class="signpost__topics">{{ a.topics | join: " · " }}</p>{% endif %}
 </article>

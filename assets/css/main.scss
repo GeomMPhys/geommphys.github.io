@@ -246,6 +246,22 @@ address {
   max-width: var(--measure);
 }
 
+/* For a heading the design deliberately does not show. A list of talks under
+   the page title is a section whether or not it is captioned, and without a
+   heading the document skips from h1 straight to the item titles. Clipped
+   rather than display:none, which would take it out of the accessibility tree
+   as well. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .skip-link {
   position: absolute;
   top: 0.5rem;
@@ -554,10 +570,28 @@ address {
   gap: 0.2rem 1.1rem;
 }
 
+/* These rows are flex containers, so their links are flex items rather than
+   inline text and the inline-target exception does not cover them. At the
+   row's type size they came out 21-23px tall, just under the 24x24 minimum;
+   the min-height buys the hit area without moving the text. */
+.links a,
+.site-footer__links a,
+.cal-subscribe a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
 .links a {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   font-weight: 400;
+}
+
+/* FullCalendar's day names are links; it sizes them to the three letters. */
+.fc .fc-col-header-cell-cushion {
+  display: inline-block;
+  padding-block: 0.3rem;
 }
 
 /* ── Section rhythm ────────────────────────────────────────────────── */
@@ -838,8 +872,11 @@ address {
   border-top: 1px solid var(--rule);
 }
 
-.signpost h3 {
+.signpost h2 {
   margin: 0 0 0.4rem;
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 600;
 }
 
 .signpost p {
@@ -1894,8 +1931,11 @@ math {
   color: var(--ink-soft);
 }
 
+/* A decorative divider between the subscribe feeds and the download link. It
+   is aria-hidden, so the 3:1 non-text floor applies rather than 4.5:1 — at
+   --rule-strong it measured 1.73:1, which is invisible to plenty of people. */
 .cal-subscribe__sep {
-  color: var(--rule-strong);
+  color: var(--ink-faint);
 }
 
 #calendar {
@@ -1983,6 +2023,16 @@ math {
    to put them right; the design reads them as the start of the cell. */
 .fc .fc-daygrid-day-top {
   flex-direction: row;
+}
+
+/* Each number is a link to that day, and FullCalendar sizes it to the digits —
+   15px wide for "1", under the 24x24 minimum target. Padding widens the hit
+   area without moving the numeral or changing the grid. */
+.fc .fc-daygrid-day-number {
+  box-sizing: content-box;
+  min-width: 1.5ch;
+  padding: 0.3rem 0.45rem;
+  text-align: left;
 }
 
 /* FullCalendar dims the days either side of the month with opacity, which drops

@@ -24,7 +24,7 @@
     <a href="webcal://geommphys.github.io/events-workshops.ics">Conferences &amp; workshops</a>
     <a href="webcal://geommphys.github.io/events-visits.ics">Research visits</a>
     <a href="webcal://geommphys.github.io/events-outreach.ics">Outreach</a>
-    <span class="cal-subscribe__sep">·</span>
+    <span class="cal-subscribe__sep" aria-hidden="true">·</span>
     <a href="{{ '/events.ics' | relative_url }}">Download all (.ics)</a>
   </div>
 </div>
@@ -125,5 +125,13 @@
       }
     });
     calendar.render();
+
+    // FullCalendar draws its prev/next chevrons as <span role="img"> with no
+    // accessible name inside a button whose title already names it, so screen
+    // readers meet an unnamed graphic. The glyph is decoration; hide it.
+    el.querySelectorAll(".fc-icon").forEach(function (icon) {
+      icon.setAttribute("aria-hidden", "true");
+      icon.removeAttribute("role");
+    });
   });
 </script>

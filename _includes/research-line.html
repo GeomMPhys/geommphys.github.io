@@ -7,7 +7,7 @@
 <article class="line">
   <p class="line__mark" aria-hidden="true">§{{ include.number }}</p>
   <div class="line__body">
-    <h3><a href="{{ '/research-lines/' | append: l.id | append: '/' | relative_url }}">{{ l.name }}</a></h3>
+    <h2><a href="{{ '/research-lines/' | append: l.id | append: '/' | relative_url }}">{{ l.name }}</a></h2>
     {% if l.description %}<p class="line__desc">{{ l.description }}</p>{% endif %}
     {% if l.keywords %}<p class="line__keywords">{{ l.keywords | join: " · " }}</p>{% endif %}
     {% if l.people %}

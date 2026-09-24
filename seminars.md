@@ -28,6 +28,13 @@ math: true
 {% endif %}
 
 {% if past and past.size > 0 %}
+{%- comment -%}
+  When `upcoming` is empty — the normal state between terms — the visible "Past"
+  heading above is not rendered, and the document skipped from h1 straight to
+  the talk titles. This states the section for a screen reader without putting
+  a caption the design does not want on the page.
+{%- endcomment -%}
+{% unless upcoming and upcoming.size > 0 %}<h2 class="visually-hidden">Past seminars</h2>{% endunless %}
 <div class="stack">
   {% for seminar in past %}{% include seminar-item.html seminar=seminar %}{% endfor %}
 </div>
