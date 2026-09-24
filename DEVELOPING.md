@@ -359,8 +359,9 @@ before changing anything visual. In short:
   colour at all — its points are ink.
 - **Sentence case throughout.** No uppercase display type, no letter-spaced
   labels above headings, no monospace outside `<code>`, no decorative shadows.
-  `.eyebrow` is retained only as a graceful fallback for the encrypted members
-  pages built against the previous theme; do not add new ones.
+  The page header names its section above the title, which is the one label of
+  that kind the design keeps; `_layouts/page.html` emits it from front matter,
+  so pages do not write their own.
 - Photographs are used at their own size (see `.page-figure` on the Research
   page), never as a scrim behind heading text.
 

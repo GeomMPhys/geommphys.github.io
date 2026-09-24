@@ -246,20 +246,6 @@ address {
   max-width: var(--measure);
 }
 
-/* No public page emits an eyebrow any more — a label above a heading repeats
-   what the heading and the active nav item already say. This quiet fallback
-   stays so the StatiCrypt-encrypted members pages, which were generated
-   against the previous theme, degrade gracefully until they are rebuilt. */
-.eyebrow {
-  margin-bottom: 0.4rem;
-  color: var(--ink-soft);
-  font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 400;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 .skip-link {
   position: absolute;
   top: 0.5rem;
