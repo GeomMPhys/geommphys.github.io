@@ -20,7 +20,13 @@
 #    abstract     (optional)  short summary
 # ───────────────────────────────────────────────────────────────────
 
-upcoming: []
+upcoming:
+  - title: "Ladder deformations: integrability beyond elastic scattering"
+    speaker: "Adrien Molines"
+    date: 2026-10-02
+    time: "16:00"
+    location: "Online"
+    abstract: "Recently, inelastic worldsheet scattering has been shown to appear in integrable deformations of the AdS5/CFT4 correspondence, in contrast to standard integrability requirements. Despite the absence of a factorised scattering matrix, integrability still enabled the study of these models' spectra, suggesting integrability might also describe models beyond elastic scattering. In this talk, I will discuss how such features can be realised in integrable spin chains through the so called ladder deformations. After contrasting several notions of quantum integrability, I will present how inelastic scattering arises, leading in particular to generically non-diagonalisable Hamiltonians. Then, I will show how this issue may be circumvented by studying coherent magnons to obtain a deformed spectrum. This is based on ongoing joint work with Niklas Beisert and Sibylle Driezen."
 
 past:
   - title: "On the theory of G-structures applied to multisymplectic manifolds"
