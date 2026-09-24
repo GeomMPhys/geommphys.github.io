@@ -1,8 +1,13 @@
 <a class="skip-link" href="#main-content">Skip to content</a>
-<header class="site-header{% if page.layout == 'home' %} site-header--home{% endif %}">
+<header class="site-header">
   <div class="container site-header__inner">
-    {% unless page.layout == 'home' %}
-      <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.site.group_name }} home">
+    {%- comment -%}
+      The mark is on every page including the home page. It used to be hidden
+      there because the hero carried a large emblem; the hero no longer does,
+      which left the home page as the only page on the site with no mark
+      anywhere above the footer.
+    {%- endcomment -%}
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.data.site.group_name }} home">
         {%- comment -%}
           Inlined, not an <img>: CSS cannot reach inside an <img>, and inlining
           lets the drawing's strokes inherit currentColor, so it needs no
@@ -10,9 +15,8 @@
           header row sets --ink-soft for the navigation, which the mark would
           otherwise inherit.
         {%- endcomment -%}
-        <span class="brand__mark">{% include icons/logo-tops.svg %}</span>
-      </a>
-    {% endunless %}
+      <span class="brand__mark">{% include icons/logo-tops.svg %}</span>
+    </a>
     {%- comment -%}
       Navigation and the theme control share one flex group so the header row
       stays two items wide — brand on the left, tools on the right. A third
