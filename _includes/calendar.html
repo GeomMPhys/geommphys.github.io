@@ -17,16 +17,59 @@
     <li><span class="cal-dot" style="background:#b96528"></span>Research visits</li>
     <li><span class="cal-dot" style="background:#8263a0"></span>Outreach</li>
   </ul>
-  <div class="cal-subscribe">
-    <span class="cal-subscribe__label">Subscribe in your calendar app:</span>
-    <a href="webcal://geommphys.github.io/events.ics">All events</a>
-    <a href="webcal://geommphys.github.io/events-seminars.ics">Seminars</a>
-    <a href="webcal://geommphys.github.io/events-workshops.ics">Conferences &amp; workshops</a>
-    <a href="webcal://geommphys.github.io/events-visits.ics">Research visits</a>
-    <a href="webcal://geommphys.github.io/events-outreach.ics">Outreach</a>
-    <span class="cal-subscribe__sep">·</span>
-    <a href="{{ '/events.ics' | relative_url }}">Download all (.ics)</a>
-  </div>
+  <details class="cal-subscribe">
+    <summary>Subscribe or export</summary>
+    <div class="cal-subscribe__body">
+      <p class="cal-subscribe__hint">
+        Subscribing keeps your calendar in sync as events change. <strong>Subscribe</strong>
+        opens your calendar app directly; if it only downloads a file, use <strong>Copy link</strong>
+        and paste the address into your app instead — Google Calendar: <em>Other calendars → From URL</em>;
+        Apple Calendar: <em>File → New Calendar Subscription</em>; Outlook: <em>Add calendar → Subscribe from web</em>.
+      </p>
+      <ul class="cal-feeds">
+        <li>
+          <span class="cal-dot" style="background:#6b7280"></span>
+          <span class="cal-feed__name">All events</span>
+          <a class="cal-feed__sub" href="webcal://geommphys.github.io/events.ics">Subscribe</a>
+          <a class="cal-feed__gcal" href="https://calendar.google.com/calendar/render?cid={{ '/events.ics' | absolute_url | replace: 'https://', 'webcal://' | url_encode }}" target="_blank" rel="noopener">Google Calendar</a>
+          <button type="button" class="cal-feed__copy" data-url="{{ '/events.ics' | absolute_url }}">Copy link</button>
+          <a class="cal-feed__dl" href="{{ '/events.ics' | relative_url }}" download>Download</a>
+        </li>
+        <li>
+          <span class="cal-dot" style="background:#46698f"></span>
+          <span class="cal-feed__name">Seminars</span>
+          <a class="cal-feed__sub" href="webcal://geommphys.github.io/events-seminars.ics">Subscribe</a>
+          <a class="cal-feed__gcal" href="https://calendar.google.com/calendar/render?cid={{ '/events-seminars.ics' | absolute_url | replace: 'https://', 'webcal://' | url_encode }}" target="_blank" rel="noopener">Google Calendar</a>
+          <button type="button" class="cal-feed__copy" data-url="{{ '/events-seminars.ics' | absolute_url }}">Copy link</button>
+          <a class="cal-feed__dl" href="{{ '/events-seminars.ics' | relative_url }}" download>Download</a>
+        </li>
+        <li>
+          <span class="cal-dot" style="background:#5f7d4f"></span>
+          <span class="cal-feed__name">Conferences &amp; workshops</span>
+          <a class="cal-feed__sub" href="webcal://geommphys.github.io/events-workshops.ics">Subscribe</a>
+          <a class="cal-feed__gcal" href="https://calendar.google.com/calendar/render?cid={{ '/events-workshops.ics' | absolute_url | replace: 'https://', 'webcal://' | url_encode }}" target="_blank" rel="noopener">Google Calendar</a>
+          <button type="button" class="cal-feed__copy" data-url="{{ '/events-workshops.ics' | absolute_url }}">Copy link</button>
+          <a class="cal-feed__dl" href="{{ '/events-workshops.ics' | relative_url }}" download>Download</a>
+        </li>
+        <li>
+          <span class="cal-dot" style="background:#b96528"></span>
+          <span class="cal-feed__name">Research visits</span>
+          <a class="cal-feed__sub" href="webcal://geommphys.github.io/events-visits.ics">Subscribe</a>
+          <a class="cal-feed__gcal" href="https://calendar.google.com/calendar/render?cid={{ '/events-visits.ics' | absolute_url | replace: 'https://', 'webcal://' | url_encode }}" target="_blank" rel="noopener">Google Calendar</a>
+          <button type="button" class="cal-feed__copy" data-url="{{ '/events-visits.ics' | absolute_url }}">Copy link</button>
+          <a class="cal-feed__dl" href="{{ '/events-visits.ics' | relative_url }}" download>Download</a>
+        </li>
+        <li>
+          <span class="cal-dot" style="background:#8263a0"></span>
+          <span class="cal-feed__name">Outreach</span>
+          <a class="cal-feed__sub" href="webcal://geommphys.github.io/events-outreach.ics">Subscribe</a>
+          <a class="cal-feed__gcal" href="https://calendar.google.com/calendar/render?cid={{ '/events-outreach.ics' | absolute_url | replace: 'https://', 'webcal://' | url_encode }}" target="_blank" rel="noopener">Google Calendar</a>
+          <button type="button" class="cal-feed__copy" data-url="{{ '/events-outreach.ics' | absolute_url }}">Copy link</button>
+          <a class="cal-feed__dl" href="{{ '/events-outreach.ics' | relative_url }}" download>Download</a>
+        </li>
+      </ul>
+    </div>
+  </details>
 </div>
 
 <div id="calendar"></div>
@@ -35,20 +78,20 @@
 <script>
   window.GEOMM_EVENTS = [
   {%- for s in site.data.seminars.upcoming -%}{%- unless s.date == nil -%}
-    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
+    { "id": "su-{{ forloop.index }}", "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
   {%- endunless -%}{%- endfor -%}
   {%- for s in site.data.seminars.past -%}{%- unless s.date == nil -%}
-    { "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
+    { "id": "sp-{{ forloop.index }}", "title": {{ s.title | jsonify }}, "start": "{{ s.date | date: '%Y-%m-%d' }}{% if s.time %}T{{ s.time }}:00{% endif %}", "color": "#46698f", "extendedProps": { "category": "Seminar", "speaker": {{ s.speaker | default: '' | jsonify }}, "affiliation": {{ s.affiliation | default: '' | jsonify }}, "location": {{ s.location | default: '' | jsonify }}, "description": {{ s.abstract | default: '' | jsonify }} } },
   {%- endunless -%}{%- endfor -%}
   {%- for e in site.data.workshops.events -%}
-    { "title": {{ e.title | jsonify }}, "start": "{{ e.start | date: '%Y-%m-%d' }}", "end": "{{ e.end | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#5f7d4f", "url": {{ e.url | default: '' | jsonify }}, "extendedProps": { "category": {{ e.type | capitalize | jsonify }}, "location": {{ e.location | default: '' | jsonify }}, "description": {{ e.description | default: '' | jsonify }} } },
+    { "id": "wk-{{ forloop.index }}", "title": {{ e.title | jsonify }}, "start": "{{ e.start | date: '%Y-%m-%d' }}", "end": "{{ e.end | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#5f7d4f", "url": {{ e.url | default: '' | jsonify }}, "extendedProps": { "category": {{ e.type | capitalize | jsonify }}, "location": {{ e.location | default: '' | jsonify }}, "description": {{ e.description | default: '' | jsonify }} } },
   {%- endfor -%}
   {%- for v in site.data.research_visits.visits -%}
     {%- assign vp = all_people | where: 'id', v.person | first -%}
-    { "title": {{ vp.name | default: v.person | prepend: 'Visit: ' | jsonify }}, "start": "{{ v.arrival | date: '%Y-%m-%d' }}", "end": "{{ v.departure | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#b96528", "extendedProps": { "category": "Research visit", "affiliation": {{ v.affiliation | default: '' | jsonify }}, "support": {{ v.support | default: '' | jsonify }} } },
+    { "id": "vs-{{ forloop.index }}", "title": {{ vp.name | default: v.person | prepend: 'Visit: ' | jsonify }}, "start": "{{ v.arrival | date: '%Y-%m-%d' }}", "end": "{{ v.departure | date: '%s' | plus: 86400 | date: '%Y-%m-%d' }}", "color": "#b96528", "extendedProps": { "category": "Research visit", "affiliation": {{ v.affiliation | default: '' | jsonify }}, "support": {{ v.support | default: '' | jsonify }} } },
   {%- endfor -%}
   {%- for o in site.data.outreach.activities -%}{%- assign ods = o.date | append: '' -%}{%- if ods.size == 10 -%}
-    { "title": {{ o.title | jsonify }}, "start": "{{ o.date | date: '%Y-%m-%d' }}", "color": "#8263a0", "extendedProps": { "category": "Outreach", "work_title": {{ o.work_title | default: '' | jsonify }}, "venue": {{ o.venue | default: '' | jsonify }} } },
+    { "id": "ou-{{ forloop.index }}", "title": {{ o.title | jsonify }}, "start": "{{ o.date | date: '%Y-%m-%d' }}", "color": "#8263a0", "extendedProps": { "category": "Outreach", "work_title": {{ o.work_title | default: '' | jsonify }}, "venue": {{ o.venue | default: '' | jsonify }} } },
   {%- endif -%}{%- endfor -%}
   ];
 </script>
@@ -56,6 +99,23 @@
 <script src="{{ '/assets/js/fullcalendar.min.js' | relative_url }}"></script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // "Copy link" buttons in the subscribe panel — paste into any calendar app.
+    document.querySelectorAll('.cal-feed__copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var url = btn.getAttribute('data-url');
+        var confirm = function () {
+          var prev = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function () { btn.textContent = prev; }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(confirm, function () { window.prompt('Copy this address:', url); });
+        } else {
+          window.prompt('Copy this address:', url);
+        }
+      });
+    });
+
     var el = document.getElementById('calendar');
     var details = document.getElementById('event-details');
     if (!el || !window.FullCalendar) { return; }
@@ -66,6 +126,35 @@
       return '<p class="cal-details__row"><strong>' + label + '</strong> ' + v + '</p>';
     }
 
+    // In the Agenda (list) view, a multi-day event is otherwise listed under
+    // every day it spans. Keep only its first (start-day) row, then hide any
+    // day headers that are left with no visible events. The month grid, which
+    // shows the spanning bars, is untouched.
+    var listSeen = {};
+    var cleanupTimer = null;
+    function scheduleListCleanup(view) {
+      if (view.type.indexOf('list') !== 0) { return; }
+      clearTimeout(cleanupTimer);
+      cleanupTimer = setTimeout(function () {
+        var rows = el.querySelectorAll('.fc-list-table tbody > tr');
+        var currentDay = null, dayHasVisible = false;
+        function finalize() {
+          if (currentDay && !dayHasVisible) { currentDay.style.display = 'none'; }
+        }
+        rows.forEach(function (tr) {
+          if (tr.classList.contains('fc-list-day')) {
+            finalize();
+            currentDay = tr;
+            dayHasVisible = false;
+            tr.style.display = '';
+          } else if (tr.classList.contains('fc-list-event')) {
+            if (tr.style.display !== 'none') { dayHasVisible = true; }
+          }
+        });
+        finalize();
+      }, 0);
+    }
+
     var calendar = new FullCalendar.Calendar(el, {
       initialView: 'dayGridMonth',
       headerToolbar: { left: 'prev,next today', center: 'title', right: 'dayGridMonth,listYear' },
@@ -74,6 +163,15 @@
       height: 'auto',
       displayEventTime: true,
       events: window.GEOMM_EVENTS,
+      datesSet: function () { listSeen = {}; },
+      eventDidMount: function (info) {
+        if (info.view.type.indexOf('list') === 0) {
+          var key = info.event.id || (info.event.title + '|' + info.event.startStr);
+          if (listSeen[key]) { info.el.style.display = 'none'; }
+          else { listSeen[key] = true; }
+          scheduleListCleanup(info.view);
+        }
+      },
       eventClick: function (info) {
         info.jsEvent.preventDefault();
         var p = info.event.extendedProps;
