@@ -21,7 +21,7 @@ HTML.
   - `research_lines.yml`, `research_visits.yml`, `awards.yml`, `workshops.yml`,
     `outreach.yml` — structured content for the corresponding pages.
 - **Templates** (`_layouts/`, `_includes/`): shared structure. Item renderers
-  live in `_includes/` (`person-card.html`, `publication.html`, `seminar-item.html`,
+  live in `_includes/` (`publication.html`, `seminar-item.html`,
   `research-line.html`, `research-visit.html`, `workshop.html`, `outreach-item.html`,
   `research-area.html`, `calendar.html`, `network-map.html`, `ics-events.html`,
   plus the helpers `person-name.html` and `date-range.html`). See `DEVELOPING.md`

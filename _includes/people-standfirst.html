@@ -1,0 +1,14 @@
+{%- comment -%}
+  The People page's standfirst, counted rather than written: "Eight researchers
+  and four students in Madrid, and ten collaborators at nine institutions
+  abroad." Every number comes from the data it describes.
+{%- endcomment -%}
+{%- assign _r = site.data.people.researchers_madrid | size -%}
+{%- assign _s = site.data.people.students_madrid | size -%}
+{%- assign _c = site.data.people.international_collaborators | size -%}
+{%- assign _i = site.data.network.locations | size -%}
+{%- capture _rw %}{% include number-word.html n=_r %}{% endcapture -%}
+{%- capture _sw %}{% include number-word.html n=_s %}{% endcapture -%}
+{%- capture _cw %}{% include number-word.html n=_c %}{% endcapture -%}
+{%- capture _iw %}{% include number-word.html n=_i %}{% endcapture -%}
+{{ _rw | capitalize }} researchers and {{ _sw }} students in Madrid, and {{ _cw }} collaborators at {{ _iw }} institutions abroad.

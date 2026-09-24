@@ -483,10 +483,6 @@ address {
 }
 
 /* ── Home hero ─────────────────────────────────────────────────────── */
-/* The drawing of the three spinning tops is the loudest thing on the
-   site, and deliberately the only loud thing. The logo file carries its
-   own lettering underneath the drawing; .hero__figure crops that off so
-   it does not compete with the typeset title beside it. */
 
 .hero {
   border-bottom: 1px solid var(--rule);
@@ -881,6 +877,98 @@ address {
   font-size: 0.82rem;
 }
 
+/* A section heading sits over its own list, so it takes the same measure —
+   otherwise the rule under "In Madrid" runs a third wider than the rows it
+   introduces. */
+.page-content__inner > h2 {
+  max-width: var(--measure-list);
+}
+
+/* ── People: the tally and the name list ───────────────────────────── */
+
+/* The four disciplines, once, with the drawn icon each person's card used to
+   carry twenty times over. The split across geometry, mathematics, physics
+   AND philosophy is the unusual thing about this group and was nowhere on the
+   site before. */
+.page-content .tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 2rem;
+  max-width: var(--measure-list);
+  margin: 0 0 2.4rem;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  list-style: none;
+}
+
+.page-content .tally__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.tally__icon {
+  display: block;
+  width: 30px;
+  color: var(--ink);
+}
+
+.tally__icon svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tally__count {
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Name left, the research lines that name is on in the right margin. A row
+   per person on a hairline grid — the same rhythm as every other list here. */
+.page-content .name-list {
+  max-width: var(--measure-list);
+  margin: 0 0 2.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.page-content .name-list__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.name-list__row:last-child {
+  border-bottom: 0;
+}
+
+.name-list__row a {
+  color: var(--ink);
+  text-decoration-color: var(--rule-strong);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.name-list__row a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
+.name-list__marks {
+  flex: 0 0 auto;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
 /* ── A person's own page ───────────────────────────────────────────── */
 
 /* Their standing details, set once above the derived sections. Hairline-ruled
@@ -909,8 +997,7 @@ address {
 
 /* ── Grids ─────────────────────────────────────────────────────────── */
 
-.grid,
-.people-grid {
+.grid {
   display: grid;
   gap: 1rem;
 }
@@ -1474,77 +1561,6 @@ math {
 
 /* ── People ────────────────────────────────────────────────────────── */
 
-.people-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2.3rem clamp(2rem, 4vw, 3.5rem);
-  margin: 1.3rem 0 2.5rem;
-}
-
-.person {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1.1rem;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  scroll-margin-top: 6rem;
-}
-
-.person img,
-.person__placeholder,
-.person__icon {
-  width: 76px;
-  height: 76px;
-  border-radius: 2px;
-}
-
-/* The discipline icons are inlined SVG so their ink can inherit currentColor;
-   see the comment in _includes/person-card.html. */
-.person__icon {
-  display: block;
-  align-self: start;
-  margin-top: 0.2rem;
-  border-radius: 0;
-  color: var(--ink);
-}
-
-.person__icon svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-.person img {
-  align-self: start;
-  margin-top: 0.2rem;
-  object-fit: cover;
-}
-
-.person__placeholder {
-  display: grid;
-  place-items: center;
-  background: var(--paper-sunk);
-  color: var(--ink-soft);
-  font-family: var(--font-serif);
-  font-size: 1.7rem;
-  font-weight: 600;
-}
-
-.person h3 {
-  margin: 0 0 0.1rem;
-  font-size: 1.12rem;
-}
-
-.person p {
-  margin: 0.28rem 0 0;
-}
-
-.person .meta {
-  margin: 0;
-}
-
 .person__profiles {
   display: flex;
   flex-wrap: wrap;
@@ -1606,8 +1622,8 @@ math {
    a printed page, so the same data is also set as a list. This is the copy that
    a screenshot shows and a screen reader reads. */
 .place-list {
-  max-width: 40em;
-  margin: 1.2rem 0 2.5rem;
+  max-width: var(--measure-list);
+  margin: 0 0 2.5rem;
 }
 
 .place {
@@ -2182,14 +2198,9 @@ math {
   .two-column,
   .contact-layout,
   .grid--research,
-  .people-grid,
   .resource-grid,
   .resource-grid--compact {
     grid-template-columns: 1fr;
-  }
-
-  .hero__figure {
-    max-width: 210px;
   }
 
   .section__heading {

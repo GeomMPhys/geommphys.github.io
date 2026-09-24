@@ -1,0 +1,8 @@
+{%- comment -%}
+  A small number as a word, because a sentence reads "Eight researchers", not
+  "8 researchers". Anything past twelve stays a numeral, which is the usual
+  typographic rule and saves carrying a lookup table nobody will read.
+  Params: n.
+{%- endcomment -%}
+{%- assign _nw = "zero,one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve" | split: "," -%}
+{%- if include.n >= 0 and include.n <= 12 -%}{{ _nw[include.n] }}{%- else -%}{{ include.n }}{%- endif -%}

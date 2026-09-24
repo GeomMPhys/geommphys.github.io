@@ -11,7 +11,14 @@ layout: default
   <div class="container">
     {% if page.section %}<p class="page-heading__section">{{ page.section }}</p>{% endif %}
     <h1>{{ page.title }}</h1>
-    {% if page.description %}
+    {%- comment -%}
+      `lead_include` lets a page compute its standfirst instead of stating it.
+      The People page counts its own members, and a hand-written count goes
+      quietly wrong the first time somebody joins.
+    {%- endcomment -%}
+    {% if page.lead_include %}
+      <p class="lead">{% include {{ page.lead_include }} %}</p>
+    {% elsif page.description %}
       <p class="lead">{{ page.description }}</p>
     {% endif %}
   </div>

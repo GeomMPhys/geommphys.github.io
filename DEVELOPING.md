@@ -56,11 +56,12 @@ A request for `/publications/` resolves like this:
    in `<html>`, the header/footer includes, `{% seo %}`, and the stylesheet.
 
 Every list page follows this **page → list include → item include** shape.
-`people.md` is a slight variant: it iterates the displayed groups in
-`_data/people.yml` (`researchers_madrid`, `students_madrid`,
-`international_collaborators`) and calls `person-card.html` per person. A fourth
-group, `visitors`, is *not* shown on the People page but is resolved by other
-pages (research visits, calendar, network map) for names.
+`people.md` is a slight variant: it lists the Madrid groups
+(`researchers_madrid`, `students_madrid`) as plain names linking to each
+person's own page, counts the disciplines for the tally, and reads
+`network.yml` for the institutions abroad. A fourth group, `visitors`, is
+*not* shown on the People page but is resolved by other pages (research
+visits, calendar) for names.
 
 ## The people-id linking model
 
@@ -93,7 +94,6 @@ name everywhere. That was the deliberate trade for the links.
 
 | Include | Renders | Read from |
 |---|---|---|
-| `person-card.html` | a person tile (photo, role, profile icons) | `people.md` |
 | `person-name.html` | id → name (optionally linked) | anywhere resolving ids |
 | `publication-list.html` / `publication.html` | papers, grouped by year | `publications.md` |
 | `seminar-item.html` | one seminar | `seminars.md` |
@@ -106,7 +106,10 @@ name everywhere. That was the deliberate trade for the links.
 | `ics-events.html` | iCal VEVENTs for a category (`only=`), used by the `.ics` feeds | `events*.ics` |
 | `network-map.html` | the collaborations map (see below) | `people.md`, `_layouts/home.html` |
 | `network-marker.html` | one point on that map | `network-map.html` |
-| `person-profiles.html` | someone's ORCID / Scholar / INSPIRE / arXiv icons | `person-card.html`, `_layouts/person.html` |
+| `person-profiles.html` | someone's ORCID / Scholar / INSPIRE / arXiv icons | `_layouts/person.html` |
+| `discipline-tally.html` | members per discipline, with the drawn icons | `people.md` |
+| `people-standfirst.html` | the People page's counted standfirst | `people.md` (as `lead_include`) |
+| `number-word.html` | a small number as a word | `people-standfirst.html` |
 | `date-range.html` | human date ranges incl. cross-year | visits, workshops |
 | `theme-init.html` | pre-paint theme + `data-js` on `<html>` | `_layouts/default.html`, in `<head>` |
 | `colour-scheme.html` | the Auto / Light / Dark glyphs in the header | `header.html` |

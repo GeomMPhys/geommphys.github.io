@@ -1,0 +1,48 @@
+{%- comment -%}
+  How the group divides across its four disciplines. The split across
+  geometry, mathematics, physics AND philosophy is genuinely unusual and was
+  invisible on the site; this is the one place that states it.
+
+  The discipline is read the same way person-card.html reads it — from the
+  icon each person points at — so this adds no field to people.yml. Ordered
+  by size, with the count padded so Liquid's lexical sort puts 10 above 2.
+
+  Counts the three groups the page lists; `visitors` are not members.
+{%- endcomment -%}
+{%- assign _tp = site.data.people.researchers_madrid
+      | concat: site.data.people.students_madrid
+      | concat: site.data.people.international_collaborators -%}
+{%- assign _rows = "" -%}
+{%- assign _keys = "physics|Physics,geom|Geometry,math|Mathematics,philo|Philosophy" | split: "," -%}
+{%- for _k in _keys -%}
+  {%- assign _parts = _k | split: "|" -%}
+  {%- assign _n = 0 -%}
+  {%- for _p in _tp -%}
+    {%- assign _icon = _p.photo | split: "/" | last | split: "_" | first -%}
+    {%- if _icon == _parts[0] -%}{%- assign _n = _n | plus: 1 -%}{%- endif -%}
+  {%- endfor -%}
+  {%- if _n > 0 -%}
+    {%- assign _pad = _n | prepend: "0" -%}
+    {%- if _n > 9 -%}{%- assign _pad = _n | append: "" -%}{%- endif -%}
+    {%- assign _rows = _rows | append: _pad | append: "|" | append: _parts[0] | append: "|" | append: _parts[1] | append: "," -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign _rows = _rows | split: "," | sort | reverse -%}
+{%- if _rows.size > 0 %}
+<ul class="tally" aria-label="Members by discipline">
+  {%- for _row in _rows -%}
+    {%- assign _f = _row | split: "|" -%}
+    <li class="tally__item">
+      <span class="tally__icon" aria-hidden="true">
+        {%- case _f[1] -%}
+          {%- when "physics" -%}{% include icons/phys.svg %}
+          {%- when "geom" -%}{% include icons/geom.svg %}
+          {%- when "math" -%}{% include icons/math.svg %}
+          {%- when "philo" -%}{% include icons/philo.svg %}
+        {%- endcase -%}
+      </span>
+      {{ _f[2] }} <span class="tally__count">{{ _f[0] | plus: 0 }}</span>
+    </li>
+  {%- endfor -%}
+</ul>
+{%- endif -%}

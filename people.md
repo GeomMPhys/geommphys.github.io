@@ -1,49 +1,57 @@
 ---
-title: People
+title: People and collaborators
 section: Group
-description: Researchers in Madrid, students in Madrid, and international collaborators.
+description: Researchers and students in Madrid, and collaborators at institutions abroad.
+lead_include: people-standfirst.html
 permalink: /people/
 ---
 
-{% assign groups = "researchers_madrid|Researchers in Madrid,students_madrid|Students in Madrid,international_collaborators|International Collaborators" | split: "," %}
-
-<h2>International network</h2>
-
-<p>Collaborations at {{ site.data.network.locations | size }} institutions worldwide, from the group's base in Madrid.</p>
-
-{% include network-map.html class="network-map--feature" %}
-
-{% for group in groups %}
-  {% assign parts = group | split: "|" %}
-  {% assign key = parts[0] %}
-  {% assign label = parts[1] %}
-  {% assign entries = site.data.people[key] %}
-
-<h2>{{ label }}</h2>
-{% if entries and entries.size > 0 %}
-<div class="people-grid">
-{% for person in entries %}
-{% include person-card.html person=person %}
-{% endfor %}
-</div>
-{% else %}
-<p class="empty">No one is listed in this group yet.</p>
-{% endif %}
-{% endfor %}
-
-{%- comment -%}
-  Every collaborator in plain text. The map's labels are hover-only, which fails
-  on touch and in a screenshot, so this list is the accessible copy of the same
-  data — read from network.yml, with member ids resolved through people.yml.
-  A name given inline in network.yml (someone with no person record) renders as
-  plain text rather than a link.
-{%- endcomment -%}
 {%- assign all_people = site.data.people.researchers_madrid
       | concat: site.data.people.students_madrid
       | concat: site.data.people.international_collaborators
       | concat: site.data.people.visitors -%}
+{%- assign lines = site.data.research_lines.lines -%}
+
+{% include discipline-tally.html %}
+
+<h2>In Madrid</h2>
+
+{%- comment -%}
+  Every name in plain text, with the research lines each person is on in the
+  right margin. No photographs and no cards: most of the "photos" are the four
+  discipline icons, which the tally above now carries once instead of twenty
+  times, and the name is what a reader came for. Each name goes to that
+  person's own page.
+{%- endcomment -%}
+{%- assign madrid = site.data.people.researchers_madrid | concat: site.data.people.students_madrid -%}
+{% if madrid.size > 0 %}
+<ul class="name-list">
+{%- for person in madrid -%}
+  {%- assign marks = "" -%}
+  {%- for line in lines -%}
+    {%- if line.people contains person.id -%}
+      {%- assign marks = marks | append: ", §" | append: forloop.index -%}
+    {%- endif -%}
+  {%- endfor -%}
+  <li class="name-list__row">
+    <a href="{{ '/people/' | append: person.id | append: '/' | relative_url }}">{{ person.name }}</a>
+    {%- if marks != "" %}<span class="name-list__marks" aria-hidden="true">{{ marks | remove_first: ", " }}</span>{% endif -%}
+  </li>
+{%- endfor -%}
+</ul>
+{% else %}
+<p class="empty">No one is listed in this group yet.</p>
+{% endif %}
+
 <h2>Elsewhere</h2>
 
+{%- comment -%}
+  Every collaborator in plain text. The map on the home page labels only
+  Madrid and opens the rest on hover, which fails on touch and in a
+  screenshot, so this list is the readable copy of the same data — read from
+  network.yml, with member ids resolved through people.yml. A name given
+  inline there (someone with no person record) renders as plain text.
+{%- endcomment -%}
 <div class="place-list">
 {% for location in site.data.network.locations %}
   <article class="place">
