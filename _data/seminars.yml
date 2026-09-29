@@ -31,7 +31,7 @@ upcoming:
 past:
   - title: "On the theory of G-structures applied to multisymplectic manifolds"
     speaker: "Rubén Izquierdo-López"
-    affiliation: ""
+    affiliation: "Instituto de Ciencias Matemáticas"
     date: 2026-06-09
     time: "11:00"
     location: "PIR 2.3"
@@ -55,10 +55,10 @@ past:
 
   - title: "Topological phases, boundary theories and renormalization flows"
     speaker: "Alberto Ruiz de Alarcón"
-    affiliation: ""
+    affiliation: "CUNEF"
     date: 2026-04-27
     time: "13:30"
-    location: "A2.1"
+    location: "A 2.1"
     abstract: "A recurring theme in mathematics and physics is the emergence of collective behaviour from many interacting constituents. Tensor network methods provide a versatile framework for describing such phenomena and have found applications in areas such as machine learning, statistics and differential equations. In the theory of strongly correlated quantum systems, they have in particular become a fundamental tool, providing a natural setting for phenomena such as topological order and revealing deep connections with quantum information, condensed matter physics, low-dimensional topology and operator algebras. This talk presents an overview of a series of works on the theory of tensor networks, their associated symmetries and the phases of matter they describe. Starting from two-dimensional topological models, most notably the Kitaev quantum double and Levin-Wen string-net models, which provide exactly solvable realizations of such phases and are widely believed to capture all non-chiral ones, we show how essential features are encoded in their one-dimensional boundaries, a so-called bulk-boundary correspondence. This point of view provides a framework in which their phases can be defined and classified, and their dynamics realized through local Lindbladian evolutions. It also allows renormalization to be formulated intrinsically at the level of these boundary theories, leading to algebraic descriptions of renormalization flows and new attainable fixed points. This talk is based on Refs. 2204.05940, 2204.06295, 2509.23734, 2501.10552, and work in preparation with Léo Le-Nestour, David Pérez-García and Yoshiko Ogata."
 
   - title: "What Do Incomplete Models Tell Us About the World?"
@@ -71,12 +71,11 @@ past:
 
   - title: "Multisymplectic formalism for manifolds with boundary"
     speaker: "Marco D. Maceda"
-    affiliation: ""
+    affiliation: "Universidad Autónoma de Madrid"
     date: 2026-03-23
     time: "14:00"
     location: "PIR 1.10"
-    abstract: "In this talk, I will present a new formalism for studying the field theories on manifolds with boundary. Based on the ideas of relative cohomology [Margalef-Bentabol & Villaseñor, 2021], I will extend the definition of multisymplectic structures to manifolds with boundary. We will see how this structure reproduces the field equations of variational principles with boundary. I will explain how to generalize the observables, the graded Poisson brackets, and the conserved charges to manifolds with boundary. Moreover, I will present the Lagrangian formalism, deriving the Poincaré–Cartan form and the Euler–Lagrange equations. Finally, I will illustrate the formalism with several examples.
-"
+    abstract: "In this talk, I will present a new formalism for studying the field theories on manifolds with boundary. Based on the ideas of relative cohomology [Margalef-Bentabol & Villaseñor, 2021], I will extend the definition of multisymplectic structures to manifolds with boundary. We will see how this structure reproduces the field equations of variational principles with boundary. I will explain how to generalize the observables, the graded Poisson brackets, and the conserved charges to manifolds with boundary. Moreover, I will present the Lagrangian formalism, deriving the Poincaré–Cartan form and the Euler–Lagrange equations. Finally, I will illustrate the formalism with several examples."
 
   - title: "Geometric mechanics of disformal-like transformations"
     speaker: "Matteo Dell'Acqua"
@@ -98,8 +97,8 @@ past:
     affiliation: "Shanghai Institute for Mathematics and Interdisciplinary Sciences"
     date: 2026-02-09
     time: "13:30"
-    location: "F2.1"
-    abstract: "Abstract: We present a Random Matrix Theory (RMT) formulation of the Loschmidt echo for various one-dimensional spin and fermionic chain models. Unlike standard ensembles, the real-time dynamics of these systems require models with complex weights. By analyzing these ensembles, we characterize novel third-order dynamical quantum phase transitions. We conclude by applying this framework to quantum thermodynamics, demonstrating its utility to characterize work distributions for sudden quenches."
+    location: "F 2.1"
+    abstract: "We present a Random Matrix Theory (RMT) formulation of the Loschmidt echo for various one-dimensional spin and fermionic chain models. Unlike standard ensembles, the real-time dynamics of these systems require models with complex weights. By analyzing these ensembles, we characterize novel third-order dynamical quantum phase transitions. We conclude by applying this framework to quantum thermodynamics, demonstrating its utility to characterize work distributions for sudden quenches."
 
   - title: "How quantum gravity breaks EFTs optimally (in the 2-Wasserstein sense)"
     speaker: "Saskia Demulder"

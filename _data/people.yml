@@ -139,7 +139,8 @@ students_madrid:
   - id: matteo-dellacqua
     name: "Matteo Dell'Acqua"
     photo: "/assets/images/people-icons/physics_icon.png"
-    role: "Elite-MSc Theoretical and Mathematical Physics, Ludwig-Maximilians U. and Technische U. München, Germany, since 2025"
+    role: "'La Caixa' fellow, PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026."
+    research: " "
 
   - id: oscar-carballal
     name: "Óscar Carballal"
@@ -177,6 +178,12 @@ students_madrid:
         url: "https://scholar.google.com/citations?hl=en&user=vQKgf6sAAAAJ"
       - type: "arxiv"
         url: "https://arxiv.org/search/math?searchtype=author&query=Izquierdo-López,+R"
+
+  - id: paula-alba-san-miguel
+    name: "Paula Alba San Miguel"
+    photo: "/assets/images/people-icons/geom_icon.png"
+    role: "PhD in Sciences, UNED, Spain, since 2025"
+    research: " "
 
 international_collaborators:
   - id: alex-arvanitakis

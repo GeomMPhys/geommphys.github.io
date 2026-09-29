@@ -22,6 +22,15 @@
 # ───────────────────────────────────────────────────────────────────
 
 activities:
+  - title: "La Noche Europea de los investigadores"
+    people: [veronica-errasti-diez, manuel-lainz, ruben-izquierdo-lopez, marco-maceda, matteo-dellacqua]
+    kind: stand
+    work_title: "Estación de Física y Matemáticas: Juegos para entender el universo"
+    venue: "Círculo de Bellas Artes"
+    date: 2026-09-25
+    links: 
+      - {label: "Event website", url: "https://www.madrimasd.org/lanochedelosinvestigadores/actividad/madrid-investigadors-en-el-circulo"}
+
   - title: "Pint of Science 2026 outreach talk"
     people: [veronica-errasti-diez]
     kind: talk
