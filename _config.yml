@@ -1,5 +1,4 @@
 title: Geometry and Mathematical Physics
-short_title: GeomMPhys
 description: Research group website for geometry, mathematical physics, string theory, and related areas.
 url: ""
 baseurl: ""
@@ -28,6 +27,7 @@ sass:
 
 exclude:
   - AGENTS.md
+  - DEVELOPING.md
   - Gemfile
   - Gemfile.lock
   - README.md

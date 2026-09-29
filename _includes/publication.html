@@ -3,7 +3,7 @@
   <div class="publication__body">
     <h3>{{ publication.title }}</h3>
     <p class="publication__authors">{{ publication.authors }}</p>
-    <p class="publication__venue">{{ publication.venue }}{% if publication.year %}, {{ publication.year }}{% endif %}</p>
+    <p class="publication__venue">{{ publication.venue }}</p>
   </div>
   <p class="publication__links">
     {% if publication.arxiv and publication.arxiv != "" %}<a href="https://arxiv.org/abs/{{ publication.arxiv }}">arXiv:{{ publication.arxiv }}</a>{% endif %}

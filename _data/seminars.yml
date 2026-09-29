@@ -6,6 +6,9 @@
 #    "- title:" block into the right list. Move a talk to "past:" once
 #    it has happened.
 #  • 2 spaces before "-". Quote text fields.
+#  • If you don't know an optional field yet (time, location, abstract),
+#    just delete its line — it will simply not be shown. Do not write
+#    "TODO" or leave it blank.
 #
 #  FIELDS
 #    title        (required)  talk title, in quotes
@@ -17,7 +20,13 @@
 #    abstract     (optional)  short summary
 # ───────────────────────────────────────────────────────────────────
 
-upcoming: []
+upcoming:
+  - title: "Ladder deformations: integrability beyond elastic scattering"
+    speaker: "Adrien Molines"
+    date: 2026-10-02
+    time: "16:00"
+    location: "Online"
+    abstract: "Recently, inelastic worldsheet scattering has been shown to appear in integrable deformations of the AdS5/CFT4 correspondence, in contrast to standard integrability requirements. Despite the absence of a factorised scattering matrix, integrability still enabled the study of these models' spectra, suggesting integrability might also describe models beyond elastic scattering. In this talk, I will discuss how such features can be realised in integrable spin chains through the so called ladder deformations. After contrasting several notions of quantum integrability, I will present how inelastic scattering arises, leading in particular to generically non-diagonalisable Hamiltonians. Then, I will show how this issue may be circumvented by studying coherent magnons to obtain a deformed spectrum. This is based on ongoing joint work with Niklas Beisert and Sibylle Driezen."
 
 past:
   - title: "On the theory of G-structures applied to multisymplectic manifolds"
@@ -57,7 +66,7 @@ past:
     affiliation: "Munich School of Philosophy"
     date: 2026-04-16
     time: "15:00"
-    location: "PIR 2.5,"
+    location: "PIR 2.5"
     abstract: "Philosophy and physics share a long common history. The generation that built relativity and quantum mechanics — Einstein, Bohr, Heisenberg, Boltzmann, Poincaré — regarded philosophical questions as inseparable from physical inquiry. This talk is an invitation to revisit that tradition. After a brief introduction to philosophy and its methods, I will discuss two important issues in contemporary philosophy of science: scientific explanation and the role of models. There is an evident connection between both topics, as physicists typically explain not by deriving phenomena from fundamental laws, but through idealized, purpose-built models of target systems. This discussion provides a potential starting point for various case studies from modern physics, such as renormalization and effective field theories. My aim is not to offer definitive answers but to open a conversation about where the interests of philosophers and physicists might productively meet."
 
   - title: "Multisymplectic formalism for manifolds with boundary"
@@ -74,14 +83,13 @@ past:
     date: 2026-03-23
     time: "14:30"
     location: "PIR 1.10"
-    abstract: "TODO: Add abstract if available."
 
   - title: "Confinement-deconfinement transition in gauge matrix models"
     speaker: "Sachindeo Vaidya"
     affiliation: "Indian Institute of Science"
     date: 2026-02-17
     time: "13:30"
-    location: "F 1.2"
+    location: "LPC F1.2"
     abstract: "We will discuss the matrix model of two-color one-flavor adjoint QCD in the weak coupling regime, and show that there is a quantum phase transition at g*0≃ 0.143: for g < g∗0 , the ground state wavefunction is localized in a small region of the gauge configuration space, while for g > g∗0, it gets delocalized over a much larger region. The transition between these two phases is singular, with the ground state at g∗0 being distinctly different from that of g∗0 ±|ϵ|. At g∗0, we will see that the square of the chromoelectric field vanishes, strongly suggesting that the system is in a “dual superconductor” phase. Numerical evidence shows that the localization-delocalization phenomenon holds for the 1st and 2nd excited states as well, leading us to conjecture that there are an infinite number of isolated singular points accumulating to g=0. The model formally possesses N= 1 supersymmetry for a particular choice of parameters. We show that in the localized phase the supermultiplet structure is disrupted and SUSY is thus spontaneously broken."
 
   - title: "A Random Matrix view of Quantum Spin and Fermionic chains"
@@ -112,46 +120,33 @@ past:
     speaker: "Georgina Staudt"
     affiliation: "Max-Planck-Institute for Physics, Germany"
     date: 2025-10-13
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
 
   - title: "Poisson Geometry and Bi-Hamiltonian Systems: From Manifolds to Lie Groups"
     speaker: "Zohreh Ravanpak"
     affiliation: "Nanyang Technological University, Singapore"
     date: 2025-09-05
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "13:30"
+    location: "Online"
+    abstract: "In this talk, I will present an overview of the rich interplay between geometry and dynamics, with Poisson structures at the core of the geometric framework, together with additional structures such as Lie group structures, Nijenhuis structures, and Riemannian metrics. Beginning with the classical theory of Poisson manifolds and Hamiltonian systems, I will discuss how Poisson structures interact with other geometric structures—sometimes subject to compatibility conditions. I will then show how these coupled structures provide a natural setting for bi-Hamiltonian dynamics and dissipative systems. Through examples, we will see how geometry provides an organizing framework for these dynamical systems."
 
   - title: "Covariant hamiltonian field theories and multisymplectic brackets: an introduction"
     speaker: "Manuel Lainz"
     affiliation: ""
     date: 2025-06-17
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
 
   - title: "Entanglement generation from gravity: the Diósi-Penrose model"
     speaker: "David Trillo"
     affiliation: ""
     date: 2025-04-01
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
 
   - title: "The role of stochasticity in the birth of primordial black holes"
     speaker: "Syksy Räsänen"
     affiliation: "University of Helsinki, Finland"
     date: 2025-03-03
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."
+    time: "13:30"
+    location: "LPC F2.1"
 
   - title: "First-order optimality conditions for non-commutative optimization problems"
     speaker: "Miguel Navascués"
     affiliation: "Institute for Quantum Optics and Quantum Information, Austria"
     date: 2025-01-23
-    time: "TODO"
-    location: "TODO"
-    abstract: "TODO: Add abstract if available."

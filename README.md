@@ -23,7 +23,9 @@ HTML.
 - **Templates** (`_layouts/`, `_includes/`): shared structure. Item renderers
   live in `_includes/` (`person-card.html`, `publication.html`, `seminar-item.html`,
   `research-line.html`, `research-visit.html`, `workshop.html`, `outreach-item.html`,
-  plus the helpers `person-name.html` and `date-range.html`).
+  `research-area.html`, `calendar.html`, `network-map.html`, `ics-events.html`,
+  plus the helpers `person-name.html` and `date-range.html`). See `DEVELOPING.md`
+  for the full includes reference.
 - **Styles**: `assets/css/main.scss`.
 
 ## People and the linking convention
@@ -132,8 +134,7 @@ activities:
     kind: talk                     # talk | article | stand | interview | video
     work_title: "Title of the talk/article"   # optional
     venue: "Place or publication"
-    date: 2026-05-20               # optional full date
-    year: 2026                     # always present (used for grouping)
+    date: 2026-05-20               # required; full date, or 2026-05, or just 2026
     lang: es                       # optional
     links:                         # optional
       - { label: "Watch", url: "https://..." }
@@ -147,35 +148,21 @@ has `upcoming:` and `past:` lists. See existing entries for the shape.
 ### Update the international network map
 
 The People page includes a lightweight SVG network map driven by
-`_data/network.yml`. Use only public affiliation information. The `label`,
-`subtitle`, and `members` fields are displayed; the `x`, `y`, and `curve` fields
-position the point and connection line — adjust them only when adding or moving
-a location.
+`_data/network.yml`. Use only public affiliation information. Each location's
+`label`, `subtitle`, and `members` show in a tooltip when you hover or tap its
+dot; `members` is a list of **person ids from people.yml** (names are resolved
+automatically), so a person renamed there updates the map too. European
+locations sit too close together to tap, so those marked `inset: true` also
+appear, spread out, in a zoomed **Europe inset** in the corner. The `x` and `y`
+numbers position the point — adjust them only when adding or moving a location,
+and always preview the result.
 
-## Local development
+## For developers
 
-Ruby/Bundler can be fiddly to install locally, so the simplest reproducible way
-to build is **Docker, using the same stack as CI** (Ruby 3.1, Bundler 2.5.23):
-
-```bash
-# Build
-docker run --rm \
-  -u "$(id -u):$(id -g)" -e HOME=/tmp -e GEM_HOME=/tmp/gems \
-  -e PATH="/tmp/gems/bin:/usr/local/bin:/usr/bin:/bin" \
-  -v "$PWD":/site -w /site ruby:3.1 \
-  bash -c "gem install bundler -v 2.5.23 --no-document && bundle _2.5.23_ install && bundle _2.5.23_ exec jekyll build"
-
-# Serve at http://localhost:4000 (add -it -p 4000:4000 and `jekyll serve -H 0.0.0.0`)
-```
-
-If you have a working local toolchain instead, `bundle install` then
-`bundle exec jekyll serve` works the same way.
-
-## Deployment
-
-`.github/workflows/pages.yml` builds the site and deploys it to GitHub Pages on
-every push to `main`. In the repository settings, Pages must be set to deploy
-from **GitHub Actions**.
+Changing templates, styles, the build, or the data schema — rather than editing
+content — is covered separately in **`DEVELOPING.md`**: how the data-driven
+rendering works, the includes, local build/preview with Docker, deployment, and
+the data validator. Rules to follow when making changes are in `AGENTS.md`.
 
 ## Internal documents
 
@@ -190,8 +177,9 @@ administrative-documents/
 other-documents/
 ```
 
-The website footer links to that private repository; only users granted access
-can view or upload there.
+The website footer links to the members area (`/members/`), whose navigation
+links out to this private repository; only users granted access can view or
+upload there.
 
 ## Public content rules
 

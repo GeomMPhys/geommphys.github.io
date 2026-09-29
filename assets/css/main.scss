@@ -684,28 +684,126 @@ code {
 }
 
 .network-map {
-  display: grid;
-  align-items: center;
+  position: relative;
   width: 100%;
   max-width: 780px;
-  margin: 0 auto 2rem;
-  overflow: hidden;
-  border: 1px solid rgba(217, 216, 207, 0.75);
-  border-radius: var(--radius);
-  background:
-    radial-gradient(circle at 48% 35%, rgba(70, 105, 143, 0.08), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(238, 238, 232, 0.42));
+  margin: 0 auto 3.75rem;
 }
 
-.network-map svg {
+.network-map__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.network-map__frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #f4f2ec;
+}
+
+.network-map__world,
+.network-map__inset-svg {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.network-map__labels text {
-  font-size: 12px;
-  font-weight: 700;
+/* Europe breakout inset — a callout that straddles the map's bottom-right edge */
+.network-map__inset {
+  position: absolute;
+  right: -18px;
+  bottom: -40px;
+  width: 250px;
+  max-width: 62%;
+  padding: 0.45rem;
+  background: #f4f2ec;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 3;
+}
+
+@media (max-width: 680px) {
+  .network-map { margin-bottom: 1.5rem; }
+  .network-map__inset {
+    position: static;
+    width: auto;
+    max-width: none;
+    margin-top: 0.75rem;
+    box-shadow: none;
+  }
+}
+
+/* Interactive points */
+.network-map__point {
+  cursor: pointer;
+  outline: none;
+}
+
+.network-map__dot {
+  transition: r 0.15s ease;
+}
+
+.network-map__halo {
+  transition: fill-opacity 0.15s ease, r 0.15s ease;
+}
+
+.network-map__point:hover .network-map__dot,
+.network-map__point:focus-visible .network-map__dot { r: 5.5; }
+
+.network-map__point:hover .network-map__halo,
+.network-map__point:focus-visible .network-map__halo { r: 9; fill-opacity: 0.2; }
+
+.network-map__point:focus-visible .network-map__halo { fill-opacity: 0.3; }
+
+/* Tooltip */
+.network-map__tooltip {
+  position: absolute;
+  z-index: 5;
+  min-width: 150px;
+  max-width: 240px;
+  padding: 0.55rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: 0.85rem;
+  line-height: 1.35;
+  pointer-events: none;
+  transform: translateY(calc(-100% - 12px));
+}
+
+.network-map__tooltip--below { transform: translateY(12px); }
+
+.network-map__tooltip strong { display: block; color: var(--accent); }
+
+.network-map__tt-sub {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.network-map__tooltip ul { margin: 0; padding: 0; list-style: none; }
+
+.network-map__tooltip li {
+  margin: 0.1rem 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.network-map__tooltip li::before { display: none; }
+
+.network-map__hint {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 0.5rem 0 0;
 }
 
 .page-content .people-grid,
@@ -1132,4 +1230,140 @@ address {
     padding-bottom: 0.75rem;
     text-align: left;
   }
+}
+
+/* ── Calendar page (FullCalendar) ─────────────────────────────── */
+.cal-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.cal-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.cal-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.cal-legend li::before {
+  display: none;
+}
+
+.cal-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cal-subscribe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.8rem;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.cal-subscribe__label {
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.cal-subscribe a {
+  font-weight: 650;
+}
+
+.cal-subscribe__sep {
+  color: var(--border);
+}
+
+#calendar {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Tone FullCalendar to the site palette */
+.fc {
+  --fc-border-color: var(--border);
+  --fc-today-bg-color: var(--surface-alt);
+  --fc-page-bg-color: var(--surface);
+  --fc-neutral-bg-color: var(--surface-alt);
+}
+
+.fc .fc-button-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.fc .fc-button-primary:not(:disabled):hover,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background: var(--link);
+  border-color: var(--link);
+}
+
+.fc a {
+  color: inherit;
+}
+
+.cal-details {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.cal-details h2 {
+  margin-top: 0;
+}
+
+.cal-details__row {
+  margin: 0.35rem 0;
+}
+
+.cal-details__close {
+  margin-top: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .fc .fc-toolbar.fc-header-toolbar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Members-area nav (private pages): mark external (vault) links with ↗ */
+.site-nav a[target="_blank"]::after {
+  content: "\2197";
+  margin-left: 0.15em;
+  font-size: 0.78em;
+  color: var(--muted);
+  vertical-align: baseline;
 }

@@ -20,16 +20,22 @@
           {% case profile_type %}
             {% when "orcid" %}
               {% assign profile_icon = "/assets/images/profiles/orcid.svg" %}
+              {% assign profile_label = "ORCID" %}
             {% when "scholar" %}
               {% assign profile_icon = "/assets/images/profiles/google-scholar.svg" %}
+              {% assign profile_label = "Google Scholar" %}
             {% when "inspire" %}
               {% assign profile_icon = "/assets/images/profiles/inspire.svg" %}
+              {% assign profile_label = "INSPIRE-HEP" %}
             {% when "arxiv" %}
               {% assign profile_icon = "/assets/images/profiles/arxiv.svg" %}
+              {% assign profile_label = "arXiv" %}
             {% else %}
               {% assign profile_icon = "" %}
+              {% assign profile_label = "" %}
           {% endcase %}
-          <a class="profile-link profile-link--{{ profile_type }}" href="{{ profile.url }}" target="_blank" rel="noopener" aria-label="{{ profile.label }} profile for {{ person.name }}" title="{{ profile.label }}">
+          {% assign profile_label = profile.label | default: profile_label %}
+          <a class="profile-link profile-link--{{ profile_type }}" href="{{ profile.url }}" target="_blank" rel="noopener" aria-label="{{ profile_label }} profile for {{ person.name }}" title="{{ profile_label }}">
             {% if profile_icon %}
               <img src="{{ profile_icon | relative_url }}" alt="" aria-hidden="true">
             {% else %}

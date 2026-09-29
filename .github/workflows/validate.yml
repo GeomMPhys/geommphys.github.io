@@ -1,0 +1,27 @@
+name: Validate data files
+
+# Runs the _data/*.yml checks on every push and pull request so badly
+# formatted data is caught before it can be merged or deployed. Fast:
+# just Ruby + the standard library, no bundle install or site build.
+
+on:
+  push:
+    branches-ignore:
+      - main   # pushes to main are already validated by the deploy workflow
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.1"
+
+      - name: Validate data files
+        run: ruby bin/validate_data.rb
