@@ -57,10 +57,10 @@ events:
     end: 2027-09-03
     location: "Nordita, Stockholm, Sweden"
     organizers:
-      - { name: "Pawel Caputa" }
+      - { name: "Pawel Caputa", affiliation: "Stockholm University" }
       - saskia-demulder
-      - { name: "Watse Sybesma" }
-      - { name: "Evita Verheijden" }
+      - { name: "Watse Sybesma", affiliation: "Nordita" }
+      - { name: "Evita Verheijden", affiliation: "Nordita" }
 
   - title: "2nd International Workshop on Geometric Field Theory"
     type: workshop
