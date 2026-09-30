@@ -45,7 +45,7 @@ events:
     location: "University of Ljubljana, Slovenia"
     organizers:
       - { name: "Stefano Baiguera", , affiliation: "Stockholm University" }
-       - { name: "Matej Bajec", affiliation: "University of Ljubljana" }
+      - { name: "Matej Bajec", affiliation: "University of Ljubljana" }
       - saskia-demulder     
       - { name: "Rathindra Nath Das", affiliation: "MIT - Massachusetts Institute of Technology" }
       - { name: "Marine De Clerck", affiliation: "University of Cambridge" }
