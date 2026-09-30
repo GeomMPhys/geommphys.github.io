@@ -21,6 +21,7 @@
 # ───────────────────────────────────────────────────────────────────
 
 events:
+
   - title: "Winter Workshop on Geometry, Mechanics, Information and Quantum Mechanics"
     type: workshop
     start: 2027-01-18
@@ -36,6 +37,19 @@ events:
       - { name: "María Barbero Liñán", affiliation: "Universidad Politécnica de Madrid" }
       - { name: "Xavier Rivas", affiliation: "Universitat Rovira i Virgili" }
       - veronica-errasti-diez
+
+  - title: "Chaos, Information, and Gravity: The Next Quantum Frontiers"
+    type: workshop
+    start: 2027-08-16
+    end: 2027-08-20
+    location: "University of Ljubljana, Slovenia"
+    organizers:
+      - { name: "Stefano Baiguera", , affiliation: "Stockholm University" }
+       - { name: "Matej Bajec", affiliation: "University of Ljubljana" }
+      - saskia-demulder     
+      - { name: "Rathindra Nath Das", affiliation: "MIT - Massachusetts Institute of Technology" }
+      - { name: "Marine De Clerck", affiliation: "University of Cambridge" }
+      - { name: "Chiara Paletta", affiliation: "University of Ljubljana" }
 
   - title: "Quantum Gravity in Closed Universes"
     type: workshop
