@@ -163,7 +163,7 @@ if people_doc.is_a?(Hash)
       where = "people.yml → #{group} entry ##{i + 1}"
       check_record(errors, "people.yml", where, rec, {
         required: { id: :str, name: :str },
-        optional: { photo: :str, role: :str, research: :str, email: :str,
+        optional: { photo: :str, role: :str, funding: :str, research: :str, email: :str,
                     website: :str, profiles: :list, arxiv: :bool },
       })
       next unless rec.is_a?(Hash) && rec["id"].is_a?(String)
@@ -211,7 +211,7 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "awards.yml")))
     where = "awards.yml entry ##{i + 1}"
     check_record(errors, "awards.yml", where, rec, {
       required: { person: :str, award: :str, year: :year },
-      optional: { category: :str },
+      optional: { category: :str, url: :str },
     })
     check_person_ref(errors, "awards.yml", where, rec["person"], person_ids) if rec.is_a?(Hash) && rec["person"].is_a?(String)
   end

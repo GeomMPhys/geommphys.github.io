@@ -17,6 +17,7 @@
 #    name      (required)  full name shown on the page, in quotes
 #    photo     (optional)  path to a photo/icon under /assets/images/...
 #    role      (optional)  free text (position + institution).
+#    funding   (optional)  scholarship or fellowship, shown on a separate line.
 #    research  (optional)  short research interests, in quotes
 #    email     (optional)  e.g. "jane@example.org" — shown as an "Email" link
 #    website   (optional)  full URL to a personal page — shown as a "Website" link
@@ -156,6 +157,7 @@ students_madrid:
     name: "Marco D. Maceda"
     photo: "/assets/images/people-icons/physics_icon.png"
     role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
+    funding: "FPI-UAM Scholarship"
     profiles:
       - type: "orcid"
         url: "https://orcid.org/0009-0001-8497-3963"
@@ -171,6 +173,7 @@ students_madrid:
     name: "Rubén Izquierdo López"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
+    funding: "FPU Grant"
     profiles:
       - type: "orcid"
         url: "https://orcid.org/0009-0007-8747-344X"

@@ -107,6 +107,7 @@ awards:
     award: "Name of award"
     category: "PhD scholarship"    # e.g. fellowship / certification
     year: 2026
+    url: "https://example.org/award"  # optional source page
 ```
 
 ### Add a conference / workshop / school — `_data/workshops.yml`

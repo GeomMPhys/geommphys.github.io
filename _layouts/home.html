@@ -25,45 +25,7 @@ layout: default
       <img src="{{ '/assets/images/logos/geommphys-pyramid.png' | relative_url }}" width="673" height="760" alt="Geometrical Mathematical Physics Research Group logo" loading="lazy">
     </figure>
     <div class="prose">
-      <p class="eyebrow">Research</p>
-      <h2>Mathematical structures in modern physics</h2>
       {{ content }}
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section__heading">
-      <div>
-        <p class="eyebrow">Focus</p>
-        <h2>Research Areas</h2>
-      </div>
-      <a href="{{ '/research/' | relative_url }}">View all</a>
-    </div>
-    <div class="grid grid--research">
-      {% for area in site.data.research limit:3 %}
-        {% include research-area.html area=area %}
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section section--alt">
-  <div class="container">
-    <div class="section__heading">
-      <div>
-        <p class="eyebrow">Seminars</p>
-        <h2>Upcoming Seminars</h2>
-      </div>
-      <a href="{{ '/seminars/' | relative_url }}">Schedule</a>
-    </div>
-    <div class="stack">
-      {% for seminar in site.data.seminars.upcoming limit:3 %}
-        {% include seminar-item.html seminar=seminar %}
-      {% else %}
-        <p class="empty">Upcoming seminars will be posted here.</p>
-      {% endfor %}
     </div>
   </div>
 </section>

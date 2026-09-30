@@ -15,7 +15,7 @@ permalink: /awards-honours/
 <article class="record record--compact">
   <div class="record__body">
     <h3>{% if p %}{{ p.name }}{% else %}{{ award.person }}{% endif %}</h3>
-    <p class="record__meta">{{ award.award }}</p>
+    <p class="record__meta">{% if award.url %}<a href="{{ award.url }}">{{ award.award }}</a>{% else %}{{ award.award }}{% endif %}</p>
     {% if award.category %}<p class="record__note">{{ award.category }}.</p>{% endif %}
   </div>
   <p class="record__date">{{ award.year }}</p>

@@ -8,6 +8,7 @@
   <div>
     <h3>{{ person.name }}</h3>
     {% if person.role %}<p class="meta">{{ person.role }}</p>{% endif %}
+    {% if person.funding %}<p class="meta person__funding">{{ person.funding }}</p>{% endif %}
     {% if person.research %}<p>{{ person.research }}</p>{% endif %}
     {% if person.profiles %}
       <div class="person__profiles" aria-label="Research profiles for {{ person.name }}">

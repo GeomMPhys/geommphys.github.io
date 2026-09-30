@@ -26,14 +26,15 @@ activities:
     people: [veronica-errasti-diez, manuel-lainz, ruben-izquierdo-lopez, marco-maceda, matteo-dellacqua]
     kind: stand
     work_title: "Estación de Física y Matemáticas: Juegos para entender el universo"
-    venue: "Círculo de Bellas Artes"
+    venue: "Círculo de Bellas Artes, Madrid, Spain"
     date: 2026-09-25
     links: 
       - {label: "Event website", url: "https://www.madrimasd.org/lanochedelosinvestigadores/actividad/madrid-investigadors-en-el-circulo"}
 
-  - title: "Pint of Science 2026 outreach talk"
+  - title: "Pint of Science 2026"
     people: [veronica-errasti-diez]
     kind: talk
+    work_title: "Mecánica Cuántica para profanAs"
     venue: "Vitoria-Gasteiz, Spain"
     date: 2026-05-20
 
@@ -96,12 +97,23 @@ activities:
   - title: "SoapBox Science Munich"
     people: [veronica-errasti-diez]
     kind: talk
+    work_title: "The universe that lies beyond experiment"
     venue: "Munich, Germany"
     date: 2024
     lang: en
     links:
       - { label: "Interview", url: "https://munichsoapboxscience.com/soapbox-science-2024/12/" }
       - { label: "Event listing", url: "https://munichsoapboxscience.com/soapbox-science-2024/" }
+
+  - title: "Public Lecture of the III Workshop on Current Challenges in Cosmology"
+    people: [veronica-errasti-diez]
+    kind: talk
+    work_title: "What physics can(not) tell us"
+    venue: "Bucaramanga, Colombia"
+    date: 2023-10-25
+    lang: en
+    links:
+      - { label: "Event page", url: "https://indico.global/event/8709/page/2823-public-lecture" }
 
   - title: "International Day of Women and Girls in Science and feminist week"
     people: [veronica-errasti-diez]

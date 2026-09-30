@@ -21,6 +21,22 @@
 # ───────────────────────────────────────────────────────────────────
 
 events:
+  - title: "Winter Workshop on Geometry, Mechanics, Information and Quantum Mechanics"
+    type: workshop
+    start: 2027-01-18
+    end: 2027-01-22
+    location: "ICMAT, Madrid, Spain"
+    organizers:
+      - { name: "Edith Padrón", affiliation: "Universidad de La Laguna (chair)" }
+      - { name: "David Martín de Diego", affiliation: "ICMAT" }
+      - { name: "Silvia Vilariño", affiliation: "Universidad de Zaragoza" }
+      - { name: "Juan Manuel Pérez Pardo", affiliation: "Universidad Carlos III de Madrid" }
+      - { name: "Fabio di Cosmo", affiliation: "Universidad de Alcalá de Henares" }
+      - { name: "Florio Ciaglia", affiliation: "Universidad Carlos III de Madrid" }
+      - { name: "María Barbero Liñán", affiliation: "Universidad Politécnica de Madrid" }
+      - { name: "Xavier Rivas", affiliation: "Universitat Rovira i Virgili" }
+      - veronica-errasti-diez
+
   - title: "Quantum Gravity in Closed Universes"
     type: workshop
     start: 2027-08-23
