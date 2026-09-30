@@ -140,7 +140,8 @@ students_madrid:
   - id: matteo-dellacqua
     name: "Matteo Dell'Acqua"
     photo: "/assets/images/people-icons/physics_icon.png"
-    role: "'La Caixa' fellow, PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026."
+    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026."
+    funding: "'La Caixa' fellow"
     research: " "
 
   - id: oscar-carballal
