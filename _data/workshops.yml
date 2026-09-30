@@ -44,7 +44,7 @@ events:
     end: 2027-08-20
     location: "University of Ljubljana, Slovenia"
     organizers:
-      - { name: "Stefano Baiguera", , affiliation: "Stockholm University" }
+      - { name: "Stefano Baiguera", affiliation: "Stockholm University" }
       - { name: "Matej Bajec", affiliation: "University of Ljubljana" }
       - saskia-demulder     
       - { name: "Rathindra Nath Das", affiliation: "MIT - Massachusetts Institute of Technology" }
