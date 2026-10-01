@@ -5,7 +5,7 @@ description: Publicly listed research visits hosted by the group.
 permalink: /research-visits/
 ---
 
-{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.former_members | concat: site.data.people.visitors %}
 {% if site.data.research_visits.visits and site.data.research_visits.visits.size > 0 %}
 {% assign groups = site.data.research_visits.visits | group_by_exp: "v", "v.arrival | date: '%Y'" | sort: "name" | reverse %}
 {% for group in groups %}

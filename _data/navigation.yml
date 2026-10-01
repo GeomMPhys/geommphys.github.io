@@ -16,7 +16,11 @@
 - title: Home
   url: /
 - title: People
-  url: /people/
+  children:
+    - title: Current Members
+      url: /people/
+    - title: Previous Members
+      url: /previous-members/
 - title: Calendar
   url: /calendar/
 - title: Research

@@ -146,7 +146,7 @@ end
 # ── load people.yml first: it is the source of truth for person ids ──
 
 PEOPLE_GROUPS = %w[researchers_madrid students_madrid
-                   international_collaborators visitors].freeze
+                   international_collaborators former_members visitors].freeze
 
 person_ids = {}   # id => group (for existence checks + duplicate detection)
 people_doc = load_yaml(errors, File.join(DATA_DIR, "people.yml"))
@@ -204,6 +204,19 @@ def check_person_ref(errors, file, where, id, person_ids)
 end
 
 # ── the record-list files ──────────────────────────────────────────
+
+# previous_members.yml — former-member periods and field icons
+if (doc = load_yaml(errors, File.join(DATA_DIR, "previous_members.yml")))
+  top_list(errors, "previous_members.yml", doc, "members").each_with_index do |rec, i|
+    where = "previous_members.yml entry ##{i + 1}"
+    check_record(errors, "previous_members.yml", where, rec, {
+      required: { person: :str, field: %w[geom phys math], position: :str,
+                  start: :date, end: :date },
+    })
+    next unless rec.is_a?(Hash)
+    check_person_ref(errors, "previous_members.yml", where, rec["person"], person_ids) if rec["person"].is_a?(String)
+  end
+end
 
 # awards.yml
 if (doc = load_yaml(errors, File.join(DATA_DIR, "awards.yml")))

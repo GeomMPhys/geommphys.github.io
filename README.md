@@ -9,7 +9,8 @@ HTML.
 
 - **Pages** (repository root, Markdown): `index.md`, `people.md`, `research.md`,
   `research-lines.md`, `publications.md`, `research-visits.md`, `seminars.md`,
-  `conferences-workshops.md`, `awards-honours.md`, `outreach.md`, `diversity.md`.
+  `conferences-workshops.md`, `awards-honours.md`, `previous-members.md`,
+  `outreach.md`, `diversity.md`.
   Most of these just loop over a data file and call an include. (`contact.md` and
   `_data/contact.yml` are retained for possible future use, but the Contact page
   is not published or in the navigation.)
@@ -19,7 +20,8 @@ HTML.
   - `network.yml` — drives the SVG international network map on the People page.
   - `publications.yml`, `seminars.yml`, `research.yml` — existing content.
   - `research_lines.yml`, `research_visits.yml`, `awards.yml`, `workshops.yml`,
-    `outreach.yml`, `group_meetings.yml` — structured page and calendar content.
+    `outreach.yml`, `group_meetings.yml`, `previous_members.yml` — structured
+    page and calendar content.
 - **Templates** (`_layouts/`, `_includes/`): shared structure. Item renderers
   live in `_includes/` (`person-card.html`, `publication.html`, `seminar-item.html`,
   `research-line.html`, `research-visit.html`, `workshop.html`, `outreach-item.html`,
@@ -48,8 +50,8 @@ researchers_madrid:
 ```
 
 Groups in `people.yml`: `researchers_madrid`, `students_madrid`,
-`international_collaborators`, and `visitors` (external research visitors, not
-shown on the People page).
+`international_collaborators`, `former_members`, and `visitors` (external
+research visitors, not shown on the People pages).
 
 **Referencing people elsewhere.** A people reference is either:
 
@@ -108,6 +110,21 @@ awards:
     category: "PhD scholarship"    # e.g. fellowship / certification
     year: 2026
     url: "https://example.org/award"  # optional source page
+```
+
+### Add a previous member — `_data/previous_members.yml`
+
+Store the person's record under `former_members` in `people.yml`, then add the
+period and field here. Previous members may also remain current (as with a
+student who completed an MSc and continued as a PhD student).
+
+```yaml
+members:
+  - person: ada-lovelace          # id
+    field: math                   # geom | phys | math
+    position: "MSc student, Example University"
+    start: 2025-09-01              # use first of month; display omits the day
+    end: 2026-06-01
 ```
 
 ### Add a conference / workshop / school — `_data/workshops.yml`

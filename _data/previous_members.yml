@@ -1,0 +1,35 @@
+# ───────────────────────────────────────────────────────────────────
+#  PREVIOUS MEMBERS → shown on the Previous Members page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add a record by copying a "- person:" block. The person must also be
+#    listed under former_members in people.yml, unless they remain current.
+#  • Use the first day of each month for start and end; the page displays
+#    only the month and year (for example 2025-09-01 displays as September 2025).
+#
+#  FIELDS
+#    person    (required)  stable id from people.yml
+#    field     (required)  geom, phys, or math; selects the field icon
+#    position  (required)  role and institution during the period
+#    start     (required)  ISO date at the start month
+#    end       (required)  ISO date at the end month
+# ───────────────────────────────────────────────────────────────────
+
+members:
+  - person: bartosz-zawora
+    field: geom
+    position: "PhD student, University of Warsaw, Poland"
+    start: 2025-09-01
+    end: 2026-08-01
+
+  - person: matteo-dellacqua
+    field: phys
+    position: "Elite MSc student, LMU"
+    start: 2025-09-01
+    end: 2026-06-01
+
+  - person: georgina-staudt
+    field: phys
+    position: "PhD student, Max Planck Institute for Physics (MPP)"
+    start: 2024-09-01
+    end: 2026-06-01

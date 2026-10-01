@@ -5,7 +5,7 @@ description: The group's main research lines and the members working on them.
 permalink: /research-lines/
 ---
 
-{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.former_members | concat: site.data.people.visitors %}
 
 {% if site.data.research_lines.lines and site.data.research_lines.lines.size > 0 %}
 <div class="stack">

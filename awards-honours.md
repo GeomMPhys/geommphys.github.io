@@ -5,7 +5,7 @@ description: Publicly listed awards, fellowships, and professional recognition r
 permalink: /awards-honours/
 ---
 
-{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.former_members | concat: site.data.people.visitors %}
 {% if site.data.awards.awards and site.data.awards.awards.size > 0 %}
 {% assign groups = site.data.awards.awards | group_by_exp: "a", "a.year" | sort: "name" | reverse %}
 {% for group in groups %}

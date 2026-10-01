@@ -2,9 +2,8 @@
 #  PEOPLE  →  shown on the "People" page (and linked from many others)
 # ───────────────────────────────────────────────────────────────────
 #  HOW TO EDIT
-#  • People are split into groups: researchers_madrid, students_madrid,
-#    international_collaborators, and visitors. Add someone by copying an
-#    existing "- id:" block under the right group.
+#  • People are split into current groups, former_members, and visitors.
+#    Add someone by copying an existing "- id:" block under the right group.
 #  • Keep the spacing exactly (2 spaces before "-", 4 before the other
 #    fields). Never use TABS. Quote any text containing a colon (:).
 #  • To OMIT an optional field, delete its whole line. Do NOT leave it
@@ -30,8 +29,8 @@
 #  NOTE: an arXiv author-search link is added automatically for everyone.
 #        To suppress it for one person, add a line:  arxiv: false
 #
-#  TIP: "visitors" are people we host who are not group members; they are
-#       referenced from research_visits.yml.
+#  TIP: "visitors" are hosted guests referenced from research_visits.yml;
+#       "former_members" appear on the Previous Members page.
 # ───────────────────────────────────────────────────────────────────
 
 researchers_madrid:
@@ -284,13 +283,18 @@ international_collaborators:
       - type: "inspire"
         url: "https://inspirehep.net/authors/1871635?ui-citation-summary=true"
 
+former_members:
   - id: bartosz-zawora
     name: "Bartosz Zawora"
     photo: "/assets/images/people-icons/geom_icon.png"
-    role: "PhD Student, U. of Warsaw, Poland"
+    role: "PhD student, University of Warsaw, Poland"
     profiles:
       - type: "scholar"
         url: "https://scholar.google.com.ar/citations?hl=es&user=JIfQiHsAAAAJ"
+
+  - id: georgina-staudt
+    name: "Georgina Staudt"
+    role: ""
 
 # External research visitors hosted by the group. Referenced by research_visits.yml.
 # Not group members; not shown on the People page. `role` (position) left blank
@@ -310,10 +314,6 @@ visitors:
 
   - id: thomas-raml
     name: "Thomas Raml"
-    role: ""
-
-  - id: georgina-staudt
-    name: "Georgina Staudt"
     role: ""
 
   - id: syksy-rasanen

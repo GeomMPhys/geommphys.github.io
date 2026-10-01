@@ -5,7 +5,7 @@
   lives in each .ics file.
 {%- endcomment -%}
 {%- assign only = include.only | default: 'all' -%}
-{%- assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors -%}
+{%- assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.former_members | concat: site.data.people.visitors -%}
 {%- capture nl %}
 {% endcapture -%}
 {%- if only == 'all' or only == 'seminars' -%}

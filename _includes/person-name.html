@@ -4,8 +4,9 @@ Params: id (slug), people (flattened list of people), fallback (optional),
 link (optional: when truthy, link to the person's card on the People page).
 {%- endcomment -%}
 {%- assign _p = include.people | where: "id", include.id | first -%}
+{%- assign _former = site.data.people.former_members | where: "id", include.id | first -%}
 {%- if _p -%}
-{%- if include.link -%}<a href="{{ '/people/' | relative_url }}#{{ _p.id }}">{{ _p.name }}</a>
+{%- if include.link -%}{% if _former %}<a href="{{ '/previous-members/' | relative_url }}#{{ _p.id }}">{{ _p.name }}</a>{% else %}<a href="{{ '/people/' | relative_url }}#{{ _p.id }}">{{ _p.name }}</a>{% endif %}
 {%- else -%}{{ _p.name }}
 {%- endif -%}
 {%- else -%}{{ include.fallback | default: include.id }}{%- endif -%}

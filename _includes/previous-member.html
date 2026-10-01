@@ -1,0 +1,17 @@
+{%- assign m = include.member -%}
+{%- assign p = include.people | where: "id", m.person | first -%}
+{%- case m.field -%}
+  {%- when "geom" -%}{%- assign field_label = "Geom" -%}{%- assign field_icon = "/assets/images/people-icons/geom_icon.png" -%}
+  {%- when "phys" -%}{%- assign field_label = "Phys" -%}{%- assign field_icon = "/assets/images/people-icons/physics_icon.png" -%}
+  {%- when "math" -%}{%- assign field_label = "Math" -%}{%- assign field_icon = "/assets/images/people-icons/math_icon.png" -%}
+{%- endcase -%}
+<article class="record previous-member" id="{{ m.person }}">
+  <div class="record__body">
+    <div class="previous-member__heading">
+      <img src="{{ field_icon | relative_url }}" alt="{{ field_label }} field icon" loading="lazy">
+      <h3>{% if p %}{{ p.name }}{% else %}{{ m.person }}{% endif %}</h3>
+    </div>
+    <p class="record__meta">{{ m.position }}</p>
+  </div>
+  <p class="record__date">{{ m.start | date: "%B %Y" }} – {{ m.end | date: "%B %Y" }}</p>
+</article>

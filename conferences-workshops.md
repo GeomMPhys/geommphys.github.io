@@ -5,7 +5,7 @@ description: Conferences, workshops, and schools organized with members of the g
 permalink: /conferences-workshops/
 ---
 
-{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.former_members | concat: site.data.people.visitors %}
 {% if site.data.workshops.events and site.data.workshops.events.size > 0 %}
 {% assign groups = site.data.workshops.events | group_by_exp: "e", "e.start | date: '%Y'" | sort: "name" | reverse %}
 {% for group in groups %}

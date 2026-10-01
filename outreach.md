@@ -6,7 +6,7 @@ permalink: /outreach/
 ---
 
 
-{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
+{% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.former_members | concat: site.data.people.visitors %}
 {% if site.data.outreach.activities and site.data.outreach.activities.size > 0 %}
 {% assign groups = site.data.outreach.activities | group_by_exp: "a", "a.date | append: '' | slice: 0, 4" | sort: "name" | reverse %}
 {% for group in groups %}

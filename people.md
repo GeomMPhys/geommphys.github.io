@@ -1,5 +1,5 @@
 ---
-title: People
+title: Current Members
 section: Group
 description: Researchers in Madrid, students in Madrid, and international collaborators.
 permalink: /people/

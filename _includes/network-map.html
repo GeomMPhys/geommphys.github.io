@@ -2,6 +2,7 @@
 {%- assign all_people = site.data.people.researchers_madrid
       | concat: site.data.people.students_madrid
       | concat: site.data.people.international_collaborators
+      | concat: site.data.people.former_members
       | concat: site.data.people.visitors -%}
 
 <figure class="network-map" aria-labelledby="network-map-title network-map-description">
