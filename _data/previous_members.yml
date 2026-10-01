@@ -24,12 +24,12 @@ members:
 
   - person: matteo-dellacqua
     field: phys
-    position: "Elite MSc student, LMU"
+    position: "Elite MSc student, LMU, Munich, Germany"
     start: 2025-09-01
     end: 2026-06-01
 
   - person: georgina-staudt
     field: phys
-    position: "PhD student, Max Planck Institute for Physics (MPP)"
+    position: "PhD student, Max Planck Institute for Physics (MPP), Munich, Germany"
     start: 2024-09-01
     end: 2026-06-01
