@@ -273,7 +273,9 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "research_lines.yml")))
   top_list(errors, "research_lines.yml", doc, "lines").each_with_index do |rec, i|
     where = "research_lines.yml entry ##{i + 1}"
     check_record(errors, "research_lines.yml", where, rec, {
-      required: { id: :str, name: :str, description: :str, people: :list },
+      required: { id: :str, name: :str,
+                  placement: %w[geometry math-physics physics-geometry],
+                  description: :str, people: :list },
       optional: { keywords: :list },
     })
     next unless rec.is_a?(Hash) && rec["people"].is_a?(Array)

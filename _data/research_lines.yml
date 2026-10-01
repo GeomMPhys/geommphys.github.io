@@ -7,6 +7,8 @@
 #  FIELDS
 #    id           (required)  short nickname, lowercase-with-hyphens
 #    name         (required)  line title, in quotes
+#    placement    (required)  geometry, math-physics, or physics-geometry;
+#                             positioning for the experimental diagram
 #    keywords     (optional)  list of short phrases
 #    description  (required)  one paragraph, in quotes
 #    people       (required)  list of person ids from people.yml; shown
@@ -18,6 +20,7 @@
 lines:
   - id: Multisymplectic-field-theory
     name: "Multisymplectic Field Theory"
+    placement: physics-geometry
     keywords:
       - multisymplectic geometry
       - geometric mechanics
@@ -34,6 +37,7 @@ lines:
 
   - id: beyond-integrability
     name: "Beyond Integrability"
+    placement: geometry
     keywords:
       - pseudointegrable systems
       - Arnold-Liouville integrability
@@ -50,6 +54,7 @@ lines:
       
   - id: quantum-systems
     name: "Quantum systems and topological phases of matter"
+    placement: math-physics
     keywords:
       - Quantum information
       - Quantum many-body systems
