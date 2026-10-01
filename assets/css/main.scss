@@ -703,7 +703,7 @@ code {
 
 .research-map {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
   align-items: center;
   gap: clamp(1.25rem, 3vw, 2.5rem);
 }
@@ -712,7 +712,7 @@ code {
   position: relative;
   width: 100%;
   min-width: 0;
-  aspect-ratio: 900 / 560;
+  aspect-ratio: 900 / 650;
 }
 
 .research-map__bubbles {
@@ -741,13 +741,40 @@ code {
   stroke: rgba(185, 101, 40, 0.72);
 }
 
+.research-map__discipline-badge rect {
+  stroke-width: 1.5;
+}
+
+.research-map__discipline-badge--geometry rect {
+  fill: rgba(70, 105, 143, 0.16);
+  stroke: rgba(70, 105, 143, 0.62);
+}
+
+.research-map__discipline-badge--math rect {
+  fill: rgba(130, 99, 160, 0.16);
+  stroke: rgba(130, 99, 160, 0.62);
+}
+
+.research-map__discipline-badge--physics rect {
+  fill: rgba(185, 101, 40, 0.15);
+  stroke: rgba(185, 101, 40, 0.62);
+}
+
 .research-map__discipline {
-  fill: var(--text);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 23px;
+  font-size: 36px;
   font-weight: 750;
   text-anchor: middle;
 }
+
+.research-map__discipline-icon {
+  opacity: 0.95;
+  mix-blend-mode: multiply;
+}
+
+.research-map__discipline-badge--geometry text { fill: #355a7d; }
+.research-map__discipline-badge--math text { fill: #684f86; }
+.research-map__discipline-badge--physics text { fill: #98511f; }
 
 .research-map__marker {
   position: absolute;
@@ -895,7 +922,7 @@ code {
   }
 
   .research-map__discipline {
-    font-size: 19px;
+    font-size: 32px;
   }
 }
 

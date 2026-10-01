@@ -11,20 +11,32 @@ permalink: /research-lines-experiment/
 
 <section class="research-map" aria-label="Interactive map of research disciplines and lines">
   <div class="research-map__diagram">
-    <svg class="research-map__bubbles" viewBox="0 0 900 560" role="img" aria-labelledby="research-map-title research-map-description">
+    <svg class="research-map__bubbles" viewBox="0 0 900 650" role="img" aria-labelledby="research-map-title research-map-description">
       <title id="research-map-title">Three overlapping research disciplines</title>
       <desc id="research-map-description">Geometry, Mathematics, and Physics overlap. Select a research line marker to see its description and researchers.</desc>
-      <circle class="research-map__bubble research-map__bubble--geometry" cx="300" cy="300" r="205" />
-      <circle class="research-map__bubble research-map__bubble--math" cx="500" cy="220" r="205" />
-      <circle class="research-map__bubble research-map__bubble--physics" cx="610" cy="350" r="205" />
-      <text class="research-map__discipline research-map__discipline--geometry" x="170" y="385">Geometry</text>
-      <text class="research-map__discipline research-map__discipline--math" x="470" y="95">Mathematics</text>
-      <text class="research-map__discipline research-map__discipline--physics" x="750" y="330">Physics</text>
+      <circle class="research-map__bubble research-map__bubble--geometry" cx="300" cy="320" r="270" />
+      <circle class="research-map__bubble research-map__bubble--math" cx="500" cy="275" r="270" />
+      <circle class="research-map__bubble research-map__bubble--physics" cx="610" cy="380" r="270" />
+      <g class="research-map__discipline-badge research-map__discipline-badge--geometry">
+        <rect x="75" y="355" width="300" height="74" rx="5" />
+        <image class="research-map__discipline-icon" href="{{ '/assets/images/people-icons/geom_icon.png' | relative_url }}" x="83" y="357" width="94" height="70" aria-hidden="true" />
+        <text class="research-map__discipline" x="273" y="402">Geometry</text>
+      </g>
+      <g class="research-map__discipline-badge research-map__discipline-badge--math">
+        <rect x="315" y="60" width="320" height="74" rx="5" />
+        <image class="research-map__discipline-icon" href="{{ '/assets/images/people-icons/math_icon.png' | relative_url }}" x="323" y="62" width="94" height="70" aria-hidden="true" />
+        <text class="research-map__discipline" x="520" y="107">Mathematics</text>
+      </g>
+      <g class="research-map__discipline-badge research-map__discipline-badge--physics">
+        <rect x="660" y="390" width="225" height="74" rx="5" />
+        <image class="research-map__discipline-icon" href="{{ '/assets/images/people-icons/physics_icon.png' | relative_url }}" x="668" y="392" width="86" height="70" aria-hidden="true" />
+        <text class="research-map__discipline" x="808" y="437">Physics</text>
+      </g>
     </svg>
 
     {% for line in site.data.research_lines.lines %}
       {% case line.placement %}
-        {% when "geometry" %}{% assign marker_x = "25%" %}{% assign marker_y = "54%" %}
+        {% when "geometry" %}{% assign marker_x = "25%" %}{% assign marker_y = "46%" %}
         {% when "math-physics" %}{% assign marker_x = "65%" %}{% assign marker_y = "34%" %}
         {% when "physics-geometry" %}{% assign marker_x = "51%" %}{% assign marker_y = "77%" %}
       {% endcase %}
