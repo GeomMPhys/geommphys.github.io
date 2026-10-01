@@ -23,7 +23,7 @@
 
 activities:
   - title: "La Noche Europea de los investigadores"
-    people: [veronica-errasti-diez, manuel-lainz, ruben-izquierdo-lopez, marco-maceda, matteo-dellacqua]
+    people: [manuel-lainz, marco-maceda, matteo-dellacqua, ruben-izquierdo-lopez, veronica-errasti-diez]
     kind: stand
     work_title: "Estación de Física y Matemáticas: Juegos para entender el universo"
     venue: "Círculo de Bellas Artes, Madrid, Spain"
@@ -37,6 +37,8 @@ activities:
     work_title: "Mecánica Cuántica para profanAs"
     venue: "Vitoria-Gasteiz, Spain"
     date: 2026-05-20
+    links:
+      - { label: "Pint of Science event page", url: "https://pintofscience.es/event/neandertales-y-mecanica-cuantica/" }
 
   - title: "\"CERN field notes\" for Iberian Strings 2026"
     people: [saskia-demulder]

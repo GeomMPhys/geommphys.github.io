@@ -1,6 +1,6 @@
 {%- comment -%}
   Emits iCal VEVENT blocks for the site's events. Param:
-    only = all | seminars | workshops | visits | outreach   (default: all)
+    only = all | seminars | workshops | visits | outreach | group-meetings (default: all)
   Used by /events.ics (all) and the per-category feeds. The VCALENDAR wrapper
   lives in each .ics file.
 {%- endcomment -%}
@@ -53,6 +53,19 @@ DTEND;VALUE=DATE:{{ v.departure | date: '%s' | plus: 86400 | date: '%Y%m%d' }}
 SUMMARY:{{ vp.name | default: v.person | prepend: 'Visit: ' | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' }}
 {% if v.affiliation and v.affiliation != '' %}DESCRIPTION:{{ v.affiliation | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' }}
 {% endif %}CATEGORIES:Research visit
+END:VEVENT
+{% endfor -%}
+{%- endif -%}
+{%- if only == 'all' or only == 'group-meetings' -%}
+{%- for m in site.data.group_meetings.meetings -%}
+BEGIN:VEVENT
+UID:group-meeting-{{ m.date | date: '%Y%m%d' }}-{{ m.time | replace: ':', '' }}@geommphys.github.io
+DTSTAMP:{{ site.time | date: '%Y%m%dT%H%M%SZ' }}
+DTSTART:{{ m.date | date: '%Y%m%d' }}T{{ m.time | replace: ':', '' }}00
+DURATION:PT1H
+SUMMARY:{{ m.title | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' | replace: nl, '\n' }}
+LOCATION:{{ m.location | replace: '\', '\\' | replace: ';', '\;' | replace: ',', '\,' | replace: nl, '\n' }}
+CATEGORIES:Group coordination meeting
 END:VEVENT
 {% endfor -%}
 {%- endif -%}

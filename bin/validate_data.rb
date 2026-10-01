@@ -311,6 +311,19 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "seminars.yml")))
   end
 end
 
+# group_meetings.yml — calendar-only internal coordination meetings
+if (doc = load_yaml(errors, File.join(DATA_DIR, "group_meetings.yml")))
+  top_list(errors, "group_meetings.yml", doc, "meetings").each_with_index do |rec, i|
+    check_record(errors, "group_meetings.yml", "group_meetings.yml entry ##{i + 1}", rec, {
+      required: { title: :str, date: :date, time: :str, location: :str },
+    })
+    next unless rec.is_a?(Hash) && rec["time"].is_a?(String)
+    unless rec["time"].match?(/\A(?:[01]\d|2[0-3]):[0-5]\d\z/)
+      err(errors, "group_meetings.yml", "entry ##{i + 1}: `time` must use 24-hour HH:MM format.")
+    end
+  end
+end
+
 # research.yml — a top-level list of cards
 if (doc = load_yaml(errors, File.join(DATA_DIR, "research.yml")))
   if doc.is_a?(Array)

@@ -19,7 +19,7 @@ HTML.
   - `network.yml` — drives the SVG international network map on the People page.
   - `publications.yml`, `seminars.yml`, `research.yml` — existing content.
   - `research_lines.yml`, `research_visits.yml`, `awards.yml`, `workshops.yml`,
-    `outreach.yml` — structured content for the corresponding pages.
+    `outreach.yml`, `group_meetings.yml` — structured page and calendar content.
 - **Templates** (`_layouts/`, `_includes/`): shared structure. Item renderers
   live in `_includes/` (`person-card.html`, `publication.html`, `seminar-item.html`,
   `research-line.html`, `research-visit.html`, `workshop.html`, `outreach-item.html`,
@@ -145,6 +145,19 @@ activities:
 
 `_data/publications.yml` (`selected:`) groups by `year`; `_data/seminars.yml`
 has `upcoming:` and `past:` lists. See existing entries for the shape.
+
+### Add a group coordination meeting — `_data/group_meetings.yml`
+
+These entries appear on the Calendar page and in the group meetings calendar
+feed, not on the Group Seminars page.
+
+```yaml
+meetings:
+  - title: "Group coordination meeting"
+    date: 2026-10-01              # ISO date
+    time: "18:00"                 # 24-hour local time
+    location: "brain-lab"
+```
 
 ### Update the international network map
 

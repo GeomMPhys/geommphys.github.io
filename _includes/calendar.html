@@ -1,6 +1,6 @@
 {%- comment -%}
   Group events calendar. Builds a FullCalendar view from four data files:
-  seminars, workshops, research visits, and (dated) outreach activities.
+  seminars, workshops, research visits, dated outreach, and group meetings.
   Events are coloured by category. Subscribable .ics feeds (all + per category)
   are generated separately by /events*.ics via _includes/ics-events.html.
   Person ids on visits are resolved to names.
@@ -16,6 +16,7 @@
     <li><span class="cal-dot" style="background:#5f7d4f"></span>Conferences &amp; workshops</li>
     <li><span class="cal-dot" style="background:#b96528"></span>Research visits</li>
     <li><span class="cal-dot" style="background:#8263a0"></span>Outreach</li>
+    <li><span class="cal-dot" style="background:#59656f"></span>Group coordination meetings</li>
   </ul>
   <div class="cal-subscribe">
     <span class="cal-subscribe__label">Subscribe in your calendar app:</span>
@@ -24,6 +25,7 @@
     <a href="webcal://geommphys.github.io/events-workshops.ics">Conferences &amp; workshops</a>
     <a href="webcal://geommphys.github.io/events-visits.ics">Research visits</a>
     <a href="webcal://geommphys.github.io/events-outreach.ics">Outreach</a>
+    <a href="webcal://geommphys.github.io/events-group-meetings.ics">Group meetings</a>
     <span class="cal-subscribe__sep">·</span>
     <a href="{{ '/events.ics' | relative_url }}">Download all (.ics)</a>
   </div>
@@ -50,6 +52,9 @@
   {%- for o in site.data.outreach.activities -%}{%- assign ods = o.date | append: '' -%}{%- if ods.size == 10 -%}
     { "title": {{ o.title | jsonify }}, "start": "{{ o.date | date: '%Y-%m-%d' }}", "color": "#8263a0", "extendedProps": { "category": "Outreach", "work_title": {{ o.work_title | default: '' | jsonify }}, "venue": {{ o.venue | default: '' | jsonify }} } },
   {%- endif -%}{%- endfor -%}
+  {%- for m in site.data.group_meetings.meetings -%}
+    { "title": {{ m.title | jsonify }}, "start": "{{ m.date | date: '%Y-%m-%d' }}T{{ m.time }}:00", "color": "#59656f", "extendedProps": { "category": "Group coordination meeting", "location": {{ m.location | jsonify }} } },
+  {%- endfor -%}
   ];
 </script>
 

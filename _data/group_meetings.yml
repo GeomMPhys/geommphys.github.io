@@ -1,0 +1,24 @@
+# ───────────────────────────────────────────────────────────────────
+#  GROUP MEETINGS → shown only on the Calendar page and calendar feeds
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Add a meeting by copying a block under "meetings:".
+#  • Use YYYY-MM-DD dates and 24-hour HH:MM times; quote text values.
+#
+#  FIELDS
+#    title     (required)  meeting name, in quotes
+#    date      (required)  YYYY-MM-DD
+#    time      (required)  24-hour local time, HH:MM
+#    location  (required)  room or venue, in quotes
+# ───────────────────────────────────────────────────────────────────
+
+meetings:
+  - title: "Group coordination meeting"
+    date: 2026-09-14
+    time: "18:00"
+    location: "brain-lab"
+
+  - title: "Group coordination meeting"
+    date: 2026-06-17
+    time: "15:00"
+    location: "brain-lab"

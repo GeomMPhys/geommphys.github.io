@@ -140,14 +140,14 @@ students_madrid:
   - id: matteo-dellacqua
     name: "Matteo Dell'Acqua"
     photo: "/assets/images/people-icons/physics_icon.png"
-    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026."
+    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain."
     funding: "'La Caixa' fellow"
     research: " "
 
   - id: oscar-carballal
     name: "Óscar Carballal"
     photo: "/assets/images/people-icons/geom_icon.png"
-    role: "PhD in Mathematics, U. Complutense de Madrid, Spain, since 2024"
+    role: "PhD in Mathematics, U. Complutense de Madrid, Spain"
     profiles:
       - type: "orcid"
         url: "https://orcid.org/0009-0001-6659-744X"
@@ -157,7 +157,7 @@ students_madrid:
   - id: marco-maceda
     name: "Marco D. Maceda"
     photo: "/assets/images/people-icons/physics_icon.png"
-    role: "PhD in Physics, U. Autónoma de Madrid, Spain, since 2026"
+    role: "PhD in Physics, U. Autónoma de Madrid, Spain"
     funding: "FPI-UAM Scholarship"
     profiles:
       - type: "orcid"
@@ -173,7 +173,7 @@ students_madrid:
   - id: ruben-izquierdo-lopez
     name: "Rubén Izquierdo López"
     photo: "/assets/images/people-icons/geom_icon.png"
-    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain, since 2026"
+    role: "PhD in Mathematics, U. Autónoma de Madrid, Spain"
     funding: "FPU Grant"
     profiles:
       - type: "orcid"
@@ -186,7 +186,7 @@ students_madrid:
   - id: paula-alba-san-miguel
     name: "Paula Alba San Miguel"
     photo: "/assets/images/people-icons/geom_icon.png"
-    role: "PhD in Sciences, UNED, Spain, since 2025"
+    role: "PhD in Sciences, UNED, Spain"
     research: " "
 
 international_collaborators:
@@ -237,7 +237,7 @@ international_collaborators:
   - id: markus-maier
     name: "Markus Maier"
     photo: "/assets/images/people-icons/philo_icon.png"
-    role: "PhD Student, Munich School of Philosophy, Germany"
+    role: "Researcher, Munich School of Philosophy, Germany"
     profiles:
       - type: "orcid"
         url: "https://orcid.org/0000-0003-1854-9416"
