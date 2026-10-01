@@ -78,7 +78,7 @@
       buttonText: { today: 'Today', month: 'Month', list: 'Agenda' },
       firstDay: 1,
       height: 'auto',
-      displayEventTime: true,
+      displayEventTime: false,
       events: window.GEOMM_EVENTS,
       eventClick: function (info) {
         info.jsEvent.preventDefault();
@@ -87,7 +87,7 @@
           ? info.event.start.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
           : '';
         if (info.event.start && !info.event.allDay) {
-          when += ', ' + info.event.start.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+          when += ', ' + info.event.start.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: false });
         }
         var html = '<h2>' + info.event.title.replace(/</g, '&lt;') + '</h2>';
         html += row('', p.category);
