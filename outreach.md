@@ -5,10 +5,6 @@ description: Public engagement activities by members of the group.
 permalink: /outreach/
 ---
 
-<div class="page-intro">
-  <p>We are available for outreach events. Estamos disponibles para eventos de divulgación.</p>
-  <p>Contact us at <a href="mailto:geom.mphys@gmail.com">geom.mphys@gmail.com</a>.</p>
-</div>
 
 {% assign all_people = site.data.people.researchers_madrid | concat: site.data.people.students_madrid | concat: site.data.people.international_collaborators | concat: site.data.people.visitors %}
 {% if site.data.outreach.activities and site.data.outreach.activities.size > 0 %}
