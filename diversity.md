@@ -73,6 +73,3 @@ permalink: /diversity/
   </article>
 </div>
 
-<div class="page-callout">
-  <p>For questions or further information, contact <a href="mailto:geom.mphys@gmail.com">geom.mphys@gmail.com</a>.</p>
-</div>
