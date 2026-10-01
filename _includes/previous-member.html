@@ -12,6 +12,7 @@
       <h3>{% if p %}{{ p.name }}{% else %}{{ m.person }}{% endif %}</h3>
     </div>
     <p class="record__meta">{{ m.position }}</p>
+    {% if m.current %}<p class="record__note"><strong>Now:</strong> {{ m.current }}</p>{% endif %}
   </div>
   <p class="record__date">{{ m.start | date: "%B %Y" }} – {{ m.end | date: "%B %Y" }}</p>
 </article>

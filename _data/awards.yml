@@ -8,7 +8,7 @@
 #  FIELDS
 #    person    (required)  the person's id from people.yml
 #    award     (required)  name of the award, in quotes
-#    category  (optional)  e.g. "PhD scholarship", "Researcher certification"
+#    category  (optional)  short award classification, if useful
 #    year      (required)  four digits, no quotes
 #    url       (optional)  official award or resolution page
 #
@@ -19,26 +19,21 @@
 awards:
   - person: matteo-dellacqua
     award: "La Caixa Doctoral INPhINIT fellowship"
-    category: "PhD scholarship"
     year: 2026
 
   - person: saskia-demulder
     award: "R3-Established Researcher certification"
-    category: "Researcher certification"
     year: 2026
 
   - person: veronica-errasti-diez
     award: "R3-Established Researcher certification"
-    category: "Researcher certification"
     year: 2026
 
   - person: marco-maceda
-    award: "FPI-UAM 2025"
-    category: "PhD scholarship"
+    award: "FPI-UAM Doctoral fellowship"
     year: 2026
 
   - person: ruben-izquierdo-lopez
-    award: "FPU Grant"
-    category: "PhD scholarship"
+    award: "FPU Doctoral grant"
     year: 2025
    

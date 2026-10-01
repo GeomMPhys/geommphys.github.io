@@ -138,7 +138,7 @@ researchers_madrid:
 students_madrid:
   - id: matteo-dellacqua
     name: "Matteo Dell'Acqua"
-    photo: "/assets/images/people-icons/physics_icon.png"
+    photo: "/assets/images/people-icons/math_icon.png"
     role: "PhD in Mathematics, U. Autónoma de Madrid, Spain."
     funding: "'La Caixa' fellow"
     research: " "

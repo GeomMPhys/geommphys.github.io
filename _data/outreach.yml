@@ -91,7 +91,7 @@ activities:
     kind: article
     work_title: "¿Qué son los proyectiles cuánticos y qué tienen que ver con la supremacía cuántica?"
     venue: "The Conversation"
-    date: 2024
+    date: 2024-08-25
     lang: es
     links:
       - { label: "Read the article", url: "https://theconversation.com/que-son-los-proyectiles-cuanticos-y-que-tienen-que-ver-con-la-supremacia-cuantica-232038" }
@@ -101,7 +101,7 @@ activities:
     kind: talk
     work_title: "The universe that lies beyond experiment"
     venue: "Munich, Germany"
-    date: 2024
+    date: 2024-07-06
     lang: en
     links:
       - { label: "Interview", url: "https://munichsoapboxscience.com/soapbox-science-2024/12/" }

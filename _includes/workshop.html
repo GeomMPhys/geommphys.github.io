@@ -6,8 +6,8 @@
     {% if e.description %}<p class="record__note">{{ e.description }}</p>{% endif %}
     {% if e.organizers %}
       <p class="record__note"><strong>Organizers:</strong> {% for o in e.organizers -%}
-        {%- if o.name -%}{{ o.name }}{% if o.affiliation %} ({{ o.affiliation }}){% endif %}
-        {%- else -%}{% include person-name.html id=o people=include.people %}{%- endif -%}
+        {%- if o.name -%}{{ o.name }}
+        {%- else -%}{%- assign organizer = include.people | where: "id", o | first -%}{%- if organizer -%}<strong>{{ organizer.name }}</strong>{%- else -%}{% include person-name.html id=o people=include.people %}{%- endif -%}{%- endif -%}
         {%- unless forloop.last %}, {% endunless -%}
       {%- endfor %}.</p>
     {% endif %}

@@ -212,6 +212,7 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "previous_members.yml")))
     check_record(errors, "previous_members.yml", where, rec, {
       required: { person: :str, field: %w[geom phys math], position: :str,
                   start: :date, end: :date },
+      optional: { current: :str },
     })
     next unless rec.is_a?(Hash)
     check_person_ref(errors, "previous_members.yml", where, rec["person"], person_ids) if rec["person"].is_a?(String)
@@ -280,7 +281,7 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "research_lines.yml")))
   end
 end
 
-# workshops.yml — organizers are either a person id (String) or { name, affiliation? }
+# workshops.yml — organizers are either a person id (String) or { name }
 WORKSHOP_TYPE = %w[conference workshop school].freeze
 if (doc = load_yaml(errors, File.join(DATA_DIR, "workshops.yml")))
   top_list(errors, "workshops.yml", doc, "events").each_with_index do |rec, i|
@@ -296,7 +297,7 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "workshops.yml")))
         check_person_ref(errors, "workshops.yml", "#{where} → organizer ##{j + 1}", org, person_ids)
       elsif org.is_a?(Hash)
         check_record(errors, "workshops.yml", "#{where} → organizer ##{j + 1}", org, {
-          required: { name: :str }, optional: { affiliation: :str },
+          required: { name: :str },
         })
       else
         err(errors, "workshops.yml", "#{where} → organizer ##{j + 1}: must be " \

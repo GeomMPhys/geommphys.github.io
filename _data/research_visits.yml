@@ -42,6 +42,7 @@ visits:
     affiliation: "Indian Institute of Science, India"
     arrival: 2026-02-16
     departure: 2026-02-17
+    support: "CUNEF Mathematics Department"
 
   - person: thomas-raml
     affiliation: "Max Planck Institute for Physics and LMU in Munich-Garching, Germany"
@@ -62,6 +63,7 @@ visits:
     affiliation: "University of Helsinki, Finland"
     arrival: 2025-03-19
     departure: 2025-03-21
+    support: "CUNEF Mathematics Department"
 
   - person: miguel-navascues
     affiliation: "IQOQI Vienna, Austria"

@@ -11,6 +11,7 @@
 #    person    (required)  stable id from people.yml
 #    field     (required)  geom, phys, or math; selects the field icon
 #    position  (required)  role and institution during the period
+#    current   (optional)  current role and institution, if known
 #    start     (required)  ISO date at the start month
 #    end       (required)  ISO date at the end month
 # ───────────────────────────────────────────────────────────────────
@@ -19,17 +20,20 @@ members:
   - person: bartosz-zawora
     field: geom
     position: "PhD student, University of Warsaw, Poland"
+    current: "Postdoctoral researcher, KU Leuven, Belgium"
     start: 2025-09-01
     end: 2026-08-01
 
   - person: matteo-dellacqua
     field: phys
-    position: "Elite MSc student, LMU, Munich, Germany"
+    position: "MSc student, Ludwig-Maximilians Universität (LMU) and Technical University of Munich (TUM), Munich, Germany"
+    current: "PhD student, Universidad Autónoma de Madrid (UAM), Spain"
     start: 2025-09-01
     end: 2026-06-01
 
   - person: georgina-staudt
     field: phys
     position: "PhD student, Max Planck Institute for Physics (MPP), Munich, Germany"
+    current: "Postdoctoral researcher, IFT, Spain"
     start: 2024-09-01
     end: 2026-06-01

@@ -17,7 +17,7 @@
 #                   - a person id from people.yml (group members), e.g.
 #                       - manuel-lainz
 #                   OR, for people NOT in people.yml, a name like:
-#                       - { name: "Jane Doe", affiliation: "Some Univ." }
+#                       - { name: "Jane Doe" }
 # ───────────────────────────────────────────────────────────────────
 
 events:
@@ -28,15 +28,15 @@ events:
     end: 2027-01-22
     location: "ICMAT, Madrid, Spain"
     organizers:
-      - { name: "Edith Padrón", affiliation: "Universidad de La Laguna (chair)" }
-      - { name: "David Martín de Diego", affiliation: "ICMAT" }
-      - { name: "Silvia Vilariño", affiliation: "Universidad de Zaragoza" }
-      - { name: "Juan Manuel Pérez Pardo", affiliation: "Universidad Carlos III de Madrid" }
-      - { name: "Fabio di Cosmo", affiliation: "Universidad de Alcalá de Henares" }
-      - { name: "Florio Ciaglia", affiliation: "Universidad Carlos III de Madrid" }
-      - { name: "María Barbero Liñán", affiliation: "Universidad Politécnica de Madrid" }
-      - { name: "Xavier Rivas", affiliation: "Universitat Rovira i Virgili" }
+      - { name: "David Martín de Diego" }
+      - { name: "Edith Padrón" }
+      - { name: "Fabio di Cosmo" }
+      - { name: "Florio Ciaglia" }
+      - { name: "Juan Manuel Pérez Pardo" }
+      - { name: "María Barbero Liñán" }
+      - { name: "Silvia Vilariño" }
       - veronica-errasti-diez
+      - { name: "Xavier Rivas" }
 
   - title: "Chaos, Information, and Gravity: The Next Quantum Frontiers"
     type: workshop
@@ -44,12 +44,12 @@ events:
     end: 2027-08-20
     location: "University of Ljubljana, Slovenia"
     organizers:
-      - { name: "Stefano Baiguera", affiliation: "Stockholm University" }
-      - { name: "Matej Bajec", affiliation: "University of Ljubljana" }
-      - saskia-demulder     
-      - { name: "Rathindra Nath Das", affiliation: "MIT - Massachusetts Institute of Technology" }
-      - { name: "Marine De Clerck", affiliation: "University of Cambridge" }
-      - { name: "Chiara Paletta", affiliation: "University of Ljubljana" }
+      - { name: "Chiara Paletta" }
+      - { name: "Marine De Clerck" }
+      - { name: "Matej Bajec" }
+      - { name: "Rathindra Nath Das" }
+      - saskia-demulder
+      - { name: "Stefano Baiguera" }
 
   - title: "Quantum Gravity in Closed Universes"
     type: workshop
@@ -57,10 +57,10 @@ events:
     end: 2027-09-03
     location: "Nordita, Stockholm, Sweden"
     organizers:
-      - { name: "Pawel Caputa", affiliation: "Stockholm University" }
+      - { name: "Evita Verheijden" }
+      - { name: "Pawel Caputa" }
       - saskia-demulder
-      - { name: "Watse Sybesma", affiliation: "Nordita" }
-      - { name: "Evita Verheijden", affiliation: "Nordita" }
+      - { name: "Watse Sybesma" }
 
   - title: "2nd International Workshop on Geometric Field Theory"
     type: workshop
@@ -69,11 +69,11 @@ events:
     location: "University of Warsaw, Faculty of Physics, Poland"
     url: "https://www.fuw.edu.pl/KMMF/GFT2026/index.html"
     organizers:
-      - javier-de-lucas
-      - veronica-errasti-diez
-      - jordi-gaset-rifa
-      - { name: "Katarzyna Grabowska", affiliation: "University of Warsaw" }
       - bartosz-zawora
+      - javier-de-lucas
+      - jordi-gaset-rifa
+      - { name: "Katarzyna Grabowska" }
+      - veronica-errasti-diez
 
   - title: "New Advances in Contact and Symplectic Hamiltonian Dynamics"
     type: workshop
@@ -83,12 +83,12 @@ events:
     location: "CUNEF Universidad, Madrid, Spain"
     url: "https://sites.google.com/view/nacosy2026/"
     organizers:
+      - { name: "David Martín de Diego" }
+      - jordi-gaset-rifa
       - manuel-de-leon
+      - manuel-lainz
       - saskia-demulder
       - veronica-errasti-diez
-      - jordi-gaset-rifa
-      - manuel-lainz
-      - { name: "David Martín de Diego", affiliation: "ICMAT-CSIC" }
 
   - title: "Young Researchers School on Integrability and CFT2"
     type: school
@@ -97,6 +97,6 @@ events:
     location: "Eötvös Loránd University, Budapest, Hungary"
     url: "https://www.theory-challenges.eu/events/yrs-2026"
     organizers:
-      - { name: "Zoltan Bajnok", affiliation: "Wigner Research Centre for Physics" }
+      - { name: "Alessandro Sfondrini" }
       - saskia-demulder
-      - { name: "Alessandro Sfondrini", affiliation: "University of Birmingham" }
+      - { name: "Zoltan Bajnok" }
