@@ -1,0 +1,21 @@
+<section class="research-map__member-group research-map__member-group--{{ include.field }}" aria-label="{{ include.field | capitalize }} group members and collaborators">
+  <h3>{{ include.field | replace: 'math', 'Mathematics' | capitalize }}</h3>
+  <div class="research-map__member-names">
+    <div class="research-map__member-cluster research-map__member-cluster--group">
+      <ul class="research-map__member-list research-map__member-list--group" aria-label="Group members">
+        {% for person in include.group %}
+          <li><a href="{{ '/people/' | relative_url }}#{{ person.id }}">{{ person.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% if include.collaborators.size > 0 %}
+      <div class="research-map__member-cluster research-map__member-cluster--collaborators">
+        <ul class="research-map__member-list research-map__member-list--collaborators" aria-label="Collaborators">
+          {% for person in include.collaborators %}
+            <li><a href="{{ '/people/' | relative_url }}#{{ person.id }}">{{ person.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  </div>
+</section>

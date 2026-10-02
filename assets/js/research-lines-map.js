@@ -16,7 +16,7 @@
   const keywords = document.getElementById("research-map-keywords");
   const description = document.getElementById("research-map-description-text");
   const contributors = document.getElementById("research-map-people");
-  const markers = [...document.querySelectorAll(".research-map__marker")];
+  const markers = [...document.querySelectorAll(".research-map [data-line-id]")];
 
   function selectLine(id) {
     const line = lines.find((item) => item.id === id);
