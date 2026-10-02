@@ -1,7 +1,7 @@
 ---
 title: Previous Members
 section: Group
-description: Former members and their time with the group.
+description: Former members of the GeomMPhys research group.
 permalink: /previous-members/
 ---
 
