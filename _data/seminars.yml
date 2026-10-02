@@ -83,6 +83,8 @@ past:
     date: 2026-03-23
     time: "14:30"
     location: "PIR 1.10"
+    abstract: "Over the last 25 years, numerous modifications of General Relativity  have been proposed to address outstanding problems in cosmology.  Disformal transformations and their generalizations (henceforth GenDis) are emerging as powerful tools for the classification of such modified gravity theories. GenDis are characterized by relating Lagrangians of different order. Understanding their properties would enable the systematic construction of higher-order gravity theories while controlling physically relevant features such as symmetries, global stability, and the number of propagating degrees of freedom.
+In this talk, I will present the main geometric features of GenDis within the mechanical framework. Focusing on the failure of GenDis to preserve the presymplectic structure of the Lagrangian systems they relate, I will provide an intrinsic characterization of this phenomenon and derive sufficient conditions to ensure dynamical equivalence at the level of the corresponding final constraint submanifolds. Remarkably, dynamical  equivalence turns out to be sufficient to recover the preservation of  the relevant geometric structures in the GenDis framework."
 
   - title: "Confinement-deconfinement transition in gauge matrix models"
     speaker: "Sachindeo Vaidya"
