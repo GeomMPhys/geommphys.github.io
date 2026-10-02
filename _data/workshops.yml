@@ -40,8 +40,8 @@ events:
 
   - title: "Chaos, Information, and Gravity: The Next Quantum Frontiers"
     type: workshop
-    start: 2027-08-16
-    end: 2027-08-20
+    start: 2027-08-02
+    end: 2027-08-08
     location: "University of Ljubljana, Slovenia"
     organizers:
       - { name: "Chiara Paletta" }
