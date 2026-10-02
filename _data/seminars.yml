@@ -122,6 +122,9 @@ In this talk, I will present the main geometric features of GenDis within the me
     speaker: "Georgina Staudt"
     affiliation: "Max-Planck-Institute for Physics, Germany"
     date: 2025-10-13
+    time: "12:30"
+    location: "PIR 1.3"
+    abstract: "We employ multiparticle factorization to constrain deformations of tree-level open string amplitudes. Assuming minimal degeneracy among intermediate states of the same spin up through the second excited level, we find that the Regge intercept among all amplitudes of the Koba-Nielsen type can be uniquely fixed using seven-point factorization, precisely matching the bosonic string. Moreover, we produce novel constraints on deformations of the worldsheet integrand. We then turn to deformations of superstrings, with massless external states and arbitrary spectral degeneracy, using soft kinematics. Accounting for the infinite tower of higher-spin resonances, we obtain novel multipositivity bounds to leading and subleading order in the large-level limit. We apply these bounds to the simplest factorizable satellite deformation in the family of amplitudes found by Gross, showing that any deformation of four-point string amplitudes of this type is forbidden by unitarity. Our results reinforce the folklore that the higher-spin tower of string excitations is dramatically more rigid than any finite number of species."
 
   - title: "Poisson Geometry and Bi-Hamiltonian Systems: From Manifolds to Lie Groups"
     speaker: "Zohreh Ravanpak"
