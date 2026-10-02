@@ -29,14 +29,16 @@
       url: /research-lines/
     - title: Publications
       url: /publications/
+    - title: Awards and Honours
+      url: /awards-honours/
+- title: Academic Activities
+  children:
     - title: Research Visits
       url: /research-visits/
     - title: Group Seminars
       url: /seminars/
     - title: Conferences and Workshops
       url: /conferences-workshops/
-    - title: Awards and Honours
-      url: /awards-honours/
 - title: Outreach and Diversity
   children:
     - title: Outreach
