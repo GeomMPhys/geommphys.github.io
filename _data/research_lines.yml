@@ -7,8 +7,8 @@
 #  FIELDS
 #    id           (required)  short nickname, lowercase-with-hyphens
 #    name         (required)  line title, in quotes
-#    placement    (required)  geometry, math-physics, or physics-geometry;
-#                             positioning for the experimental diagram
+#    placement    (required)  geometry-physics, geometry-math, or math-physics;
+#                             disciplines that overlap at this research line
 #    keywords     (optional)  list of short phrases
 #    description  (required)  one paragraph, in quotes
 #    people       (required)  list of person ids from people.yml; shown
@@ -20,7 +20,7 @@
 lines:
   - id: Multisymplectic-field-theory
     name: "Multisymplectic Field Theory"
-    placement: physics-geometry
+    placement: geometry-physics
     keywords:
       - multisymplectic geometry
       - geometric mechanics
@@ -37,7 +37,7 @@ lines:
 
   - id: Higher-order-systems
     name: "Higher-Order Systems"
-    placement: physics-geometry
+    placement: geometry-physics
     keywords:
       - modified gravity
       - renormalisability
@@ -51,7 +51,7 @@ lines:
 
   - id: beyond-integrability
     name: "Beyond Integrability"
-    placement: geometry
+    placement: geometry-math
     keywords:
       - pseudointegrable systems
       - Arnold-Liouville integrability
@@ -63,7 +63,9 @@ lines:
       - jordi-gaset-rifa
       - manuel-lainz
       - victor-jimenez
+      - paula-alba-san-miguel
       - saskia-demulder
+      - oscar-carballal
       
       
   - id: quantum-systems

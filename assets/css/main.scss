@@ -1121,6 +1121,411 @@ code {
   }
 }
 
+.research-lines-experiment__workspace {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  align-items: center;
+  gap: 2rem;
+}
+
+.research-lines-experiment__diagram {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1.18;
+  isolation: isolate;
+}
+
+.research-lines-experiment__grid {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.research-lines-experiment__grid circle {
+  fill: rgba(76, 84, 91, 0.38);
+}
+
+.research-lines-experiment__field {
+  position: absolute;
+  overflow: hidden;
+  border: 1.5px solid rgba(65, 74, 81, 0.32);
+  border-radius: 17px;
+}
+
+.research-lines-experiment__field h2 {
+  position: absolute;
+  display: block;
+  margin: 0;
+  color: #41494f;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-variant: small-caps;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.research-lines-experiment h2::before {
+  display: none;
+  content: none;
+}
+
+.research-lines-experiment__field ul {
+  position: absolute;
+  display: grid;
+  gap: 0.16rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.research-lines-experiment__field li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 1.22;
+}
+
+.research-lines-experiment__field li::before {
+  display: none;
+}
+
+.research-lines-experiment__field a {
+  color: #596168;
+  font-size: 0.88rem;
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.research-lines-experiment__field a:hover {
+  color: #424a50;
+  text-decoration: none;
+}
+
+.research-lines-experiment__field a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #596168;
+  outline-offset: 2px;
+}
+
+.research-lines-experiment__field--geometry {
+  z-index: 1;
+  top: 3%;
+  left: 1%;
+  width: 64%;
+  height: 61%;
+  border-color: rgba(71, 103, 132, 0.48);
+  background-color: rgba(190, 211, 230, 0.56);
+}
+
+.research-lines-experiment__field--geometry h2 {
+  top: 6%;
+  right: 5%;
+}
+
+.research-lines-experiment__field--geometry ul {
+  top: 6%;
+  left: 6%;
+  width: 48%;
+}
+
+.research-lines-experiment__field--physics {
+  z-index: 3;
+  top: 20%;
+  right: 1%;
+  width: 61%;
+  height: 58%;
+  border-color: rgba(151, 112, 73, 0.46);
+  background-color: rgba(239, 217, 194, 0.56);
+}
+
+.research-lines-experiment__field--physics h2 {
+  right: 5%;
+  bottom: 6%;
+}
+
+.research-lines-experiment__field--physics ul {
+  top: 3%;
+  right: 5%;
+  width: 43%;
+}
+
+.research-lines-experiment__field--mathematics {
+  z-index: 2;
+  bottom: 0;
+  left: 23%;
+  width: 60%;
+  height: 52%;
+  border-color: rgba(119, 96, 143, 0.48);
+  background-color: rgba(211, 198, 227, 0.56);
+}
+
+.research-lines-experiment__field--mathematics h2 {
+  right: 5%;
+  bottom: 6%;
+}
+
+.research-lines-experiment__field--mathematics ul {
+  bottom: 7%;
+  left: 6%;
+  width: 51%;
+}
+
+.research-lines-experiment__points {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+}
+
+.research-lines-experiment__point {
+  position: absolute;
+  top: var(--point-y);
+  left: var(--point-x);
+  display: grid;
+  width: 1.7rem;
+  height: 1.7rem;
+  padding: 0;
+  place-items: center;
+  border: 1.5px solid var(--point-color);
+  border-radius: 50%;
+  background: rgba(132, 97, 138, 0.14);
+  box-shadow: 0 1px 5px rgba(29, 35, 39, 0.13);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 150ms ease, box-shadow 150ms ease, background-color 150ms ease;
+}
+
+.research-lines-experiment__point--geometry-physics { --point-color: #795f82; background: rgba(121, 95, 130, 0.17); }
+.research-lines-experiment__point--geometry-math { --point-color: #456f92; background: rgba(69, 111, 146, 0.17); }
+.research-lines-experiment__point--math-physics { --point-color: #a27a3d; background: rgba(162, 122, 61, 0.17); }
+
+.research-lines-experiment__point-core {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--point-color);
+}
+
+.research-lines-experiment__point:hover,
+.research-lines-experiment__point:focus-visible,
+.research-lines-experiment__point.is-selected {
+  background: white;
+  box-shadow: 0 0 0 3px rgba(80, 95, 105, 0.12), 0 2px 8px rgba(29, 35, 39, 0.16);
+  transform: translate(-50%, -50%);
+}
+
+.research-lines-experiment__point:focus-visible {
+  outline: 3px solid var(--point-color);
+  outline-offset: 4px;
+}
+
+.research-lines-experiment__connector {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.research-lines-experiment__connector path {
+  fill: none;
+  stroke: var(--connector-color, #6d7180);
+  stroke-width: 1.5;
+  stroke-opacity: 0.32;
+}
+
+.research-lines-experiment__detail {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  min-height: 32rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.research-lines-experiment__detail header {
+  padding: 1rem 1.25rem;
+  border-bottom: 3px solid #795f82;
+  background: #f3eef4;
+  color: var(--text);
+}
+
+.research-lines-experiment__detail header p {
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.research-lines-experiment__detail header h2 {
+  display: block;
+  margin: 0;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.research-lines-experiment__detail[data-placement="geometry-math"] header { border-bottom-color: #456f92; background: #edf2f6; }
+.research-lines-experiment__detail[data-placement="math-physics"] header { border-bottom-color: #a27a3d; background: #f5f0e7; }
+
+.research-lines-experiment__detail-body {
+  padding: 1.35rem;
+}
+
+.research-lines-experiment__keywords {
+  margin: 0 0 1.4rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.research-lines-experiment__detail-body > p:not(.research-lines-experiment__keywords) {
+  margin-bottom: 1.6rem;
+  line-height: 1.48;
+}
+
+.research-lines-experiment__members {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.research-lines-experiment__members h3 {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.research-lines-experiment__member-group + .research-lines-experiment__member-group {
+  margin-top: 0.8rem;
+}
+
+.research-lines-experiment__member-group h4 {
+  margin: 0 0 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.research-lines-experiment__member-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.research-lines-experiment__members li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.research-lines-experiment__members li::before {
+  display: none;
+}
+
+.research-lines-experiment__members a {
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+@media (max-width: 980px) {
+  .research-lines-experiment__workspace {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+
+  .research-lines-experiment__diagram {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .research-lines-experiment__detail {
+    width: 100%;
+    max-width: 760px;
+    min-height: 0;
+    margin: 0 auto;
+  }
+
+  .research-lines-experiment__connector {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .research-lines-experiment__diagram {
+    aspect-ratio: 0.9;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .research-lines-experiment__field--geometry {
+    width: 69%;
+    height: 57%;
+  }
+
+  .research-lines-experiment__field--physics {
+    top: 22%;
+    width: 66%;
+    height: 54%;
+  }
+
+  .research-lines-experiment__field--mathematics {
+    left: 18%;
+    width: 65%;
+    height: 53%;
+  }
+
+  .research-lines-experiment__field h2 {
+    font-size: 0.75rem;
+  }
+
+  .research-lines-experiment__field a {
+    font-size: 0.64rem;
+  }
+
+  .research-lines-experiment__field--geometry ul {
+    width: 55%;
+  }
+
+  .research-lines-experiment__field--physics ul {
+    top: 1%;
+    width: 48%;
+    gap: 0.04rem;
+  }
+
+  .research-lines-experiment__field--physics li {
+    line-height: 1.08;
+  }
+
+  .research-lines-experiment__field--mathematics ul {
+    width: 55%;
+  }
+
+  .research-lines-experiment__point {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 .network-map {
   position: relative;
   width: 100%;
