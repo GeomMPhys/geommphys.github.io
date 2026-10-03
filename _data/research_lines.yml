@@ -35,6 +35,20 @@ lines:
       - marco-maceda
       - matteo-dellacqua
 
+  - id: Higher-order-systems
+    name: "Higher-Order Systems"
+    placement: physics-geometry
+    keywords:
+      - modified gravity
+      - renormalisability
+      - unitarity
+      - Lagrange stability
+    description: "Physical systems governed by differential equations with higher than second order time derivatives have traditionally been dismissed as candidates for fundamental theories. Classically, they were believed to inevitably produce unstable trajectories. In the quantum realm, they were thought to violate unitarity. Recent counterexamples challenge both assumptions. Our group develops analytical tools to guarantee Lagrange stability in these settings, and investigates the quantum properties and dynamics of such systems."
+    people:
+      - veronica-errasti-diez
+      - jordi-gaset-rifa
+      - david-trillo
+
   - id: beyond-integrability
     name: "Beyond Integrability"
     placement: geometry
