@@ -108,7 +108,7 @@ locations:
     inset: true
     x: 504
     y: 97
-    inset_x: 520
-    inset_y: 82
+    inset_x: 510
+    inset_y: 99
     members:
       - abedennour-dib
