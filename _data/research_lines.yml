@@ -12,7 +12,8 @@
 #    keywords     (optional)  list of short phrases
 #    description  (required)  one paragraph, in quotes
 #    people       (required)  list of person ids from people.yml; shown
-#                             as links to each person on the People page
+#                             as links to each person on the People page;
+#                             order names alphabetically by surname
 #
 #  TIP: every entry in "people" must be an id that exists in people.yml.
 # ───────────────────────────────────────────────────────────────────
@@ -29,11 +30,11 @@ lines:
     description: "Multisymplectic geometry gives an intrinsic formulation of the Hamiltonian formalism of field theories. It is a natural generalization of symplectic geometry, which is the geometric framework for classical mechanics. This approach allows for a covariant description of the dynamics of fields, and it provides a natural setting for the study of symmetries and conservation laws."
     people:
       - manuel-de-leon
+      - matteo-dellacqua
       - jordi-gaset-rifa
       - ruben-izquierdo-lopez
       - manuel-lainz
       - marco-maceda
-      - matteo-dellacqua
 
   - id: Higher-order-systems
     name: "Higher-Order Systems"
@@ -59,12 +60,12 @@ lines:
       - Lie algebroids
     description: "This line of research focuses on systems that go beyond traditional integrability. We focus on systems which are not integrable in the classical Arnold-Liouville sense, but which share some of their properties, as having conserved quantities or being non-chaotic. Nevertheless, they might have a more complex structure, as having folliations by submanifolds whith different topology than tori (higher genus, non-compact), or situations in field theories instead of mechanics. We use Lie-groupoid theory in order to describe their symmetries, generalizing the role of abelian Lie groups."
     people:
+      - paula-alba-san-miguel
+      - oscar-carballal
       - manuel-de-leon
       - saskia-demulder
       - victor-jimenez
       - manuel-lainz
-      - oscar-carballal
-      - paula-alba-san-miguel
       
       
   - id: quantum-systems

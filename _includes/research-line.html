@@ -6,14 +6,12 @@
   {% if l.people %}
     {% assign line_researchers = "" | split: "," %}
     {% assign line_students = "" | split: "," %}
-    {% for person in include.researchers %}
-      {% if l.people contains person.id %}{% assign line_researchers = line_researchers | push: person.id %}{% endif %}
+    {% assign researcher_ids = include.researchers | map: "id" %}
+    {% assign student_ids = include.students | map: "id" %}
+    {% for pid in l.people %}
+      {% if researcher_ids contains pid %}{% assign line_researchers = line_researchers | push: pid %}{% endif %}
+      {% if student_ids contains pid %}{% assign line_students = line_students | push: pid %}{% endif %}
     {% endfor %}
-    {% for person in include.students %}
-      {% if l.people contains person.id %}{% assign line_students = line_students | push: person.id %}{% endif %}
-    {% endfor %}
-    {% assign line_researchers = line_researchers | sort_natural %}
-    {% assign line_students = line_students | sort_natural %}
     <div class="research-line__people-groups">
       {% if line_researchers.size > 0 %}
         <section class="research-line__people-group">

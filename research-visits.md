@@ -1,7 +1,7 @@
 ---
 title: Research Visits
 section: Research
-description: Publicly listed research visits hosted by the group.
+description: Research visits hosted by the group.
 permalink: /research-visits/
 ---
 
