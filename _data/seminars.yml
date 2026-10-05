@@ -28,9 +28,17 @@ upcoming:
     time: "15:30"
     location: "PIR 1.3 (Brain Lab)"
 
+  - title: "Group seminar"
+    speaker: "Alex Arvanitakis"
+    affiliation: "Research Associate, Ruđer Bošković Institute, Croatia"
+    date: 2026-11-10
+    time: "15:30"
+    location: "PIR 1.3 (Brain Lab)"
+
 past:
   - title: "Ladder deformations: integrability beyond elastic scattering"
     speaker: "Adrien Molines"
+    affiliation: "ETH Zürich"
     date: 2026-10-02
     time: "16:00"
     location: "Online"
