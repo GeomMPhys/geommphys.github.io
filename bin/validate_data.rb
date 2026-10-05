@@ -288,16 +288,33 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "organization.yml")))
   top_list(errors, "organization.yml", doc, "roles").each_with_index do |rec, i|
     where = "organization.yml entry ##{i + 1}"
     check_record(errors, "organization.yml", where, rec, {
-      required: { role: :str, members: :list },
+      required: { role: :str },
+      optional: { members: :list, subroles: :list },
     })
-    next unless rec.is_a?(Hash) && rec["members"].is_a?(Array)
-    rec["members"].each_with_index do |member, j|
-      member_where = "#{where} → member ##{j + 1}"
-      check_record(errors, "organization.yml", member_where, member, {
-        required: { person: :str },
-        optional: { since: :str },
-      })
-      check_person_ref(errors, "organization.yml", member_where, member["person"], person_ids) if member.is_a?(Hash) && member["person"].is_a?(String)
+    next unless rec.is_a?(Hash)
+    if !rec["members"].is_a?(Array) && !rec["subroles"].is_a?(Array)
+      err(errors, "organization.yml", "#{where} needs `members:` or `subroles:`.")
+    end
+    member_groups = []
+    member_groups << ["members", rec["members"]] if rec["members"].is_a?(Array)
+    if rec["subroles"].is_a?(Array)
+      rec["subroles"].each_with_index do |subrole, j|
+        subrole_where = "#{where} → subrole ##{j + 1}"
+        check_record(errors, "organization.yml", subrole_where, subrole, {
+          required: { role: :str, members: :list },
+        })
+        member_groups << ["subrole ##{j + 1} members", subrole["members"]] if subrole.is_a?(Hash) && subrole["members"].is_a?(Array)
+      end
+    end
+    member_groups.each do |group_name, members|
+      members.each_with_index do |member, j|
+        member_where = "#{where} → #{group_name} ##{j + 1}"
+        check_record(errors, "organization.yml", member_where, member, {
+          required: { person: :str },
+          optional: { since: :str },
+        })
+        check_person_ref(errors, "organization.yml", member_where, member["person"], person_ids) if member.is_a?(Hash) && member["person"].is_a?(String)
+      end
     end
   end
 end

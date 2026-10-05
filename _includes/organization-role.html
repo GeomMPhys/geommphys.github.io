@@ -2,16 +2,12 @@
 <article class="record organization-role">
   <div class="record__body">
     <h3>{{ item.role }}</h3>
-    <ul class="organization-role__members">
-      {% for member in item.members %}
-        {% assign person = include.people | where: "id", member.person | first %}
-        {% if person %}
-          <li>
-            <a href="{{ '/people/' | relative_url }}#{{ member.person }}">{{ person.name }}</a>
-            {% if member.since %}<span class="organization-role__since">{{ member.since }}</span>{% endif %}
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+    {% if item.members %}{% include organization-members.html members=item.members people=include.people %}{% endif %}
+    {% for subrole in item.subroles %}
+      <section class="organization-role__subrole">
+        <h4>{{ subrole.role }}</h4>
+        {% include organization-members.html members=subrole.members people=include.people %}
+      </section>
+    {% endfor %}
   </div>
 </article>

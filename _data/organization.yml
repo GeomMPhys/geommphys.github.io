@@ -3,13 +3,15 @@
 # ───────────────────────────────────────────────────────────────────
 #  HOW TO EDIT
 #  • Each role is one responsibility box. Add or remove a person's entry
-#    under members to update who is responsible.
+#    under members to update who is responsible. Use subroles for grouped
+#    responsibilities inside one box.
 #  • Use a stable person id from people.yml, not a person's name.
 #  • Add `since` when the start date or period is known and useful.
 #
 #  FIELDS
 #    role     (required)  responsibility or role title
-#    members  (required)  list of { person, since? } entries
+#    members  (optional)  list of { person, since? } entries
+#    subroles (optional)  list of { role, members } subdivisions
 #    person   (required)  person id from people.yml
 #    since    (optional)  when this responsibility began
 # ───────────────────────────────────────────────────────────────────
@@ -31,18 +33,19 @@ roles:
   - role: "Website"
     members:
       - person: manuel-lainz
+    subroles:
+      - role: "Assistance"
+        members:
+          - person: ruben-izquierdo-lopez
 
-  - role: "Assistance"
-    members:
-      - person: ruben-izquierdo-lopez
-
-  - role: "International grants support"
-    members:
-      - person: saskia-demulder
-
-  - role: "National grants support"
-    members:
-      - person: jordi-gaset-rifa
+  - role: "Grant support"
+    subroles:
+      - role: "National grants"
+        members:
+          - person: jordi-gaset-rifa
+      - role: "International grants"
+        members:
+          - person: saskia-demulder
 
   - role: "Outreach and equity"
     members:

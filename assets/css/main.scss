@@ -747,6 +747,10 @@ code {
   gap: 0.25rem 0.55rem;
   margin: 0;
   padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .organization-role__members li::before {
@@ -756,6 +760,17 @@ code {
 .organization-role__since {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+.organization-role__subrole + .organization-role__subrole {
+  margin-top: 0.8rem;
+}
+
+.organization-role__subrole h4 {
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-size: 0.96rem;
+  font-weight: 750;
 }
 
 .research-map {

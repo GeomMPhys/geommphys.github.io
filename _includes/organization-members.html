@@ -1,0 +1,11 @@
+<ul class="organization-role__members">
+  {% for member in include.members %}
+    {% assign person = include.people | where: "id", member.person | first %}
+    {% if person %}
+      <li>
+        <a href="{{ '/people/' | relative_url }}#{{ member.person }}">{{ person.name }}</a>
+        {% if member.since %}<span class="organization-role__since">{{ member.since }}</span>{% endif %}
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
