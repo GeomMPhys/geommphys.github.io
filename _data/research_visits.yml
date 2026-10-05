@@ -16,6 +16,11 @@
 # ───────────────────────────────────────────────────────────────────
 
 visits:
+  - person: abedennour-dib
+    affiliation: "University of Orléans"
+    arrival: 2026-11-01
+    departure: 2026-11-07
+
   - person: markus-maier
     affiliation: "Munich School of Philosophy, Germany"
     arrival: 2026-03-26
