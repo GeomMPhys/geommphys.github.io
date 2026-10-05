@@ -757,6 +757,17 @@ code {
   display: none;
 }
 
+.organization-role--group-leaders .organization-role__members,
+.organization-role--group-bonding .organization-role__members {
+  flex-wrap: nowrap;
+  gap: 0.35rem 1rem;
+}
+
+.organization-role--group-leaders .organization-role__members li,
+.organization-role--group-bonding .organization-role__members li {
+  flex-wrap: nowrap;
+}
+
 .organization-role__since {
   color: var(--muted);
   font-size: 0.9rem;
@@ -771,6 +782,15 @@ code {
   color: var(--muted);
   font-size: 0.96rem;
   font-weight: 750;
+}
+
+@media (max-width: 760px) {
+  .organization-role--group-leaders .organization-role__members,
+  .organization-role--group-bonding .organization-role__members,
+  .organization-role--group-leaders .organization-role__members li,
+  .organization-role--group-bonding .organization-role__members li {
+    flex-wrap: wrap;
+  }
 }
 
 .research-map {

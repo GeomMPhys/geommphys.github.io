@@ -19,12 +19,12 @@
 roles:
   - role: "Group leaders"
     members:
+      - person: saskia-demulder
+        since: "Since September 2025"
       - person: veronica-errasti-diez
         since: "Since the group's foundation"
       - person: jordi-gaset-rifa
         since: "Since the group's foundation"
-      - person: saskia-demulder
-        since: "Since September 2025"
 
   - role: "Group seminars"
     members:

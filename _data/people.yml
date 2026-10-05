@@ -201,6 +201,18 @@ international_collaborators:
       - type: "inspire"
         url: "https://inspirehep.net/authors/1334454?ui-citation-summary=true"
 
+  - id: rathindra-das
+    name: "Rathindra Nath Das"
+    photo: "/assets/images/people-icons/physics_icon.png"
+    role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
+    profiles:
+      - type: "orcid"
+        url: "https://orcid.org/0000-0002-4766-7705"
+      - type: "scholar"
+        url: "https://scholar.google.com/citations?user=8r2fob0AAAAJ&hl=en"
+      - type: "inspire"
+        url: "https://inspirehep.net/authors/2620033?ui-citation-summary=true"
+
   - id: javier-de-lucas
     name: "Javier de Lucas Araujo"
     photo: "/assets/images/people-icons/geom_icon.png"
@@ -210,6 +222,20 @@ international_collaborators:
         url: "https://orcid.org/0000-0001-8643-144X"
       - type: "scholar"
         url: "https://scholar.google.com/citations?user=XNuXyrYAAAAJ&hl=en"
+
+  - id: abedennour-dib
+    name: "Abedennour Dib"
+    photo: "/assets/images/people-icons/physics_icon.png"
+    role: "University of Orléans, France"
+    profiles:
+      - type: "inspire"
+        url: "https://inspirehep.net/authors/2732646?ui-citation-summary=true"
+      - type: "orcid"
+        url: "https://orcid.org/0000-0003-0089-5062"
+      - type: "scholar"
+        url: "https://scholar.google.com/citations?user=0laMMjAAAAAJ&hl=fr&authuser=1"
+      - type: "arxiv"
+        url: "https://arxiv.org/search/?searchtype=author&query=Dib%2C+A"
 
   - id: mauricio-doniz
     name: "Mauricio Dóniz"
@@ -241,18 +267,6 @@ international_collaborators:
       - type: "orcid"
         url: "https://orcid.org/0000-0003-1854-9416"
 
-  - id: rathindra-das
-    name: "Rathindra Nath Das"
-    photo: "/assets/images/people-icons/physics_icon.png"
-    role: "Postdoctoral researcher, Massachusetts Institute of Technology, United States"
-    profiles:
-      - type: "orcid"
-        url: "https://orcid.org/0000-0002-4766-7705"
-      - type: "scholar"
-        url: "https://scholar.google.com/citations?user=8r2fob0AAAAJ&hl=en"
-      - type: "inspire"
-        url: "https://inspirehep.net/authors/2620033?ui-citation-summary=true"
-
   - id: zohreh-ravanpak
     name: "Zohreh Ravanpak"
     photo: "/assets/images/people-icons/geom_icon.png"
@@ -282,20 +296,6 @@ international_collaborators:
         url: "https://scholar.google.com/citations?user=g434dcMAAAAJ&hl=en"
       - type: "inspire"
         url: "https://inspirehep.net/authors/1871635?ui-citation-summary=true"
-
-  - id: abedennour-dib
-    name: "Abedennour Dib"
-    photo: "/assets/images/people-icons/physics_icon.png"
-    role: "University of Orléans"
-    profiles:
-      - type: "inspire"
-        url: "https://inspirehep.net/authors/2732646?ui-citation-summary=true"
-      - type: "orcid"
-        url: "https://orcid.org/0000-0003-0089-5062"
-      - type: "scholar"
-        url: "https://scholar.google.com/citations?user=0laMMjAAAAAJ&hl=fr&authuser=1"
-      - type: "arxiv"
-        url: "https://arxiv.org/search/?searchtype=author&query=Dib%2C+A"
 
 former_members:
   - id: bartosz-zawora

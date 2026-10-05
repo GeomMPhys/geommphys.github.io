@@ -1,5 +1,5 @@
 {%- assign item = include.item -%}
-<article class="record organization-role">
+<article class="record organization-role organization-role--{{ item.role | slugify }}">
   <div class="record__body">
     <h3>{{ item.role }}</h3>
     {% if item.members %}{% include organization-members.html members=item.members people=include.people %}{% endif %}
