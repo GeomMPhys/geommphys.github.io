@@ -403,9 +403,17 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "network.yml")))
       check_record(errors, "network.yml", where, loc, {
         required: { label: :str, subtitle: :str, x: :num, y: :num,
                     members: :list },
-        optional: { inset: :bool },
+        optional: { inset: :bool, inset_x: :num, inset_y: :num },
       })
-      next unless loc.is_a?(Hash) && loc["members"].is_a?(Array)
+      next unless loc.is_a?(Hash)
+      has_inset_x = loc.key?("inset_x")
+      has_inset_y = loc.key?("inset_y")
+      if has_inset_x != has_inset_y
+        err(errors, "network.yml", "#{where}: `inset_x` and `inset_y` must be provided together.")
+      elsif (has_inset_x || has_inset_y) && loc["inset"] != true
+        err(errors, "network.yml", "#{where}: inset coordinates require `inset: true`.")
+      end
+      next unless loc["members"].is_a?(Array)
       loc["members"].each_with_index do |m, j|
         if m.is_a?(String)
           check_person_ref(errors, "network.yml", "#{where} → member ##{j + 1}", m, person_ids)

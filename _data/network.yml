@@ -21,6 +21,9 @@
 #    inset     (optional)  true for European locations — they also appear,
 #                          spread out and tappable, in the zoomed "Europe"
 #                          inset (the cluster is too tight to tap otherwise)
+#    inset_x,
+#    inset_y    (optional)  alternate coordinates used only in the Europe
+#                          inset, when nearby cities need to be separated
 # ───────────────────────────────────────────────────────────────────
 
 center:
@@ -99,3 +102,13 @@ locations:
     y: 93
     members:
       - mirjam-weilenmann
+
+  - label: "Orléans, France"
+    subtitle: "University of Orléans"
+    inset: true
+    x: 504
+    y: 97
+    inset_x: 520
+    inset_y: 82
+    members:
+      - abedennour-dib

@@ -69,9 +69,9 @@
       {%- for location in network.locations -%}{%- if location.inset -%}
         <g class="network-map__point" tabindex="0" role="button" data-i="{{ forloop.index0 }}" aria-label="{{ location.label }}">
           <title>{{ location.label }}</title>
-          <circle class="network-map__hit" cx="{{ location.x }}" cy="{{ location.y }}" r="7" fill="transparent" />
-          <circle class="network-map__halo" cx="{{ location.x }}" cy="{{ location.y }}" r="2.8" fill="#8263a0" fill-opacity="0" />
-          <circle class="network-map__dot" cx="{{ location.x }}" cy="{{ location.y }}" r="2.8" fill="#8263a0" stroke="#f4f2ec" stroke-width="1.3" />
+          <circle class="network-map__hit" cx="{{ location.inset_x | default: location.x }}" cy="{{ location.inset_y | default: location.y }}" r="7" fill="transparent" />
+          <circle class="network-map__halo" cx="{{ location.inset_x | default: location.x }}" cy="{{ location.inset_y | default: location.y }}" r="2.8" fill="#8263a0" fill-opacity="0" />
+          <circle class="network-map__dot" cx="{{ location.inset_x | default: location.x }}" cy="{{ location.inset_y | default: location.y }}" r="2.8" fill="#8263a0" stroke="#f4f2ec" stroke-width="1.3" />
         </g>
       {%- endif -%}{%- endfor -%}
     </svg>

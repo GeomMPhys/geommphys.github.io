@@ -16,6 +16,11 @@
 # ───────────────────────────────────────────────────────────────────
 
 visits:
+  - person: alex-arvanitakis
+    affiliation: "Research Associate, Ruđer Bošković Institute, Croatia"
+    arrival: 2026-11-09
+    departure: 2026-11-22
+
   - person: abedennour-dib
     affiliation: "University of Orléans, France"
     arrival: 2026-11-01
