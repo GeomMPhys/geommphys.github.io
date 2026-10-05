@@ -30,8 +30,8 @@ lines:
     people:
       - manuel-de-leon
       - jordi-gaset-rifa
-      - manuel-lainz
       - ruben-izquierdo-lopez
+      - manuel-lainz
       - marco-maceda
       - matteo-dellacqua
 
@@ -60,11 +60,11 @@ lines:
     description: "This line of research focuses on systems that go beyond traditional integrability. We focus on systems which are not integrable in the classical Arnold-Liouville sense, but which share some of their properties, as having conserved quantities or being non-chaotic. Nevertheless, they might have a more complex structure, as having folliations by submanifolds whith different topology than tori (higher genus, non-compact), or situations in field theories instead of mechanics. We use Lie-groupoid theory in order to describe their symmetries, generalizing the role of abelian Lie groups."
     people:
       - manuel-de-leon
-      - manuel-lainz
-      - victor-jimenez
-      - paula-alba-san-miguel
       - saskia-demulder
+      - victor-jimenez
+      - manuel-lainz
       - oscar-carballal
+      - paula-alba-san-miguel
       
       
   - id: quantum-systems
@@ -77,6 +77,6 @@ lines:
       - Hopf algebras
     description: "We study quantum systems whose physical behaviour is governed by topology, algebraic structures and generalized notions of symmetry. A central focus is the mathematical description of anyonic excitations: quasiparticles in two-dimensional systems whose exchange properties are governed by braid-group representations rather than ordinary bosonic or fermionic statistics. We also aim to place anyonic statistics within a common operational framework, with applications to the foundations of quantum theory and to the information-theoretic structure of topological quantum computation."
     people:
+      - saskia-demulder
       - alberto-ruiz-de-alarcon
       - david-trillo
-      - saskia-demulder
