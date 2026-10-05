@@ -4,11 +4,37 @@
   {% if l.keywords %}<p class="meta">{{ l.keywords | join: " · " }}</p>{% endif %}
   {% if l.description %}<p>{{ l.description }}</p>{% endif %}
   {% if l.people %}
-    <p class="meta">Members:
-      {% for pid in l.people -%}
-        {%- include person-name.html id=pid people=include.people link=true -%}
-        {%- unless forloop.last %}, {% endunless -%}
-      {%- endfor %}
-    </p>
+    {% assign researcher_ids = include.researchers | map: "id" %}
+    {% assign student_ids = include.students | map: "id" %}
+    {% assign line_researchers = "" | split: "," %}
+    {% assign line_students = "" | split: "," %}
+    {% for pid in l.people %}
+      {% if researcher_ids contains pid %}{% assign line_researchers = line_researchers | push: pid %}{% endif %}
+      {% if student_ids contains pid %}{% assign line_students = line_students | push: pid %}{% endif %}
+    {% endfor %}
+    <div class="research-line__people-groups">
+      {% if line_researchers.size > 0 %}
+        <section class="research-line__people-group">
+          <h4>Researchers</h4>
+          <p class="meta">
+            {% for pid in line_researchers -%}
+              {%- include person-name.html id=pid people=include.people link=true -%}
+              {%- unless forloop.last %}, {% endunless -%}
+            {%- endfor %}
+          </p>
+        </section>
+      {% endif %}
+      {% if line_students.size > 0 %}
+        <section class="research-line__people-group">
+          <h4>PhD students</h4>
+          <p class="meta">
+            {% for pid in line_students -%}
+              {%- include person-name.html id=pid people=include.people link=true -%}
+              {%- unless forloop.last %}, {% endunless -%}
+            {%- endfor %}
+          </p>
+        </section>
+      {% endif %}
+    </div>
   {% endif %}
 </article>

@@ -94,6 +94,7 @@ external people not in `people.yml` (e.g. outside workshop co-organizers).
 | `workshop.html` | one conference/workshop/school | `conferences-workshops.md` |
 | `outreach-item.html` | one outreach activity | `outreach.md` |
 | `research-area.html` | a card on the Research overview | `research.md` |
+| `organization-role.html` | a responsibility box with linked members | `organization.md` |
 | `calendar.html` | the FullCalendar event view + per-category subscribe links | `calendar.md` |
 | `ics-events.html` | iCal VEVENTs for a category (`only=`), used by the `.ics` feeds | `events*.ics` |
 | `network-map.html` | the SVG collaborator map (member ids → hover tooltip) | `people.md` |

@@ -10,7 +10,7 @@ HTML.
 - **Pages** (repository root, Markdown): `index.md`, `people.md`, `research.md`,
   `research-lines.md`, `publications.md`, `research-visits.md`, `seminars.md`,
   `conferences-workshops.md`, `awards-honours.md`, `previous-members.md`,
-  `outreach.md`, `diversity.md`.
+  `organization.md`, `outreach.md`, `diversity.md`.
   Most of these just loop over a data file and call an include. (`contact.md` and
   `_data/contact.yml` are retained for possible future use, but the Contact page
   is not published or in the navigation.)
@@ -20,8 +20,8 @@ HTML.
   - `network.yml` — drives the SVG international network map on the People page.
   - `publications.yml`, `seminars.yml`, `research.yml` — existing content.
   - `research_lines.yml`, `research_visits.yml`, `awards.yml`, `workshops.yml`,
-    `outreach.yml`, `group_meetings.yml`, `previous_members.yml` — structured
-    page and calendar content.
+    `outreach.yml`, `group_meetings.yml`, `previous_members.yml`,
+    `organization.yml` — structured page and calendar content.
 - **Templates** (`_layouts/`, `_includes/`): shared structure. Item renderers
   live in `_includes/` (`person-card.html`, `publication.html`, `seminar-item.html`,
   `research-line.html`, `research-visit.html`, `workshop.html`, `outreach-item.html`,

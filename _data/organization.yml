@@ -1,0 +1,54 @@
+# ───────────────────────────────────────────────────────────────────
+#  ORGANIZATION  →  responsibilities shown on the Organization page
+# ───────────────────────────────────────────────────────────────────
+#  HOW TO EDIT
+#  • Each role is one responsibility box. Add or remove a person's entry
+#    under members to update who is responsible.
+#  • Use a stable person id from people.yml, not a person's name.
+#  • Add `since` when the start date or period is known and useful.
+#
+#  FIELDS
+#    role     (required)  responsibility or role title
+#    members  (required)  list of { person, since? } entries
+#    person   (required)  person id from people.yml
+#    since    (optional)  when this responsibility began
+# ───────────────────────────────────────────────────────────────────
+
+roles:
+  - role: "Group leaders"
+    members:
+      - person: veronica-errasti-diez
+        since: "Since the group's foundation"
+      - person: jordi-gaset-rifa
+        since: "Since the group's foundation"
+      - person: saskia-demulder
+        since: "Since September 2025"
+
+  - role: "Group seminars"
+    members:
+      - person: david-trillo
+
+  - role: "Website"
+    members:
+      - person: manuel-lainz
+
+  - role: "Assistance"
+    members:
+      - person: ruben-izquierdo-lopez
+
+  - role: "International grants support"
+    members:
+      - person: saskia-demulder
+
+  - role: "National grants support"
+    members:
+      - person: jordi-gaset-rifa
+
+  - role: "Outreach and equity"
+    members:
+      - person: veronica-errasti-diez
+
+  - role: "Group bonding"
+    members:
+      - person: matteo-dellacqua
+      - person: marco-maceda

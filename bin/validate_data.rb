@@ -283,6 +283,25 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "research_lines.yml")))
   end
 end
 
+# organization.yml — role assignments shown on the Organization page
+if (doc = load_yaml(errors, File.join(DATA_DIR, "organization.yml")))
+  top_list(errors, "organization.yml", doc, "roles").each_with_index do |rec, i|
+    where = "organization.yml entry ##{i + 1}"
+    check_record(errors, "organization.yml", where, rec, {
+      required: { role: :str, members: :list },
+    })
+    next unless rec.is_a?(Hash) && rec["members"].is_a?(Array)
+    rec["members"].each_with_index do |member, j|
+      member_where = "#{where} → member ##{j + 1}"
+      check_record(errors, "organization.yml", member_where, member, {
+        required: { person: :str },
+        optional: { since: :str },
+      })
+      check_person_ref(errors, "organization.yml", member_where, member["person"], person_ids) if member.is_a?(Hash) && member["person"].is_a?(String)
+    end
+  end
+end
+
 # workshops.yml — organizers are either a person id (String) or { name }
 WORKSHOP_TYPE = %w[conference workshop school].freeze
 if (doc = load_yaml(errors, File.join(DATA_DIR, "workshops.yml")))
