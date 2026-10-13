@@ -1,7 +1,7 @@
 ---
-title: Equity, Diversity & Inclusion
+title: Equality, Diversity & Inclusion
 section: Community
-description: Fostering equity in academia.
+description: Fostering equality in academia.
 permalink: /diversity/
 ---
 
