@@ -81,13 +81,6 @@ locations:
     members:
       - rathindra-das
 
-  - label: "Kyoto, Japan"
-    subtitle: "Research Institute for Mathematical Sciences"
-    x: 877
-    y: 118
-    members:
-      - { name: "Yoshiko Ogata" }
-
   - label: "Singapore"
     subtitle: "Nanyang Technological University"
     x: 788
