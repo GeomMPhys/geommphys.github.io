@@ -23,10 +23,6 @@
         <path d="M 424.7 31.5 L 442.1 32.9 L 411.4 33.9 L 466.1 35.5 L 444.3 37.5 L 450.7 37.5 L 445.3 40.0 L 448.7 43.1 L 439.8 43.8 L 446.2 47.9 L 431.1 51.4 L 439.6 54.4 L 426.8 55.2 L 437.9 55.3 L 389.4 63.6 L 381.1 68.6 L 379.5 73.2 L 365.9 71.8 L 356.6 66.9 L 350.1 60.6 L 358.7 55.7 L 348.1 56.2 L 357.2 54.5 L 344.9 52.6 L 348.0 51.0 L 337.3 45.7 L 296.4 41.3 L 317.5 38.9 L 311.0 37.6 L 326.0 34.6 L 424.7 31.5 Z" />
         <path d="M 898.8 204.5 L 925.4 226.3 L 924.7 236.2 L 916.7 246.5 L 906.4 249.4 L 890.7 247.6 L 883.9 241.1 L 880.1 242.7 L 882.8 238.5 L 877.7 242.0 L 864.8 236.0 L 827.8 242.3 L 819.5 240.8 L 821.4 236.2 L 814.8 226.4 L 817.3 226.8 L 815.0 223.4 L 817.1 218.7 L 835.7 215.0 L 849.1 205.3 L 860.1 206.6 L 867.7 199.8 L 879.1 201.1 L 876.4 206.7 L 889.5 211.5 L 894.8 199.6 L 898.8 204.5 Z" />
         <path d="M 259.5 49.9 L 299.3 52.8 L 328.2 61.1 L 322.4 64.4 L 311.1 62.2 L 320.4 67.3 L 308.9 66.7 L 316.2 69.9 L 284.1 65.8 L 281.8 65.2 L 298.2 60.4 L 280.7 55.3 L 253.7 54.8 L 249.4 51.6 L 261.6 48.8 L 259.5 49.9 Z" />
-        <path d="M 872 96 C 876 93 882 94 886 97 L 884 101 L 879 103 L 873 100 Z" />
-        <path d="M 869 103 C 872 101 876 103 878 107 L 882 112 L 880 117 L 876 121 L 872 117 L 870 112 L 866 108 Z" />
-        <path d="M 870 122 L 875 121 L 878 123 L 874 126 L 870 125 Z" />
-        <path d="M 865 119 L 869 120 L 871 124 L 869 128 L 866 126 L 864 123 Z" />
       </clipPath>
     </defs>
   </svg>
@@ -37,6 +33,22 @@
     <desc id="network-map-description">A dot-lattice world map of the group's collaborator locations, with a zoomed Europe inset.</desc>
 
     <rect class="network-map__lattice" x="80" y="30" width="840" height="300" fill="url(#network-map-lattice)" clip-path="url(#network-map-land)" />
+    <g aria-hidden="true" fill="#8a978c">
+      <circle cx="879" cy="99" r="1" />
+      <circle cx="885" cy="99" r="1" />
+      <circle cx="879" cy="105" r="1" />
+      <circle cx="873" cy="105" r="1" />
+      <circle cx="879" cy="111" r="1" />
+      <circle cx="885" cy="111" r="1" />
+      <circle cx="873" cy="111" r="1" />
+      <circle cx="879" cy="117" r="1" />
+      <circle cx="873" cy="117" r="1" />
+      <circle cx="879" cy="123" r="1" />
+      <circle cx="873" cy="123" r="1" />
+      <circle cx="867" cy="123" r="1" />
+      <circle cx="873" cy="129" r="1" />
+      <circle cx="867" cy="129" r="1" />
+    </g>
 
     <g class="network-map__points">
       {% for location in network.locations %}
