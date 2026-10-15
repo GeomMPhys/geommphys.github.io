@@ -27,6 +27,7 @@ events:
     start: 2027-01-18
     end: 2027-01-22
     location: "ICMAT, Madrid, Spain"
+    url: "https://www.icmat.es/congresos/2027/GMIQM/index.php"
     organizers:
       - { name: "David Martín de Diego" }
       - { name: "Edith Padrón" }
