@@ -45,7 +45,7 @@ activities:
     kind: article
     work_title: "String pilgrimage to Santiago"
     venue: "CERN Courier"
-    date: 2026
+    date: 2026-03-06
     lang: en
     links:
       - { label: "Read the issue", url: "https://cerncourier.com/wp-content/uploads/2026/04/CERNCourier2026MarApr-digitaledition.pdf" }
