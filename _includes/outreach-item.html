@@ -12,6 +12,7 @@
     {%- endcapture -%}
     {%- assign note = note | strip -%}
     {% if note != "" %}<p class="record__note">{{ note }}.</p>{% endif %}
+    {% if x.image %}<img class="record__image" src="{{ x.image | escape }}" alt="{{ x.title | escape }}" loading="lazy" decoding="async">{% endif %}
     {% if x.links %}<p class="links">{% for l in x.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>{% endif %}
   </div>
   {%- assign ds = x.date | append: "" -%}

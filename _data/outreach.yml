@@ -19,9 +19,17 @@
 #                            with a full date also appear on the Calendar page.
 #    lang        (optional)  es or en
 #    links       (optional)  list of { label: "...", url: "..." }
+#    image       (optional)  image URL for an activity thumbnail
 # ───────────────────────────────────────────────────────────────────
 
 activities:
+  - title: "π ZZ ∀ MAT Colloquium"
+    people: [veronica-errasti-diez]
+    kind: talk
+    venue: "Faculty of Mathematics, Universidad Complutense de Madrid"
+    date: 2026-10-29
+    image: "https://ytimg.googleusercontent.com/vi/I4B8sTgwi0w/hqdefault.jpg"
+
   - title: "La Noche Europea de los investigadores"
     people: [manuel-lainz, marco-maceda, matteo-dellacqua, ruben-izquierdo-lopez, veronica-errasti-diez]
     kind: stand

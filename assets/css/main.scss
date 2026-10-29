@@ -621,6 +621,16 @@ code {
   font-size: 0.94rem;
 }
 
+.record__image {
+  display: block;
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 16 / 9;
+  margin-top: 0.75rem;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
 .previous-member__heading {
   display: flex;
   align-items: center;

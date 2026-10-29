@@ -35,6 +35,13 @@ upcoming:
     time: "15:30"
     location: "PIR 1.3 (Brain Lab)"
 
+  - title: "Group seminar"
+    speaker: "Nabin Bhatta"
+    affiliation: "Virginia Tech"
+    date: 2026-11-24
+    time: "15:30"
+    location: "Online"
+
 past:
   - title: "Ladder deformations: integrability beyond elastic scattering"
     speaker: "Adrien Molines"

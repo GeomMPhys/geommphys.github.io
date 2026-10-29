@@ -252,7 +252,7 @@ if (doc = load_yaml(errors, File.join(DATA_DIR, "outreach.yml")))
     check_record(errors, "outreach.yml", where, rec, {
       required: { title: :str, people: :list, date: :odate },
       optional: { kind: OUTREACH_KIND, work_title: :str, venue: :str,
-                  lang: OUTREACH_LANG, links: :list },
+                  lang: OUTREACH_LANG, links: :list, image: :str },
     })
     next unless rec.is_a?(Hash)
     if rec["people"].is_a?(Array)
