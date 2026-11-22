@@ -16,6 +16,13 @@
 # ───────────────────────────────────────────────────────────────────
 
 selected:
+  - title: "Extended Hamiltonian formalism for multicontact field theories"
+    authors: "Manuel de León, Rubén Izquierdo-López, Xavier Rivas, Narciso Román-Roy, Annamaria Villanova"
+    venue: "Preprint"
+    year: 2026
+    arxiv: "2611.22783"
+    doi: ""
+
   - title: "Target-space fusion of classical topological defects"
     authors: "Saskia Demulder, Chuying Wang"
     venue: "Preprint"
