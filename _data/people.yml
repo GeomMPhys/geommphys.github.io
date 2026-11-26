@@ -186,6 +186,7 @@ students_madrid:
     name: "Paula Alba San Miguel"
     photo: "/assets/images/people-icons/geom_icon.png"
     role: "PhD in Sciences, UNED, Spain"
+    funding: "FPI-UNED grant"
     research: " "
 
 international_collaborators:
